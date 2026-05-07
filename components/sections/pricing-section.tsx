@@ -11,19 +11,19 @@ export function PricingSection() {
       <div className="mx-auto max-w-5xl">
         <div className="mx-auto mb-9 max-w-2xl text-center">
           <p className="mb-3 text-xs font-medium uppercase text-sky-300">{t.pricing.eyebrow}</p>
-          <h2 className="mb-3 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-4xl">
+          <h2 className="mb-3 whitespace-pre-line font-display text-3xl font-bold leading-tight text-zinc-100 md:text-4xl">
             {t.pricing.title}
           </h2>
           <p className="mx-auto max-w-xl text-sm leading-relaxed text-zinc-500 md:text-base">{t.pricing.body}</p>
         </div>
 
-        <div className="mb-6 flex justify-center">
+        <div className="mb-6 flex flex-col items-center gap-2">
           <div className="inline-flex rounded-full border border-white/10 bg-zinc-900/80 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
             <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-semibold text-zinc-950">
               {t.pricing.billingPrimary}
             </span>
-            <span className="px-4 py-1.5 text-xs font-medium text-zinc-500">{t.pricing.billingSecondary}</span>
           </div>
+          <p className="text-center text-xs leading-relaxed text-zinc-600">{t.pricing.minimumNote}</p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-[0.94fr_1.04fr_0.96fr]">
@@ -43,22 +43,25 @@ export function PricingSection() {
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <div className="mb-4 flex min-h-9 items-start justify-between gap-3">
+                {plan.badge ? (
+                  <span
+                    className={`absolute right-4 top-4 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
+                      plan.highlighted
+                        ? "border-sky-200/35 bg-sky-300/15 text-sky-100"
+                        : "border-white/10 bg-white/5 text-zinc-300"
+                    }`}
+                  >
+                    {plan.badge}
+                  </span>
+                ) : null}
+
+                <div className="mb-4 min-h-9 pr-20">
                   <h3 className="font-heading text-lg font-semibold text-zinc-100">{plan.name}</h3>
-                  {plan.badge ? (
-                    <span
-                      className={`shrink-0 rounded-md px-2.5 py-0.5 text-[11px] font-semibold ${
-                        plan.highlighted ? "bg-sky-300 text-zinc-950" : "bg-zinc-800 text-zinc-200"
-                      }`}
-                    >
-                      {plan.badge}
-                    </span>
-                  ) : null}
                 </div>
 
                 <div className="mb-4">
-                  <div className="font-display font-bold leading-tight text-zinc-50">
-                    <p className="text-2xl md:text-3xl">
+                  <div className="font-display leading-tight text-zinc-50">
+                    <p className="text-2xl font-bold md:text-3xl">
                       {setupParts ? (
                         <>
                           <span className="mr-2">{setupParts[1]}</span>
@@ -68,7 +71,9 @@ export function PricingSection() {
                         setupPrice
                       )}
                     </p>
-                    {monthlyPrice ? <p className="mt-1 text-xl md:text-2xl">+ {monthlyPrice}</p> : null}
+                    {monthlyPrice ? (
+                      <p className="mt-1 text-lg font-semibold text-zinc-300 md:text-xl">+ {monthlyPrice}</p>
+                    ) : null}
                   </div>
                   <p className="mt-3 min-h-12 text-xs leading-6 text-zinc-400">{plan.description}</p>
                 </div>
@@ -97,6 +102,11 @@ export function PricingSection() {
               </div>
             )
           })}
+        </div>
+
+        <div className="mx-auto mt-7 max-w-3xl space-y-2 text-center text-xs leading-relaxed text-zinc-600">
+          <p>{t.pricing.monthlyNote}</p>
+          <p>{t.pricing.addonsNote}</p>
         </div>
       </div>
     </section>

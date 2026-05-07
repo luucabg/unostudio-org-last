@@ -69,11 +69,14 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Planes",
-      title: "Elige punto de partida. Ajustamos alcance contigo.",
-      body:
-        "Precios orientativos para salir de la conversación con una idea clara. Cada propuesta incluye entregables, tiempos y próximos pasos.",
+      title: "Elige un punto de partida.\nAjustamos el alcance contigo.",
+      body: "Precios orientativos para empezar con claridad. Cada propuesta incluye entregables, tiempos y próximos pasos.",
       billingPrimary: "Proyecto + mensualidad",
-      billingSecondary: "Base clara",
+      minimumNote: "Todos los planes incluyen mantenimiento mensual mínimo de 6 meses.",
+      monthlyNote:
+        "La mensualidad cubre alojamiento, mantenimiento técnico, soporte, medición y pequeñas mejoras según el plan.",
+      addonsNote:
+        "También podemos añadir agente IA avanzado, vídeos, creativos, automatizaciones o dashboards según el proyecto.",
       plans: [
         {
           name: "Landing de Conversión",
@@ -81,7 +84,7 @@ export const translations = {
           price: "Desde 1.500 € + 99 €/mes",
           badge: "",
           features: [
-            "1 landing page",
+            "1 landing de conversión",
             "Diseño responsive premium",
             "Copy orientado a conversión",
             "Formulario o WhatsApp",
@@ -107,7 +110,7 @@ export const translations = {
             "Sistema visual aplicado",
             "Formulario / WhatsApp",
             "SEO técnico básico",
-            "Analítica básica",
+            "Medición básica",
             "Publicación",
             "Mantenimiento mensual",
             "Soporte",
@@ -119,7 +122,7 @@ export const translations = {
         },
         {
           name: "Sistema de Conversión",
-          description: "Para negocios que quieren web, creativos, IA, seguimiento, automatización y mejora continua.",
+          description: "Para negocios que quieren una web, creativos, IA, seguimiento y optimización continua.",
           price: "Desde 5.000 € + 750 €/mes",
           badge: "Para escalar",
           features: [
@@ -241,11 +244,14 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Plans",
-      title: "Choose a starting point. We adjust scope with you.",
-      body:
-        "Guideline pricing so the conversation starts with clarity. Every proposal includes deliverables, timing, and next steps.",
+      title: "Choose a starting point.\nWe adjust the scope with you.",
+      body: "Guideline pricing to start with clarity. Every proposal includes deliverables, timing, and next steps.",
       billingPrimary: "Project + monthly",
-      billingSecondary: "Clear base",
+      minimumNote: "All plans include monthly maintenance with a 6-month minimum.",
+      monthlyNote:
+        "The monthly fee covers hosting, technical maintenance, support, measurement, and small improvements depending on the plan.",
+      addonsNote:
+        "We can also add an advanced AI agent, videos, creative assets, automations, or dashboards depending on the project.",
       plans: [
         {
           name: "Conversion landing page",
@@ -253,7 +259,7 @@ export const translations = {
           price: "From €1,500 + €99/mo",
           badge: "",
           features: [
-            "1 landing page",
+            "1 conversion landing page",
             "Premium responsive design",
             "Conversion-focused copy",
             "Form or WhatsApp",
@@ -279,7 +285,7 @@ export const translations = {
             "Applied visual system",
             "Form / WhatsApp",
             "Basic technical SEO",
-            "Basic analytics",
+            "Basic measurement",
             "Publishing",
             "Monthly maintenance",
             "Support",
@@ -291,8 +297,7 @@ export const translations = {
         },
         {
           name: "Conversion system",
-          description:
-            "For businesses that want a website, creatives, AI, follow-up, automation, and continuous improvement.",
+          description: "For businesses that want a website, creatives, AI, follow-up, and continuous optimization.",
           price: "From €5,000 + €750/mo",
           badge: "Built to scale",
           features: [
