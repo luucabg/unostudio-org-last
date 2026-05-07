@@ -27,8 +27,8 @@ export function CalBookingSection() {
   }, [])
 
   return (
-    <section id="booking" className="px-6 py-24">
-      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+    <section id="booking" className="px-6 py-16">
+      <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1fr_0.78fr] lg:items-start">
         <div className="lg:sticky lg:top-28">
           <p className="mb-4 text-sm font-medium uppercase text-sky-300">{t.booking.eyebrow}</p>
           <h2 className="mb-5 font-display text-4xl font-bold leading-tight text-zinc-100 md:text-5xl">
@@ -55,20 +55,20 @@ export function CalBookingSection() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-950 shadow-[0_28px_90px_-44px_rgba(125,211,252,0.45),inset_0_1px_0_rgba(255,255,255,0.06)]">
-          <div className="flex items-center justify-between border-b border-zinc-800/80 px-5 py-4">
+        <div className="w-full max-w-[520px] overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-950 shadow-[0_22px_70px_-42px_rgba(125,211,252,0.4),inset_0_1px_0_rgba(255,255,255,0.06)] lg:ml-auto">
+          <div className="flex items-center justify-between border-b border-zinc-800/80 px-4 py-3">
             <div>
-              <p className="font-heading text-sm font-semibold text-zinc-100">{t.booking.calendarTitle}</p>
-              <p className="mt-1 text-xs text-zinc-500">{t.booking.calendarMeta}</p>
+              <p className="font-heading text-xs font-semibold text-zinc-100">{t.booking.calendarTitle}</p>
+              <p className="mt-0.5 text-[11px] text-zinc-500">{t.booking.calendarMeta}</p>
             </div>
             <div className="flex items-center gap-2" aria-hidden="true">
-              <span className="h-2 w-2 rounded-full bg-sky-300" />
-              <span className="h-2 w-2 rounded-full bg-zinc-600" />
-              <span className="h-2 w-2 rounded-full bg-zinc-700" />
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
+              <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
+              <span className="h-1.5 w-1.5 rounded-full bg-zinc-700" />
             </div>
           </div>
 
-          <div className="h-[760px] min-h-[680px] bg-zinc-50 md:h-[720px]">
+          <div className="h-[390px] min-h-[360px] bg-zinc-50 md:h-[420px]">
             <Cal
               namespace="15min"
               calLink="lucabenidze/15min"
