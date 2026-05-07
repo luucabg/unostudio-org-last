@@ -27,11 +27,9 @@ export function LanguageSwitcher() {
         aria-label="Change language"
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
-        className="group flex h-9 w-9 items-center justify-center rounded-full border border-zinc-800/80 bg-zinc-950/70 text-zinc-300 transition-all duration-300 hover:border-sky-300/50 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:h-10 sm:w-10"
+        className="group flex h-9 w-9 items-center justify-center rounded-full text-zinc-100 transition-all duration-300 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:h-10 sm:w-10"
       >
-        <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(125,211,252,0.85),rgba(59,130,246,0.35)_45%,rgba(24,24,27,0.9)_78%)] shadow-[inset_0_1px_3px_rgba(255,255,255,0.28)]">
-          <Globe2 className="h-4 w-4" strokeWidth={1.8} />
-        </span>
+        <Globe2 className="h-5 w-5 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.9} />
       </button>
 
       {open ? (
