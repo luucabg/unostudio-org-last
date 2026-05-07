@@ -1,0 +1,301 @@
+export type Locale = "es" | "en"
+
+export const languages: Array<{ code: Locale; label: string; shortLabel: string }> = [
+  { code: "es", label: "Español", shortLabel: "ES" },
+  { code: "en", label: "English", shortLabel: "EN" },
+]
+
+export const translations = {
+  es: {
+    nav: {
+      services: "Servicios",
+      process: "Proceso",
+      plans: "Planes",
+      bookCall: "Reservar llamada",
+    },
+    hero: {
+      badge: "unostudio.org - webs de conversión + IA",
+      titleLine1: "Webs y creativos",
+      titleLine2Prefix: "que",
+      titleLine2Highlight: "convierten",
+      titleLine2Suffix: "visitas",
+      titleLine3Prefix: "en",
+      titleLine3Highlight: "clientes",
+      subtitle:
+        "Creamos webs, landings, creativos y agentes con IA para captar atención, generar confianza y transformar tráfico en llamadas, reservas y oportunidades reales.",
+      primaryCta: "Reservar diagnóstico",
+      secondaryCta: "Ver planes",
+      proofPoints: [
+        "Copy y UX pensados para conversión",
+        "Diseño web rápido, claro y responsive",
+        "Automatizaciones IA para captar y filtrar leads",
+      ],
+    },
+    impact: {
+      eyebrow: "Método unostudio",
+      title: "Menos adorno. Más intención por pantalla.",
+      body:
+        "Revisamos oferta, mensaje y recorrido antes de diseñar. Cada bloque debe ayudar a entender, confiar o actuar. La IA entra como complemento: cualifica leads, responde dudas y entrega contexto al equipo.",
+      metrics: [
+        { value: "1", label: "objetivo por página", description: "Un CTA claro y medible" },
+        { value: "3", label: "flujos IA base", description: "Captura, filtro y seguimiento" },
+        { value: "14", label: "días de sprint", description: "Para lanzar una landing sólida" },
+        { value: "24/7", label: "respuesta inicial", description: "Formularios y respuestas automáticas" },
+      ],
+    },
+    features: {
+      eyebrow: "Servicios",
+      title: "Web, mensaje y automatización trabajando juntos.",
+      body:
+        "No hacemos una web bonita y esperamos suerte. Diseñamos cada tramo del recorrido: primera impresión, prueba, objeciones, llamada a la acción y seguimiento.",
+      conversionTitle: "Arquitectura de conversión",
+      conversionBody: "Estructura, copy y jerarquía visual para que cada visita entienda qué hacer después.",
+      leads: "Leads",
+      sales: "Ventas",
+      metrics: [
+        { label: "Visitas", value: "3.8K", change: "+18%" },
+        { label: "Leads", value: "127", change: "+31%" },
+        { label: "Cierre", value: "18.6%", change: "+4%" },
+      ],
+      developmentTitle: "Desarrollo rápido y estable",
+      developmentBody: "Código limpio, responsive y preparado para medir sin cargar la web de scripts innecesarios.",
+      lcpTarget: "objetivo LCP",
+      copyTitle: "Oferta, copy y CTA",
+      copyBody: "Aterrizamos tu mensaje en titulares, módulos y llamadas a la acción con intención comercial.",
+      offerTokens: ["Oferta", "Prueba", "CTA"],
+      automationTitle: "Automatizaciones IA como complemento",
+      automationBody: "Formularios inteligentes, respuestas iniciales, resúmenes de leads y avisos al equipo comercial.",
+      automationLink: "Ver automatizaciones",
+    },
+    pricing: {
+      eyebrow: "Planes",
+      title: "Elige punto de partida. Ajustamos alcance contigo.",
+      body:
+        "Precios orientativos para salir de la conversación con una idea clara. Cada propuesta incluye entregables, tiempos y próximos pasos.",
+      plans: [
+        {
+          name: "Landing de conversión",
+          description: "Para validar una oferta, captar leads o vender un servicio concreto.",
+          price: "Desde 1.200 EUR",
+          features: [
+            "Estrategia de mensaje y estructura",
+            "Diseño responsive de una página",
+            "Copy orientado a conversión",
+            "Formulario o reserva conectada",
+            "Medición básica de eventos",
+          ],
+          cta: "Pedir propuesta",
+          href: "mailto:hola@unostudio.org?subject=Landing%20de%20conversion",
+          highlighted: false,
+        },
+        {
+          name: "Web + IA",
+          description: "Para negocios que necesitan web completa y seguimiento automático.",
+          price: "Desde 2.400 EUR",
+          features: [
+            "Todo lo incluido en Landing",
+            "Hasta 5 páginas clave",
+            "Sistema visual de marca aplicado",
+            "Automatización IA para leads",
+            "Integración con CRM, email o agenda",
+            "Panel simple de métricas",
+          ],
+          cta: "Reservar sprint",
+          href: "mailto:hola@unostudio.org?subject=Web%20con%20IA",
+          highlighted: true,
+        },
+        {
+          name: "Sistema continuo",
+          description: "Para optimizar campañas, páginas y automatizaciones mes a mes.",
+          price: "A medida",
+          features: [
+            "Iteraciones de diseño y copy",
+            "Nuevas landing pages por campaña",
+            "Tests de conversión",
+            "Mejoras de automatización",
+            "Soporte técnico prioritario",
+            "Reporte mensual accionable",
+          ],
+          cta: "Hablar con unostudio",
+          href: "mailto:hola@unostudio.org?subject=Sistema%20continuo",
+          highlighted: false,
+        },
+      ],
+    },
+    cta: {
+      title: "Hagamos que tu web tenga un trabajo claro: convertir.",
+      body:
+        "Cuéntanos qué vendes, a quién quieres llegar y qué proceso quieres automatizar. Te devolvemos un plan de página, mensaje y flujo IA.",
+      primaryCta: "Escribir a unostudio",
+      secondaryCta: "Ver planes",
+    },
+    footer: {
+      description: "Agencia de diseño web para convertir, con automatizaciones de IA como complemento.",
+      servicesTitle: "Servicios",
+      agencyTitle: "Agencia",
+      contactTitle: "Contacto",
+      services: [
+        { label: "Diseño web", href: "#features" },
+        { label: "Automatizaciones IA", href: "#features" },
+        { label: "Planes", href: "#pricing" },
+      ],
+      agency: [
+        { label: "Método", href: "#impact" },
+        { label: "Proceso", href: "#impact" },
+        { label: "Reservar llamada", href: "mailto:hola@unostudio.org?subject=Reservar%20llamada%20con%20unostudio" },
+      ],
+      contact: [
+        { label: "hola@unostudio.org", href: "mailto:hola@unostudio.org" },
+        { label: "unostudio.org", href: "https://unostudio.org" },
+        { label: "Propuesta", href: "mailto:hola@unostudio.org?subject=Propuesta%20web" },
+      ],
+      rights: "Todos los derechos reservados.",
+    },
+  },
+  en: {
+    nav: {
+      services: "Services",
+      process: "Process",
+      plans: "Plans",
+      bookCall: "Book a call",
+    },
+    hero: {
+      badge: "unostudio.org - conversion websites + AI",
+      titleLine1: "Websites and creatives",
+      titleLine2Prefix: "that",
+      titleLine2Highlight: "turn",
+      titleLine2Suffix: "visits",
+      titleLine3Prefix: "into",
+      titleLine3Highlight: "clients",
+      subtitle:
+        "We create websites, landing pages, creative assets, and AI agents to capture attention, build trust, and turn traffic into calls, bookings, and real opportunities.",
+      primaryCta: "Book diagnosis",
+      secondaryCta: "View plans",
+      proofPoints: [
+        "Conversion-focused copy and UX",
+        "Fast, clear, responsive websites",
+        "AI and automation to respond sooner",
+      ],
+    },
+    impact: {
+      eyebrow: "unostudio method",
+      title: "Less decoration. More intent on every screen.",
+      body:
+        "Before designing, we review your offer, message, and user journey. Every block should help people understand, trust, or act. AI comes in as a complement: qualifying leads, answering questions, and giving your team context.",
+      metrics: [
+        { value: "1", label: "goal per page", description: "One clear, measurable CTA" },
+        { value: "3", label: "core AI flows", description: "Capture, filter, and follow-up" },
+        { value: "14", label: "day sprint", description: "To launch a solid landing page" },
+        { value: "24/7", label: "initial response", description: "Forms and automated replies" },
+      ],
+    },
+    features: {
+      eyebrow: "Services",
+      title: "Website, message, and automation working together.",
+      body:
+        "We do not build a pretty website and hope for luck. We design every step of the journey: first impression, proof, objections, call to action, and follow-up.",
+      conversionTitle: "Conversion architecture",
+      conversionBody: "Structure, copy, and visual hierarchy so every visitor understands what to do next.",
+      leads: "Leads",
+      sales: "Sales",
+      metrics: [
+        { label: "Visits", value: "3.8K", change: "+18%" },
+        { label: "Leads", value: "127", change: "+31%" },
+        { label: "Close", value: "18.6%", change: "+4%" },
+      ],
+      developmentTitle: "Fast, stable development",
+      developmentBody: "Clean, responsive code prepared for measurement without loading the site with unnecessary scripts.",
+      lcpTarget: "target LCP",
+      copyTitle: "Offer, copy, and CTA",
+      copyBody: "We turn your message into headlines, modules, and calls to action with commercial intent.",
+      offerTokens: ["Offer", "Proof", "CTA"],
+      automationTitle: "AI automations as a complement",
+      automationBody: "Smart forms, initial replies, lead summaries, and notifications for the commercial team.",
+      automationLink: "See automations",
+    },
+    pricing: {
+      eyebrow: "Plans",
+      title: "Choose a starting point. We adjust scope with you.",
+      body:
+        "Guideline pricing so the conversation starts with clarity. Every proposal includes deliverables, timing, and next steps.",
+      plans: [
+        {
+          name: "Conversion landing page",
+          description: "For validating an offer, capturing leads, or selling one specific service.",
+          price: "From 1,200 EUR",
+          features: [
+            "Message and structure strategy",
+            "Responsive one-page design",
+            "Conversion-focused copy",
+            "Connected form or booking flow",
+            "Basic event measurement",
+          ],
+          cta: "Request proposal",
+          href: "mailto:hola@unostudio.org?subject=Conversion%20landing%20page",
+          highlighted: false,
+        },
+        {
+          name: "Website + AI",
+          description: "For businesses that need a complete website and automatic follow-up.",
+          price: "From 2,400 EUR",
+          features: [
+            "Everything included in Landing",
+            "Up to 5 key pages",
+            "Applied brand visual system",
+            "AI automation for leads",
+            "CRM, email, or calendar integration",
+            "Simple metrics dashboard",
+          ],
+          cta: "Book sprint",
+          href: "mailto:hola@unostudio.org?subject=Website%20with%20AI",
+          highlighted: true,
+        },
+        {
+          name: "Continuous system",
+          description: "For optimizing campaigns, pages, and automations month by month.",
+          price: "Custom",
+          features: [
+            "Design and copy iterations",
+            "New landing pages by campaign",
+            "Conversion tests",
+            "Automation improvements",
+            "Priority technical support",
+            "Actionable monthly report",
+          ],
+          cta: "Talk to unostudio",
+          href: "mailto:hola@unostudio.org?subject=Continuous%20system",
+          highlighted: false,
+        },
+      ],
+    },
+    cta: {
+      title: "Let's give your website one clear job: convert.",
+      body:
+        "Tell us what you sell, who you want to reach, and what process you want to automate. We will send back a plan for page, message, and AI flow.",
+      primaryCta: "Email unostudio",
+      secondaryCta: "View plans",
+    },
+    footer: {
+      description: "Web design agency built for conversion, with AI automations as a complement.",
+      servicesTitle: "Services",
+      agencyTitle: "Agency",
+      contactTitle: "Contact",
+      services: [
+        { label: "Web design", href: "#features" },
+        { label: "AI automations", href: "#features" },
+        { label: "Plans", href: "#pricing" },
+      ],
+      agency: [
+        { label: "Method", href: "#impact" },
+        { label: "Process", href: "#impact" },
+        { label: "Book a call", href: "mailto:hola@unostudio.org?subject=Book%20a%20call%20with%20unostudio" },
+      ],
+      contact: [
+        { label: "hola@unostudio.org", href: "mailto:hola@unostudio.org" },
+        { label: "unostudio.org", href: "https://unostudio.org" },
+        { label: "Proposal", href: "mailto:hola@unostudio.org?subject=Website%20proposal" },
+      ],
+      rights: "All rights reserved.",
+    },
+  },
+} as const

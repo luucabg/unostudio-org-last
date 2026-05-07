@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { I18nProvider } from "@/components/i18n-provider"
 import "./globals.css"
 
 const manrope = Manrope({
@@ -61,7 +62,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${manrope.variable} font-sans antialiased bg-zinc-950 text-zinc-100`}>
-        {children}
+        <I18nProvider>{children}</I18nProvider>
         <Analytics />
       </body>
     </html>

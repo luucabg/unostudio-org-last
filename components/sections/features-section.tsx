@@ -3,10 +3,13 @@
 import { motion } from "framer-motion"
 import { Zap, BarChart3, Layers, ArrowRight, Command } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { useI18n } from "@/components/i18n-provider"
 
 const integrationTools = ["CRM", "Email", "Calendly", "Sheets", "Slack", "WhatsApp", "Notion", "Make"]
 
 export function FeaturesSection() {
+  const { t } = useI18n()
+
   return (
     <section id="features" className="px-6 py-24">
       <div className="max-w-6xl mx-auto">
@@ -17,14 +20,11 @@ export function FeaturesSection() {
           transition={{ duration: 0.5 }}
           className="mb-12 max-w-3xl"
         >
-          <p className="text-sm font-medium text-sky-300 uppercase tracking-wider mb-4">Servicios</p>
+          <p className="text-sm font-medium text-sky-300 uppercase tracking-wider mb-4">{t.features.eyebrow}</p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-zinc-100 mb-4 text-balance">
-            Web, mensaje y automatización trabajando juntos.
+            {t.features.title}
           </h2>
-          <p className="text-zinc-500 max-w-2xl text-pretty">
-            No hacemos una web bonita y esperamos suerte. Diseñamos cada tramo del recorrido: primera impresión,
-            prueba, objeciones, llamada a la acción y seguimiento.
-          </p>
+          <p className="text-zinc-500 max-w-2xl text-pretty">{t.features.body}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
@@ -45,11 +45,9 @@ export function FeaturesSection() {
                   >
                     <BarChart3 className="w-5 h-5 text-sky-300 transition-colors" />
                   </motion.div>
-                  <p className="font-heading font-semibold text-zinc-100">Arquitectura de conversión</p>
+                  <p className="font-heading font-semibold text-zinc-100">{t.features.conversionTitle}</p>
                 </div>
-                <p className="text-zinc-500 text-sm mb-5">
-                  Estructura, copy y jerarquía visual para que cada visita entienda qué hacer después.
-                </p>
+                <p className="text-zinc-500 text-sm mb-5">{t.features.conversionBody}</p>
                 <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4 overflow-hidden">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex gap-1.5">
@@ -66,7 +64,7 @@ export function FeaturesSection() {
                         transition={{ delay: 0.5 }}
                       >
                         <div className="w-2 h-2 rounded-full bg-sky-300" />
-                        <span className="text-xs text-zinc-500">Leads</span>
+                        <span className="text-xs text-zinc-500">{t.features.leads}</span>
                       </motion.div>
                       <motion.div
                         className="flex items-center gap-1.5"
@@ -76,16 +74,12 @@ export function FeaturesSection() {
                         transition={{ delay: 0.6 }}
                       >
                         <div className="w-2 h-2 rounded-full bg-zinc-500" />
-                        <span className="text-xs text-zinc-500">Ventas</span>
+                        <span className="text-xs text-zinc-500">{t.features.sales}</span>
                       </motion.div>
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-3 mb-4">
-                    {[
-                      { label: "Visitas", value: "3.8K", change: "+18%" },
-                      { label: "Leads", value: "127", change: "+31%" },
-                      { label: "Cierre", value: "18.6%", change: "+4%" },
-                    ].map((metric, i) => (
+                    {t.features.metrics.map((metric, i) => (
                       <motion.div
                         key={metric.label}
                         className="bg-zinc-900/70 rounded-md p-2.5"
@@ -143,11 +137,9 @@ export function FeaturesSection() {
                   >
                     <Zap className="w-5 h-5 text-sky-300" />
                   </motion.div>
-                  <p className="font-heading font-semibold text-zinc-100">Desarrollo rápido y estable</p>
+                  <p className="font-heading font-semibold text-zinc-100">{t.features.developmentTitle}</p>
                 </div>
-                <p className="text-zinc-500 text-sm mb-5">
-                  Código limpio, responsive y preparado para medir sin cargar la web de scripts innecesarios.
-                </p>
+                <p className="text-zinc-500 text-sm mb-5">{t.features.developmentBody}</p>
                 <div className="mt-auto">
                   <div className="flex items-baseline gap-2 mb-3">
                     <motion.span
@@ -158,7 +150,7 @@ export function FeaturesSection() {
                     >
                       2.4s
                     </motion.span>
-                    <span className="text-zinc-500 text-sm">objetivo LCP</span>
+                    <span className="text-zinc-500 text-sm">{t.features.lcpTarget}</span>
                   </div>
                   <div className="h-2 bg-zinc-800 rounded-full overflow-hidden">
                     <motion.div
@@ -190,13 +182,11 @@ export function FeaturesSection() {
                   >
                     <Command className="w-5 h-5 text-sky-300" />
                   </motion.div>
-                  <p className="font-heading font-semibold text-zinc-100">Oferta, copy y CTA</p>
+                  <p className="font-heading font-semibold text-zinc-100">{t.features.copyTitle}</p>
                 </div>
-                <p className="text-zinc-500 text-sm mb-5">
-                  Aterrizamos tu mensaje en titulares, módulos y llamadas a la acción con intención comercial.
-                </p>
+                <p className="text-zinc-500 text-sm mb-5">{t.features.copyBody}</p>
                 <div className="flex justify-center gap-2 mt-auto">
-                  {["Oferta", "Prueba", "CTA"].map((key) => (
+                  {t.features.offerTokens.map((key) => (
                     <div
                       key={key}
                       className="flex items-center justify-center min-w-16 h-12 rounded-lg bg-zinc-800/80 border border-zinc-700/50 px-3"
@@ -226,11 +216,9 @@ export function FeaturesSection() {
                   >
                     <Layers className="w-5 h-5 text-sky-300" />
                   </motion.div>
-                  <p className="font-heading font-semibold text-zinc-100">Automatizaciones IA como complemento</p>
+                  <p className="font-heading font-semibold text-zinc-100">{t.features.automationTitle}</p>
                 </div>
-                <p className="text-zinc-500 text-sm mb-5">
-                  Formularios inteligentes, respuestas iniciales, resúmenes de leads y avisos al equipo comercial.
-                </p>
+                <p className="text-zinc-500 text-sm mb-5">{t.features.automationBody}</p>
                 <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mt-auto">
                   {integrationTools.map((tool, i) => (
                     <motion.div
@@ -251,7 +239,7 @@ export function FeaturesSection() {
                   whileHover={{ x: 6 }}
                   className="mt-4 flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 rounded-md transition-colors"
                 >
-                  Ver automatizaciones <ArrowRight className="w-4 h-4" />
+                  {t.features.automationLink} <ArrowRight className="w-4 h-4" />
                 </motion.a>
               </CardContent>
             </Card>

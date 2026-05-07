@@ -4,14 +4,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { LiquidCtaButton } from "@/components/buttons/liquid-cta-button"
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react"
-
-const proofPoints = [
-  "Copy y UX pensados para conversión",
-  "Diseño web rápido, claro y responsive",
-  "Automatizaciones IA para captar y filtrar leads",
-]
+import { useI18n } from "@/components/i18n-provider"
 
 export function HeroSection() {
+  const { t } = useI18n()
+
   return (
     <section className="relative min-h-[100svh] md:h-[100dvh] overflow-hidden flex items-center px-6 pt-28 pb-14">
       <Image
@@ -43,25 +40,25 @@ export function HeroSection() {
             style={{ animationDelay: "120ms" }}
           >
             <Sparkles className="w-4 h-4 text-sky-300" />
-            <span className="text-sm text-zinc-300">unostudio.org - webs de conversión + IA</span>
+            <span className="text-sm text-zinc-300">{t.hero.badge}</span>
           </div>
 
           <h1
             className="page-load-rise font-display text-5xl md:text-7xl font-bold leading-[0.95] mb-6 text-balance"
             style={{ animationDelay: "240ms" }}
           >
-            <span className="block text-zinc-100">Webs y creativos</span>
+            <span className="block text-zinc-100">{t.hero.titleLine1}</span>
             <span className="block text-zinc-100">
-              que{" "}
+              {t.hero.titleLine2Prefix}{" "}
               <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-                convierten
+                {t.hero.titleLine2Highlight}
               </span>{" "}
-              visitas
+              {t.hero.titleLine2Suffix}
             </span>
             <span className="block text-zinc-100">
-              en{" "}
+              {t.hero.titleLine3Prefix}{" "}
               <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">
-                clientes
+                {t.hero.titleLine3Highlight}
               </span>
               .
             </span>
@@ -71,8 +68,7 @@ export function HeroSection() {
             className="page-load-rise max-w-[560px] text-base leading-relaxed text-zinc-400 text-pretty md:text-lg"
             style={{ animationDelay: "380ms" }}
           >
-            Creamos webs, landings, creativos y agentes con IA para captar atención, generar confianza y transformar
-            tráfico en llamadas, reservas y oportunidades reales.
+            {t.hero.subtitle}
           </p>
 
           <div
@@ -80,20 +76,20 @@ export function HeroSection() {
             style={{ animationDelay: "520ms" }}
           >
             <LiquidCtaButton href="mailto:hola@unostudio.org?subject=Reservar%20diagnostico%20con%20unostudio">
-              Reservar diagnóstico
+              {t.hero.primaryCta}
             </LiquidCtaButton>
             <Link
               href="#pricing"
               className="group flex items-center gap-2 px-1 sm:px-6 py-3 text-sm font-medium text-zinc-400 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 rounded-full transition-colors"
             >
-              <span>Ver planes</span>
+              <span>{t.hero.secondaryCta}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
 
           <div className="mt-16 grid sm:grid-cols-3 gap-3 max-w-4xl">
-            {proofPoints.map((point, index) => (
-              <div
+            {t.hero.proofPoints.map((point, index) => (
+                <div
                 key={point}
                 className="page-load-rise flex items-start gap-3 rounded-lg border border-zinc-800/70 bg-zinc-950/55 p-4 backdrop-blur"
                 style={{ animationDelay: `${660 + index * 90}ms` }}
