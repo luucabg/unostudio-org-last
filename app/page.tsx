@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/sections/hero-section"
 import { ImpactSection } from "@/components/sections/impact-section"
 import { FeaturesSection } from "@/components/sections/features-section"
 import { PricingSection } from "@/components/sections/pricing-section"
+import { CalBookingSection } from "@/components/sections/cal-booking-section"
 import { CtaSection } from "@/components/sections/cta-section"
 import { FooterSection } from "@/components/sections/footer-section"
 
@@ -14,6 +15,7 @@ export default function Home() {
       <ImpactSection />
       <FeaturesSection />
       <PricingSection />
+      <CalBookingSection />
       <CtaSection />
       <FooterSection />
     </main>

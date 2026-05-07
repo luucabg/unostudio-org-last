@@ -75,7 +75,7 @@ export function HeroSection() {
             className="page-load-rise mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
             style={{ animationDelay: "520ms" }}
           >
-            <LiquidCtaButton href="mailto:hola@unostudio.org?subject=Reservar%20diagnostico%20con%20unostudio">
+            <LiquidCtaButton href="#booking">
               {t.hero.primaryCta}
             </LiquidCtaButton>
             <Link

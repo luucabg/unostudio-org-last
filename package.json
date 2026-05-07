@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^3.10.0",
     "@paper-design/shaders-react": "0.0.68",

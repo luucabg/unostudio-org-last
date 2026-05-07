@@ -16,7 +16,7 @@ export function CtaSection() {
         </h2>
         <p className="text-lg text-zinc-500 mb-10 text-pretty max-w-2xl mx-auto">{t.cta.body}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <LiquidCtaButton href="mailto:hola@unostudio.org?subject=Reservar%20llamada%20con%20unostudio">
+          <LiquidCtaButton href="#booking">
             {t.cta.primaryCta}
           </LiquidCtaButton>
           <Link

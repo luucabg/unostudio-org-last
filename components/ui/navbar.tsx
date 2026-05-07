@@ -70,7 +70,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <a
-            href="mailto:hola@unostudio.org?subject=Reservar%20llamada%20con%20unostudio"
+            href="#booking"
             className="whitespace-nowrap px-3 py-2 text-[13px] rounded-full bg-zinc-100 text-zinc-900 font-medium hover:bg-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 transition-colors sm:px-5 sm:text-[15px]"
           >
             {t.nav.bookCall}
