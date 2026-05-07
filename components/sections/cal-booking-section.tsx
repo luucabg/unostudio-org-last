@@ -60,29 +60,18 @@ export function CalBookingSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[560px] rounded-lg border border-zinc-800/70 bg-zinc-950/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-8 lg:min-h-[680px]">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(125,211,252,0.12),transparent_38%)]" />
-          <div className="pointer-events-none absolute left-8 top-8 hidden h-20 w-20 rounded-full border border-zinc-800/80 lg:block" />
-          <div className="pointer-events-none absolute bottom-8 right-8 hidden h-28 w-28 rounded-full border border-sky-300/15 lg:block" />
+        <div className="relative flex min-h-[620px] items-center justify-center lg:justify-end">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_64%_52%,rgba(125,211,252,0.14),transparent_38%)]"
+            aria-hidden="true"
+          />
 
-          <div className="relative mx-auto mt-8 w-full max-w-[560px] overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-950 shadow-[0_28px_90px_-44px_rgba(125,211,252,0.48),inset_0_1px_0_rgba(255,255,255,0.06)] lg:mt-24">
-            <div className="flex items-center justify-between border-b border-zinc-800/80 px-4 py-3">
-              <div>
-                <p className="font-heading text-xs font-semibold text-zinc-100">{t.booking.calendarTitle}</p>
-                <p className="mt-0.5 text-[11px] text-zinc-500">{t.booking.calendarMeta}</p>
-              </div>
-              <div className="flex items-center gap-2" aria-hidden="true">
-                <span className="h-1.5 w-1.5 rounded-full bg-sky-300" />
-                <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
-                <span className="h-1.5 w-1.5 rounded-full bg-zinc-700" />
-              </div>
-            </div>
-
-            <div className="h-[420px] min-h-[390px] bg-zinc-50 md:h-[460px]">
+          <div className="relative h-[640px] w-full max-w-[704px] overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-50 shadow-[0_28px_90px_-44px_rgba(125,211,252,0.5)] md:h-[520px]">
+            <div className="h-[640px] w-full bg-zinc-50 md:h-[760px] md:w-[900px] md:origin-top-left md:scale-[0.78]">
               <Cal
                 namespace="15min"
                 calLink="lucabenidze/15min"
-                style={{ width: "100%", height: "100%", overflow: "scroll" }}
+                style={{ width: "100%", height: "100%", overflow: "auto" }}
                 config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
               />
             </div>
