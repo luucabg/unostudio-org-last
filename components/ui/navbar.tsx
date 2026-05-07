@@ -41,7 +41,7 @@ export function Navbar() {
         hidden ? "-translate-y-24" : "translate-y-0"
       }`}
     >
-      <nav className="max-w-4xl mx-auto flex items-center justify-between h-14 px-5 sm:px-7 rounded-full bg-zinc-950/82 border border-zinc-800/70 shadow-2xl shadow-blue-950/20 backdrop-blur-md">
+      <nav className="page-load-nav max-w-4xl mx-auto flex items-center justify-between h-14 px-5 sm:px-7 rounded-full bg-zinc-950/82 border border-zinc-800/70 shadow-2xl shadow-blue-950/20 backdrop-blur-md">
         <Link href="/" className="flex items-center">
           <Image
             src="/logos/logo_nav.png"

@@ -21,7 +21,7 @@ export function HeroSection() {
         priority
         sizes="100vw"
         aria-hidden="true"
-        className="hidden object-cover object-center opacity-100 md:block"
+        className="page-load-bg hidden object-cover object-center opacity-100 md:block"
       />
       <Image
         src="/mobile_hero.png"
@@ -30,7 +30,7 @@ export function HeroSection() {
         priority
         sizes="100vw"
         aria-hidden="true"
-        className="object-cover object-center opacity-90 md:hidden"
+        className="page-load-bg object-cover object-center opacity-90 md:hidden"
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(56,189,248,0.12),transparent_30%),linear-gradient(90deg,rgba(2,6,23,0.88)_0%,rgba(2,6,23,0.68)_38%,rgba(0,0,0,0.18)_100%)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/24 via-transparent to-black/42" />
@@ -38,12 +38,18 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-[1360px] mx-auto w-full">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-950/80 border border-zinc-800 mb-8">
+          <div
+            className="page-load-rise inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-950/80 border border-zinc-800 mb-8"
+            style={{ animationDelay: "120ms" }}
+          >
             <Sparkles className="w-4 h-4 text-sky-300" />
             <span className="text-sm text-zinc-300">unostudio.org - webs de conversión + IA</span>
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl font-bold leading-[0.95] mb-6 text-balance">
+          <h1
+            className="page-load-rise font-display text-5xl md:text-7xl font-bold leading-[0.95] mb-6 text-balance"
+            style={{ animationDelay: "240ms" }}
+          >
             <span className="block text-zinc-100">Webs y creativos</span>
             <span className="block text-zinc-100">
               que{" "}
@@ -61,12 +67,18 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="max-w-[560px] text-base leading-relaxed text-zinc-400 text-pretty md:text-lg">
+          <p
+            className="page-load-rise max-w-[560px] text-base leading-relaxed text-zinc-400 text-pretty md:text-lg"
+            style={{ animationDelay: "380ms" }}
+          >
             Creamos webs, landings, creativos y agentes con IA para captar atención, generar confianza y transformar
             tráfico en llamadas, reservas y oportunidades reales.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div
+            className="page-load-rise mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+            style={{ animationDelay: "520ms" }}
+          >
             <LiquidCtaButton href="mailto:hola@unostudio.org?subject=Reservar%20diagnostico%20con%20unostudio">
               Reservar diagnóstico
             </LiquidCtaButton>
@@ -80,10 +92,11 @@ export function HeroSection() {
           </div>
 
           <div className="mt-16 grid sm:grid-cols-3 gap-3 max-w-4xl">
-            {proofPoints.map((point) => (
+            {proofPoints.map((point, index) => (
               <div
                 key={point}
-                className="flex items-start gap-3 rounded-lg border border-zinc-800/70 bg-zinc-950/55 p-4 backdrop-blur"
+                className="page-load-rise flex items-start gap-3 rounded-lg border border-zinc-800/70 bg-zinc-950/55 p-4 backdrop-blur"
+                style={{ animationDelay: `${660 + index * 90}ms` }}
               >
                 <CheckCircle2 className="w-5 h-5 text-sky-300 shrink-0 mt-0.5" />
                 <p className="text-sm leading-relaxed text-zinc-300">{point}</p>
