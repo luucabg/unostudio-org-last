@@ -23,7 +23,7 @@ export function PricingSection() {
               {t.pricing.billingPrimary}
             </span>
           </div>
-          <p className="text-center text-xs leading-relaxed text-zinc-600">{t.pricing.minimumNote}</p>
+          <p className="text-center text-xs leading-relaxed text-zinc-500">{t.pricing.minimumNote}</p>
         </div>
 
         <div className="grid gap-4 lg:grid-cols-[0.94fr_1.04fr_0.96fr]">
@@ -72,7 +72,7 @@ export function PricingSection() {
                       )}
                     </p>
                     {monthlyPrice ? (
-                      <p className="mt-1 text-lg font-semibold text-zinc-300 md:text-xl">+ {monthlyPrice}</p>
+                      <p className="mt-1.5 text-xl font-bold text-zinc-200 md:text-2xl">+ {monthlyPrice}</p>
                     ) : null}
                   </div>
                   <p className="mt-3 min-h-12 text-xs leading-6 text-zinc-400">{plan.description}</p>
@@ -104,7 +104,7 @@ export function PricingSection() {
           })}
         </div>
 
-        <div className="mx-auto mt-7 max-w-3xl space-y-2 text-center text-xs leading-relaxed text-zinc-600">
+        <div className="mx-auto mt-7 max-w-3xl space-y-2 text-center text-xs leading-relaxed text-zinc-500">
           <p>{t.pricing.monthlyNote}</p>
           <p>{t.pricing.addonsNote}</p>
         </div>
