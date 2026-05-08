@@ -19,17 +19,15 @@ export default function AvisoLegalPage() {
       updatedAt={updatedAt}
     >
       <LegalSection title="Titular del sitio">
-        <p>El sitio web unostudio.org pertenece a unostudio.</p>
-        {/* TODO: completar titular legal, forma jurídica y datos fiscales antes de publicar versión definitiva. */}
+        <p>El sitio web unostudio.org pertenece a Luca Benidze, que opera bajo la marca comercial unostudio.</p>
+        {/* TODO: validar con asesoría legal si el aviso debe incluir datos identificativos adicionales. */}
       </LegalSection>
 
       <LegalSection title="Datos identificativos">
         <LegalList
           items={[
-            "Titular: [NOMBRE LEGAL]",
-            "Forma jurídica: [SL/Autónomo]",
-            "NIF/CIF: [NIF/CIF]",
-            "Domicilio: [DOMICILIO]",
+            "Titular y responsable: Luca Benidze",
+            "Forma jurídica: Autónomo",
             "Email de contacto: hola@unostudio.org",
           ]}
         />
@@ -69,7 +67,9 @@ export default function AvisoLegalPage() {
       <LegalSection title="Enlaces externos">
         <p>
           Este sitio puede contener enlaces a páginas o herramientas de terceros. unostudio no controla ni responde por
-          los contenidos, políticas, seguridad o prácticas de dichos sitios externos.
+          los contenidos, políticas, seguridad o prácticas de dichos sitios externos. Actualmente el sitio se aloja en
+          Vercel y puede integrar servicios como Supabase, Cal.com u otros proveedores necesarios para formularios,
+          agenda, medición o automatización.
         </p>
       </LegalSection>
 

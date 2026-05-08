@@ -32,7 +32,7 @@ export default function TerminosPage() {
             "Landings de conversión y webs corporativas orientadas a captación.",
             "Copy, estructura comercial, diseño visual y desarrollo web.",
             "Creativos, vídeos cortos, automatizaciones, agentes IA y dashboards.",
-            "Integraciones con WhatsApp, formularios, CRM, email, agenda y herramientas de medición.",
+            "Integraciones con WhatsApp, formularios, CRM, Supabase, email, agenda y herramientas de medición.",
             "Mantenimiento técnico, soporte y optimización mensual según el plan contratado.",
           ]}
         />
@@ -141,9 +141,9 @@ export default function TerminosPage() {
 
       <LegalSection title="Herramientas y licencias de terceros">
         <p>
-          El proyecto puede requerir herramientas, plugins, fuentes, bancos de imágenes, hosting, automatización, IA,
-          CRM, email o servicios externos. Sus costes, licencias, límites y condiciones pueden depender de terceros y no
-          siempre están incluidos salvo que se indique.
+          El proyecto puede requerir herramientas, plugins, fuentes, bancos de imágenes, hosting en Vercel, base de datos
+          o formularios en Supabase, automatización, IA, CRM, email o servicios externos. Sus costes, licencias, límites
+          y condiciones pueden depender de terceros y no siempre están incluidos salvo que se indique.
         </p>
       </LegalSection>
 

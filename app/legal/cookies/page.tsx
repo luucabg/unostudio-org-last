@@ -7,23 +7,23 @@ const updatedAt = "8 de mayo de 2026"
 const cookieRows = [
   {
     name: "unostudio_cookie_consent",
-    provider: "unostudio",
+    provider: "unostudio / Luca Benidze",
     purpose: "Guardar preferencias de consentimiento.",
     duration: "Hasta 24 meses",
     type: "Técnica",
   },
   {
-    name: "[cookie_analytics]",
-    provider: "[proveedor]",
-    purpose: "Medición agregada de visitas y eventos si el usuario acepta analítica.",
-    duration: "[duración]",
+    name: "Vercel Analytics",
+    provider: "Vercel",
+    purpose: "Medición agregada de visitas y eventos si el usuario acepta analítica. No se carga antes del consentimiento.",
+    duration: "Según configuración del proveedor",
     type: "Analítica",
   },
   {
     name: "[cookie_publicitaria]",
-    provider: "[proveedor]",
+    provider: "[proveedor pendiente]",
     purpose: "Medición publicitaria o remarketing si se activa en el futuro.",
-    duration: "[duración]",
+    duration: "[duración pendiente]",
     type: "Publicitaria",
   },
 ]
@@ -63,7 +63,8 @@ export default function CookiesPage() {
       <LegalSection title="Cookies técnicas">
         <p>
           Las cookies técnicas son necesarias para prestar el servicio solicitado, recordar tus preferencias de cookies y
-          mantener funciones básicas del sitio. Estas cookies no requieren consentimiento.
+          mantener funciones básicas del sitio. Supabase puede intervenir en formularios de contacto sin instalar cookies
+          de analítica o publicidad. Estas cookies no requieren consentimiento.
         </p>
       </LegalSection>
 

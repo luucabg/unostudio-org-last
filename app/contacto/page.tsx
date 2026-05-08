@@ -5,6 +5,11 @@ import { Navbar } from "@/components/ui/navbar"
 import { FooterSection } from "@/components/sections/footer-section"
 import { ArrowRight, Mail, MessageCircle } from "lucide-react"
 
+type SearchParams = Promise<{
+  estado?: string
+  motivo?: string
+}>
+
 export const metadata: Metadata = {
   title: "Contacto",
   description:
@@ -32,7 +37,11 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   )
 }
 
-export default function ContactoPage() {
+export default async function ContactoPage({ searchParams }: { searchParams?: SearchParams }) {
+  const params = await searchParams
+  const sent = params?.estado === "enviado"
+  const failed = params?.estado === "error"
+
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
       <Navbar />
@@ -72,11 +81,31 @@ export default function ContactoPage() {
           </div>
 
           <form
-            action="mailto:hola@unostudio.org"
+            id="formulario"
+            action="/api/contact"
             method="post"
-            encType="text/plain"
             className="rounded-lg border border-zinc-800/80 bg-zinc-950/75 p-5 shadow-[0_24px_80px_-48px_rgba(125,211,252,0.45),inset_0_1px_0_rgba(255,255,255,0.05)] md:p-8"
           >
+            {sent ? (
+              <div className="mb-6 rounded-lg border border-emerald-400/25 bg-emerald-400/10 p-4 text-sm leading-6 text-emerald-100">
+                Solicitud enviada. Te responderemos con el siguiente paso en cuanto revisemos el contexto.
+              </div>
+            ) : null}
+
+            {failed ? (
+              <div className="mb-6 rounded-lg border border-sky-300/25 bg-sky-300/10 p-4 text-sm leading-6 text-sky-100">
+                No se ha podido enviar desde la web. Escríbenos a hola@unostudio.org y lo revisamos.
+              </div>
+            ) : null}
+
+            <input
+              tabIndex={-1}
+              autoComplete="off"
+              name="confirmacion"
+              className="hidden"
+              aria-hidden="true"
+            />
+
             <div className="grid gap-5 md:grid-cols-2">
               <Field label="Nombre">
                 <input className={inputClass} name="nombre" autoComplete="name" required />
@@ -149,15 +178,15 @@ export default function ContactoPage() {
             </label>
 
             <p className="mt-5 rounded-lg border border-zinc-800 bg-zinc-950/70 p-4 text-xs leading-6 text-zinc-500">
-              Responsable: [NOMBRE LEGAL]. Finalidad: responder a tu solicitud y gestionar comunicaciones relacionadas
-              con nuestros servicios. Derechos: puedes acceder, rectificar y suprimir tus datos escribiendo a
-              hola@unostudio.org. Más información en la{" "}
+              Responsable: Luca Benidze. Forma jurídica: Autónomo. Finalidad: responder a tu solicitud y gestionar
+              comunicaciones relacionadas con nuestros servicios. Derechos: puedes acceder, rectificar y suprimir tus
+              datos escribiendo a hola@unostudio.org. Más información en la{" "}
               <Link href="/legal/privacidad" className="text-sky-300 hover:text-sky-200">
                 Política de Privacidad
               </Link>
               .
             </p>
-            {/* TODO: conectar formulario a backend/email transaccional y completar responsable legal. */}
+            {/* TODO: configurar en Vercel SUPABASE_SERVICE_ROLE_KEY o NEXT_PUBLIC_SUPABASE_ANON_KEY y aplicar migración Supabase. */}
 
             <button
               type="submit"

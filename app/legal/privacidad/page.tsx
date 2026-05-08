@@ -22,14 +22,12 @@ export default function PrivacidadPage() {
       <LegalSection title="Responsable del tratamiento">
         <LegalList
           items={[
-            "Responsable: [NOMBRE LEGAL]",
-            "Forma jurídica: [SL/Autónomo]",
-            "NIF/CIF: [NIF/CIF]",
-            "Domicilio: [DOMICILIO]",
+            "Responsable: Luca Benidze",
+            "Forma jurídica: Autónomo",
             "Email: hola@unostudio.org",
           ]}
         />
-        {/* TODO: completar y revisar datos del responsable antes de publicar versión definitiva. */}
+        {/* TODO: validar con asesoría legal si debe añadirse información identificativa adicional. */}
       </LegalSection>
 
       <LegalSection title="Datos que se recogen">
@@ -40,6 +38,7 @@ export default function PrivacidadPage() {
             "Empresa, sector, web actual y servicio de interés.",
             "Mensaje, presupuesto aproximado, urgencia y datos facilitados voluntariamente.",
             "Datos de navegación, dispositivo, eventos o cookies si se activan herramientas de medición.",
+            "Datos enviados mediante formularios y almacenados en Supabase cuando el usuario solicita contacto.",
           ]}
         />
       </LegalSection>
@@ -70,22 +69,23 @@ export default function PrivacidadPage() {
 
       <LegalSection title="Proveedores y encargados">
         <p>
-          Para operar el sitio y prestar servicios pueden intervenir proveedores de hosting, email, analítica,
-          formularios, CRM, automatización, calendario, herramientas de IA, almacenamiento, documentación y soporte.
+          Para operar el sitio y prestar servicios pueden intervenir proveedores de hosting, base de datos, email,
+          analítica, formularios, CRM, automatización, calendario, herramientas de IA, almacenamiento, documentación y
+          soporte.
         </p>
         <p>
-          Algunos proveedores habituales en este tipo de servicios pueden ser Google, Vercel, OpenAI, Notion, Make,
-          Cal.com, herramientas CRM o plataformas de comunicación. La lista definitiva debe revisarse según las
-          herramientas realmente activas.
+          Actualmente el sitio se aloja en Vercel y puede usar Supabase para almacenar solicitudes de contacto, Cal.com
+          para reservas, Vercel Analytics para medición si el usuario acepta cookies analíticas, y herramientas de email,
+          IA o automatización cuando sean necesarias para responder o prestar el servicio.
         </p>
-        {/* TODO: listar proveedores reales, contratos de encargo y enlaces a sus políticas. */}
+        {/* TODO: listar proveedores definitivos, contratos de encargo y enlaces a sus políticas. */}
       </LegalSection>
 
       <LegalSection title="Transferencias internacionales">
         <p>
           Pueden existir transferencias internacionales de datos si se usan proveedores ubicados fuera del Espacio
-          Económico Europeo o con infraestructuras globales, como Google, Vercel, OpenAI, Notion, Make, Cal.com u otros.
-          En ese caso se revisarán las garantías aplicables, como cláusulas contractuales tipo, decisiones de adecuación
+          Económico Europeo o con infraestructuras globales, como Vercel, Supabase, Google, OpenAI, Notion, Make, Cal.com
+          u otros. En ese caso se revisarán las garantías aplicables, como cláusulas contractuales tipo, decisiones de adecuación
           u otros mecanismos previstos por la normativa.
         </p>
       </LegalSection>
