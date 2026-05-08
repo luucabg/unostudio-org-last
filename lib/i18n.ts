@@ -31,6 +31,29 @@ export const translations = {
         "Automatizaciones IA para captar y filtrar leads",
       ],
     },
+    perception: {
+      eyebrow: "Percepción",
+      title: "Tu web no solo informa.\nTambién crea percepción.",
+      subtitle:
+        "Antes de llamarte, reservar o pedir presupuesto, una persona ya está comparando. Si tu web no explica bien lo que haces, no transmite confianza o parece menos cuidada que tu servicio, la decisión puede irse a otra empresa antes de hablar contigo.",
+      mainTitle: "Misma oferta.\nDistinta percepción.",
+      body:
+        "Dos negocios pueden ofrecer algo parecido, tener precios similares y estar igual de preparados. Pero si uno lo comunica con claridad, diseño premium y un recorrido fácil hacia el contacto, parte con ventaja.",
+      closing:
+        "La web no sustituye a tu servicio. Pero sí condiciona cómo se percibe antes de probarlo.",
+      weakTitle: "Web débil",
+      strongTitle: "Web de conversión",
+      weakPoints: ["Mensaje confuso", "Diseño genérico", "CTA poco visible", "Poca confianza", "Sin seguimiento"],
+      strongPoints: [
+        "Oferta clara",
+        "Diseño premium",
+        "CTA directo",
+        "Prueba y confianza",
+        "WhatsApp / formulario medido",
+      ],
+      footnote:
+        "Si tu competencia y tú ofrecéis algo parecido, la percepción decide antes de que puedas explicar nada.",
+    },
     impact: {
       eyebrow: "Método unostudio",
       title: "Menos adorno. Más intención por pantalla.",
@@ -214,6 +237,23 @@ export const translations = {
         "Fast, clear, responsive websites",
         "AI and automation to respond sooner",
       ],
+    },
+    perception: {
+      eyebrow: "Perception",
+      title: "Your website does not only inform.\nIt also shapes perception.",
+      subtitle:
+        "Before calling, booking, or asking for a quote, people are already comparing. If your website does not explain what you do clearly, build trust, or feel as polished as your service, the decision can move to another company before you ever speak.",
+      mainTitle: "Same offer.\nDifferent perception.",
+      body:
+        "Two businesses can offer something similar, have comparable pricing, and be equally prepared. But if one communicates with clarity, premium design, and an easy route to contact, it starts with an advantage.",
+      closing:
+        "The website does not replace your service. But it does shape how that service is perceived before someone tries it.",
+      weakTitle: "Weak website",
+      strongTitle: "Conversion website",
+      weakPoints: ["Confusing message", "Generic design", "Hidden CTA", "Low trust", "No follow-up"],
+      strongPoints: ["Clear offer", "Premium design", "Direct CTA", "Proof and trust", "Measured WhatsApp / form"],
+      footnote:
+        "If you and your competitor offer something similar, perception makes the decision before you can explain anything.",
     },
     impact: {
       eyebrow: "unostudio method",
