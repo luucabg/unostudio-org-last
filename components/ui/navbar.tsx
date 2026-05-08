@@ -12,9 +12,9 @@ export function Navbar() {
   const lastScrollY = useRef(0)
 
   const navLinks = [
-    { href: "#features", label: t.nav.services },
-    { href: "#impact", label: t.nav.process },
-    { href: "#pricing", label: t.nav.plans },
+    { href: "/#features", label: t.nav.services },
+    { href: "/#impact", label: t.nav.process },
+    { href: "/#pricing", label: t.nav.plans },
   ]
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <a
-            href="#booking"
+            href="/#booking"
             className="whitespace-nowrap px-3 py-2 text-[13px] rounded-full bg-zinc-100 text-zinc-900 font-medium hover:bg-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 transition-colors sm:px-5 sm:text-[15px]"
           >
             {t.nav.bookCall}

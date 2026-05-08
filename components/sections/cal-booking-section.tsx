@@ -18,6 +18,7 @@ export function CalBookingSection() {
       cal("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
+        theme: "dark",
       })
     })()
 
@@ -66,13 +67,13 @@ export function CalBookingSection() {
             aria-hidden="true"
           />
 
-          <div className="relative h-[640px] w-full max-w-[704px] overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-50 shadow-[0_28px_90px_-44px_rgba(125,211,252,0.5)] md:h-[520px]">
-            <div className="h-[640px] w-full bg-zinc-50 md:h-[760px] md:w-[900px] md:origin-top-left md:scale-[0.78]">
+          <div className="relative h-[640px] w-full max-w-[704px] overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-900 shadow-[0_28px_90px_-44px_rgba(125,211,252,0.5)] md:h-[520px]">
+            <div className="h-[640px] w-full bg-zinc-900 md:h-[760px] md:w-[900px] md:origin-top-left md:scale-[0.78]">
               <Cal
                 namespace="15min"
                 calLink="lucabenidze/15min"
-                style={{ width: "100%", height: "100%", overflow: "auto" }}
-                config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
+                style={{ width: "100%", height: "100%", overflow: "auto", colorScheme: "dark" }}
+                config={{ layout: "month_view", theme: "dark", useSlotsViewOnSmallScreen: "true" }}
               />
             </div>
           </div>
