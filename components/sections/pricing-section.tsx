@@ -7,26 +7,17 @@ export function PricingSection() {
   const { t } = useI18n()
 
   return (
-    <section id="pricing" className="px-6 py-16">
-      <div className="mx-auto max-w-5xl">
-        <div className="mx-auto mb-9 max-w-2xl text-center">
-          <p className="mb-3 text-xs font-medium uppercase text-sky-300">{t.pricing.eyebrow}</p>
+    <section id="pricing" className="px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-sky-300">{t.pricing.eyebrow}</p>
           <h2 className="mb-3 whitespace-pre-line font-display text-3xl font-bold leading-tight text-zinc-100 md:text-4xl">
             {t.pricing.title}
           </h2>
           <p className="mx-auto max-w-xl text-sm leading-relaxed text-zinc-500 md:text-base">{t.pricing.body}</p>
         </div>
 
-        <div className="mb-6 flex flex-col items-center gap-2">
-          <div className="inline-flex rounded-full border border-white/10 bg-zinc-900/80 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-            <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-semibold text-zinc-950">
-              {t.pricing.billingPrimary}
-            </span>
-          </div>
-          <p className="text-center text-xs leading-relaxed text-zinc-500">{t.pricing.minimumNote}</p>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-[0.94fr_1.04fr_0.96fr]">
+        <div className="grid gap-4 lg:grid-cols-[0.94fr_1.06fr_0.94fr]">
           {t.pricing.plans.map((plan, index) => {
             const [setupPrice, monthlyPrice] = plan.price.split(" + ")
             const setupParts = setupPrice.match(/^(Desde|From)\s(.+)$/)
@@ -41,8 +32,6 @@ export function PricingSection() {
                 }`}
                 style={{ animationDelay: `${index * 90}ms` }}
               >
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
                 {plan.badge ? (
                   <span
                     className={`absolute right-4 top-4 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
@@ -55,8 +44,8 @@ export function PricingSection() {
                   </span>
                 ) : null}
 
-                <div className="mb-4 min-h-9 pr-20">
-                  <h3 className="font-heading text-lg font-semibold text-zinc-100">{plan.name}</h3>
+                <div className="mb-4 min-h-9 pr-24">
+                  <h3 className="text-lg font-semibold text-zinc-100">{plan.name}</h3>
                 </div>
 
                 <div className="mb-4">
@@ -75,7 +64,7 @@ export function PricingSection() {
                       <p className="mt-1.5 text-xl font-bold text-zinc-200 md:text-2xl">+ {monthlyPrice}</p>
                     ) : null}
                   </div>
-                  <p className="mt-3 min-h-12 text-xs leading-6 text-zinc-400">{plan.description}</p>
+                  <p className="mt-3 min-h-16 text-xs leading-6 text-zinc-400">{plan.description}</p>
                 </div>
 
                 <a
@@ -104,9 +93,25 @@ export function PricingSection() {
           })}
         </div>
 
-        <div className="mx-auto mt-7 max-w-3xl space-y-2 text-center text-xs leading-relaxed text-zinc-500">
-          <p>{t.pricing.monthlyNote}</p>
-          <p>{t.pricing.addonsNote}</p>
+        <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
+          {t.pricing.adManagementNote}
+        </p>
+
+        <div className="mt-12">
+          <p className="mb-4 text-center text-sm font-medium uppercase tracking-wide text-sky-300">
+            {t.pricing.upsellsTitle}
+          </p>
+          <div className="grid gap-3 md:grid-cols-4">
+            {t.pricing.upsells.map((upsell) => (
+              <div
+                key={upsell.name}
+                className="rounded-lg border border-zinc-800/70 bg-zinc-950/70 p-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+              >
+                <p className="text-sm font-semibold text-zinc-100">{upsell.name}</p>
+                <p className="mt-2 text-xs leading-5 text-zinc-500">{upsell.price}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

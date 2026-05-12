@@ -7,31 +7,28 @@ export function ImpactSection() {
 
   return (
     <section id="impact" className="px-6 py-24 bg-zinc-900/20">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-end mb-12">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="text-sm font-medium text-sky-300 uppercase tracking-wider mb-4">{t.impact.eyebrow}</p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-zinc-100 mb-4 text-balance">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-300">{t.impact.eyebrow}</p>
+            <h2 className="font-display text-3xl font-bold leading-tight text-zinc-100 text-balance md:text-5xl">
               {t.impact.title}
             </h2>
           </div>
-          <p className="text-zinc-500 max-w-xl text-pretty lg:justify-self-end">{t.impact.body}</p>
+          <p className="max-w-xl text-base leading-relaxed text-zinc-500 text-pretty lg:justify-self-end">
+            {t.impact.body}
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {t.impact.metrics.map((metric) => (
+        <div className="grid gap-3 md:grid-cols-3">
+          {t.impact.steps.map((step) => (
             <div
-              key={metric.label}
-              className="p-6 rounded-lg bg-zinc-950/70 border border-zinc-800/60 hover:border-sky-300/40 hover:bg-zinc-900/80 transition-all duration-300 group relative overflow-hidden"
+              key={step.title}
+              className="rounded-lg border border-zinc-800/70 bg-zinc-950/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition duration-300 hover:border-sky-300/35"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-sky-300/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative">
-                <p className="font-display text-3xl md:text-4xl font-bold text-zinc-100 mb-1 group-hover:text-white transition-colors">
-                  {metric.value}
-                </p>
-                <p className="text-sm font-medium text-zinc-300 mb-1">{metric.label}</p>
-                <p className="text-xs text-zinc-600">{metric.description}</p>
-              </div>
+              <p className="mb-5 font-mono text-sm text-sky-300">{step.number}</p>
+              <h3 className="mb-3 text-lg font-semibold text-zinc-100">{step.title}</h3>
+              <p className="text-sm leading-6 text-zinc-500">{step.body}</p>
             </div>
           ))}
         </div>

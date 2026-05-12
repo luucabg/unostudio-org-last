@@ -13,8 +13,8 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/#features", label: t.nav.services },
-    { href: "/#impact", label: t.nav.process },
     { href: "/#pricing", label: t.nav.plans },
+    { href: "/#booking", label: t.nav.process },
   ]
 
   useEffect(() => {

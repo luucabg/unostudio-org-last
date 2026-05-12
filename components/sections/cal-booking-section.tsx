@@ -1,7 +1,7 @@
 "use client"
 
 import Cal, { getCalApi } from "@calcom/embed-react"
-import { CalendarDays, Clock3, Video } from "lucide-react"
+import { ArrowRight, CalendarDays, Clock3, Video } from "lucide-react"
 import { useEffect } from "react"
 import { useI18n } from "@/components/i18n-provider"
 
@@ -41,6 +41,16 @@ export function CalBookingSection() {
             {t.booking.title}
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-zinc-500 md:text-lg">{t.booking.body}</p>
+
+          <a
+            href="https://cal.com/lucabenidze/15min"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-sky-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+          >
+            {t.booking.cta}
+            <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
+          </a>
 
           <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
             {t.booking.bullets.map((bullet, index) => {

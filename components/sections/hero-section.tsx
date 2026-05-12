@@ -34,7 +34,7 @@ export function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-zinc-950/55 to-transparent" />
 
       <div className="relative z-10 max-w-[1360px] mx-auto w-full">
-        <div className="max-w-3xl">
+        <div className="max-w-5xl">
           <div
             className="page-load-rise inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-950/80 border border-zinc-800 mb-8"
             style={{ animationDelay: "120ms" }}
@@ -44,28 +44,14 @@ export function HeroSection() {
           </div>
 
           <h1
-            className="page-load-rise font-display text-5xl md:text-7xl font-bold leading-[0.95] mb-6 text-balance"
+            className="page-load-rise max-w-5xl whitespace-pre-line font-display text-5xl font-bold leading-[0.95] text-zinc-100 text-balance md:text-6xl xl:text-7xl"
             style={{ animationDelay: "240ms" }}
           >
-            <span className="block text-zinc-100">{t.hero.titleLine1}</span>
-            <span className="block text-zinc-100">
-              {t.hero.titleLine2Prefix}{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-                {t.hero.titleLine2Highlight}
-              </span>{" "}
-              {t.hero.titleLine2Suffix}
-            </span>
-            <span className="block text-zinc-100">
-              {t.hero.titleLine3Prefix}{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">
-                {t.hero.titleLine3Highlight}
-              </span>
-              .
-            </span>
+            {t.hero.title}
           </h1>
 
           <p
-            className="page-load-rise max-w-[560px] text-base leading-relaxed text-zinc-400 text-pretty md:text-lg"
+            className="page-load-rise mt-6 max-w-[650px] text-base leading-relaxed text-zinc-400 text-pretty md:text-lg"
             style={{ animationDelay: "380ms" }}
           >
             {t.hero.subtitle}
