@@ -4,13 +4,14 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { LiquidCtaButton } from "@/components/buttons/liquid-cta-button"
 import { useI18n } from "@/components/i18n-provider"
+import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
 export function CtaSection() {
   const { t } = useI18n()
 
   return (
     <section className="px-6 py-24">
-      <div className="max-w-4xl mx-auto text-center">
+      <ScrollReveal className="max-w-4xl mx-auto text-center">
         <h2 className="font-display text-4xl md:text-5xl font-bold text-zinc-100 mb-6 text-balance">
           {t.cta.title}
         </h2>
@@ -27,7 +28,7 @@ export function CtaSection() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   )
 }

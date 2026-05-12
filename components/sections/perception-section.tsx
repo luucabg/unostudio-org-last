@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react"
 import { useI18n } from "@/components/i18n-provider"
+import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
 function CompactList({ title, points, accent }: { title: string; points: readonly string[]; accent?: boolean }) {
   return (
@@ -35,17 +36,21 @@ export function PerceptionSection() {
       />
 
       <div className="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-        <div>
+        <ScrollReveal>
           <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-300">{t.perception.eyebrow}</p>
           <h2 className="max-w-3xl font-display text-4xl font-bold leading-tight text-zinc-100 md:text-5xl">
             {t.perception.title}
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-500 md:text-lg">{t.perception.subtitle}</p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid gap-3 md:grid-cols-2">
-          <CompactList title={t.perception.beforeTitle} points={t.perception.beforePoints} />
-          <CompactList title={t.perception.afterTitle} points={t.perception.afterPoints} accent />
+          <ScrollReveal delay={120}>
+            <CompactList title={t.perception.beforeTitle} points={t.perception.beforePoints} />
+          </ScrollReveal>
+          <ScrollReveal delay={220}>
+            <CompactList title={t.perception.afterTitle} points={t.perception.afterPoints} accent />
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -3,13 +3,14 @@
 import Link from "next/link"
 import { useI18n } from "@/components/i18n-provider"
 import { openCookieSettings } from "@/components/cookies/cookie-consent-manager"
+import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
 export function FooterSection() {
   const { t } = useI18n()
 
   return (
     <footer className="px-6 py-16 border-t border-zinc-900">
-      <div className="max-w-6xl mx-auto">
+      <ScrollReveal className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 gap-8 mb-12 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="font-display text-xl font-semibold text-zinc-100">
@@ -84,7 +85,7 @@ export function FooterSection() {
           <p className="text-sm text-zinc-600">© {new Date().getFullYear()} unostudio. {t.footer.rights}</p>
           <p className="text-sm text-zinc-600">unostudio.org</p>
         </div>
-      </div>
+      </ScrollReveal>
     </footer>
   )
 }
