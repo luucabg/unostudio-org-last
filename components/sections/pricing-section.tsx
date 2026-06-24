@@ -4,6 +4,12 @@ import { ArrowRight, Check } from "lucide-react"
 import { useI18n } from "@/components/i18n-provider"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
+const stripePaymentLinks: Record<string, string | undefined> = {
+  "Web Esencial": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
+  "Essential Web": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
+  "Web Pro": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
+}
+
 export function PricingSection() {
   const { t } = useI18n()
 
@@ -22,6 +28,8 @@ export function PricingSection() {
           {t.pricing.plans.map((plan, index) => {
             const [setupPrice, monthlyPrice] = plan.price.split(" + ")
             const setupParts = setupPrice.match(/^(Desde|From)\s(.+)$/)
+            const href = stripePaymentLinks[plan.name] || plan.href
+            const isExternal = href.startsWith("http")
 
             return (
               <ScrollReveal key={plan.name} delay={index * 100} className="h-full">
@@ -68,7 +76,9 @@ export function PricingSection() {
                   </div>
 
                   <a
-                    href={plan.href}
+                    href={href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer" : undefined}
                     className={`mb-5 inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2.5 text-center text-xs font-semibold transition duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 ${
                       plan.highlighted
                         ? "bg-zinc-100 text-zinc-950 hover:bg-white"
@@ -79,6 +89,7 @@ export function PricingSection() {
                     <span>{plan.cta}</span>
                     <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
                   </a>
+                  <p className="mb-5 min-h-8 text-center text-[11px] leading-5 text-zinc-500">{plan.paymentNote}</p>
 
                   <ul className="flex flex-1 flex-col gap-2">
                     {plan.features.map((feature) => (
@@ -95,6 +106,9 @@ export function PricingSection() {
         </div>
 
         <ScrollReveal delay={120}>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-300">
+            {t.pricing.reservationNote}
+          </p>
           <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-400">
             {t.pricing.monthlyNote}
           </p>
@@ -103,6 +117,9 @@ export function PricingSection() {
           </p>
           <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
             {t.pricing.adManagementNote}
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
+            {t.pricing.refundNote}
           </p>
         </ScrollReveal>
       </div>

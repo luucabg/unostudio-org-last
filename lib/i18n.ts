@@ -11,7 +11,7 @@ export const translations = {
       services: "Qué incluye",
       process: "Cómo funciona",
       plans: "Precios",
-      bookCall: "Pedir demo",
+      bookCall: "Pedir demo gratis",
     },
     hero: {
       badge: "Webs para conseguir presupuestos, no solo visitas",
@@ -132,6 +132,10 @@ export const translations = {
       title: "Elige cuánto quieres mejorar tu presencia online.",
       body:
         "Precios pensados para cerrar rápido los primeros casos reales sin parecer una web barata. La demo va aparte y es gratuita.",
+      reservationNote:
+        "Puedes pedir una demo gratis antes de decidir. Si ya lo tienes claro, puedes reservar tu plaza con una señal que se descuenta del precio final.",
+      refundNote:
+        "La reserva no garantiza la aceptación del proyecto si no encaja con el servicio. En ese caso, se devuelve el importe.",
       billingPrimary: "Pago inicial + mantenimiento",
       minimumNote: "Mantenimiento mínimo de 3 meses. Después puedes seguir mes a mes.",
       monthlyNote:
@@ -151,7 +155,8 @@ export const translations = {
             "Alojamiento y mantenimiento",
             "Hasta 2 cambios pequeños al mes",
           ],
-          cta: "Quiero Web Esencial",
+          cta: "Reservar por 99€",
+          paymentNote: "Señal descontable del proyecto.",
           href: "/#booking",
           highlighted: false,
         },
@@ -170,7 +175,8 @@ export const translations = {
             "Hasta 4 cambios pequeños al mes",
             "Soporte prioritario",
           ],
-          cta: "Quiero Web Pro",
+          cta: "Reservar por 149€",
+          paymentNote: "Señal descontable del proyecto.",
           href: "/#booking",
           highlighted: true,
         },
@@ -189,6 +195,7 @@ export const translations = {
             "Soporte preferente",
           ],
           cta: "Pedir propuesta",
+          paymentNote: "Para proyectos con seguimiento, panel o automatizaciones.",
           href: "/#booking",
           highlighted: false,
         },
@@ -249,7 +256,7 @@ export const translations = {
       title: "Veamos si tu web puede vender mejor.",
       body:
         "Si tienes un negocio local y quieres una web más clara, rápida y enfocada a recibir contactos, te preparo una demo visual y te digo qué mejoraría primero.",
-      primaryCta: "Pedir demo",
+      primaryCta: "Pedir demo gratis",
       secondaryCta: "Ver ejemplos",
     },
     footer: {
@@ -290,7 +297,7 @@ export const translations = {
       services: "What's included",
       process: "How it works",
       plans: "Pricing",
-      bookCall: "Request demo",
+      bookCall: "Request free demo",
     },
     hero: {
       badge: "Websites to get quote requests, not only visits",
@@ -411,6 +418,10 @@ export const translations = {
       title: "Choose how much you want to improve your online presence.",
       body:
         "Prices designed to close the first real cases quickly without looking like a cheap website. The demo is separate and free.",
+      reservationNote:
+        "You can request a free demo before deciding. If you already have it clear, you can reserve your spot with a deposit that is deducted from the final price.",
+      refundNote:
+        "The reservation does not guarantee project acceptance if it is not a fit for the service. In that case, the amount is refunded.",
       billingPrimary: "Initial payment + maintenance",
       minimumNote: "Minimum maintenance term of 3 months. After that, you can continue month to month.",
       monthlyNote:
@@ -430,7 +441,8 @@ export const translations = {
             "Hosting and maintenance",
             "Up to 2 small changes per month",
           ],
-          cta: "I want Essential Web",
+          cta: "Reserve for €99",
+          paymentNote: "Deductible project deposit.",
           href: "/#booking",
           highlighted: false,
         },
@@ -449,7 +461,8 @@ export const translations = {
             "Up to 4 small changes per month",
             "Priority support",
           ],
-          cta: "I want Web Pro",
+          cta: "Reserve for €149",
+          paymentNote: "Deductible project deposit.",
           href: "/#booking",
           highlighted: true,
         },
@@ -468,6 +481,7 @@ export const translations = {
             "Preferred support",
           ],
           cta: "Request proposal",
+          paymentNote: "For projects with follow-up, panel, or automations.",
           href: "/#booking",
           highlighted: false,
         },
@@ -528,7 +542,7 @@ export const translations = {
       title: "Let's see if your website can sell better.",
       body:
         "If you have a local business and want a clearer, faster website focused on receiving contacts, I will prepare a visual demo and tell you what I would improve first.",
-      primaryCta: "Request demo",
+      primaryCta: "Request free demo",
       secondaryCta: "View examples",
     },
     footer: {
