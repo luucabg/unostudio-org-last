@@ -15,6 +15,10 @@ export function CalBookingSection() {
   const privacyBefore = locale === "es" ? "He leído y acepto la " : "I have read and accept the "
   const privacyLabel = locale === "es" ? "Política de Privacidad" : "Privacy Policy"
   const privacyAfter = "."
+  const messagePlaceholder =
+    locale === "es"
+      ? "Ej: quiero una web más moderna, recibir más presupuestos o mejorar mi imagen"
+      : "Example: I want a more modern website, more quote requests, or a better image"
 
   return (
     <section id="booking" className="relative overflow-hidden px-6 py-24">
@@ -95,7 +99,11 @@ export function CalBookingSection() {
 
             <label className={`${labelClass} mt-5 block`}>
               {t.booking.form.need}
-              <textarea className={`${inputClass} min-h-32 resize-y`} name="mensaje" required />
+              <textarea
+                className={`${inputClass} min-h-24 resize-y`}
+                name="mensaje"
+                placeholder={messagePlaceholder}
+              />
             </label>
 
             <label className="mt-6 flex items-start gap-3 text-sm leading-6 text-zinc-400">

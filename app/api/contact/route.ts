@@ -50,6 +50,7 @@ export async function POST(request: Request) {
 
   const email = text(formData, "email", 180).toLowerCase()
   const pagePath = text(formData, "page_path", 120) || "/contacto"
+  const message = text(formData, "mensaje", 4000)
 
   const payload = {
     name: text(formData, "nombre", 120),
@@ -60,7 +61,7 @@ export async function POST(request: Request) {
     service_interest: text(formData, "servicio", 80),
     budget_range: text(formData, "presupuesto", 80),
     urgency: text(formData, "urgencia", 80),
-    message: text(formData, "mensaje", 4000),
+    message: message || (pagePath === "/" ? "Solicitud de demo sin mensaje." : ""),
     privacy_accepted: formData.get("acepta_privacidad") === "on",
     page_path: pagePath === "/" ? "/" : "/contacto",
     source: "unostudio.org",
@@ -81,7 +82,7 @@ export async function POST(request: Request) {
     allowedServices.has(payload.service_interest) &&
     allowedBudgets.has(payload.budget_range) &&
     allowedUrgencies.has(payload.urgency) &&
-    payload.message.length >= 10 &&
+    (pagePath === "/" || payload.message.length >= 10) &&
     payload.privacy_accepted
 
   if (!valid) {

@@ -9,44 +9,44 @@ export const translations = {
   es: {
     nav: {
       services: "Qué incluye",
-      process: "Cómo funciona",
+      process: "Demo",
       plans: "Precios",
       bookCall: "Pedir demo gratis",
     },
     hero: {
       badge: "Webs para conseguir presupuestos, no solo visitas",
-      title: "Una web clara y rápida para que más clientes te pidan presupuesto por WhatsApp.",
+      title: "Una web clara para que más clientes te pidan presupuesto.",
       subtitle:
-        "Para reformas, interiorismo, arquitectura e inmobiliarias. Diseñamos una web que explica bien lo que haces, transmite confianza y convierte visitas en contactos reales.",
+        "Diseñamos webs rápidas para reformas, interiorismo, arquitectura e inmobiliarias. Claras, modernas y preparadas para recibir contactos por WhatsApp o formulario.",
       primaryCta: "Pedir demo gratis",
       secondaryCta: "Ver ejemplos",
       proofPoints: [
         "Demo visual personalizada",
         "Lista en 7-10 días",
-        "Desde 490€ + 99€/mes",
+        "Desde 490€",
       ],
     },
     projects: {
-      eyebrow: "Algunos proyectos",
-      title: "Ejemplos reales de webs pensadas para explicar mejor y recibir contactos.",
+      eyebrow: "Ejemplos",
+      title: "Algunas webs que ya he creado.",
       body:
-        "Sin métricas inventadas. Proyectos orientados a mejorar claridad, imagen y contacto.",
+        "Diseño, estructura y textos pensados para que el negocio se entienda mejor y sea más fácil contactar.",
       cta: "Ver proyectos",
       items: [
         {
           name: "Saduni Reformas",
-          type: "Web pensada para presupuestos",
-          points: ["Estructura clara por servicios", "CTA a WhatsApp", "Mensaje directo para pedir presupuesto"],
+          type: "Reformas",
+          points: ["Servicios claros", "CTA a WhatsApp", "Presupuesto fácil"],
         },
         {
           name: "Mocha Studio",
-          type: "Imagen más premium",
-          points: ["Diseño más elegante", "Mejor presentación del servicio", "Página enfocada a confianza"],
+          type: "Interiorismo",
+          points: ["Imagen premium", "Diseño limpio", "Confianza visual"],
         },
         {
           name: "Bierwinkel Campanar",
-          type: "Presencia local clara",
-          points: ["Carta, reservas y ubicación", "Experiencia móvil más limpia", "Información clave más fácil de encontrar"],
+          type: "Hostelería",
+          points: ["Carta y reservas", "Ubicación clara", "Móvil optimizado"],
         },
       ],
     },
@@ -85,30 +85,30 @@ export const translations = {
     },
     features: {
       eyebrow: "Qué incluye",
-      title: "Una web pensada para convertir visitas en conversaciones.",
+      title: "Todo lo necesario para tener una web que no sea solo bonita.",
       body:
-        "No hacemos una web decorativa. Creamos una página rápida, clara y preparada para que el cliente entienda tu servicio y te escriba con contexto.",
+        "La idea es simple: que la persona entienda tu negocio, confíe y pueda contactar rápido.",
       items: [
         {
-          title: "Web rápida y moderna",
-          body: "Diseño responsive, carga rápida y estructura clara para explicar qué haces y por qué confiar en ti.",
+          title: "Diseño web",
+          body: "Web moderna, rápida y adaptada a móvil.",
         },
         {
-          title: "Textos que venden claro",
-          body: "Organizamos tu oferta, servicios, objeciones y llamadas a la acción para que la web no sea solo bonita.",
+          title: "Textos comerciales",
+          body: "Explicamos qué haces, para quién y por qué elegirte.",
         },
         {
-          title: "WhatsApp preparado",
-          body: "El cliente no abre un mensaje vacío: llega con una frase guiada para pedir presupuesto con más contexto.",
+          title: "WhatsApp y formulario",
+          body: "Contacto fácil con mensajes preparados para pedir presupuesto.",
         },
         {
-          title: "Mantenimiento mensual",
-          body: "Alojamiento, cambios pequeños, soporte técnico y mejoras para que no tengas que tocar nada.",
+          title: "Mantenimiento",
+          body: "Alojamiento, soporte y pequeños cambios mensuales.",
         },
       ],
       experienceTitle: "Web, diseño y contenido en un mismo sitio",
       experienceBody:
-        "Uno Studio combina diseño web, copy, edición visual y automatización simple para crear páginas rápidas y enfocadas a captar mejor. No dependemos de plantillas genéricas: adaptamos cada página al negocio.",
+        "Uno Studio combina diseño web, copy, edición visual y automatización simple para crear webs rápidas y enfocadas a recibir contactos.",
     },
     audience: {
       eyebrow: "Para quién es",
@@ -128,22 +128,21 @@ export const translations = {
       bad: ["Ecommerce complejo", "Proyecto grande totalmente a medida", "Negocio que necesita una app completa"],
     },
     pricing: {
-      eyebrow: "Precios de lanzamiento",
-      title: "Elige cuánto quieres mejorar tu presencia online.",
+      eyebrow: "Precios",
+      title: "Empieza con una web clara, rápida y mantenida.",
       body:
-        "Precios pensados para cerrar rápido los primeros casos reales sin parecer una web barata. La demo va aparte y es gratuita.",
+        "Puedes pedir una demo gratis antes de decidir. Si ya lo tienes claro, puedes reservar plaza con una señal descontable.",
       reservationNote:
-        "Puedes pedir una demo gratis antes de decidir. Si ya lo tienes claro, puedes reservar tu plaza con una señal que se descuenta del precio final.",
-      refundNote:
-        "La reserva no garantiza la aceptación del proyecto si no encaja con el servicio. En ese caso, se devuelve el importe.",
+        "La reserva se descuenta del precio final. Si el proyecto no encaja con el servicio, se devuelve el importe.",
+      refundNote: "",
       billingPrimary: "Pago inicial + mantenimiento",
       minimumNote: "Mantenimiento mínimo de 3 meses. Después puedes seguir mes a mes.",
       monthlyNote:
-        "La mensualidad incluye alojamiento, mantenimiento técnico, soporte, actualizaciones, medición básica y pequeños cambios mensuales.",
+        "La mensualidad incluye alojamiento, mantenimiento técnico, soporte y pequeños cambios.",
       plans: [
         {
           name: "Web Esencial",
-          description: "Para negocios que necesitan una web clara, rápida y lista para recibir contactos.",
+          description: "Para negocios que necesitan una web profesional sin complicarse.",
           price: "490€ + 99€/mes",
           badge: "Entrada fácil",
           features: [
@@ -152,37 +151,35 @@ export const translations = {
             "Textos comerciales",
             "WhatsApp preparado",
             "Formulario de contacto",
-            "Alojamiento y mantenimiento",
-            "Hasta 2 cambios pequeños al mes",
+            "Alojamiento incluido",
           ],
           cta: "Reservar por 99€",
-          paymentNote: "Señal descontable del proyecto.",
+          paymentNote: "Se descuenta del precio final.",
           href: "/#booking",
           highlighted: false,
         },
         {
           name: "Web Pro",
           description:
-            "Para negocios que quieren una web más completa, mejor estructurada y orientada a presupuestos.",
+            "Para negocios que quieren una web más completa y enfocada a presupuestos.",
           price: "990€ + 149€/mes",
           badge: "Mejor opción",
           features: [
             "Hasta 5 páginas o secciones avanzadas",
             "Estructura comercial completa",
             "Formulario de presupuesto",
-            "WhatsApp con mensaje guiado",
+            "WhatsApp guiado",
             "Analítica básica",
-            "Hasta 4 cambios pequeños al mes",
             "Soporte prioritario",
           ],
           cta: "Reservar por 149€",
-          paymentNote: "Señal descontable del proyecto.",
+          paymentNote: "Se descuenta del precio final.",
           href: "/#booking",
           highlighted: true,
         },
         {
           name: "Sistema Local",
-          description: "Para negocios que quieren web, seguimiento y una base simple para no perder oportunidades.",
+          description: "Para negocios que quieren web, seguimiento y más control de contactos.",
           price: "1.490€ + 249€/mes",
           badge: "",
           features: [
@@ -192,63 +189,56 @@ export const translations = {
             "Sistema para pedir reseñas",
             "2 creativos iniciales",
             "Mejoras mensuales",
-            "Soporte preferente",
           ],
           cta: "Pedir propuesta",
-          paymentNote: "Para proyectos con seguimiento, panel o automatizaciones.",
+          paymentNote: "Para proyectos más completos.",
           href: "/#booking",
           highlighted: false,
         },
       ],
-      adManagementNote: "La demo visual es gratuita. Proyectos más complejos, ecommerce o apps se presupuestan aparte.",
+      adManagementNote: "Proyectos más complejos, ecommerce o apps se presupuestan aparte.",
     },
     booking: {
-      eyebrow: "Demo",
-      title: "Pide una demo gratis para tu negocio",
+      eyebrow: "Demo gratis",
+      title: "Enséñame tu negocio y te preparo una idea visual.",
       body:
-        "Déjame tu web o Instagram y te enseño cómo podría verse una página más clara, moderna y enfocada a recibir presupuestos.",
-      bullets: ["Sin compromiso", "Demo visual", "Próximos pasos claros"],
+        "Déjame tu web, Instagram o una breve explicación. Te diré qué mejoraría y cómo podría quedar una web más clara.",
+      bullets: ["Sin compromiso", "Demo visual", "Respuesta clara"],
       cta: "Quiero mi demo gratis",
-      whatsappCta: "O hablar por WhatsApp",
+      whatsappCta: "Prefiero hablar por WhatsApp",
       form: {
         name: "Nombre",
         business: "Negocio",
         website: "Web o Instagram",
         phone: "WhatsApp",
-        need: "Qué necesitas",
+        need: "Qué quieres mejorar",
         submit: "Enviar solicitud",
       },
     },
     faq: {
-      eyebrow: "FAQ",
-      title: "Dudas normales antes de empezar.",
+      eyebrow: "Dudas",
+      title: "Preguntas rápidas.",
       items: [
         {
-          question: "¿Cuánto tardas en hacer la web?",
-          answer: "Entre 7 y 10 días en proyectos sencillos.",
+          question: "¿Cuánto tarda?",
+          answer: "Entre 7 y 10 días en webs sencillas.",
         },
         {
           question: "¿Qué incluye la mensualidad?",
           answer:
-            "Alojamiento, mantenimiento técnico, soporte, actualizaciones, medición básica y pequeños cambios mensuales según el plan.",
+            "Alojamiento, mantenimiento técnico, soporte y pequeños cambios mensuales.",
         },
         {
           question: "¿Tengo que pagar todo al principio?",
-          answer: "No. Hay un pago inicial y después una mensualidad de mantenimiento. El mínimo inicial es de 3 meses.",
+          answer: "No. Puedes reservar con una señal y el resto se confirma después.",
         },
         {
-          question: "¿Sirve si ya tengo Instagram o Google Maps?",
-          answer:
-            "Sí. La web ayuda a que quien te descubre entienda mejor tu servicio y te contacte con más confianza.",
+          question: "¿La demo es gratis?",
+          answer: "Sí. Sirve para que veas una dirección visual antes de decidir.",
         },
         {
-          question: "¿La demo es gratuita?",
-          answer: "Sí. La demo sirve para que veas una dirección visual antes de pagar por el proyecto completo.",
-        },
-        {
-          question: "¿Trabajas solo con ciertos sectores?",
-          answer:
-            "Principalmente con reformas, interiorismo, arquitectura, inmobiliarias y negocios locales.",
+          question: "¿Puedo hablar por WhatsApp?",
+          answer: "Sí. Puedes escribir directamente si prefieres algo más rápido.",
         },
       ],
     },
@@ -261,18 +251,18 @@ export const translations = {
     },
     footer: {
       description:
-        "Sistemas de captación para negocios locales de ticket alto. Web, seguimiento de leads, creativos y automatización simple.",
+        "Webs claras, rápidas y mantenidas para negocios locales que quieren recibir más contactos.",
       servicesTitle: "Servicios",
       agencyTitle: "Agencia",
       contactTitle: "Contacto",
       legalTitle: "Legal",
       services: [
-        { label: "Página de captación", href: "/#features" },
-        { label: "Panel de leads", href: "/#features" },
+        { label: "Qué incluye", href: "/#features" },
+        { label: "Ejemplos", href: "/#projects" },
         { label: "Precios", href: "/#pricing" },
       ],
       agency: [
-        { label: "Cómo funciona", href: "/#impact" },
+        { label: "Ejemplos", href: "/#projects" },
         { label: "Demo", href: "/#booking" },
         { label: "Qué incluye", href: "/#features" },
       ],
@@ -295,44 +285,44 @@ export const translations = {
   en: {
     nav: {
       services: "What's included",
-      process: "How it works",
+      process: "Demo",
       plans: "Pricing",
       bookCall: "Request free demo",
     },
     hero: {
       badge: "Websites to get quote requests, not only visits",
-      title: "A clear, fast website so more clients ask for quotes on WhatsApp.",
+      title: "A clear website so more clients ask you for quotes.",
       subtitle:
-        "For renovations, interior design, architecture, and real estate. We design a website that explains what you do, builds trust, and turns visits into real contacts.",
+        "We design fast websites for renovations, interior design, architecture, and real estate. Clear, modern, and ready to receive contacts by WhatsApp or form.",
       primaryCta: "Request free demo",
       secondaryCta: "View examples",
       proofPoints: [
         "Personalized visual demo",
         "Ready in 7-10 days",
-        "From €490 + €99/mo",
+        "From €490",
       ],
     },
     projects: {
-      eyebrow: "Some projects",
-      title: "Real examples of websites designed to explain better and receive contacts.",
+      eyebrow: "Examples",
+      title: "Some websites I have already created.",
       body:
-        "No invented metrics. Projects focused on improving clarity, image, and contact.",
+        "Design, structure, and copy made so the business is easier to understand and contact.",
       cta: "View projects",
       items: [
         {
           name: "Saduni Reformas",
-          type: "Website designed for quote requests",
-          points: ["Clear service structure", "WhatsApp CTA", "Direct message to request a quote"],
+          type: "Renovations",
+          points: ["Clear services", "WhatsApp CTA", "Easy quote request"],
         },
         {
           name: "Mocha Studio",
-          type: "More premium image",
-          points: ["More elegant design", "Better service presentation", "Page focused on trust"],
+          type: "Interior design",
+          points: ["Premium image", "Clean design", "Visual trust"],
         },
         {
           name: "Bierwinkel Campanar",
-          type: "Clear local presence",
-          points: ["Menu, bookings, and location", "Cleaner mobile experience", "Key information easier to find"],
+          type: "Hospitality",
+          points: ["Menu and bookings", "Clear location", "Mobile optimized"],
         },
       ],
     },
@@ -371,30 +361,30 @@ export const translations = {
     },
     features: {
       eyebrow: "What's included",
-      title: "A website designed to turn visits into conversations.",
+      title: "Everything needed for a website that is not only pretty.",
       body:
-        "We do not build a decorative website. We create a fast, clear page prepared so clients understand your service and write to you with context.",
+        "The idea is simple: people understand your business, trust it, and can contact you fast.",
       items: [
         {
-          title: "Fast modern website",
-          body: "Responsive design, fast loading, and clear structure to explain what you do and why people should trust you.",
+          title: "Web design",
+          body: "Modern, fast, mobile-friendly website.",
         },
         {
-          title: "Copy that sells clearly",
-          body: "We organize your offer, services, objections, and calls to action so the website is not only pretty.",
+          title: "Commercial copy",
+          body: "We explain what you do, who it is for, and why people should choose you.",
         },
         {
-          title: "Prepared WhatsApp",
-          body: "Clients do not open an empty message: it comes with a guided phrase to request a quote with more context.",
+          title: "WhatsApp and form",
+          body: "Easy contact with prepared messages for quote requests.",
         },
         {
-          title: "Monthly maintenance",
-          body: "Hosting, small changes, technical support, and improvements so you do not have to touch anything.",
+          title: "Maintenance",
+          body: "Hosting, support, and small monthly changes.",
         },
       ],
       experienceTitle: "Web, design, and content in one place",
       experienceBody:
-        "Uno Studio combines web design, copy, visual editing, and simple automation to create fast pages focused on better lead capture. We do not depend on generic templates: every page adapts to the business.",
+        "Uno Studio combines web design, copy, visual editing, and simple automation to create fast websites focused on receiving contacts.",
     },
     audience: {
       eyebrow: "Who it is for",
@@ -414,22 +404,21 @@ export const translations = {
       bad: ["Complex ecommerce", "Large fully custom project", "Business that needs a full app"],
     },
     pricing: {
-      eyebrow: "Launch pricing",
-      title: "Choose how much you want to improve your online presence.",
+      eyebrow: "Pricing",
+      title: "Start with a clear, fast, maintained website.",
       body:
-        "Prices designed to close the first real cases quickly without looking like a cheap website. The demo is separate and free.",
+        "You can request a free demo before deciding. If you already have it clear, you can reserve your spot with a deductible deposit.",
       reservationNote:
-        "You can request a free demo before deciding. If you already have it clear, you can reserve your spot with a deposit that is deducted from the final price.",
-      refundNote:
-        "The reservation does not guarantee project acceptance if it is not a fit for the service. In that case, the amount is refunded.",
+        "The reservation is deducted from the final price. If the project is not a fit for the service, the amount is refunded.",
+      refundNote: "",
       billingPrimary: "Initial payment + maintenance",
       minimumNote: "Minimum maintenance term of 3 months. After that, you can continue month to month.",
       monthlyNote:
-        "The monthly fee includes hosting, technical maintenance, support, updates, basic measurement, and small monthly changes.",
+        "The monthly fee includes hosting, technical maintenance, support, and small changes.",
       plans: [
         {
           name: "Essential Web",
-          description: "For businesses that need a clear, fast website ready to receive contacts.",
+          description: "For businesses that need a professional website without overcomplicating it.",
           price: "€490 + €99/mo",
           badge: "Easy entry",
           features: [
@@ -438,37 +427,35 @@ export const translations = {
             "Commercial texts",
             "Prepared WhatsApp",
             "Contact form",
-            "Hosting and maintenance",
-            "Up to 2 small changes per month",
+            "Hosting included",
           ],
           cta: "Reserve for €99",
-          paymentNote: "Deductible project deposit.",
+          paymentNote: "Deducted from final price.",
           href: "/#booking",
           highlighted: false,
         },
         {
           name: "Web Pro",
           description:
-            "For businesses that want a more complete, better structured website focused on quotes.",
+            "For businesses that want a more complete website focused on quote requests.",
           price: "€990 + €149/mo",
           badge: "Best option",
           features: [
             "Up to 5 pages or advanced sections",
             "Complete commercial structure",
             "Quote request form",
-            "WhatsApp with guided message",
+            "Guided WhatsApp",
             "Basic analytics",
-            "Up to 4 small changes per month",
             "Priority support",
           ],
           cta: "Reserve for €149",
-          paymentNote: "Deductible project deposit.",
+          paymentNote: "Deducted from final price.",
           href: "/#booking",
           highlighted: true,
         },
         {
           name: "Local System",
-          description: "For businesses that want website, follow-up, and a simple base to avoid losing opportunities.",
+          description: "For businesses that want website, follow-up, and more control over contacts.",
           price: "€1,490 + €249/mo",
           badge: "",
           features: [
@@ -478,63 +465,56 @@ export const translations = {
             "Review request system",
             "2 initial creatives",
             "Monthly improvements",
-            "Preferred support",
           ],
           cta: "Request proposal",
-          paymentNote: "For projects with follow-up, panel, or automations.",
+          paymentNote: "For more complete projects.",
           href: "/#booking",
           highlighted: false,
         },
       ],
-      adManagementNote: "The visual demo is free. More complex projects, ecommerce, or apps are quoted separately.",
+      adManagementNote: "More complex projects, ecommerce, or apps are quoted separately.",
     },
     booking: {
-      eyebrow: "Demo",
-      title: "Request a free demo for your business",
+      eyebrow: "Free demo",
+      title: "Show me your business and I will prepare a visual idea.",
       body:
-        "Leave your website or Instagram and I will show you how a clearer, more modern page focused on quote requests could look.",
-      bullets: ["No commitment", "Visual demo", "Clear next steps"],
+        "Leave your website, Instagram, or a short explanation. I will tell you what I would improve and how a clearer website could look.",
+      bullets: ["No commitment", "Visual demo", "Clear answer"],
       cta: "I want my free demo",
-      whatsappCta: "Or talk on WhatsApp",
+      whatsappCta: "I prefer WhatsApp",
       form: {
         name: "Name",
         business: "Business",
         website: "Website or Instagram",
         phone: "WhatsApp",
-        need: "What do you need?",
+        need: "What do you want to improve?",
         submit: "Send request",
       },
     },
     faq: {
-      eyebrow: "FAQ",
-      title: "Normal questions before starting.",
+      eyebrow: "Questions",
+      title: "Quick questions.",
       items: [
         {
-          question: "How long does the website take?",
-          answer: "Between 7 and 10 days for simple projects.",
+          question: "How long does it take?",
+          answer: "Between 7 and 10 days for simple websites.",
         },
         {
           question: "What does the monthly fee include?",
           answer:
-            "Hosting, technical maintenance, support, updates, basic measurement, and small monthly changes depending on the plan.",
+            "Hosting, technical maintenance, support, and small monthly changes.",
         },
         {
           question: "Do I have to pay everything upfront?",
-          answer: "No. There is an initial payment and then a maintenance monthly fee. The initial minimum is 3 months.",
-        },
-        {
-          question: "Does it work if I already have Instagram or Google Maps?",
-          answer:
-            "Yes. The website helps people who discover you understand your service better and contact you with more trust.",
+          answer: "No. You can reserve with a deposit and confirm the rest later.",
         },
         {
           question: "Is the demo free?",
-          answer: "Yes. The demo lets you see a visual direction before paying for the full project.",
+          answer: "Yes. It lets you see a visual direction before deciding.",
         },
         {
-          question: "Do you only work with certain sectors?",
-          answer:
-            "Mainly renovations, interior design, architecture, real estate, and local businesses.",
+          question: "Can I talk on WhatsApp?",
+          answer: "Yes. You can write directly if you prefer something faster.",
         },
       ],
     },
@@ -553,12 +533,12 @@ export const translations = {
       contactTitle: "Contact",
       legalTitle: "Legal",
       services: [
-        { label: "Lead capture page", href: "/#features" },
-        { label: "Lead panel", href: "/#features" },
+        { label: "What's included", href: "/#features" },
+        { label: "Examples", href: "/#projects" },
         { label: "Pricing", href: "/#pricing" },
       ],
       agency: [
-        { label: "How it works", href: "/#impact" },
+        { label: "Examples", href: "/#projects" },
         { label: "Demo", href: "/#booking" },
         { label: "What's included", href: "/#features" },
       ],

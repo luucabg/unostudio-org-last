@@ -72,7 +72,7 @@ export function PricingSection() {
                         <p className="mt-1.5 text-xl font-bold text-zinc-200 md:text-2xl">+ {monthlyPrice}</p>
                       ) : null}
                     </div>
-                    <p className="mt-3 min-h-16 text-xs leading-6 text-zinc-400">{plan.description}</p>
+                    <p className="mt-3 min-h-12 text-xs leading-5 text-zinc-400">{plan.description}</p>
                   </div>
 
                   <a
@@ -91,11 +91,11 @@ export function PricingSection() {
                   </a>
                   <p className="mb-5 min-h-8 text-center text-[11px] leading-5 text-zinc-500">{plan.paymentNote}</p>
 
-                  <ul className="flex flex-1 flex-col gap-2">
+                  <ul className="flex flex-1 flex-col gap-1.5">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sky-300" strokeWidth={1.9} />
-                        <span className="text-xs leading-6 text-zinc-300">{feature}</span>
+                        <span className="text-xs leading-5 text-zinc-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -106,21 +106,12 @@ export function PricingSection() {
         </div>
 
         <ScrollReveal delay={120}>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-300">
-            {t.pricing.reservationNote}
-          </p>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-400">
-            {t.pricing.monthlyNote}
-          </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
-            {t.pricing.minimumNote}
-          </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
-            {t.pricing.adManagementNote}
-          </p>
-          <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
-            {t.pricing.refundNote}
-          </p>
+          <div className="mx-auto mt-6 max-w-3xl rounded-lg border border-zinc-800/70 bg-zinc-950/60 px-5 py-4 text-center">
+            <p className="text-xs leading-relaxed text-zinc-300">{t.pricing.reservationNote}</p>
+            <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+              {t.pricing.monthlyNote} {t.pricing.minimumNote}
+            </p>
+          </div>
         </ScrollReveal>
       </div>
     </section>
