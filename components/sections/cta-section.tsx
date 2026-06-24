@@ -21,7 +21,7 @@ export function CtaSection() {
             {t.cta.primaryCta}
           </LiquidCtaButton>
           <Link
-            href="#pricing"
+            href="#projects"
             className="group flex items-center gap-2 px-6 py-3 text-sm font-medium text-zinc-400 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 rounded-full transition-colors"
           >
             <span>{t.cta.secondaryCta}</span>

@@ -13,7 +13,7 @@ type SearchParams = Promise<{
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Contacta con unostudio desde Valencia. Diseño web, landings, conversión, creativos, agentes IA y automatizaciones para negocios en España y remoto.",
+    "Contacta con unostudio desde Valencia. Webs claras, rápidas y enfocadas a WhatsApp para negocios locales en España y remoto.",
   alternates: { canonical: "/contacto" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -126,9 +126,9 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option value="" disabled>
                     Selecciona una opción
                   </option>
-                  <option>Demo personalizada</option>
-                  <option>Web piloto</option>
-                  <option>Sistema de captación</option>
+                  <option>Demo inicial</option>
+                  <option>Web Express</option>
+                  <option>Web Pro</option>
                   <option>Mantenimiento web</option>
                   <option>Otro</option>
                 </select>

@@ -95,25 +95,15 @@ export function PricingSection() {
         </div>
 
         <ScrollReveal delay={120}>
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-zinc-400">
+            {t.pricing.monthlyNote}
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
+            {t.pricing.minimumNote}
+          </p>
+          <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-relaxed text-zinc-500">
             {t.pricing.adManagementNote}
           </p>
-        </ScrollReveal>
-
-        <ScrollReveal className="mt-12">
-          <p className="mb-4 text-center text-sm font-medium uppercase tracking-wide text-sky-300">
-            {t.pricing.upsellsTitle}
-          </p>
-          <div className="grid gap-3 md:grid-cols-4">
-            {t.pricing.upsells.map((upsell, index) => (
-              <ScrollReveal key={upsell.name} delay={index * 70}>
-                <div className="rounded-lg border border-zinc-800/70 bg-zinc-950/70 p-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                  <p className="text-sm font-semibold text-zinc-100">{upsell.name}</p>
-                  <p className="mt-2 text-xs leading-5 text-zinc-500">{upsell.price}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </ScrollReveal>
       </div>
     </section>

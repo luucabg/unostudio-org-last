@@ -13,23 +13,22 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://unostudio.org"),
   title: {
-    default: "unostudio | Captación para negocios locales de ticket alto",
+    default: "unostudio | Webs claras para negocios locales",
     template: "%s | unostudio",
   },
   description:
-    "Sistemas de captación para reformas, interiorismo, arquitectura e inmobiliaria. Web, WhatsApp/formulario, panel de leads, creativos y automatización simple desde Valencia.",
+    "Webs claras y rápidas para reformas, interiorismo, arquitectura e inmobiliaria. WhatsApp, formulario, mantenimiento y mejor presentación desde Valencia.",
   keywords: [
     "diseño web Valencia",
-    "captación de leads Valencia",
+    "presupuestos por WhatsApp",
     "landing page reformas",
     "web para reformas",
     "web para interiorismo",
     "web para arquitectura",
     "web inmobiliaria Valencia",
     "leads por WhatsApp",
-    "creativos para Meta Ads",
-    "panel de leads",
-    "sistema de captación local",
+    "mantenimiento web",
+    "web rápida para negocios locales",
     "unostudio",
   ],
   authors: [{ name: "unostudio", url: "https://unostudio.org" }],
@@ -51,9 +50,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "unostudio | Captación para negocios locales de ticket alto",
+    title: "unostudio | Webs claras para negocios locales",
     description:
-      "Web, seguimiento de leads, creativos y automatización simple para conseguir más solicitudes de presupuesto.",
+      "Webs rápidas con WhatsApp, formulario y mantenimiento para conseguir más solicitudes de presupuesto.",
     url: "https://unostudio.org",
     siteName: "unostudio",
     locale: "es_ES",
@@ -63,15 +62,15 @@ export const metadata: Metadata = {
         url: "/desktop_hero.png",
         width: 1600,
         height: 900,
-        alt: "unostudio sistemas de captación para negocios locales",
+        alt: "unostudio webs claras para negocios locales",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "unostudio | Captación para negocios locales",
+    title: "unostudio | Webs para negocios locales",
     description:
-      "Página clara, WhatsApp/formulario medido, panel de leads y creativos para convertir visitas en presupuestos.",
+      "Página clara, WhatsApp/formulario y mantenimiento para convertir visitas en presupuestos.",
     images: ["/desktop_hero.png"],
   },
   icons: {
@@ -100,7 +99,7 @@ const structuredData = {
   image: "https://unostudio.org/desktop_hero.png",
   logo: "https://unostudio.org/logos/logo_nav.png",
   description:
-    "Sistemas de captación para negocios locales de ticket alto. Creamos páginas claras, WhatsApp/formulario medido, paneles de leads, creativos y automatización simple.",
+    "Webs claras y rápidas para negocios locales. Creamos páginas con WhatsApp/formulario, mantenimiento y mejor presentación.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Valencia",
@@ -125,9 +124,9 @@ const structuredData = {
     "@type": "OfferCatalog",
     name: "Servicios unostudio",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Landing de captación" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema comercial" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Growth local" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Demo inicial" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Express" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Pro" } },
     ],
   },
 }

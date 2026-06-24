@@ -18,9 +18,9 @@ const supabaseKey =
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
 const allowedServices = new Set([
-  "Demo personalizada",
-  "Web piloto",
-  "Sistema de captación",
+  "Demo inicial",
+  "Web Express",
+  "Web Pro",
   "Mantenimiento web",
   "Otro",
 ])
@@ -47,10 +47,13 @@ export async function POST(request: Request) {
     return redirectTo(request, "enviado")
   }
 
+  const email = text(formData, "email", 180).toLowerCase()
+  const pagePath = text(formData, "page_path", 120) || "/contacto"
+
   const payload = {
     name: text(formData, "nombre", 120),
     company: text(formData, "empresa", 160),
-    email: text(formData, "email", 180).toLowerCase(),
+    email: email || null,
     phone: text(formData, "telefono", 60) || null,
     current_website: text(formData, "web_actual", 300) || null,
     service_interest: text(formData, "servicio", 80),
@@ -58,7 +61,7 @@ export async function POST(request: Request) {
     urgency: text(formData, "urgencia", 80),
     message: text(formData, "mensaje", 4000),
     privacy_accepted: formData.get("acepta_privacidad") === "on",
-    page_path: "/contacto",
+    page_path: pagePath === "/" ? "/" : "/contacto",
     source: "unostudio.org",
     metadata: {
       hosting: "vercel",
@@ -66,10 +69,14 @@ export async function POST(request: Request) {
     },
   }
 
+  const validEmail = payload.email !== null && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)
+  const validPhone = payload.phone !== null && payload.phone.length >= 6
+
   const valid =
     payload.name.length >= 2 &&
     payload.company.length >= 2 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email) &&
+    (payload.email === null || validEmail) &&
+    (validEmail || validPhone) &&
     allowedServices.has(payload.service_interest) &&
     allowedBudgets.has(payload.budget_range) &&
     allowedUrgencies.has(payload.urgency) &&

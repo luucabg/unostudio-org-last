@@ -5,14 +5,17 @@ create table if not exists public.contact_requests (
   created_at timestamptz not null default now(),
   name text not null check (char_length(name) between 2 and 120),
   company text not null check (char_length(company) between 2 and 160),
-  email text not null check (
-    char_length(email) <= 180
-    and email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'
+  email text check (
+    email is null
+    or (
+      char_length(email) <= 180
+      and email ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'
+    )
   ),
   phone text check (phone is null or char_length(phone) <= 60),
   current_website text check (current_website is null or char_length(current_website) <= 300),
   service_interest text not null check (
-    service_interest in ('Demo personalizada', 'Web piloto', 'Sistema de captación', 'Mantenimiento web', 'Otro')
+    service_interest in ('Demo inicial', 'Web Express', 'Web Pro', 'Mantenimiento web', 'Otro')
   ),
   budget_range text not null check (
     budget_range in ('Demo gratuita', '500-900 €', '900-1.500 €', '1.500 €+', 'No lo sé')
