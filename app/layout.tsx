@@ -124,9 +124,9 @@ const structuredData = {
     "@type": "OfferCatalog",
     name: "Servicios unostudio",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Demo inicial" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Express" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Esencial" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Pro" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema Local" } },
     ],
   },
 }

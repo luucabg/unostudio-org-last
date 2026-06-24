@@ -69,7 +69,7 @@ export default function TerminosPage() {
       <LegalSection title="Mensualidades y compromiso mínimo">
         <p>
           Los planes pueden incluir una mensualidad asociada a alojamiento, mantenimiento técnico, soporte, medición y
-          mejoras según alcance. Salvo acuerdo distinto, la mensualidad tendrá un compromiso mínimo de 6 meses.
+          mejoras según alcance. Salvo acuerdo distinto, la mensualidad tendrá un compromiso mínimo de 3 meses.
         </p>
       </LegalSection>
 

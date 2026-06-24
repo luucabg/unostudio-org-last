@@ -11,11 +11,10 @@ const labelClass = "text-sm font-medium text-zinc-300"
 const whatsappHref = "https://wa.me/34694222191?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio"
 
 export function CalBookingSection() {
-  const { t } = useI18n()
-  const privacyLabel = t.booking.form.privacy.includes("Política de Privacidad")
-    ? "Política de Privacidad"
-    : "Privacy Policy"
-  const [privacyBefore, privacyAfter = ""] = t.booking.form.privacy.split(privacyLabel)
+  const { locale, t } = useI18n()
+  const privacyBefore = locale === "es" ? "He leído y acepto la " : "I have read and accept the "
+  const privacyLabel = locale === "es" ? "Política de Privacidad" : "Privacy Policy"
+  const privacyAfter = "."
 
   return (
     <section id="booking" className="relative overflow-hidden px-6 py-24">
@@ -79,7 +78,7 @@ export function CalBookingSection() {
               </label>
 
               <label className={labelClass}>
-                {t.booking.form.company}
+                {t.booking.form.business}
                 <input className={inputClass} name="empresa" autoComplete="organization" required />
               </label>
 
@@ -95,7 +94,7 @@ export function CalBookingSection() {
             </div>
 
             <label className={`${labelClass} mt-5 block`}>
-              {t.booking.form.message}
+              {t.booking.form.need}
               <textarea className={`${inputClass} min-h-32 resize-y`} name="mensaje" required />
             </label>
 
@@ -119,7 +118,7 @@ export function CalBookingSection() {
               type="submit"
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-sky-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
             >
-              {t.booking.cta}
+              {t.booking.form.submit}
               <ArrowRight className="h-4 w-4" strokeWidth={1.8} />
             </button>
           </form>

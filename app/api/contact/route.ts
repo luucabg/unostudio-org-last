@@ -19,12 +19,13 @@ const supabaseKey =
 
 const allowedServices = new Set([
   "Demo inicial",
-  "Web Express",
+  "Web Esencial",
   "Web Pro",
+  "Sistema Local",
   "Mantenimiento web",
   "Otro",
 ])
-const allowedBudgets = new Set(["Demo gratuita", "500-900 €", "900-1.500 €", "1.500 €+", "No lo sé"])
+const allowedBudgets = new Set(["Demo gratuita", "490-990 €", "990-1.490 €", "1.490 €+", "No lo sé"])
 const allowedUrgencies = new Set(["Este mes", "1-2 meses", "Más adelante"])
 
 function text(formData: FormData, key: string, max = 4000) {

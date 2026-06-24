@@ -20,5 +20,5 @@ drop constraint if exists contact_requests_service_interest_check;
 alter table public.contact_requests
 add constraint contact_requests_service_interest_check
 check (
-  service_interest in ('Demo inicial', 'Web Express', 'Web Pro', 'Mantenimiento web', 'Otro')
+  service_interest in ('Demo inicial', 'Web Esencial', 'Web Pro', 'Sistema Local', 'Mantenimiento web', 'Otro')
 );
