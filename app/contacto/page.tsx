@@ -67,9 +67,8 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                 </span>
                 hola@unostudio.org
               </a>
-              {/* TODO: sustituir [NUMERO_WHATSAPP] por número real en formato internacional sin signos. */}
               <a
-                href="https://wa.me/[NUMERO_WHATSAPP]"
+                href="https://wa.me/34694222191?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio"
                 className="flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-950/70 p-4 text-sm font-medium text-zinc-200 transition hover:border-sky-300/50"
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-md bg-zinc-100 text-zinc-950">
@@ -127,9 +126,10 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option value="" disabled>
                     Selecciona una opción
                   </option>
-                  <option>Landing de Conversión</option>
-                  <option>Web de Conversión</option>
-                  <option>Sistema de Conversión</option>
+                  <option>Demo personalizada</option>
+                  <option>Web piloto</option>
+                  <option>Sistema de captación</option>
+                  <option>Mantenimiento web</option>
                   <option>Otro</option>
                 </select>
               </Field>
@@ -138,9 +138,10 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option value="" disabled>
                     Selecciona una opción
                   </option>
-                  <option>1.500-3.000 €</option>
-                  <option>3.000-5.000 €</option>
-                  <option>5.000 €+</option>
+                  <option>Demo gratuita</option>
+                  <option>500-900 €</option>
+                  <option>900-1.500 €</option>
+                  <option>1.500 €+</option>
                   <option>No lo sé</option>
                 </select>
               </Field>

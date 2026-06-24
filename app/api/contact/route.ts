@@ -17,8 +17,14 @@ const supabaseKey =
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
-const allowedServices = new Set(["Landing de Conversión", "Web de Conversión", "Sistema de Conversión", "Otro"])
-const allowedBudgets = new Set(["1.500-3.000 €", "3.000-5.000 €", "5.000 €+", "No lo sé"])
+const allowedServices = new Set([
+  "Demo personalizada",
+  "Web piloto",
+  "Sistema de captación",
+  "Mantenimiento web",
+  "Otro",
+])
+const allowedBudgets = new Set(["Demo gratuita", "500-900 €", "900-1.500 €", "1.500 €+", "No lo sé"])
 const allowedUrgencies = new Set(["Este mes", "1-2 meses", "Más adelante"])
 
 function text(formData: FormData, key: string, max = 4000) {

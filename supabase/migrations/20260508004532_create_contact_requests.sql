@@ -12,10 +12,10 @@ create table if not exists public.contact_requests (
   phone text check (phone is null or char_length(phone) <= 60),
   current_website text check (current_website is null or char_length(current_website) <= 300),
   service_interest text not null check (
-    service_interest in ('Landing de Conversión', 'Web de Conversión', 'Sistema de Conversión', 'Otro')
+    service_interest in ('Demo personalizada', 'Web piloto', 'Sistema de captación', 'Mantenimiento web', 'Otro')
   ),
   budget_range text not null check (
-    budget_range in ('1.500-3.000 €', '3.000-5.000 €', '5.000 €+', 'No lo sé')
+    budget_range in ('Demo gratuita', '500-900 €', '900-1.500 €', '1.500 €+', 'No lo sé')
   ),
   urgency text not null check (urgency in ('Este mes', '1-2 meses', 'Más adelante')),
   message text not null check (char_length(message) between 10 and 4000),
