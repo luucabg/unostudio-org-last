@@ -130,7 +130,7 @@ export const translations = {
       eyebrow: "Precios",
       title: "Precios claros para empezar con una web profesional.",
       body:
-        "Puedes pedir una demo gratis antes de decidir. Si ya lo tienes claro, puedes reservar plaza con una señal descontable.",
+        "Pide una demo gratis antes de decidir. Los precios son de partida y pueden variar según páginas, contenido, funciones y nivel de personalización.",
       reservationNote:
         "La reserva se descuenta del precio final. Si tras revisar el negocio no encaja con el servicio, se devuelve.",
       refundNote: "",
@@ -142,7 +142,7 @@ export const translations = {
         {
           name: "Web Esencial",
           description: "Para negocios que necesitan una web profesional sin complicarse.",
-          price: "490€ + 99€/mes",
+          price: "Desde 490€ + 99€/mes",
           badge: "Entrada fácil",
           features: [
             "Landing de hasta 5 secciones",
@@ -161,7 +161,7 @@ export const translations = {
           name: "Web Pro",
           description:
             "Para negocios que quieren una web más completa y enfocada a conseguir contactos.",
-          price: "990€ + 149€/mes",
+          price: "Desde 990€ + 149€/mes",
           badge: "Mejor opción",
           features: [
             "Hasta 5 páginas o secciones avanzadas",
@@ -179,7 +179,7 @@ export const translations = {
         {
           name: "Sistema Local",
           description: "Para negocios que quieren web, seguimiento y más control de contactos.",
-          price: "1.490€ + 249€/mes",
+          price: "Desde 1.490€ + 249€/mes",
           badge: "",
           features: [
             "Todo lo de Web Pro",
@@ -195,7 +195,14 @@ export const translations = {
           highlighted: false,
         },
       ],
-      adManagementNote: "Proyectos más complejos, ecommerce o apps se presupuestan aparte.",
+      customProject: {
+        title: "¿Necesitas algo más grande?",
+        body:
+          "Ecommerce, webs corporativas grandes, integraciones o proyectos para empresas se presupuestan a medida desde 2.900€.",
+        cta: "Pedir propuesta",
+        href: "/#booking",
+      },
+      adManagementNote: "Ecommerce, apps, integraciones avanzadas o empresas grandes se presupuestan aparte.",
     },
     addons: {
       eyebrow: "Extras",
@@ -433,7 +440,7 @@ export const translations = {
       eyebrow: "Pricing",
       title: "Clear pricing to start with a professional website.",
       body:
-        "You can request a free demo before deciding. If you already have it clear, you can reserve your spot with a deductible deposit.",
+        "Request a free demo before deciding. Prices are starting points and may vary depending on pages, content, features, and level of customization.",
       reservationNote:
         "The reservation is deducted from the final price. If after reviewing the business it is not a fit for the service, it is refunded.",
       refundNote: "",
@@ -445,7 +452,7 @@ export const translations = {
         {
           name: "Essential Web",
           description: "For businesses that need a professional website without overcomplicating it.",
-          price: "€490 + €99/mo",
+          price: "From €490 + €99/mo",
           badge: "Easy entry",
           features: [
             "Landing page up to 5 sections",
@@ -464,7 +471,7 @@ export const translations = {
           name: "Web Pro",
           description:
             "For businesses that want a more complete website focused on getting contacts.",
-          price: "€990 + €149/mo",
+          price: "From €990 + €149/mo",
           badge: "Best option",
           features: [
             "Up to 5 pages or advanced sections",
@@ -482,7 +489,7 @@ export const translations = {
         {
           name: "Local System",
           description: "For businesses that want website, follow-up, and more control over contacts.",
-          price: "€1,490 + €249/mo",
+          price: "From €1,490 + €249/mo",
           badge: "",
           features: [
             "Everything in Web Pro",
@@ -498,7 +505,14 @@ export const translations = {
           highlighted: false,
         },
       ],
-      adManagementNote: "More complex projects, ecommerce, or apps are quoted separately.",
+      customProject: {
+        title: "Need something bigger?",
+        body:
+          "Ecommerce, large corporate websites, integrations, or company projects are quoted custom from €2,900.",
+        cta: "Request proposal",
+        href: "/#booking",
+      },
+      adManagementNote: "Ecommerce, apps, advanced integrations, or large company projects are quoted separately.",
     },
     addons: {
       eyebrow: "Extras",

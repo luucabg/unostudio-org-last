@@ -31,6 +31,8 @@ export function PricingSection() {
           {t.pricing.plans.map((plan, index) => {
             const [setupPrice, monthlyPrice] = plan.price.split(" + ")
             const setupParts = setupPrice.match(/^(Desde|From)\s(.+)$/)
+            const setupLabel = setupParts ? setupParts[1] : null
+            const setupAmount = setupParts ? setupParts[2] : setupPrice
             const href = stripePaymentLinks[plan.name] || plan.href
             const isExternal = href.startsWith("http")
 
@@ -66,17 +68,13 @@ export function PricingSection() {
 
                   <div className="relative mb-5">
                     <div className="font-display leading-none text-zinc-50">
-                      <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
-                        <p className="text-4xl font-bold tracking-tight md:text-5xl">
-                          {setupParts ? (
-                            <>
-                              <span className="mr-2">{setupParts[1]}</span>
-                              <span>{setupParts[2]}</span>
-                            </>
-                          ) : (
-                            setupPrice
-                          )}
+                      {setupLabel ? (
+                        <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-500">
+                          {setupLabel}
                         </p>
+                      ) : null}
+                      <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
+                        <p className="text-4xl font-bold tracking-tight md:text-5xl">{setupAmount}</p>
                         {monthlyPrice ? (
                           <p className="pb-1 text-sm font-semibold text-zinc-400">+ {monthlyPrice}</p>
                         ) : null}
@@ -116,6 +114,21 @@ export function PricingSection() {
             )
           })}
         </div>
+
+        <ScrollReveal delay={120}>
+          <div className="mx-auto mt-6 flex max-w-3xl flex-col items-center gap-4 rounded-lg border border-[#38b6ff]/25 bg-[radial-gradient(circle_at_50%_-30%,rgba(56,182,255,0.16),rgba(9,9,11,0.84)_52%)] p-5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:flex-row sm:justify-between sm:text-left">
+            <div>
+              <p className="text-sm font-semibold text-zinc-100">{t.pricing.customProject.title}</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-400">{t.pricing.customProject.body}</p>
+            </div>
+            <a
+              href={t.pricing.customProject.href}
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#38b6ff] px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-[#6ac9ff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38b6ff]"
+            >
+              {t.pricing.customProject.cta}
+            </a>
+          </div>
+        </ScrollReveal>
 
         <ScrollReveal delay={120}>
           <div className="mx-auto mt-6 max-w-3xl rounded-lg border border-zinc-800/70 bg-zinc-950/60 px-5 py-4 text-center">

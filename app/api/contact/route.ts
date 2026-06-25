@@ -22,10 +22,11 @@ const allowedServices = new Set([
   "Web Esencial",
   "Web Pro",
   "Sistema Local",
+  "Proyecto a medida",
   "Mantenimiento web",
   "Otro",
 ])
-const allowedBudgets = new Set(["Demo gratuita", "490-990 €", "990-1.490 €", "1.490 €+", "No lo sé"])
+const allowedBudgets = new Set(["Demo gratuita", "490-990 €", "990-1.490 €", "1.490 €+", "2.900 €+", "No lo sé"])
 const allowedUrgencies = new Set(["Este mes", "1-2 meses", "Más adelante"])
 
 function text(formData: FormData, key: string, max = 4000) {

@@ -130,6 +130,7 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option>Web Esencial</option>
                   <option>Web Pro</option>
                   <option>Sistema Local</option>
+                  <option>Proyecto a medida</option>
                   <option>Mantenimiento web</option>
                   <option>Otro</option>
                 </select>
@@ -143,6 +144,7 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option>490-990 €</option>
                   <option>990-1.490 €</option>
                   <option>1.490 €+</option>
+                  <option>2.900 €+</option>
                   <option>No lo sé</option>
                 </select>
               </Field>

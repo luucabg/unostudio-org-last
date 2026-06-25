@@ -127,6 +127,7 @@ const structuredData = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Esencial" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Pro" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema Local" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Proyecto a medida" } },
     ],
   },
 }
