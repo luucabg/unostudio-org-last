@@ -14,10 +14,10 @@ export const translations = {
       bookCall: "Pedir demo gratis",
     },
     hero: {
-      badge: "Webs para conseguir presupuestos, no solo visitas",
-      title: "Una web clara para que más clientes te pidan presupuesto.",
+      badge: "Webs para conseguir contactos, no solo visitas",
+      title: "Una web clara para que más clientes te contacten.",
       subtitle:
-        "Diseñamos webs rápidas para reformas, interiorismo, arquitectura e inmobiliarias. Claras, modernas y preparadas para recibir contactos por WhatsApp o formulario.",
+        "Creamos webs rápidas, modernas y fáciles de entender para negocios locales y profesionales que quieren recibir más solicitudes por WhatsApp, formulario o llamada.",
       primaryCta: "Pedir demo gratis",
       secondaryCta: "Ver ejemplos",
       proofPoints: [
@@ -28,9 +28,9 @@ export const translations = {
     },
     projects: {
       eyebrow: "Ejemplos",
-      title: "Algunas webs que ya he creado.",
+      title: "Webs para negocios que necesitan verse mejor y recibir más contactos.",
       body:
-        "Diseño, estructura y textos pensados para que el negocio se entienda mejor y sea más fácil contactar.",
+        "He trabajado diseños para reformas, interiorismo, hostelería, ecommerce y proyectos digitales. La idea siempre es la misma: que el negocio se entienda rápido y sea fácil contactar.",
       cta: "Ver proyectos",
       items: [
         {
@@ -290,10 +290,10 @@ export const translations = {
       bookCall: "Request free demo",
     },
     hero: {
-      badge: "Websites to get quote requests, not only visits",
-      title: "A clear website so more clients ask you for quotes.",
+      badge: "Websites to get contacts, not only visits",
+      title: "A clear website so more clients contact you.",
       subtitle:
-        "We design fast websites for renovations, interior design, architecture, and real estate. Clear, modern, and ready to receive contacts by WhatsApp or form.",
+        "We create fast, modern, easy-to-understand websites for local businesses and professionals that want more requests by WhatsApp, form, or phone.",
       primaryCta: "Request free demo",
       secondaryCta: "View examples",
       proofPoints: [
@@ -304,9 +304,9 @@ export const translations = {
     },
     projects: {
       eyebrow: "Examples",
-      title: "Some websites I have already created.",
+      title: "Websites for businesses that need to look better and receive more contacts.",
       body:
-        "Design, structure, and copy made so the business is easier to understand and contact.",
+        "I have worked on designs for renovations, interior design, hospitality, ecommerce, and digital projects. The idea is always the same: make the business easy to understand and easy to contact.",
       cta: "View projects",
       items: [
         {
