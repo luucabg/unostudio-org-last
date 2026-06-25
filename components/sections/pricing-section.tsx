@@ -14,17 +14,20 @@ export function PricingSection() {
   const { t } = useI18n()
 
   return (
-    <section id="pricing" className="px-6 py-20">
-      <div className="mx-auto max-w-6xl">
+    <section id="pricing" className="relative overflow-hidden px-6 py-20">
+      <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-64 max-w-4xl rounded-full bg-[#38b6ff]/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,182,255,0.06),transparent_42%)]" />
+
+      <div className="relative mx-auto max-w-6xl">
         <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-sky-300">{t.pricing.eyebrow}</p>
-          <h2 className="mb-3 whitespace-pre-line font-display text-3xl font-bold leading-tight text-zinc-100 md:text-4xl">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-[#38b6ff]">{t.pricing.eyebrow}</p>
+          <h2 className="mb-3 whitespace-pre-line font-display text-4xl font-bold leading-tight text-zinc-100 md:text-5xl">
             {t.pricing.title}
           </h2>
           <p className="mx-auto max-w-xl text-sm leading-relaxed text-zinc-500 md:text-base">{t.pricing.body}</p>
         </ScrollReveal>
 
-        <div className="grid gap-4 lg:grid-cols-[0.94fr_1.06fr_0.94fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.94fr_1.06fr_0.94fr]">
           {t.pricing.plans.map((plan, index) => {
             const [setupPrice, monthlyPrice] = plan.price.split(" + ")
             const setupParts = setupPrice.match(/^(Desde|From)\s(.+)$/)
@@ -34,17 +37,21 @@ export function PricingSection() {
             return (
               <ScrollReveal key={plan.name} delay={index * 100} className="h-full">
                 <div
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-lg border p-5 transition duration-300 hover:-translate-y-1 ${
-                  plan.highlighted
-                    ? "border-sky-200/50 bg-[linear-gradient(180deg,rgba(56,64,83,0.88),rgba(32,36,46,0.96))] shadow-[0_22px_70px_-36px_rgba(125,211,252,0.55),inset_0_1px_0_rgba(255,255,255,0.16)]"
-                    : "border-zinc-800/80 bg-zinc-950/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
-                }`}
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-lg border p-6 transition duration-300 hover:-translate-y-1 ${
+                    plan.highlighted
+                      ? "border-[#38b6ff]/60 bg-[radial-gradient(circle_at_50%_-18%,rgba(56,182,255,0.36),rgba(10,29,38,0.72)_30%,rgba(12,13,17,0.96)_78%)] shadow-[0_0_70px_-28px_rgba(56,182,255,0.9),0_22px_70px_-42px_rgba(56,182,255,0.65),inset_0_1px_0_rgba(255,255,255,0.14)]"
+                      : "border-white/10 bg-[radial-gradient(circle_at_50%_-12%,rgba(255,255,255,0.08),rgba(18,18,22,0.82)_28%,rgba(10,10,12,0.94)_76%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                  }`}
                 >
+                  {plan.highlighted ? (
+                    <div className="pointer-events-none absolute inset-x-10 -top-10 h-24 rounded-full bg-[#38b6ff]/45 blur-2xl" />
+                  ) : null}
+
                   {plan.badge ? (
                     <span
-                      className={`absolute right-4 top-4 rounded-md border px-2 py-0.5 text-[10px] font-semibold ${
+                      className={`absolute right-4 top-4 rounded-full border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wide ${
                         plan.highlighted
-                          ? "border-sky-200/35 bg-sky-300/15 text-sky-100"
+                          ? "border-[#38b6ff]/35 bg-[#38b6ff]/15 text-[#d9f3ff]"
                           : "border-white/10 bg-white/5 text-zinc-300"
                       }`}
                     >
@@ -52,36 +59,50 @@ export function PricingSection() {
                     </span>
                   ) : null}
 
-                  <div className="mb-4 min-h-9 pr-24">
+                  <div className="relative mb-6 min-h-12 pr-24">
                     <h3 className="text-lg font-semibold text-zinc-100">{plan.name}</h3>
+                    <p className="mt-1 text-[11px] text-zinc-500">{t.pricing.billingPrimary}</p>
                   </div>
 
-                  <div className="mb-4">
-                    <div className="font-display leading-tight text-zinc-50">
-                      <p className="text-2xl font-bold md:text-3xl">
-                        {setupParts ? (
-                          <>
-                            <span className="mr-2">{setupParts[1]}</span>
-                            <span>{setupParts[2]}</span>
-                          </>
-                        ) : (
-                          setupPrice
-                        )}
-                      </p>
-                      {monthlyPrice ? (
-                        <p className="mt-1.5 text-xl font-bold text-zinc-200 md:text-2xl">+ {monthlyPrice}</p>
-                      ) : null}
+                  <div className="relative mb-5">
+                    <div className="font-display leading-none text-zinc-50">
+                      <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
+                        <p className="text-4xl font-bold tracking-tight md:text-5xl">
+                          {setupParts ? (
+                            <>
+                              <span className="mr-2">{setupParts[1]}</span>
+                              <span>{setupParts[2]}</span>
+                            </>
+                          ) : (
+                            setupPrice
+                          )}
+                        </p>
+                        {monthlyPrice ? (
+                          <p className="pb-1 text-sm font-semibold text-zinc-400">+ {monthlyPrice}</p>
+                        ) : null}
+                      </div>
                     </div>
                     <p className="mt-3 min-h-12 text-xs leading-5 text-zinc-400">{plan.description}</p>
                   </div>
+
+                  <ul className="relative flex flex-1 flex-col gap-2 border-t border-white/10 pt-5">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <span className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full border border-[#38b6ff]/40 bg-[#38b6ff]/10">
+                          <Check className="h-2.5 w-2.5 text-[#38b6ff]" strokeWidth={2.2} />
+                        </span>
+                        <span className="text-xs leading-5 text-zinc-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
                   <a
                     href={href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noreferrer" : undefined}
-                    className={`mb-5 inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2.5 text-center text-xs font-semibold transition duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 ${
+                    className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-center text-xs font-semibold transition duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38b6ff] ${
                       plan.highlighted
-                        ? "bg-zinc-100 text-zinc-950 hover:bg-white"
+                        ? "bg-[#38b6ff] text-zinc-950 shadow-[0_0_30px_-10px_rgba(56,182,255,0.9)] hover:bg-[#6ac9ff]"
                         : "bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
                     }`}
                     aria-label={`${plan.cta}: ${plan.name}`}
@@ -89,16 +110,7 @@ export function PricingSection() {
                     <span>{plan.cta}</span>
                     <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
                   </a>
-                  <p className="mb-5 min-h-8 text-center text-[11px] leading-5 text-zinc-500">{plan.paymentNote}</p>
-
-                  <ul className="flex flex-1 flex-col gap-1.5">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sky-300" strokeWidth={1.9} />
-                        <span className="text-xs leading-5 text-zinc-300">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="mt-3 min-h-8 text-center text-[11px] leading-5 text-zinc-500">{plan.paymentNote}</p>
                 </div>
               </ScrollReveal>
             )

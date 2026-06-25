@@ -86,7 +86,7 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
             className="rounded-lg border border-zinc-800/80 bg-zinc-950/75 p-5 shadow-[0_24px_80px_-48px_rgba(125,211,252,0.45),inset_0_1px_0_rgba(255,255,255,0.05)] md:p-8"
           >
             {sent ? (
-              <div className="mb-6 rounded-lg border border-emerald-400/25 bg-emerald-400/10 p-4 text-sm leading-6 text-emerald-100">
+              <div className="mb-6 rounded-lg border border-[#38b6ff]/25 bg-[#38b6ff]/10 p-4 text-sm leading-6 text-sky-100">
                 Solicitud enviada. Te responderemos con el siguiente paso en cuanto revisemos el contexto.
               </div>
             ) : null}
