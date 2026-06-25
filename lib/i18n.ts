@@ -14,21 +14,21 @@ export const translations = {
       bookCall: "Pedir demo gratis",
     },
     hero: {
-      badge: "Webs para conseguir contactos, no solo visitas",
-      title: "Una web clara para que más clientes te pidan presupuesto, reserva o llamada.",
+      badge: "Webs que convierten visitas en contactos",
+      title: "Una web clara para que más clientes te pidan presupuesto o reserva.",
       subtitle:
-        "Creamos webs rápidas para negocios locales y profesionales. Diseño moderno, textos claros y contacto preparado por WhatsApp o formulario.",
+        "Creamos webs rápidas para negocios locales y profesionales: diseño moderno, textos claros y contacto preparado por WhatsApp, formulario o llamada.",
       primaryCta: "Pedir demo gratis",
       secondaryCta: "Ver ejemplos",
       proofPoints: [
         "Demo visual personalizada",
         "Lista en 7-10 días",
-        "Desde 490€",
+        "Desde 490€ + 99€/mes",
       ],
     },
     projects: {
       eyebrow: "Ejemplos",
-      title: "Algunas webs que ya he creado.",
+      title: "Ejemplos de webs creadas para negocios reales.",
       body:
         "Diseños pensados para que el negocio se entienda rápido, se vea mejor y sea más fácil contactar.",
       cta: "Ver proyectos",
@@ -128,7 +128,7 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Precios",
-      title: "Precios claros para empezar sin vueltas.",
+      title: "Precios claros para empezar con una web profesional.",
       body:
         "Puedes pedir una demo gratis antes de decidir. Si ya lo tienes claro, puedes reservar plaza con una señal descontable.",
       reservationNote:
@@ -152,7 +152,7 @@ export const translations = {
             "Formulario de contacto",
             "Alojamiento incluido",
           ],
-          cta: "Pedir demo",
+          cta: "Reservar por 99€",
           paymentNote: "Se descuenta del precio final.",
           href: "/#booking",
           highlighted: false,
@@ -160,7 +160,7 @@ export const translations = {
         {
           name: "Web Pro",
           description:
-            "Para negocios que quieren una web más completa y enfocada a presupuestos.",
+            "Para negocios que quieren una web más completa y enfocada a conseguir contactos.",
           price: "990€ + 149€/mes",
           badge: "Mejor opción",
           features: [
@@ -171,7 +171,7 @@ export const translations = {
             "Analítica básica",
             "Soporte prioritario",
           ],
-          cta: "Pedir demo",
+          cta: "Reservar por 149€",
           paymentNote: "Se descuenta del precio final.",
           href: "/#booking",
           highlighted: true,
@@ -199,9 +199,9 @@ export const translations = {
     },
     addons: {
       eyebrow: "Extras",
-      title: "Puedes empezar simple y añadir más después.",
+      title: "Empieza con la web y añade más cuando tenga sentido.",
       body:
-        "Primero dejamos la web clara y funcionando. Si el negocio lo necesita, añadimos sistemas para ordenar contactos, automatizar seguimiento o captar más tráfico.",
+        "Primero dejamos la web clara y funcionando. Después podemos añadir sistemas para ordenar contactos, hacer seguimiento o atraer más tráfico.",
       items: [
         {
           name: "Panel de solicitudes",
@@ -219,7 +219,7 @@ export const translations = {
           body: "Mensajes y enlaces para pedir reseñas después de cada trabajo.",
         },
         {
-          name: "Ads local",
+          name: "Anuncios locales",
           price: "350€/mes + inversión",
           body: "Gestión básica de campañas cuando la web ya está preparada.",
         },
@@ -257,7 +257,7 @@ export const translations = {
         },
         {
           question: "¿Tengo que pagar todo al principio?",
-          answer: "No. Puedes reservar con una señal y el resto se confirma después.",
+          answer: "No. Puedes pedir una demo gratis o reservar plaza con una señal descontable.",
         },
         {
           question: "¿La demo es gratis?",
@@ -317,21 +317,21 @@ export const translations = {
       bookCall: "Request free demo",
     },
     hero: {
-      badge: "Websites to get contacts, not only visits",
-      title: "A clear website so more clients ask for a quote, booking, or call.",
+      badge: "Websites that turn visits into contacts",
+      title: "A clear website so more clients ask for a quote or booking.",
       subtitle:
-        "We create fast websites for local businesses and professionals. Modern design, clear copy, and contact prepared by WhatsApp or form.",
+        "We create fast websites for local businesses and professionals: modern design, clear copy, and contact prepared by WhatsApp, form, or call.",
       primaryCta: "Request free demo",
       secondaryCta: "View examples",
       proofPoints: [
         "Personalized visual demo",
         "Ready in 7-10 days",
-        "From €490",
+        "From €490 + €99/mo",
       ],
     },
     projects: {
       eyebrow: "Examples",
-      title: "Some websites I have already created.",
+      title: "Examples of websites created for real businesses.",
       body:
         "Designs made so the business is understood quickly, looks better, and is easier to contact.",
       cta: "View projects",
@@ -431,7 +431,7 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Pricing",
-      title: "Clear pricing to start without overthinking.",
+      title: "Clear pricing to start with a professional website.",
       body:
         "You can request a free demo before deciding. If you already have it clear, you can reserve your spot with a deductible deposit.",
       reservationNote:
@@ -455,7 +455,7 @@ export const translations = {
             "Contact form",
             "Hosting included",
           ],
-          cta: "Request demo",
+          cta: "Reserve for €99",
           paymentNote: "Deducted from final price.",
           href: "/#booking",
           highlighted: false,
@@ -463,7 +463,7 @@ export const translations = {
         {
           name: "Web Pro",
           description:
-            "For businesses that want a more complete website focused on quote requests.",
+            "For businesses that want a more complete website focused on getting contacts.",
           price: "€990 + €149/mo",
           badge: "Best option",
           features: [
@@ -474,7 +474,7 @@ export const translations = {
             "Basic analytics",
             "Priority support",
           ],
-          cta: "Request demo",
+          cta: "Reserve for €149",
           paymentNote: "Deducted from final price.",
           href: "/#booking",
           highlighted: true,
@@ -502,9 +502,9 @@ export const translations = {
     },
     addons: {
       eyebrow: "Extras",
-      title: "Start simple and add more later.",
+      title: "Start with the website and add more when it makes sense.",
       body:
-        "First we make the website clear and functional. If needed, we add systems to organize leads, automate follow-up or bring more traffic.",
+        "First we make the website clear and functional. Then we can add systems to organize contacts, follow up, or bring more traffic.",
       items: [
         {
           name: "Lead panel",
@@ -560,7 +560,7 @@ export const translations = {
         },
         {
           question: "Do I have to pay everything upfront?",
-          answer: "No. You can reserve with a deposit and confirm the rest later.",
+          answer: "No. You can request a free demo or reserve your spot with a deductible deposit.",
         },
         {
           question: "Is the demo free?",
