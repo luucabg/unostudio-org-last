@@ -160,7 +160,7 @@ export const translations = {
           name: "Web Esencial",
           description: "Para negocios que necesitan una web profesional sin complicarse.",
           price: "Desde 490€ + 99€/mes",
-          badge: "Entrada fácil",
+          badge: "Para empezar",
           features: [
             "Landing de hasta 5 secciones",
             "Diseño responsive",
@@ -170,7 +170,7 @@ export const translations = {
             "Alojamiento incluido",
           ],
           cta: "Reservar por 99€",
-          paymentNote: "Se descuenta del precio final.",
+          paymentNote: "Reserva descontable del proyecto.",
           href: "/#booking",
           highlighted: false,
         },
@@ -179,7 +179,7 @@ export const translations = {
           description:
             "Para negocios que quieren una web más completa y enfocada a conseguir contactos.",
           price: "Desde 990€ + 149€/mes",
-          badge: "Mejor opción",
+          badge: "Recomendado",
           features: [
             "Hasta 5 páginas o secciones avanzadas",
             "Estructura comercial completa",
@@ -189,7 +189,7 @@ export const translations = {
             "Soporte prioritario",
           ],
           cta: "Reservar por 149€",
-          paymentNote: "Se descuenta del precio final.",
+          paymentNote: "Reserva descontable del proyecto.",
           href: "/#booking",
           highlighted: true,
         },
@@ -488,7 +488,7 @@ export const translations = {
           name: "Essential Web",
           description: "For businesses that need a professional website without overcomplicating it.",
           price: "From €490 + €99/mo",
-          badge: "Easy entry",
+          badge: "Starter",
           features: [
             "Landing page up to 5 sections",
             "Responsive design",
@@ -498,7 +498,7 @@ export const translations = {
             "Hosting included",
           ],
           cta: "Reserve for €99",
-          paymentNote: "Deducted from final price.",
+          paymentNote: "Deductible project reservation.",
           href: "/#booking",
           highlighted: false,
         },
@@ -507,7 +507,7 @@ export const translations = {
           description:
             "For businesses that want a more complete website focused on getting contacts.",
           price: "From €990 + €149/mo",
-          badge: "Best option",
+          badge: "Recommended",
           features: [
             "Up to 5 pages or advanced sections",
             "Complete commercial structure",
@@ -517,7 +517,7 @@ export const translations = {
             "Priority support",
           ],
           cta: "Reserve for €149",
-          paymentNote: "Deducted from final price.",
+          paymentNote: "Deductible project reservation.",
           href: "/#booking",
           highlighted: true,
         },
