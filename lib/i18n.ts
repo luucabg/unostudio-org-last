@@ -197,6 +197,34 @@ export const translations = {
       ],
       adManagementNote: "Proyectos más complejos, ecommerce o apps se presupuestan aparte.",
     },
+    addons: {
+      eyebrow: "Extras",
+      title: "Puedes empezar simple y añadir más después.",
+      body:
+        "Primero dejamos la web clara y funcionando. Si el negocio lo necesita, añadimos sistemas para ordenar contactos, automatizar seguimiento o captar más tráfico.",
+      items: [
+        {
+          name: "Panel de solicitudes",
+          price: "390€ + 49€/mes",
+          body: "Contactos ordenados por nombre, servicio, estado y próxima acción.",
+        },
+        {
+          name: "Seguimiento automático",
+          price: "490€ + 79€/mes",
+          body: "Recordatorios y mensajes preparados para no perder interesados.",
+        },
+        {
+          name: "Sistema de reseñas",
+          price: "290€ + 39€/mes",
+          body: "Mensajes y enlaces para pedir reseñas después de cada trabajo.",
+        },
+        {
+          name: "Ads local",
+          price: "350€/mes + inversión",
+          body: "Gestión básica de campañas cuando la web ya está preparada.",
+        },
+      ],
+    },
     booking: {
       eyebrow: "Demo gratis",
       title: "Pide una demo para tu negocio.",
@@ -471,6 +499,34 @@ export const translations = {
         },
       ],
       adManagementNote: "More complex projects, ecommerce, or apps are quoted separately.",
+    },
+    addons: {
+      eyebrow: "Extras",
+      title: "Start simple and add more later.",
+      body:
+        "First we make the website clear and functional. If needed, we add systems to organize leads, automate follow-up or bring more traffic.",
+      items: [
+        {
+          name: "Lead panel",
+          price: "€390 + €49/mo",
+          body: "Contacts organized by name, service, status and next action.",
+        },
+        {
+          name: "Automated follow-up",
+          price: "€490 + €79/mo",
+          body: "Reminders and prepared messages so interested people are not lost.",
+        },
+        {
+          name: "Review system",
+          price: "€290 + €39/mo",
+          body: "Messages and links to request reviews after each job.",
+        },
+        {
+          name: "Local ads",
+          price: "€350/mo + ad spend",
+          body: "Basic campaign management once the website is ready.",
+        },
+      ],
     },
     booking: {
       eyebrow: "Free demo",
