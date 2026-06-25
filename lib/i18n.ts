@@ -46,7 +46,7 @@ export const translations = {
           type: "Interiorismo",
           url: "https://mochastudio.es",
           displayUrl: "mochastudio.es",
-          image: "/projects/mocha-studio.jpg",
+          image: "/projects/mocha-studio.png",
           points: ["Imagen premium", "Diseño limpio", "Confianza visual"],
         },
         {
@@ -54,7 +54,7 @@ export const translations = {
           type: "Hostelería",
           url: "https://bierwinkelcampanar.es",
           displayUrl: "bierwinkelcampanar.es",
-          image: "/projects/bierwinkel-campanar.jpg",
+          image: "/projects/bierwinkel-campanar.png",
           points: ["Carta y reservas", "Ubicación clara", "Móvil optimizado"],
         },
         {
@@ -62,7 +62,7 @@ export const translations = {
           type: "Turismo",
           url: "https://kavkasionitours.com",
           displayUrl: "kavkasionitours.com",
-          image: "/projects/kavkasioni-tours.jpg",
+          image: "/projects/kavkasioni-tours.png",
           points: ["Imagen inmersiva", "Reserva clara", "Experiencia premium"],
         },
       ],
@@ -244,8 +244,9 @@ export const translations = {
         },
         {
           name: "Anuncios locales",
-          price: "350€/mes + inversión",
-          body: "Gestión básica de campañas cuando la web ya está preparada.",
+          price: "Desde 350€/mes + inversión",
+          body:
+            "Campañas básicas para atraer contactos cuando la web ya está preparada. Puede añadirse bonus por resultados si hay medición clara.",
         },
       ],
     },
@@ -373,7 +374,7 @@ export const translations = {
           type: "Interior design",
           url: "https://mochastudio.es",
           displayUrl: "mochastudio.es",
-          image: "/projects/mocha-studio.jpg",
+          image: "/projects/mocha-studio.png",
           points: ["Premium image", "Clean design", "Visual trust"],
         },
         {
@@ -381,7 +382,7 @@ export const translations = {
           type: "Hospitality",
           url: "https://bierwinkelcampanar.es",
           displayUrl: "bierwinkelcampanar.es",
-          image: "/projects/bierwinkel-campanar.jpg",
+          image: "/projects/bierwinkel-campanar.png",
           points: ["Menu and bookings", "Clear location", "Mobile optimized"],
         },
         {
@@ -389,7 +390,7 @@ export const translations = {
           type: "Tourism",
           url: "https://kavkasionitours.com",
           displayUrl: "kavkasionitours.com",
-          image: "/projects/kavkasioni-tours.jpg",
+          image: "/projects/kavkasioni-tours.png",
           points: ["Immersive image", "Clear booking", "Premium experience"],
         },
       ],
@@ -571,8 +572,9 @@ export const translations = {
         },
         {
           name: "Local ads",
-          price: "€350/mo + ad spend",
-          body: "Basic campaign management once the website is ready.",
+          price: "From €350/mo + ad spend",
+          body:
+            "Basic campaigns to attract contacts once the website is ready. A results bonus can be added when tracking is clear.",
         },
       ],
     },
