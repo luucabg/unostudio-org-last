@@ -14,9 +14,10 @@ export function PricingSection() {
   const { t } = useI18n()
 
   return (
-    <section id="pricing" className="relative overflow-hidden px-6 py-20">
-      <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-64 max-w-4xl rounded-full bg-[#38b6ff]/10 blur-3xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,182,255,0.06),transparent_42%)]" />
+    <section id="pricing" className="relative overflow-hidden px-6 py-24 md:py-28">
+      <div className="pointer-events-none absolute inset-x-0 -top-28 bottom-[-7rem] bg-[linear-gradient(180deg,transparent_0%,rgba(4,11,15,0.74)_18%,rgba(4,11,15,0.72)_76%,transparent_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 -top-16 mx-auto h-[30rem] max-w-5xl rounded-full bg-[#38b6ff]/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,182,255,0.08),rgba(56,182,255,0.025)_34%,transparent_68%)]" />
 
       <div className="relative mx-auto max-w-6xl">
         <ScrollReveal className="mx-auto mb-10 max-w-2xl text-center">
@@ -38,10 +39,18 @@ export function PricingSection() {
 
             return (
               <ScrollReveal key={plan.name} delay={index * 100} className="h-full">
+                <div className="group relative h-full">
+                  {plan.highlighted ? (
+                    <>
+                      <div className="pointer-events-none absolute -inset-8 rounded-[1.4rem] bg-[conic-gradient(from_0deg,transparent_0_18%,rgba(56,182,255,0.72)_32%,transparent_46%,rgba(56,182,255,0.36)_66%,transparent_82%_100%)] opacity-0 blur-2xl transition duration-500 group-hover:opacity-80 motion-safe:animate-[pricing-aura-spin_7s_linear_infinite]" />
+                      <div className="pointer-events-none absolute -inset-4 rounded-[1.1rem] bg-[#38b6ff]/18 opacity-0 blur-xl transition duration-500 group-hover:opacity-70 motion-safe:group-hover:animate-[pricing-aura-pulse_2.8s_ease-in-out_infinite]" />
+                    </>
+                  ) : null}
+
                 <div
                   className={`group relative flex h-full flex-col overflow-hidden rounded-lg border p-6 transition duration-300 hover:-translate-y-1 ${
                     plan.highlighted
-                      ? "border-[#38b6ff]/60 bg-[radial-gradient(circle_at_50%_-18%,rgba(56,182,255,0.36),rgba(10,29,38,0.72)_30%,rgba(12,13,17,0.96)_78%)] shadow-[0_0_70px_-28px_rgba(56,182,255,0.9),0_22px_70px_-42px_rgba(56,182,255,0.65),inset_0_1px_0_rgba(255,255,255,0.14)]"
+                      ? "border-[#38b6ff]/60 bg-[radial-gradient(circle_at_50%_-18%,rgba(56,182,255,0.36),rgba(10,29,38,0.72)_30%,rgba(12,13,17,0.96)_78%)] shadow-[0_0_70px_-28px_rgba(56,182,255,0.9),0_22px_70px_-42px_rgba(56,182,255,0.65),inset_0_1px_0_rgba(255,255,255,0.14)] group-hover:border-[#38b6ff]/85 group-hover:shadow-[0_0_90px_-24px_rgba(56,182,255,0.95),0_0_34px_-12px_rgba(56,182,255,0.85),inset_0_1px_0_rgba(255,255,255,0.18)]"
                       : "border-white/10 bg-[radial-gradient(circle_at_50%_-12%,rgba(255,255,255,0.08),rgba(18,18,22,0.82)_28%,rgba(10,10,12,0.94)_76%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
                   }`}
                 >
@@ -74,7 +83,7 @@ export function PricingSection() {
                         </p>
                       ) : null}
                       <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
-                        <p className="text-4xl font-bold tracking-tight md:text-5xl">{setupAmount}</p>
+                        <p className="text-3xl font-bold tracking-tight md:text-4xl">{setupAmount}</p>
                         {monthlyPrice ? (
                           <p className="pb-1 text-sm font-semibold text-zinc-400">+ {monthlyPrice}</p>
                         ) : null}
@@ -109,6 +118,7 @@ export function PricingSection() {
                     <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
                   </a>
                   <p className="mt-3 min-h-8 text-center text-[11px] leading-5 text-zinc-500">{plan.paymentNote}</p>
+                </div>
                 </div>
               </ScrollReveal>
             )
