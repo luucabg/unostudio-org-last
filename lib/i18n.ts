@@ -15,9 +15,9 @@ export const translations = {
     },
     hero: {
       badge: "Webs para conseguir contactos, no solo visitas",
-      title: "Una web clara para que más clientes te contacten.",
+      title: "Una web clara para que más clientes te pidan presupuesto, reserva o llamada.",
       subtitle:
-        "Creamos webs rápidas, modernas y fáciles de entender para negocios locales y profesionales que quieren recibir más solicitudes por WhatsApp, formulario o llamada.",
+        "Creamos webs rápidas para negocios locales y profesionales. Diseño moderno, textos claros y contacto preparado por WhatsApp o formulario.",
       primaryCta: "Pedir demo gratis",
       secondaryCta: "Ver ejemplos",
       proofPoints: [
@@ -28,9 +28,9 @@ export const translations = {
     },
     projects: {
       eyebrow: "Ejemplos",
-      title: "Webs para negocios que necesitan verse mejor y recibir más contactos.",
+      title: "Algunas webs que ya he creado.",
       body:
-        "He trabajado diseños para reformas, interiorismo, hostelería, ecommerce y proyectos digitales. La idea siempre es la misma: que el negocio se entienda rápido y sea fácil contactar.",
+        "Diseños pensados para que el negocio se entienda rápido, se vea mejor y sea más fácil contactar.",
       cta: "Ver proyectos",
       items: [
         {
@@ -85,30 +85,29 @@ export const translations = {
     },
     features: {
       eyebrow: "Qué incluye",
-      title: "Todo lo necesario para tener una web que no sea solo bonita.",
+      title: "Una web bonita no basta. Tiene que explicar y facilitar el contacto.",
       body:
-        "La idea es simple: que la persona entienda tu negocio, confíe y pueda contactar rápido.",
+        "Creamos una web clara, rápida y preparada para que el cliente entienda qué haces y pueda contactar sin perderse.",
       items: [
         {
           title: "Diseño web",
           body: "Web moderna, rápida y adaptada a móvil.",
         },
         {
-          title: "Textos comerciales",
+          title: "Textos claros",
           body: "Explicamos qué haces, para quién y por qué elegirte.",
         },
         {
-          title: "WhatsApp y formulario",
-          body: "Contacto fácil con mensajes preparados para pedir presupuesto.",
+          title: "Contacto preparado",
+          body: "WhatsApp y formulario pensados para recibir solicitudes con contexto.",
         },
         {
           title: "Mantenimiento",
-          body: "Alojamiento, soporte y pequeños cambios mensuales.",
+          body: "Alojamiento, soporte técnico y pequeños cambios mensuales.",
         },
       ],
-      experienceTitle: "Web, diseño y contenido en un mismo sitio",
-      experienceBody:
-        "Uno Studio combina diseño web, copy, edición visual y automatización simple para crear webs rápidas y enfocadas a recibir contactos.",
+      experienceTitle: "",
+      experienceBody: "",
     },
     audience: {
       eyebrow: "Para quién es",
@@ -129,14 +128,14 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Precios",
-      title: "Empieza con una web clara, rápida y mantenida.",
+      title: "Precios claros para empezar sin vueltas.",
       body:
         "Puedes pedir una demo gratis antes de decidir. Si ya lo tienes claro, puedes reservar plaza con una señal descontable.",
       reservationNote:
-        "La reserva se descuenta del precio final. Si el proyecto no encaja con el servicio, se devuelve el importe.",
+        "La reserva se descuenta del precio final. Si tras revisar el negocio no encaja con el servicio, se devuelve.",
       refundNote: "",
       billingPrimary: "Pago inicial + mantenimiento",
-      minimumNote: "Mantenimiento mínimo de 3 meses. Después puedes seguir mes a mes.",
+      minimumNote: "Mínimo 3 meses. Después puedes seguir mes a mes.",
       monthlyNote:
         "La mensualidad incluye alojamiento, mantenimiento técnico, soporte y pequeños cambios.",
       plans: [
@@ -153,7 +152,7 @@ export const translations = {
             "Formulario de contacto",
             "Alojamiento incluido",
           ],
-          cta: "Reservar por 99€",
+          cta: "Pedir demo",
           paymentNote: "Se descuenta del precio final.",
           href: "/#booking",
           highlighted: false,
@@ -172,7 +171,7 @@ export const translations = {
             "Analítica básica",
             "Soporte prioritario",
           ],
-          cta: "Reservar por 149€",
+          cta: "Pedir demo",
           paymentNote: "Se descuenta del precio final.",
           href: "/#booking",
           highlighted: true,
@@ -200,10 +199,10 @@ export const translations = {
     },
     booking: {
       eyebrow: "Demo gratis",
-      title: "Enséñame tu negocio y te preparo una idea visual.",
+      title: "Pide una demo para tu negocio.",
       body:
-        "Déjame tu web, Instagram o una breve explicación. Te diré qué mejoraría y cómo podría quedar una web más clara.",
-      bullets: ["Sin compromiso", "Demo visual", "Respuesta clara"],
+        "Déjame tu web, Instagram o una breve explicación. Te responderé con una idea clara de cómo podría mejorar tu presencia online.",
+      bullets: ["Sin compromiso", "Idea visual", "Respuesta clara"],
       cta: "Quiero mi demo gratis",
       whatsappCta: "Prefiero hablar por WhatsApp",
       form: {
@@ -212,7 +211,7 @@ export const translations = {
         website: "Web o Instagram",
         phone: "WhatsApp",
         need: "Qué quieres mejorar",
-        submit: "Enviar solicitud",
+        submit: "Pedir demo gratis",
       },
     },
     faq: {
@@ -291,9 +290,9 @@ export const translations = {
     },
     hero: {
       badge: "Websites to get contacts, not only visits",
-      title: "A clear website so more clients contact you.",
+      title: "A clear website so more clients ask for a quote, booking, or call.",
       subtitle:
-        "We create fast, modern, easy-to-understand websites for local businesses and professionals that want more requests by WhatsApp, form, or phone.",
+        "We create fast websites for local businesses and professionals. Modern design, clear copy, and contact prepared by WhatsApp or form.",
       primaryCta: "Request free demo",
       secondaryCta: "View examples",
       proofPoints: [
@@ -304,9 +303,9 @@ export const translations = {
     },
     projects: {
       eyebrow: "Examples",
-      title: "Websites for businesses that need to look better and receive more contacts.",
+      title: "Some websites I have already created.",
       body:
-        "I have worked on designs for renovations, interior design, hospitality, ecommerce, and digital projects. The idea is always the same: make the business easy to understand and easy to contact.",
+        "Designs made so the business is understood quickly, looks better, and is easier to contact.",
       cta: "View projects",
       items: [
         {
@@ -361,30 +360,29 @@ export const translations = {
     },
     features: {
       eyebrow: "What's included",
-      title: "Everything needed for a website that is not only pretty.",
+      title: "A pretty website is not enough. It has to explain and make contact easy.",
       body:
-        "The idea is simple: people understand your business, trust it, and can contact you fast.",
+        "We create a clear, fast website prepared so clients understand what you do and can contact you without getting lost.",
       items: [
         {
           title: "Web design",
           body: "Modern, fast, mobile-friendly website.",
         },
         {
-          title: "Commercial copy",
+          title: "Clear copy",
           body: "We explain what you do, who it is for, and why people should choose you.",
         },
         {
-          title: "WhatsApp and form",
-          body: "Easy contact with prepared messages for quote requests.",
+          title: "Prepared contact",
+          body: "WhatsApp and form designed to receive requests with context.",
         },
         {
           title: "Maintenance",
-          body: "Hosting, support, and small monthly changes.",
+          body: "Hosting, technical support, and small monthly changes.",
         },
       ],
-      experienceTitle: "Web, design, and content in one place",
-      experienceBody:
-        "Uno Studio combines web design, copy, visual editing, and simple automation to create fast websites focused on receiving contacts.",
+      experienceTitle: "",
+      experienceBody: "",
     },
     audience: {
       eyebrow: "Who it is for",
@@ -405,14 +403,14 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Pricing",
-      title: "Start with a clear, fast, maintained website.",
+      title: "Clear pricing to start without overthinking.",
       body:
         "You can request a free demo before deciding. If you already have it clear, you can reserve your spot with a deductible deposit.",
       reservationNote:
-        "The reservation is deducted from the final price. If the project is not a fit for the service, the amount is refunded.",
+        "The reservation is deducted from the final price. If after reviewing the business it is not a fit for the service, it is refunded.",
       refundNote: "",
       billingPrimary: "Initial payment + maintenance",
-      minimumNote: "Minimum maintenance term of 3 months. After that, you can continue month to month.",
+      minimumNote: "Minimum 3 months. After that, you can continue month to month.",
       monthlyNote:
         "The monthly fee includes hosting, technical maintenance, support, and small changes.",
       plans: [
@@ -429,7 +427,7 @@ export const translations = {
             "Contact form",
             "Hosting included",
           ],
-          cta: "Reserve for €99",
+          cta: "Request demo",
           paymentNote: "Deducted from final price.",
           href: "/#booking",
           highlighted: false,
@@ -448,7 +446,7 @@ export const translations = {
             "Basic analytics",
             "Priority support",
           ],
-          cta: "Reserve for €149",
+          cta: "Request demo",
           paymentNote: "Deducted from final price.",
           href: "/#booking",
           highlighted: true,
@@ -476,10 +474,10 @@ export const translations = {
     },
     booking: {
       eyebrow: "Free demo",
-      title: "Show me your business and I will prepare a visual idea.",
+      title: "Request a demo for your business.",
       body:
-        "Leave your website, Instagram, or a short explanation. I will tell you what I would improve and how a clearer website could look.",
-      bullets: ["No commitment", "Visual demo", "Clear answer"],
+        "Leave your website, Instagram, or a short explanation. I will reply with a clear idea of how your online presence could improve.",
+      bullets: ["No commitment", "Visual idea", "Clear answer"],
       cta: "I want my free demo",
       whatsappCta: "I prefer WhatsApp",
       form: {
@@ -488,7 +486,7 @@ export const translations = {
         website: "Website or Instagram",
         phone: "WhatsApp",
         need: "What do you want to improve?",
-        submit: "Send request",
+        submit: "Request free demo",
       },
     },
     faq: {

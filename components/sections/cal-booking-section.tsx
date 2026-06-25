@@ -21,7 +21,7 @@ export function CalBookingSection() {
       : "Example: I want a more modern website, more quote requests, or a better image"
 
   return (
-    <section id="booking" className="relative overflow-hidden px-6 py-24">
+    <section id="booking" className="relative overflow-hidden px-6 py-16 md:py-20">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_76%_42%,rgba(56,189,248,0.11),transparent_34%),linear-gradient(180deg,transparent,rgba(2,6,23,0.18))]"
         aria-hidden="true"
@@ -30,7 +30,7 @@ export function CalBookingSection() {
       <div className="relative mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <ScrollReveal>
           <p className="mb-4 text-sm font-medium uppercase tracking-wider text-sky-300">{t.booking.eyebrow}</p>
-          <h2 className="mb-6 max-w-2xl font-display text-4xl font-bold leading-tight text-zinc-100 md:text-6xl">
+          <h2 className="mb-5 max-w-2xl font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">
             {t.booking.title}
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-zinc-500 md:text-lg">{t.booking.body}</p>

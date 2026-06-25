@@ -1,6 +1,6 @@
 "use client"
 
-import { LayoutTemplate, ListChecks, Megaphone, MessageSquareText, TrendingUp } from "lucide-react"
+import { LayoutTemplate, ListChecks, Megaphone, MessageSquareText } from "lucide-react"
 import { useI18n } from "@/components/i18n-provider"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
@@ -37,18 +37,6 @@ export function FeaturesSection() {
             )
           })}
         </div>
-
-        <ScrollReveal className="mt-12 grid gap-6 rounded-lg border border-sky-300/20 bg-sky-300/[0.05] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] lg:grid-cols-[0.84fr_1.16fr] lg:items-center md:p-8">
-          <div>
-            <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-zinc-100 text-zinc-950">
-              <TrendingUp className="h-5 w-5" strokeWidth={1.8} />
-            </div>
-            <h3 className="font-display text-2xl font-bold leading-tight text-zinc-100 md:text-3xl">
-              {t.features.experienceTitle}
-            </h3>
-          </div>
-          <p className="text-base leading-relaxed text-zinc-400">{t.features.experienceBody}</p>
-        </ScrollReveal>
       </div>
     </section>
   )
