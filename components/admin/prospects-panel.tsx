@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, type FormEvent } from "react"
 import { Copy, ExternalLink, Loader2, Plus, RefreshCw, Trash2 } from "lucide-react"
+import { AdminMiniNav } from "@/components/admin/admin-mini-nav"
 import { createClient } from "@/lib/supabase/client"
 import { prospectStatusLabels, prospectStatuses, type ProspectStatus } from "@/lib/os-types"
 
@@ -353,9 +354,7 @@ export function ProspectsPanel() {
               Empresas objetivo introducidas manualmente. Sin scraping, sin envíos automáticos.
             </p>
           </div>
-          <a href="/logout" className="text-sm text-zinc-500 transition hover:text-zinc-200">
-            Salir
-          </a>
+          <AdminMiniNav current="prospects" />
         </header>
 
         <section className="mt-6 rounded-lg border border-zinc-800/80 bg-zinc-950/70 p-4">

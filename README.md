@@ -6,6 +6,7 @@ La home publica vende demo gratis, precios, ejemplos, extras y contacto. El sist
 
 - `/login`: acceso privado.
 - `/admin/prospects`: panel interno de prospeccion para unostudio.
+- `/admin/lead-finder`: busqueda interna de empresas con Google Places y analisis opcional con DeepSeek.
 - `/dashboard`: panel simple de solicitudes para clientes.
 - `/api/leads`: endpoint publico para recibir leads de webs de clientes.
 
@@ -27,9 +28,14 @@ SUPABASE_SERVICE_ROLE_KEY=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL=
 NEXT_PUBLIC_STRIPE_WEB_PRO_URL=
+GOOGLE_PLACES_API_KEY=
+DEEPSEEK_API_KEY=
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-pro
 ```
 
 No uses `SUPABASE_SERVICE_ROLE_KEY` en cliente. Solo se usa en servidor para `/api/leads`.
+`GOOGLE_PLACES_API_KEY` y `DEEPSEEK_API_KEY` son server-only. No las pongas con prefijo `NEXT_PUBLIC`.
 
 ## 3. Ejecutar migraciones
 
@@ -136,7 +142,26 @@ corepack pnpm dev
 6. Prueba copiar mensaje.
 7. Entra con usuario client y comprueba que `/admin/prospects` redirige a `/dashboard`.
 
-## 8. Probar `/dashboard`
+## 8. Probar `/admin/lead-finder`
+
+1. Activa Places API en Google Cloud y configura `GOOGLE_PLACES_API_KEY`.
+2. Opcional: configura `DEEPSEEK_API_KEY`, `DEEPSEEK_BASE_URL` y `DEEPSEEK_MODEL`.
+3. Entra con usuario admin.
+4. Abre `/admin/lead-finder`.
+5. Busca algo concreto, por ejemplo `clinicas dentales` + ciudad `Valencia`.
+6. Usa max_results bajo al principio. Google Places puede tener coste.
+7. Analiza un candidato con DeepSeek. Si no hay API key, el sistema usa analisis basico.
+8. Guarda manualmente solo los candidatos que quieras revisar.
+9. Abre `/admin/prospects` y comprueba que aparece el prospect guardado.
+
+Notas:
+
+- Lead Finder no hace scraping.
+- DeepSeek solo analiza y puntua. No contacta automaticamente.
+- No hay envio de WhatsApp, email, Instagram ni bots.
+- Los prospects deben revisarse manualmente antes de contactar.
+
+## 9. Probar `/dashboard`
 
 1. Entra con el usuario client.
 2. Abre `/dashboard`.
@@ -146,7 +171,7 @@ corepack pnpm dev
 6. Exporta CSV.
 7. Si tienes dos organizations, comprueba que el usuario client solo ve las asignadas.
 
-## 9. Probar `/api/leads`
+## 10. Probar `/api/leads`
 
 PowerShell:
 
@@ -182,7 +207,7 @@ Respuesta esperada:
 { "ok": false, "error": "..." }
 ```
 
-## 10. Configurar Stripe Payment Links
+## 11. Configurar Stripe Payment Links
 
 Crea dos Payment Links en Stripe:
 
@@ -198,7 +223,7 @@ NEXT_PUBLIC_STRIPE_WEB_PRO_URL=https://buy.stripe.com/...
 
 Si una variable no existe, el boton vuelve a `/#booking`.
 
-## 11. Deploy en Vercel
+## 12. Deploy en Vercel
 
 1. Importa el repo en Vercel.
 2. Configura las env vars de produccion:
@@ -210,18 +235,23 @@ SUPABASE_SERVICE_ROLE_KEY=
 NEXT_PUBLIC_SITE_URL=https://unostudio.org
 NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL=
 NEXT_PUBLIC_STRIPE_WEB_PRO_URL=
+GOOGLE_PLACES_API_KEY=
+DEEPSEEK_API_KEY=
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-v4-pro
 ```
 
 3. En Supabase Auth > URL Configuration, pon `https://unostudio.org` como Site URL si usas confirmaciones o redirects.
 4. Ejecuta las migraciones en Supabase antes de abrir los paneles.
 5. Deploy.
-6. Prueba `/login`, `/admin/prospects`, `/dashboard`, `/api/leads` y el formulario publico de la landing.
+6. Prueba `/login`, `/admin/prospects`, `/admin/lead-finder`, `/dashboard`, `/api/leads` y el formulario publico de la landing.
 
 Comandos locales:
 
 ```bash
 corepack pnpm lint
 corepack pnpm build
+corepack pnpm exec tsc --noEmit
 ```
 
 ## Fase 2 pendiente
