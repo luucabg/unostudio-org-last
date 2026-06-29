@@ -103,7 +103,7 @@ export const leadFinderAnalysisSchema = z.object({
   detected_problem: z.string().trim().min(1).max(700),
   opportunity_notes: z.string().trim().min(1).max(1000),
   next_action: z.string().trim().min(1).max(500),
-  contact_message: z.string().trim().min(1).max(900),
+  contact_message: z.string().trim().min(1).max(350),
 })
 
 export const leadFinderAnalyzeSchema = z.object({
@@ -210,6 +210,63 @@ export function scoreCandidate(candidate: Omit<LeadFinderCandidate, "pre_score">
   return clampScore(score)
 }
 
+function hasStrongReviews(candidate: LeadFinderCandidate) {
+  return (candidate.rating ?? 0) >= 4.3 && (candidate.review_count ?? 0) >= 20
+}
+
+function isBookingSector(candidate: LeadFinderCandidate) {
+  const text = `${candidate.sector ?? ""} ${candidate.types.join(" ")}`.toLowerCase()
+  return ["bar", "beauty", "clinic", "clinica", "dental", "doctor", "restaurant", "restaurante", "spa"].some((word) =>
+    text.includes(word),
+  )
+}
+
+function buildFallbackDetectedProblem(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
+  if (!candidate.website_url) {
+    return "No aparece una web vinculada, así que parte de la confianza depende solo de la ficha de Google."
+  }
+
+  if (websiteSnapshot?.available === false) {
+    return "La web aparece vinculada, pero no se pudo leer correctamente en una revisión rápida."
+  }
+
+  if (websiteSnapshot?.available && !websiteSnapshot.h1) {
+    return "La web existe, pero el mensaje principal podría quedar más claro desde el primer vistazo."
+  }
+
+  if (candidate.public_phone) {
+    return "La web existe, pero el contacto podría estar más guiado hacia presupuesto o reserva."
+  }
+
+  return "La presencia online tiene base, pero se podría hacer más fácil pedir información con contexto."
+}
+
+function buildFallbackOpportunity(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
+  const signals = [
+    candidate.sector ? `sector ${candidate.sector.toLowerCase()}` : null,
+    candidate.city ? `zona ${candidate.city}` : null,
+    hasStrongReviews(candidate) ? "buenas reseñas" : null,
+    !candidate.website_url ? "sin web vinculada" : null,
+  ].filter(Boolean)
+  const signalText = signals.length > 0 ? signals.join(", ") : "hay señales suficientes para revisarlo"
+  const webText = websiteSnapshot?.available
+    ? "La web puede servir como punto de partida, pero conviene revisar si guía bien hacia contacto."
+    : "Una demo visual sencilla puede ayudar a mostrar una mejora concreta sin forzar la venta."
+
+  return `Merece la pena revisarlo por ${signalText}. ${webText}`
+}
+
+function buildFallbackContactMessage(candidate: LeadFinderCandidate) {
+  const reviewLine = hasStrongReviews(candidate) ? " y las reseñas tienen buena pinta" : ""
+  const targetAction = isBookingSector(candidate) ? "pedir cita o reservar" : "pedir presupuesto"
+
+  if (!candidate.website_url) {
+    return `Hola, soy Luca de unostudio. He visto vuestra ficha de Google${reviewLine}. Creo que una web sencilla podría ayudaros a explicar mejor los servicios y recibir solicitudes con más contexto. ¿Te puedo enseñar una idea rápida?`
+  }
+
+  return `Hola, soy Luca de unostudio. He visto vuestra web${reviewLine} y creo que se podría hacer más clara para que la gente pueda ${targetAction} con menos fricción. Creo que podría prepararte una idea rápida. ¿Te la puedo enseñar?`
+}
+
 export function normalizeGooglePlace(place: GooglePlace, requestedCity: string | null): LeadFinderCandidate | null {
   const businessName = place.displayName?.text?.trim()
   const placeId = place.id?.trim()
@@ -242,30 +299,11 @@ export function normalizeGooglePlace(place: GooglePlace, requestedCity: string |
 }
 
 export function buildBasicAnalysis(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null = null): LeadFinderAnalysis {
-  const hasWebsite = Boolean(candidate.website_url)
-  const hasPhone = Boolean(candidate.public_phone)
-  const reviewCount = candidate.review_count ?? 0
-  const problemParts = [
-    !hasWebsite ? "no aparece una web clara en Google" : null,
-    websiteSnapshot?.available === false ? "la web no se pudo leer correctamente" : null,
-    websiteSnapshot?.available && !websiteSnapshot.h1 ? "la home podria comunicar mejor el mensaje principal" : null,
-    !hasPhone ? "el contacto podria estar mas guiado" : null,
-    reviewCount < 30 ? "hay margen para reforzar confianza con mas contexto" : null,
-  ].filter(Boolean)
-
-  const detectedProblem =
-    problemParts.length > 0
-      ? `Vi que ${problemParts.join(" y ")}.`
-      : "Hay margen para explicar mejor el servicio y guiar la solicitud de presupuesto o reserva."
-
   return {
     score: candidate.pre_score,
-    detected_problem: detectedProblem,
-    opportunity_notes:
-      websiteSnapshot?.available
-        ? `Candidato revisable. Web leida: ${websiteSnapshot.title ?? websiteSnapshot.h1 ?? websiteSnapshot.final_url}. Valorar claridad, confianza y contacto.`
-        : "Candidato revisable para una demo visual sencilla. Valorar si la web, el contacto y la confianza se entienden rapido.",
-    next_action: "Revisar web y preparar una idea visual si encaja.",
-    contact_message: `Hola, soy Luca de unostudio. He visto ${candidate.business_name} y creo que vuestra presencia online podria guiar mejor a quienes quieren pedir presupuesto o reservar. He preparado una idea rapida de mejora. Te la puedo ensenar?`,
+    detected_problem: buildFallbackDetectedProblem(candidate, websiteSnapshot),
+    opportunity_notes: buildFallbackOpportunity(candidate, websiteSnapshot),
+    next_action: "Preparar una demo visual antes de contactar.",
+    contact_message: buildFallbackContactMessage(candidate),
   }
 }

@@ -57,7 +57,7 @@ function parseJsonObject(content: string) {
 }
 
 function websitePrompt(snapshot: WebsiteSnapshot | null) {
-  if (!snapshot) return "Web: no hay website_url en Google Places."
+  if (!snapshot) return "Web: no hay web vinculada en los datos recibidos."
 
   return `Web analizada: ${JSON.stringify({
     available: snapshot.available,
@@ -101,14 +101,27 @@ export async function POST(request: Request) {
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/+$/, "")
   const model = process.env.DEEPSEEK_MODEL || "deepseek-v4-pro"
   const userPrompt = [
-    "Analiza este candidato sin inventar datos.",
-    query ? `Busqueda original: ${query}` : null,
+    "Analiza este candidato sin inventar datos. Escribe como un vendedor consultivo bueno, no como una agencia genérica.",
+    query ? `Búsqueda original: ${query}` : null,
     `Candidato: ${JSON.stringify(candidate)}`,
     websitePrompt(websiteSnapshot),
-    "Si hay web, evalua si parece clara, moderna, confiable y facil de contactar usando solo los datos de la home recibidos.",
-    "Si no hay web, prioriza la oportunidad porque puede tener mas encaje para una demo inicial.",
-    "Devuelve solo JSON valido con score, detected_problem, opportunity_notes, next_action y contact_message.",
-    "No uses frases agresivas. No prometas resultados. Marca: unostudio.",
+    "Devuelve SOLO JSON válido con: score, detected_problem, opportunity_notes, next_action, contact_message.",
+    "Marca: escribe siempre unostudio, sin espacio y en minúsculas.",
+    "Idioma y tono: español natural de España, profesional, cercano, directo, sin sonar desesperado ni spam.",
+    "Tratamiento: usa te por defecto. No uses ustedes ni les. No mezcles os y les. Puedes usar vuestra si hablas de la empresa, pero la pregunta final debe ser con te.",
+    "No digas que hemos analizado nada. Usa he visto vuestra ficha, he visto vuestra web o he visto vuestra presencia online.",
+    "No prometas resultados. No digas que van a conseguir más clientes. No critiques ni avergüences al negocio. Convierte problemas en oportunidades.",
+    "En contact_message no uses jerga: captación online, optimizar conversiones, plataforma, CRM, leads, IA, Google Places, demo sin compromiso, expertos líderes.",
+    "contact_message: máximo 350 caracteres y 3 frases. Estructura: 1 presentación breve. 2 observación positiva + oportunidad de mejora. 3 pregunta de permiso para enseñar una idea/demo.",
+    "contact_message: no vendas precio. Si hay web, habla de mejorar claridad/contacto de la web. Si no hay web, habla de web sencilla o presencia online.",
+    "contact_message: si rating >= 4.3 y review_count >= 20, menciona las reseñas de forma positiva.",
+    "contact_message: si existe demo_url, di he preparado una idea rápida. Si no existe demo_url, di creo que podría prepararte una idea rápida.",
+    "contact_message: ejemplos de cierre buenos: ¿Te lo puedo enseñar? ¿Te la puedo enseñar? ¿Te puedo enseñar una idea rápida?",
+    "detected_problem: una sola frase, observación útil, no crítica. No digas problema grave.",
+    "opportunity_notes: máximo 2 frases. Explica por qué merece la pena contactar. Prioriza ticket alto, reseñas, ciudad, sector y presencia online. No infles el candidato si faltan señales.",
+    "next_action: si no hay demo_url, Preparar una demo visual antes de contactar. Si hay demo_url, Enviar mensaje corto y enseñar la demo si responde. Si hay teléfono pero no email ni web, Contactar por teléfono con guion breve. Si hay email o web, Enviar mensaje corto con permiso para enseñar la idea.",
+    "Scoring: sube score por sector de ticket alto, rating alto, muchas reseñas, negocio local, web ausente o claramente mejorable y teléfono público.",
+    "Scoring: baja score por cadena grande, bajo ticket, sin teléfono ni web, pocas señales de actividad o rating malo con muchas reseñas.",
   ]
     .filter(Boolean)
     .join("\n")
@@ -126,7 +139,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "Eres un analista comercial B2B para unostudio. Evalúas negocios locales para decidir si tiene sentido prepararles una demo de web/sistema de contacto. Responde SOLO JSON válido.",
+              "Eres un analista comercial B2B para unostudio. Evalúas negocios locales para decidir si tiene sentido prepararles una demo visual. Escribes como vendedor consultivo: claro, concreto y respetuoso. Responde SOLO JSON válido.",
           },
           {
             role: "user",
