@@ -1,23 +1,11 @@
 import { NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
+import { z } from "zod"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
-const supabaseUrl =
-  process.env.SUPABASE_URL ??
-  process.env.NEXT_PUBLIC_SUPABASE_URL ??
-  "https://tfdmvfsrilikleofozyi.supabase.co"
-
-const supabaseKey =
-  process.env.SUPABASE_SERVICE_ROLE_KEY ??
-  process.env.SUPABASE_SECRET_KEY ??
-  process.env.SUPABASE_PUBLISHABLE_KEY ??
-  process.env.SUPABASE_ANON_KEY ??
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
-
-const allowedServices = new Set([
+const services = [
   "Demo inicial",
   "Web Esencial",
   "Web Pro",
@@ -25,14 +13,56 @@ const allowedServices = new Set([
   "Proyecto a medida",
   "Mantenimiento web",
   "Otro",
-])
-const allowedBudgets = new Set(["Demo gratuita", "490-990 €", "990-1.490 €", "1.490 €+", "2.900 €+", "No lo sé"])
-const allowedUrgencies = new Set(["Este mes", "1-2 meses", "Más adelante"])
+] as const
 
-function text(formData: FormData, key: string, max = 4000) {
-  const value = formData.get(key)
-  return typeof value === "string" ? value.trim().slice(0, max) : ""
-}
+const budgets = ["Demo gratuita", "490-990 €", "990-1.490 €", "1.490 €+", "2.900 €+", "No lo sé"] as const
+const urgencies = ["Este mes", "1-2 meses", "Más adelante"] as const
+
+const nullableText = (max: number) =>
+  z
+    .preprocess((value) => (typeof value === "string" ? value.trim() : ""), z.string().max(max))
+    .transform((value) => value || null)
+
+const emailField = z
+  .preprocess((value) => (typeof value === "string" ? value.trim().toLowerCase() : ""), z.string().max(180))
+  .refine((value) => !value || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value), "Email no válido.")
+  .transform((value) => value || null)
+
+const contactSchema = z
+  .object({
+    nombre: z.preprocess((value) => (typeof value === "string" ? value.trim() : ""), z.string().min(2).max(120)),
+    empresa: z.preprocess((value) => (typeof value === "string" ? value.trim() : ""), z.string().min(2).max(160)),
+    email: emailField,
+    telefono: nullableText(60),
+    web_actual: nullableText(300),
+    servicio: z.enum(services),
+    presupuesto: z.enum(budgets),
+    urgencia: z.enum(urgencies),
+    mensaje: nullableText(4000),
+    acepta_privacidad: z.literal("on"),
+    page_path: nullableText(120),
+  })
+  .superRefine((payload, context) => {
+    const hasEmail = Boolean(payload.email)
+    const hasPhone = Boolean(payload.telefono && payload.telefono.length >= 6)
+    const pagePath = payload.page_path === "/" ? "/" : "/contacto"
+
+    if (!hasEmail && !hasPhone) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Deja un email o teléfono.",
+        path: ["email"],
+      })
+    }
+
+    if (pagePath !== "/" && (!payload.mensaje || payload.mensaje.length < 10)) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "El mensaje debe tener al menos 10 caracteres.",
+        path: ["mensaje"],
+      })
+    }
+  })
 
 function redirectTo(request: Request, estado: "enviado" | "error", motivo?: string) {
   const url = new URL("/contacto", request.url)
@@ -42,70 +72,66 @@ function redirectTo(request: Request, estado: "enviado" | "error", motivo?: stri
   return NextResponse.redirect(url, { status: 303 })
 }
 
-export async function POST(request: Request) {
-  const formData = await request.formData()
+function createContactClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  if (text(formData, "confirmacion")) {
-    return redirectTo(request, "enviado")
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error("Faltan NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_SUPABASE_ANON_KEY.")
   }
 
-  const email = text(formData, "email", 180).toLowerCase()
-  const pagePath = text(formData, "page_path", 120) || "/contacto"
-  const message = text(formData, "mensaje", 4000)
-
-  const payload = {
-    name: text(formData, "nombre", 120),
-    company: text(formData, "empresa", 160),
-    email: email || null,
-    phone: text(formData, "telefono", 60) || null,
-    current_website: text(formData, "web_actual", 300) || null,
-    service_interest: text(formData, "servicio", 80),
-    budget_range: text(formData, "presupuesto", 80),
-    urgency: text(formData, "urgencia", 80),
-    message: message || (pagePath === "/" ? "Solicitud de demo sin mensaje." : ""),
-    privacy_accepted: formData.get("acepta_privacidad") === "on",
-    page_path: pagePath === "/" ? "/" : "/contacto",
-    source: "unostudio.org",
-    metadata: {
-      hosting: "vercel",
-      storage: "supabase",
-    },
-  }
-
-  const validEmail = payload.email !== null && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)
-  const validPhone = payload.phone !== null && payload.phone.length >= 6
-
-  const valid =
-    payload.name.length >= 2 &&
-    payload.company.length >= 2 &&
-    (payload.email === null || validEmail) &&
-    (validEmail || validPhone) &&
-    allowedServices.has(payload.service_interest) &&
-    allowedBudgets.has(payload.budget_range) &&
-    allowedUrgencies.has(payload.urgency) &&
-    (pagePath === "/" || payload.message.length >= 10) &&
-    payload.privacy_accepted
-
-  if (!valid) {
-    return redirectTo(request, "error", "validacion")
-  }
-
-  if (!supabaseKey) {
-    console.error("Supabase contact form key missing")
-    return redirectTo(request, "error", "config")
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseKey, {
+  return createClient(supabaseUrl, supabaseAnonKey, {
     auth: {
       autoRefreshToken: false,
       persistSession: false,
     },
   })
+}
 
-  const { error } = await supabase.from("contact_requests").insert(payload)
+export async function POST(request: Request) {
+  const formData = await request.formData()
+
+  if (typeof formData.get("confirmacion") === "string" && String(formData.get("confirmacion")).trim()) {
+    return redirectTo(request, "enviado")
+  }
+
+  const parsed = contactSchema.safeParse(Object.fromEntries(formData.entries()))
+
+  if (!parsed.success) {
+    return redirectTo(request, "error", "validacion")
+  }
+
+  const data = parsed.data
+  const pagePath = data.page_path === "/" ? "/" : "/contacto"
+
+  let supabase
+
+  try {
+    supabase = createContactClient()
+  } catch {
+    return redirectTo(request, "error", "config")
+  }
+
+  const { error } = await supabase.from("contact_requests").insert({
+    name: data.nombre,
+    company: data.empresa,
+    email: data.email,
+    phone: data.telefono,
+    current_website: data.web_actual,
+    service_interest: data.servicio,
+    budget_range: data.presupuesto,
+    urgency: data.urgencia,
+    message: data.mensaje || (pagePath === "/" ? "Solicitud de demo sin mensaje." : ""),
+    privacy_accepted: true,
+    page_path: pagePath,
+    source: "unostudio.org",
+    metadata: {
+      hosting: "vercel",
+      storage: "supabase",
+    },
+  })
 
   if (error) {
-    console.error("Supabase contact insert failed", error)
     return redirectTo(request, "error", "supabase")
   }
 

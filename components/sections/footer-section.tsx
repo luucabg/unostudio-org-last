@@ -69,6 +69,11 @@ export function FooterSection() {
                 </li>
               ))}
               <li>
+                <Link href="/login" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                  Acceso clientes
+                </Link>
+              </li>
+              <li>
                 <button
                   type="button"
                   onClick={openCookieSettings}

@@ -190,7 +190,6 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
               </Link>
               .
             </p>
-            {/* TODO: configurar en Vercel SUPABASE_SERVICE_ROLE_KEY o NEXT_PUBLIC_SUPABASE_ANON_KEY y aplicar migración Supabase. */}
 
             <button
               type="submit"
