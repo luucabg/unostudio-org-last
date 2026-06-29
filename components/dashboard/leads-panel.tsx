@@ -71,6 +71,24 @@ function formatDate(value: string | null) {
   return new Intl.DateTimeFormat("es", { dateStyle: "short", timeStyle: "short" }).format(new Date(value))
 }
 
+function friendlyError(message: string) {
+  const lowerMessage = message.toLowerCase()
+
+  if (lowerMessage.includes("row-level security") || lowerMessage.includes("permission denied")) {
+    return "No tienes permisos para cambiar esta solicitud. Revisa que el usuario esté asignado a la organización."
+  }
+
+  if (lowerMessage.includes("failed to fetch") || lowerMessage.includes("network")) {
+    return "No se pudo conectar con Supabase. Revisa conexión y variables de entorno."
+  }
+
+  if (lowerMessage.includes("invalid input") || lowerMessage.includes("violates check")) {
+    return "Hay un campo con valor no válido. Revisa estado, fuente o email."
+  }
+
+  return "No se pudo completar la acción. Revisa permisos o intenta de nuevo."
+}
+
 export function LeadsPanel({ organizations }: { organizations: DashboardOrganization[] }) {
   const [organizationId, setOrganizationId] = useState(organizations[0]?.id ?? "")
   const [leads, setLeads] = useState<Lead[]>([])
@@ -123,7 +141,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
       .returns<Lead[]>()
 
     if (queryError) {
-      setError(queryError.message)
+      setError(friendlyError(queryError.message))
       setLeads([])
     } else {
       setLeads(data ?? [])
@@ -134,7 +152,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
 
   useEffect(() => {
     if (!supabase) {
-      setError("Faltan NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_SUPABASE_ANON_KEY.")
+      setError("Faltan variables de Supabase. Revisa NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY.")
       setLoading(false)
       return
     }
@@ -160,7 +178,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
     const { error: insertError } = await supabase.from("leads").insert(payload)
 
     if (insertError) {
-      setError(insertError.message)
+      setError(friendlyError(insertError.message))
     } else {
       form.reset()
       setNotice("Solicitud creada.")
@@ -185,7 +203,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
     const { error: updateError } = await supabase.from("leads").update(payload).eq("id", id)
 
     if (updateError) {
-      setError(updateError.message)
+      setError(friendlyError(updateError.message))
     } else {
       setNotice("Solicitud guardada.")
       await loadLeads()
@@ -203,7 +221,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
     const { error: updateError } = await supabase.from("leads").update({ status }).eq("id", lead.id)
 
     if (updateError) {
-      setError(updateError.message)
+      setError(friendlyError(updateError.message))
     } else {
       await loadLeads()
     }
@@ -232,7 +250,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
     link.href = url
     link.download = "solicitudes.csv"
     link.click()
-    URL.revokeObjectURL(url)
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
   }
 
   if (organizations.length === 0) {
@@ -281,7 +299,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
 
         <section className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            ["Leads totales", metrics.total],
+            ["Solicitudes totales", metrics.total],
             ["Nuevos", metrics.new],
             ["Presupuestos enviados", metrics.quoteSent],
             ["Ganados", metrics.won],
@@ -334,7 +352,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
                 className={`${buttonClass} w-full bg-[#38b6ff] text-zinc-950 hover:bg-[#6ac9ff]`}
               >
                 {savingId === "new" ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Plus className="h-3.5 w-3.5" />}
-                Nuevo
+                Crear solicitud
               </button>
             </div>
           </form>
@@ -393,8 +411,16 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
           </div>
         </section>
 
-        {error ? <div className="mt-5 rounded-lg border border-red-400/25 bg-red-400/10 p-4 text-sm text-red-100">{error}</div> : null}
-        {notice ? <div className="mt-5 rounded-lg border border-[#38b6ff]/25 bg-[#38b6ff]/10 p-4 text-sm text-sky-100">{notice}</div> : null}
+        {error ? (
+          <div className="mt-5 rounded-lg border border-red-400/25 bg-red-400/10 p-4 text-sm text-red-100" role="alert">
+            {error}
+          </div>
+        ) : null}
+        {notice ? (
+          <div className="mt-5 rounded-lg border border-[#38b6ff]/25 bg-[#38b6ff]/10 p-4 text-sm text-sky-100" aria-live="polite">
+            {notice}
+          </div>
+        ) : null}
 
         {loading ? (
           <div className="mt-12 flex items-center justify-center gap-2 text-sm text-zinc-500">
@@ -403,8 +429,12 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
           </div>
         ) : filteredLeads.length === 0 ? (
           <div className="mt-8 rounded-lg border border-dashed border-zinc-800 p-10 text-center">
-            <p className="font-medium text-zinc-200">No hay solicitudes con estos filtros.</p>
-            <p className="mt-2 text-sm text-zinc-500">Crea una manual o prueba otra fuente/estado.</p>
+            <p className="font-medium text-zinc-200">
+              {leads.length === 0 ? "Aún no hay solicitudes." : "No hay solicitudes con estos filtros."}
+            </p>
+            <p className="mt-2 text-sm text-zinc-500">
+              {leads.length === 0 ? "Crea una manual o espera a que entre un formulario." : "Prueba otra fuente o estado."}
+            </p>
           </div>
         ) : (
           <>
@@ -462,7 +492,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
                       <textarea name="notes" defaultValue={lead.notes ?? ""} className={`${inputClass} min-h-20`} />
                       <textarea name="message" defaultValue={lead.message ?? ""} className={`${inputClass} min-h-20`} placeholder="Mensaje" />
                       <button type="submit" disabled={savingId === lead.id} className={`${buttonClass} w-full bg-zinc-100 text-zinc-950 hover:bg-sky-200`}>
-                        Guardar
+                        Guardar cambios
                       </button>
                     </div>
                   </form>
@@ -520,7 +550,7 @@ export function LeadsPanel({ organizations }: { organizations: DashboardOrganiza
                     <textarea name="notes" defaultValue={lead.notes ?? ""} className={`${inputClass} min-h-20`} placeholder="Notas" />
                     <textarea name="message" defaultValue={lead.message ?? ""} className={`${inputClass} min-h-20`} placeholder="Mensaje" />
                     <button type="submit" disabled={savingId === lead.id} className={`${buttonClass} bg-zinc-100 text-zinc-950 hover:bg-sky-200`}>
-                      Guardar
+                      Guardar cambios
                     </button>
                   </div>
                 </form>

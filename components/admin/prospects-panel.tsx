@@ -93,6 +93,24 @@ function externalUrl(url: string | null) {
   return url.startsWith("http://") || url.startsWith("https://") ? url : `https://${url}`
 }
 
+function friendlyError(message: string) {
+  const lowerMessage = message.toLowerCase()
+
+  if (lowerMessage.includes("row-level security") || lowerMessage.includes("permission denied")) {
+    return "No tienes permisos para hacer este cambio. Revisa que tu usuario sea admin."
+  }
+
+  if (lowerMessage.includes("failed to fetch") || lowerMessage.includes("network")) {
+    return "No se pudo conectar con Supabase. Revisa conexión y variables de entorno."
+  }
+
+  if (lowerMessage.includes("invalid input") || lowerMessage.includes("violates check")) {
+    return "Hay un campo con valor no válido. Revisa estado, score o URLs."
+  }
+
+  return "No se pudo completar la acción. Revisa permisos o intenta de nuevo."
+}
+
 function buildProspectMessage(prospect: Prospect) {
   const problem = prospect.detected_problem?.trim()
   const softProblem = problem
@@ -143,6 +161,32 @@ function CopyMessageButton({ prospect }: { prospect: Prospect }) {
   )
 }
 
+function MoreProspectFields({ prospect }: { prospect: Prospect }) {
+  return (
+    <details className="rounded-md border border-zinc-900 bg-zinc-950/60 px-3 py-2">
+      <summary className="cursor-pointer text-xs font-medium text-zinc-400 transition hover:text-zinc-100">
+        Más datos
+      </summary>
+      <div className="mt-3 grid gap-2">
+        <textarea
+          name="opportunity_notes"
+          defaultValue={prospect.opportunity_notes ?? ""}
+          className={`${inputClass} min-h-16`}
+          placeholder="Notas internas"
+        />
+        <input name="website_url" defaultValue={prospect.website_url ?? ""} className={inputClass} placeholder="Website" />
+        <input name="instagram_url" defaultValue={prospect.instagram_url ?? ""} className={inputClass} placeholder="Instagram" />
+        <input name="google_maps_url" defaultValue={prospect.google_maps_url ?? ""} className={inputClass} placeholder="Google Maps" />
+        <input name="public_phone" defaultValue={prospect.public_phone ?? ""} className={inputClass} placeholder="Teléfono público" />
+        <input name="public_email" defaultValue={prospect.public_email ?? ""} className={inputClass} placeholder="Email público" />
+        <input name="contact_person_name" defaultValue={prospect.contact_person_name ?? ""} className={inputClass} placeholder="Persona de contacto" />
+        <input name="contact_person_role" defaultValue={prospect.contact_person_role ?? ""} className={inputClass} placeholder="Rol" />
+        <input name="source_url" defaultValue={prospect.source_url ?? ""} className={inputClass} placeholder="Fuente" />
+      </div>
+    </details>
+  )
+}
+
 export function ProspectsPanel() {
   const [prospects, setProspects] = useState<Prospect[]>([])
   const [filters, setFilters] = useState<Filters>(emptyFilters)
@@ -180,7 +224,7 @@ export function ProspectsPanel() {
     const { data, error: queryError } = await query.returns<Prospect[]>()
 
     if (queryError) {
-      setError(queryError.message)
+      setError(friendlyError(queryError.message))
       setProspects([])
     } else {
       setProspects(data ?? [])
@@ -191,7 +235,7 @@ export function ProspectsPanel() {
 
   useEffect(() => {
     if (!supabase) {
-      setError("Faltan NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_SUPABASE_ANON_KEY.")
+      setError("Faltan variables de Supabase. Revisa NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY.")
       setLoading(false)
       return
     }
@@ -223,7 +267,7 @@ export function ProspectsPanel() {
     const { error: insertError } = await supabase.from("prospects").insert(payload)
 
     if (insertError) {
-      setError(insertError.message)
+      setError(friendlyError(insertError.message))
     } else {
       form.reset()
       setNotice("Prospect creado.")
@@ -248,7 +292,7 @@ export function ProspectsPanel() {
     const { error: updateError } = await supabase.from("prospects").update(payload).eq("id", id)
 
     if (updateError) {
-      setError(updateError.message)
+      setError(friendlyError(updateError.message))
     } else {
       setNotice("Prospect guardado.")
       await loadProspects()
@@ -272,7 +316,7 @@ export function ProspectsPanel() {
       .eq("id", prospect.id)
 
     if (updateError) {
-      setError(updateError.message)
+      setError(friendlyError(updateError.message))
     } else {
       await loadProspects()
     }
@@ -289,7 +333,7 @@ export function ProspectsPanel() {
     const { error: deleteError } = await supabase.from("prospects").delete().eq("id", id)
 
     if (deleteError) {
-      setError(deleteError.message)
+      setError(friendlyError(deleteError.message))
     } else {
       setNotice("Prospect borrado.")
       await loadProspects()
@@ -344,7 +388,7 @@ export function ProspectsPanel() {
                 className={`${buttonClass} w-full bg-[#38b6ff] text-zinc-950 hover:bg-[#6ac9ff]`}
               >
                 {savingId === "new" ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Plus className="h-3.5 w-3.5" />}
-                Crear
+                Crear prospect
               </button>
             </div>
           </form>
@@ -400,8 +444,16 @@ export function ProspectsPanel() {
           </div>
         </section>
 
-        {error ? <div className="mt-5 rounded-lg border border-red-400/25 bg-red-400/10 p-4 text-sm text-red-100">{error}</div> : null}
-        {notice ? <div className="mt-5 rounded-lg border border-[#38b6ff]/25 bg-[#38b6ff]/10 p-4 text-sm text-sky-100">{notice}</div> : null}
+        {error ? (
+          <div className="mt-5 rounded-lg border border-red-400/25 bg-red-400/10 p-4 text-sm text-red-100" role="alert">
+            {error}
+          </div>
+        ) : null}
+        {notice ? (
+          <div className="mt-5 rounded-lg border border-[#38b6ff]/25 bg-[#38b6ff]/10 p-4 text-sm text-sky-100" aria-live="polite">
+            {notice}
+          </div>
+        ) : null}
 
         {loading ? (
           <div className="mt-12 flex items-center justify-center gap-2 text-sm text-zinc-500">
@@ -463,17 +515,9 @@ export function ProspectsPanel() {
                       <input name="demo_url" defaultValue={prospect.demo_url ?? ""} className={inputClass} placeholder="Demo URL" />
                       <input name="loom_url" defaultValue={prospect.loom_url ?? ""} className={inputClass} placeholder="Loom URL" />
                       <textarea name="detected_problem" defaultValue={prospect.detected_problem ?? ""} className={`${inputClass} min-h-16`} placeholder="Problema detectado" />
-                      <textarea name="opportunity_notes" defaultValue={prospect.opportunity_notes ?? ""} className={`${inputClass} min-h-16`} placeholder="Notas" />
-                      <input name="website_url" defaultValue={prospect.website_url ?? ""} className={inputClass} placeholder="Website" />
-                      <input name="instagram_url" defaultValue={prospect.instagram_url ?? ""} className={inputClass} placeholder="Instagram" />
-                      <input name="google_maps_url" defaultValue={prospect.google_maps_url ?? ""} className={inputClass} placeholder="Google Maps" />
-                      <input name="public_phone" defaultValue={prospect.public_phone ?? ""} className={inputClass} placeholder="Teléfono público" />
-                      <input name="public_email" defaultValue={prospect.public_email ?? ""} className={inputClass} placeholder="Email público" />
-                      <input name="contact_person_name" defaultValue={prospect.contact_person_name ?? ""} className={inputClass} placeholder="Contacto" />
-                      <input name="contact_person_role" defaultValue={prospect.contact_person_role ?? ""} className={inputClass} placeholder="Rol" />
-                      <input name="source_url" defaultValue={prospect.source_url ?? ""} className={inputClass} placeholder="Fuente" />
+                      <MoreProspectFields prospect={prospect} />
                       <button type="submit" disabled={savingId === prospect.id} className={`${buttonClass} bg-zinc-100 text-zinc-950 hover:bg-sky-200`}>
-                        Guardar
+                        Guardar cambios
                       </button>
                       <CopyMessageButton prospect={prospect} />
                       <button
@@ -545,21 +589,11 @@ export function ProspectsPanel() {
                       <textarea name="detected_problem" defaultValue={prospect.detected_problem ?? ""} className={`${inputClass} min-h-20`} />
                     </label>
                     <label className={labelClass}>
-                      Notas
-                      <textarea name="opportunity_notes" defaultValue={prospect.opportunity_notes ?? ""} className={`${inputClass} min-h-20`} />
-                    </label>
-                    <div className="grid gap-2">
-                      <input name="website_url" defaultValue={prospect.website_url ?? ""} className={inputClass} placeholder="Website" />
-                      <input name="instagram_url" defaultValue={prospect.instagram_url ?? ""} className={inputClass} placeholder="Instagram" />
-                      <input name="google_maps_url" defaultValue={prospect.google_maps_url ?? ""} className={inputClass} placeholder="Google Maps" />
+                      Demo y Loom
                       <input name="demo_url" defaultValue={prospect.demo_url ?? ""} className={inputClass} placeholder="Demo URL" />
                       <input name="loom_url" defaultValue={prospect.loom_url ?? ""} className={inputClass} placeholder="Loom URL" />
-                      <input name="public_phone" defaultValue={prospect.public_phone ?? ""} className={inputClass} placeholder="Teléfono público" />
-                      <input name="public_email" defaultValue={prospect.public_email ?? ""} className={inputClass} placeholder="Email público" />
-                      <input name="contact_person_name" defaultValue={prospect.contact_person_name ?? ""} className={inputClass} placeholder="Contacto" />
-                      <input name="contact_person_role" defaultValue={prospect.contact_person_role ?? ""} className={inputClass} placeholder="Rol" />
-                      <input name="source_url" defaultValue={prospect.source_url ?? ""} className={inputClass} placeholder="Fuente" />
-                    </div>
+                    </label>
+                    <MoreProspectFields prospect={prospect} />
                     <div className="flex flex-wrap gap-2">
                       <LinkPill href={prospect.website_url} label="Web" />
                       <LinkPill href={prospect.instagram_url} label="Instagram" />
@@ -567,7 +601,7 @@ export function ProspectsPanel() {
                     </div>
                     <div className="grid gap-2 sm:grid-cols-3">
                       <button type="submit" disabled={savingId === prospect.id} className={`${buttonClass} bg-zinc-100 text-zinc-950 hover:bg-sky-200`}>
-                        Guardar
+                        Guardar cambios
                       </button>
                       <CopyMessageButton prospect={prospect} />
                       <button
