@@ -77,6 +77,7 @@ export async function POST(request: Request) {
   const candidates = (data.places ?? [])
     .map((place) => normalizeGooglePlace(place, payload.city))
     .filter((candidate): candidate is LeadFinderCandidate => Boolean(candidate))
+    .sort((first, second) => second.pre_score - first.pre_score)
     .slice(0, payload.max_results)
 
   return NextResponse.json({ ok: true, candidates })

@@ -8,6 +8,7 @@ import {
   leadFinderAnalyzeSchema,
   type LeadFinderAnalysis,
 } from "@/lib/lead-finder"
+import { fetchWebsiteSnapshot, type WebsiteSnapshot } from "@/lib/lead-finder-website"
 
 export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
@@ -31,6 +32,45 @@ function normalizeAnalysis(value: unknown, fallback: LeadFinderAnalysis) {
   }
 }
 
+function parseJsonObject(content: string) {
+  const trimmed = content
+    .trim()
+    .replace(/^```json\s*/i, "")
+    .replace(/^```\s*/i, "")
+    .replace(/```$/i, "")
+    .trim()
+
+  try {
+    return JSON.parse(trimmed) as unknown
+  } catch {
+    const firstBrace = trimmed.indexOf("{")
+    const lastBrace = trimmed.lastIndexOf("}")
+
+    if (firstBrace === -1 || lastBrace === -1 || lastBrace <= firstBrace) return null
+
+    try {
+      return JSON.parse(trimmed.slice(firstBrace, lastBrace + 1)) as unknown
+    } catch {
+      return null
+    }
+  }
+}
+
+function websitePrompt(snapshot: WebsiteSnapshot | null) {
+  if (!snapshot) return "Web: no hay website_url en Google Places."
+
+  return `Web analizada: ${JSON.stringify({
+    available: snapshot.available,
+    final_url: snapshot.final_url,
+    status: snapshot.status,
+    title: snapshot.title,
+    description: snapshot.description,
+    h1: snapshot.h1,
+    text_sample: snapshot.text_sample,
+    note: snapshot.note,
+  })}`
+}
+
 export async function POST(request: Request) {
   const admin = await requireAdminApi()
   if (!admin.ok) return admin.response
@@ -45,14 +85,15 @@ export async function POST(request: Request) {
   }
 
   const { candidate, query } = parsed.data
-  const fallback = buildBasicAnalysis(candidate)
+  const websiteSnapshot = await fetchWebsiteSnapshot(candidate.website_url)
+  const fallback = buildBasicAnalysis(candidate, websiteSnapshot)
   const apiKey = process.env.DEEPSEEK_API_KEY
 
   if (!apiKey) {
     return NextResponse.json({
       ok: true,
       used_ai: false,
-      message: "DeepSeek no está configurado. Usando análisis básico.",
+      message: "IA no configurada. Usando análisis básico.",
       analysis: fallback,
     })
   }
@@ -63,6 +104,9 @@ export async function POST(request: Request) {
     "Analiza este candidato sin inventar datos.",
     query ? `Busqueda original: ${query}` : null,
     `Candidato: ${JSON.stringify(candidate)}`,
+    websitePrompt(websiteSnapshot),
+    "Si hay web, evalua si parece clara, moderna, confiable y facil de contactar usando solo los datos de la home recibidos.",
+    "Si no hay web, prioriza la oportunidad porque puede tener mas encaje para una demo inicial.",
     "Devuelve solo JSON valido con score, detected_problem, opportunity_notes, next_action y contact_message.",
     "No uses frases agresivas. No prometas resultados. Marca: unostudio.",
   ]
@@ -98,7 +142,7 @@ export async function POST(request: Request) {
       return NextResponse.json({
         ok: true,
         used_ai: false,
-        message: "DeepSeek no está disponible. Usando análisis básico.",
+        message: "IA no disponible. Usando análisis básico.",
         analysis: fallback,
       })
     }
@@ -110,19 +154,20 @@ export async function POST(request: Request) {
       return NextResponse.json({
         ok: true,
         used_ai: false,
-        message: "DeepSeek no devolvió análisis. Usando análisis básico.",
+        message: "IA no devolvió análisis. Usando análisis básico.",
         analysis: fallback,
       })
     }
 
-    const analysis = normalizeAnalysis(JSON.parse(content), fallback)
+    const parsedContent = parseJsonObject(content)
+    const analysis = parsedContent ? normalizeAnalysis(parsedContent, fallback) : fallback
 
     return NextResponse.json({ ok: true, used_ai: true, analysis })
   } catch {
     return NextResponse.json({
       ok: true,
       used_ai: false,
-      message: "DeepSeek falló. Usando análisis básico.",
+      message: "IA falló. Usando análisis básico.",
       analysis: fallback,
     })
   }

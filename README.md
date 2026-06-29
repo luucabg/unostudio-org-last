@@ -150,13 +150,14 @@ corepack pnpm dev
 4. Abre `/admin/lead-finder`.
 5. Busca algo concreto, por ejemplo `clinicas dentales` + ciudad `Valencia`.
 6. Usa max_results bajo al principio. Google Places puede tener coste.
-7. Analiza un candidato con DeepSeek. Si no hay API key, el sistema usa analisis basico.
+7. Analiza un candidato con IA. Si tiene web, se lee una muestra limitada de la home para valorar claridad, confianza y contacto. Si no hay API key, el sistema usa analisis basico.
 8. Guarda manualmente solo los candidatos que quieras revisar.
 9. Abre `/admin/prospects` y comprueba que aparece el prospect guardado.
 
 Notas:
 
 - Lead Finder no hace scraping.
+- No crawlea webs ni subpaginas: solo lee una muestra limitada de la home cuando el admin pulsa analizar.
 - DeepSeek solo analiza y puntua. No contacta automaticamente.
 - No hay envio de WhatsApp, email, Instagram ni bots.
 - Los prospects deben revisarse manualmente antes de contactar.

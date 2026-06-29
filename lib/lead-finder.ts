@@ -119,6 +119,17 @@ export const leadFinderSaveSchema = z.object({
 export type LeadFinderCandidate = z.infer<typeof leadFinderCandidateSchema>
 export type LeadFinderAnalysis = z.infer<typeof leadFinderAnalysisSchema>
 
+type WebsiteAnalysisSnapshot = {
+  available: boolean
+  final_url: string
+  status: number | null
+  title: string | null
+  description: string | null
+  h1: string | null
+  text_sample: string | null
+  note: string | null
+}
+
 export type GooglePlace = {
   id?: string
   displayName?: { text?: string }
@@ -186,7 +197,8 @@ export function isHighTicketCandidate(types: string[], sector: string | null) {
 export function scoreCandidate(candidate: Omit<LeadFinderCandidate, "pre_score">) {
   let score = 0
 
-  if (candidate.website_url) score += 20
+  if (!candidate.website_url) score += 25
+  else score += 5
   if ((candidate.review_count ?? 0) >= 30) score += 15
   if ((candidate.review_count ?? 0) >= 100) score += 10
   if ((candidate.rating ?? 0) >= 4.3) score += 10
@@ -229,12 +241,14 @@ export function normalizeGooglePlace(place: GooglePlace, requestedCity: string |
   }
 }
 
-export function buildBasicAnalysis(candidate: LeadFinderCandidate): LeadFinderAnalysis {
+export function buildBasicAnalysis(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null = null): LeadFinderAnalysis {
   const hasWebsite = Boolean(candidate.website_url)
   const hasPhone = Boolean(candidate.public_phone)
   const reviewCount = candidate.review_count ?? 0
   const problemParts = [
     !hasWebsite ? "no aparece una web clara en Google" : null,
+    websiteSnapshot?.available === false ? "la web no se pudo leer correctamente" : null,
+    websiteSnapshot?.available && !websiteSnapshot.h1 ? "la home podria comunicar mejor el mensaje principal" : null,
     !hasPhone ? "el contacto podria estar mas guiado" : null,
     reviewCount < 30 ? "hay margen para reforzar confianza con mas contexto" : null,
   ].filter(Boolean)
@@ -248,7 +262,9 @@ export function buildBasicAnalysis(candidate: LeadFinderCandidate): LeadFinderAn
     score: candidate.pre_score,
     detected_problem: detectedProblem,
     opportunity_notes:
-      "Candidato revisable para una demo visual sencilla. Valorar si la web, el contacto y la confianza se entienden rapido.",
+      websiteSnapshot?.available
+        ? `Candidato revisable. Web leida: ${websiteSnapshot.title ?? websiteSnapshot.h1 ?? websiteSnapshot.final_url}. Valorar claridad, confianza y contacto.`
+        : "Candidato revisable para una demo visual sencilla. Valorar si la web, el contacto y la confianza se entienden rapido.",
     next_action: "Revisar web y preparar una idea visual si encaja.",
     contact_message: `Hola, soy Luca de unostudio. He visto ${candidate.business_name} y creo que vuestra presencia online podria guiar mejor a quienes quieren pedir presupuesto o reservar. He preparado una idea rapida de mejora. Te la puedo ensenar?`,
   }

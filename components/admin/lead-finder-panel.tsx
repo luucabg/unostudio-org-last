@@ -135,7 +135,7 @@ export function LeadFinderPanel({ hasGooglePlacesKey, hasDeepSeekKey }: LeadFind
       }
 
       setCandidates(data.candidates)
-      if (!hasDeepSeekKey) setNotice("DeepSeek no está configurado. Usando análisis básico.")
+      if (!hasDeepSeekKey) setNotice("IA no configurada. Usando análisis básico.")
     } catch (searchError) {
       setError(searchError instanceof Error ? searchError.message : "No se pudo buscar empresas.")
     } finally {
@@ -220,7 +220,7 @@ export function LeadFinderPanel({ hasGooglePlacesKey, hasDeepSeekKey }: LeadFind
 
         {!hasDeepSeekKey ? (
           <div className="mt-4 rounded-lg border border-[#38b6ff]/25 bg-[#38b6ff]/10 p-4 text-sm text-sky-100">
-            DeepSeek no está configurado. Usando análisis básico.
+            IA no configurada. Usando análisis básico.
           </div>
         ) : null}
 
@@ -354,7 +354,7 @@ export function LeadFinderPanel({ hasGooglePlacesKey, hasDeepSeekKey }: LeadFind
                         className={`${buttonClass} border border-[#38b6ff]/40 text-sky-100 hover:bg-[#38b6ff]/10`}
                       >
                         {analyzingId === key ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Sparkles className="h-3.5 w-3.5" />}
-                        Analizar con DeepSeek
+                        Analizar con IA
                       </button>
                       <button
                         type="button"
