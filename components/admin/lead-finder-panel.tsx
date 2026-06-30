@@ -12,7 +12,7 @@ type LeadFinderPanelProps = {
 }
 
 type SearchResponse =
-  | { ok: true; candidates: LeadFinderCandidate[] }
+  | { ok: true; candidates: LeadFinderCandidate[]; filtered_count?: number; warning?: string | null }
   | { ok: false; error: string }
 
 type AnalyzeResponse =
@@ -135,7 +135,7 @@ export function LeadFinderPanel({ hasGooglePlacesKey, hasDeepSeekKey }: LeadFind
       }
 
       setCandidates(data.candidates)
-      if (!hasDeepSeekKey) setNotice("IA no configurada. Usando análisis básico.")
+      setNotice(data.warning ?? (!hasDeepSeekKey ? "IA no configurada. Usando análisis básico." : null))
     } catch (searchError) {
       setError(searchError instanceof Error ? searchError.message : "No se pudo buscar empresas.")
     } finally {

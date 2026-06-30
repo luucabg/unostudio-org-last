@@ -157,6 +157,7 @@ corepack pnpm dev
 Notas:
 
 - Lead Finder no hace scraping.
+- Lead Finder esta pensado para busquedas en Espana. Usa `locationRestriction` y filtros de direccion para evitar resultados de otros paises o ciudades ambiguas.
 - No crawlea webs ni subpaginas: solo lee una muestra limitada de la home cuando el admin pulsa analizar.
 - DeepSeek solo analiza y puntua. No contacta automaticamente.
 - No hay envio de WhatsApp, email, Instagram ni bots.
