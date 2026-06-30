@@ -101,27 +101,31 @@ export async function POST(request: Request) {
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/+$/, "")
   const model = process.env.DEEPSEEK_MODEL || "deepseek-v4-pro"
   const userPrompt = [
-    "Analiza este candidato sin inventar datos. Escribe como un vendedor consultivo bueno, no como una agencia genérica.",
+    "Analiza este candidato sin inventar datos. Escribe como Luca, de unostudio: vendedor consultivo, natural, breve y nada genérico.",
     query ? `Búsqueda original: ${query}` : null,
     `Candidato: ${JSON.stringify(candidate)}`,
     websitePrompt(websiteSnapshot),
     "Devuelve SOLO JSON válido con: score, detected_problem, opportunity_notes, next_action, contact_message.",
     "Marca: escribe siempre unostudio, sin espacio y en minúsculas.",
-    "Idioma y tono: español natural de España, profesional, cercano, directo, sin sonar desesperado ni spam.",
-    "Tratamiento: usa te por defecto. No uses ustedes ni les. No mezcles os y les. Puedes usar vuestra si hablas de la empresa, pero la pregunta final debe ser con te.",
-    "No digas que hemos analizado nada. Usa he visto vuestra ficha, he visto vuestra web o he visto vuestra presencia online.",
+    "contact_message debe empezar exactamente así: Hola, soy Luca, de unostudio.",
+    "Idioma y tono: español natural de España, profesional, cercano, directo, sin sonar a agencia, desesperado ni spam.",
+    "Tratamiento: usa te. Puedes usar vuestra si hablas del negocio. No uses les ni ustedes. No mezcles tratamientos.",
+    "No digas que has analizado nada. Usa he visto vuestra ficha, he visto vuestra web o he visto vuestra presencia.",
     "No prometas resultados. No digas que van a conseguir más clientes. No critiques ni avergüences al negocio. Convierte problemas en oportunidades.",
-    "En contact_message no uses jerga: captación online, optimizar conversiones, plataforma, CRM, leads, IA, Google Places, demo sin compromiso, expertos líderes.",
-    "contact_message: máximo 350 caracteres y 3 frases. Estructura: 1 presentación breve. 2 observación positiva + oportunidad de mejora. 3 pregunta de permiso para enseñar una idea/demo.",
-    "contact_message: no vendas precio. Si hay web, habla de mejorar claridad/contacto de la web. Si no hay web, habla de web sencilla o presencia online.",
+    "En contact_message no uses jerga de marketing ni herramientas internas. No menciones precio, IA ni fuente de datos.",
+    "contact_message: máximo 280 caracteres y 3 frases. Estructura: 1 saludo exacto. 2 observación real o neutral. 3 oportunidad simple + pregunta de permiso.",
+    "contact_message: si hay web, habla de claridad/contacto de la web. Si no hay web, habla de web sencilla o presencia.",
     "contact_message: si rating >= 4.3 y review_count >= 20, menciona las reseñas de forma positiva.",
-    "contact_message: si existe demo_url, di he preparado una idea rápida. Si no existe demo_url, di creo que podría prepararte una idea rápida.",
-    "contact_message: ejemplos de cierre buenos: ¿Te lo puedo enseñar? ¿Te la puedo enseñar? ¿Te puedo enseñar una idea rápida?",
-    "detected_problem: una sola frase, observación útil, no crítica. No digas problema grave.",
-    "opportunity_notes: máximo 2 frases. Explica por qué merece la pena contactar. Prioriza ticket alto, reseñas, ciudad, sector y presencia online. No infles el candidato si faltan señales.",
-    "next_action: si no hay demo_url, Preparar una demo visual antes de contactar. Si hay demo_url, Enviar mensaje corto y enseñar la demo si responde. Si hay teléfono pero no email ni web, Contactar por teléfono con guion breve. Si hay email o web, Enviar mensaje corto con permiso para enseñar la idea.",
-    "Scoring: sube score por sector de ticket alto, rating alto, muchas reseñas, negocio local, web ausente o claramente mejorable y teléfono público.",
-    "Scoring: baja score por cadena grande, bajo ticket, sin teléfono ni web, pocas señales de actividad o rating malo con muchas reseñas.",
+    "contact_message: si hay demo_url, di Tengo una idea rápida de mejora. Si no hay demo_url, usa Creo que... y pregunta si puedes enseñarle una idea rápida.",
+    "contact_message: cierres buenos: ¿Te la puedo enseñar? ¿Te puedo enseñar una idea rápida? ¿Te lo puedo enseñar?",
+    "detected_problem: trátalo como observación, una sola frase, útil y nada crítica. Evita lenguaje duro o grandilocuente.",
+    "detected_problem ejemplos de tono: No aparece una web vinculada, así que la ficha de Google está haciendo casi todo el trabajo. La web existe, pero el contacto podría estar más guiado hacia presupuesto, cita o reserva. Hay buena reputación, pero la presencia digital podría explicar mejor el servicio.",
+    "opportunity_notes: máximo 2 frases, interno y claro. Explica por qué merece la pena contactar sin humo. No digas ticket alto si no está claro.",
+    "opportunity_notes puede decir: Buen prospect por reseñas, servicio local y posibilidad de mejorar contacto. Interesante si es negocio independiente; menos prioritario si depende de marca o cadena.",
+    "next_action permitido: Preparar demo visual antes de contactar. Contactar con mensaje corto y enseñar la demo solo si responde. Llamar con guion breve si no hay email ni web.",
+    "Scoring: sube por sector valioso, rating alto, muchas reseñas si parece independiente, negocio local, web ausente o claramente mejorable y teléfono público.",
+    "Scoring: baja por cadena grande, marca oficial, bajo ticket, sin teléfono ni web, pocas señales de actividad o rating malo con muchas reseñas.",
+    "Scoring: si el nombre contiene oficial, concesionario oficial, marca grande, franquicia o cadena reconocible, máximo 65 salvo señales claras de negocio independiente.",
   ]
     .filter(Boolean)
     .join("\n")
@@ -139,7 +143,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "Eres un analista comercial B2B para unostudio. Evalúas negocios locales para decidir si tiene sentido prepararles una demo visual. Escribes como vendedor consultivo: claro, concreto y respetuoso. Responde SOLO JSON válido.",
+              "Eres Luca, de unostudio. Evalúas negocios locales para decidir si tiene sentido prepararles una demo visual. Escribes como vendedor consultivo: claro, natural, breve y respetuoso. Responde SOLO JSON válido.",
           },
           {
             role: "user",

@@ -2,19 +2,39 @@ import { z } from "zod"
 
 const bigChains = [
   "aldi",
+  "audi",
+  "bmw",
   "burger king",
   "carrefour",
+  "citroen",
   "decathlon",
   "domino",
+  "fiat",
+  "ford",
+  "franquicia",
+  "hyundai",
   "ikea",
   "kfc",
+  "kia",
   "leroy merlin",
   "lidl",
   "mcdonald",
   "mercadona",
+  "mercedes",
+  "nissan",
+  "oficial",
+  "opel",
+  "peugeot",
   "primark",
+  "renault",
+  "seat",
+  "skoda",
   "starbucks",
+  "suzuki",
+  "toyota",
   "vips",
+  "volkswagen",
+  "volvo",
   "zara",
 ]
 
@@ -103,7 +123,7 @@ export const leadFinderAnalysisSchema = z.object({
   detected_problem: z.string().trim().min(1).max(700),
   opportunity_notes: z.string().trim().min(1).max(1000),
   next_action: z.string().trim().min(1).max(500),
-  contact_message: z.string().trim().min(1).max(350),
+  contact_message: z.string().trim().min(1).max(280),
 })
 
 export const leadFinderAnalyzeSchema = z.object({
@@ -196,16 +216,18 @@ export function isHighTicketCandidate(types: string[], sector: string | null) {
 
 export function scoreCandidate(candidate: Omit<LeadFinderCandidate, "pre_score">) {
   let score = 0
+  const isLargeBrand = looksLikeLargeChain(candidate.business_name)
 
   if (!candidate.website_url) score += 25
   else score += 5
-  if ((candidate.review_count ?? 0) >= 30) score += 15
-  if ((candidate.review_count ?? 0) >= 100) score += 10
+  if (!isLargeBrand && (candidate.review_count ?? 0) >= 30) score += 15
+  if (!isLargeBrand && (candidate.review_count ?? 0) >= 100) score += 10
   if ((candidate.rating ?? 0) >= 4.3) score += 10
   if (candidate.public_phone) score += 10
   if (isHighTicketCandidate(candidate.types, candidate.sector)) score += 10
   if (candidate.business_status && candidate.business_status !== "OPERATIONAL") score -= 20
-  if (looksLikeLargeChain(candidate.business_name)) score -= 15
+  if (!candidate.public_phone && !candidate.website_url) score -= 15
+  if (isLargeBrand) score = Math.min(score - 15, 65)
 
   return clampScore(score)
 }
@@ -223,48 +245,56 @@ function isBookingSector(candidate: LeadFinderCandidate) {
 
 function buildFallbackDetectedProblem(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
   if (!candidate.website_url) {
-    return "No aparece una web vinculada, así que parte de la confianza depende solo de la ficha de Google."
+    return "No aparece una web vinculada, así que la ficha de Google está haciendo casi todo el trabajo."
   }
 
   if (websiteSnapshot?.available === false) {
-    return "La web aparece vinculada, pero no se pudo leer correctamente en una revisión rápida."
+    return "La web aparece vinculada, pero en una revisión rápida no se pudo leer con claridad."
   }
 
   if (websiteSnapshot?.available && !websiteSnapshot.h1) {
-    return "La web existe, pero el mensaje principal podría quedar más claro desde el primer vistazo."
+    return "La web existe, pero el primer mensaje podría quedar más claro desde el inicio."
   }
 
   if (candidate.public_phone) {
     return "La web existe, pero el contacto podría estar más guiado hacia presupuesto o reserva."
   }
 
-  return "La presencia online tiene base, pero se podría hacer más fácil pedir información con contexto."
+  return "Hay buena base, pero la presencia digital podría explicar mejor el servicio."
 }
 
 function buildFallbackOpportunity(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
   const signals = [
-    candidate.sector ? `sector ${candidate.sector.toLowerCase()}` : null,
+    candidate.sector ? `servicio local de ${candidate.sector.toLowerCase()}` : null,
     candidate.city ? `zona ${candidate.city}` : null,
     hasStrongReviews(candidate) ? "buenas reseñas" : null,
     !candidate.website_url ? "sin web vinculada" : null,
   ].filter(Boolean)
   const signalText = signals.length > 0 ? signals.join(", ") : "hay señales suficientes para revisarlo"
   const webText = websiteSnapshot?.available
-    ? "La web puede servir como punto de partida, pero conviene revisar si guía bien hacia contacto."
-    : "Una demo visual sencilla puede ayudar a mostrar una mejora concreta sin forzar la venta."
+    ? "Interesante si es negocio independiente; menos prioritario si depende de marca o cadena."
+    : "Buen prospect por reseñas, servicio local y posibilidad de mejorar contacto."
 
   return `Merece la pena revisarlo por ${signalText}. ${webText}`
 }
 
 function buildFallbackContactMessage(candidate: LeadFinderCandidate) {
-  const reviewLine = hasStrongReviews(candidate) ? " y las reseñas tienen buena pinta" : ""
-  const targetAction = isBookingSector(candidate) ? "pedir cita o reservar" : "pedir presupuesto"
+  const reviewLine = hasStrongReviews(candidate) ? " y tenéis muy buenas reseñas" : ""
 
   if (!candidate.website_url) {
-    return `Hola, soy Luca de unostudio. He visto vuestra ficha de Google${reviewLine}. Creo que una web sencilla podría ayudaros a explicar mejor los servicios y recibir solicitudes con más contexto. ¿Te puedo enseñar una idea rápida?`
+    return `Hola, soy Luca, de unostudio. He visto vuestra ficha${reviewLine}. Creo que una web sencilla podría ayudaros a explicar mejor los servicios y recibir consultas con más contexto. ¿Te puedo enseñar una idea rápida?`
   }
 
-  return `Hola, soy Luca de unostudio. He visto vuestra web${reviewLine} y creo que se podría hacer más clara para que la gente pueda ${targetAction} con menos fricción. Creo que podría prepararte una idea rápida. ¿Te la puedo enseñar?`
+  if (isBookingSector(candidate)) {
+    return `Hola, soy Luca, de unostudio. He visto vuestra presencia${reviewLine}. Creo que se podría guiar mejor a quien quiere pedir cita o reservar. ¿Te puedo enseñar una idea rápida?`
+  }
+
+  return `Hola, soy Luca, de unostudio. He visto vuestra web${reviewLine}. Creo que se podría hacer más clara para que la gente contacte con menos vueltas. ¿Te la puedo enseñar?`
+}
+
+function buildFallbackNextAction(candidate: LeadFinderCandidate) {
+  if (candidate.public_phone && !candidate.website_url) return "Llamar con guion breve si no hay email ni web."
+  return "Preparar demo visual antes de contactar."
 }
 
 export function normalizeGooglePlace(place: GooglePlace, requestedCity: string | null): LeadFinderCandidate | null {
@@ -303,7 +333,7 @@ export function buildBasicAnalysis(candidate: LeadFinderCandidate, websiteSnapsh
     score: candidate.pre_score,
     detected_problem: buildFallbackDetectedProblem(candidate, websiteSnapshot),
     opportunity_notes: buildFallbackOpportunity(candidate, websiteSnapshot),
-    next_action: "Preparar una demo visual antes de contactar.",
+    next_action: buildFallbackNextAction(candidate),
     contact_message: buildFallbackContactMessage(candidate),
   }
 }
