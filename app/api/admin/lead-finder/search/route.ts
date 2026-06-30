@@ -62,6 +62,7 @@ const cityAliases: Record<string, string[]> = {
 }
 
 const blockedCountries = ["venezuela", "mexico", "méxico", "colombia", "argentina", "chile", "peru", "perú", "united states"]
+const spanishPostalCodePattern = /\b(0[1-9]|[1-4]\d|5[0-2])\d{3}\b/
 
 function normalizeCity(value: string | null) {
   if (!value) return null
@@ -84,12 +85,13 @@ function addressMatchesSearch(place: GooglePlace, cityKey: string | null) {
   const rawAddress = place.formattedAddress ?? ""
   const address = normalizeAddress(rawAddress)
 
-  if (!address.includes("spain") && !address.includes("espana")) return false
   if (blockedCountries.some((country) => address.includes(normalizeAddress(country)))) return false
 
-  if (!cityKey || !cityAliases[cityKey]) return true
+  if (cityKey && cityAliases[cityKey]) {
+    return cityAliases[cityKey].some((alias) => address.includes(normalizeAddress(alias)))
+  }
 
-  return cityAliases[cityKey].some((alias) => address.includes(normalizeAddress(alias)))
+  return address.includes("spain") || address.includes("espana") || spanishPostalCodePattern.test(address)
 }
 
 export async function POST(request: Request) {
