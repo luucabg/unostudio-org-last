@@ -245,7 +245,7 @@ function isBookingSector(candidate: LeadFinderCandidate) {
 
 function buildFallbackDetectedProblem(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
   if (!candidate.website_url) {
-    return "No aparece una web vinculada, así que la ficha de Google está haciendo casi todo el trabajo."
+    return "No aparece una web vinculada, así que la ficha está haciendo casi todo el trabajo."
   }
 
   if (websiteSnapshot?.available === false) {
@@ -260,7 +260,7 @@ function buildFallbackDetectedProblem(candidate: LeadFinderCandidate, websiteSna
     return "La web existe, pero el contacto podría estar más guiado hacia presupuesto o reserva."
   }
 
-  return "Hay buena base, pero la presencia digital podría explicar mejor el servicio."
+  return "Hay buena base, pero la web podría explicar mejor el servicio y el siguiente paso."
 }
 
 function buildFallbackOpportunity(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
@@ -268,12 +268,12 @@ function buildFallbackOpportunity(candidate: LeadFinderCandidate, websiteSnapsho
     candidate.sector ? `servicio local de ${candidate.sector.toLowerCase()}` : null,
     candidate.city ? `zona ${candidate.city}` : null,
     hasStrongReviews(candidate) ? "buenas reseñas" : null,
-    !candidate.website_url ? "sin web vinculada" : null,
+    !candidate.website_url ? "la ficha hace casi todo el trabajo" : null,
   ].filter(Boolean)
   const signalText = signals.length > 0 ? signals.join(", ") : "hay señales suficientes para revisarlo"
   const webText = websiteSnapshot?.available
-    ? "Interesante si es negocio independiente; menos prioritario si depende de marca o cadena."
-    : "Buen prospect por reseñas, servicio local y posibilidad de mejorar contacto."
+    ? "Preparar demo enfocada en cita, confianza y contacto."
+    : "Buen prospect por reseñas, sector local y margen para mejorar contacto."
 
   return `Merece la pena revisarlo por ${signalText}. ${webText}`
 }

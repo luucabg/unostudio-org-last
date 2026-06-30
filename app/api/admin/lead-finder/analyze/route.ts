@@ -59,7 +59,7 @@ function parseJsonObject(content: string) {
 function websitePrompt(snapshot: WebsiteSnapshot | null) {
   if (!snapshot) return "Web: no hay web vinculada en los datos recibidos."
 
-  return `Web analizada: ${JSON.stringify({
+  return `Muestra de web: ${JSON.stringify({
     available: snapshot.available,
     final_url: snapshot.final_url,
     status: snapshot.status,
@@ -113,15 +113,17 @@ export async function POST(request: Request) {
     "No digas que has analizado nada. Usa he visto vuestra ficha, he visto vuestra web o he visto vuestra presencia.",
     "No prometas resultados. No digas que van a conseguir más clientes. No critiques ni avergüences al negocio. Convierte problemas en oportunidades.",
     "En contact_message no uses jerga de marketing ni herramientas internas. No menciones precio, IA ni fuente de datos.",
-    "contact_message: ideal entre 250 y 330 caracteres, máximo absoluto 420, máximo 3 frases. No lo hagas tan corto que suene seco ni tan largo que parezca una propuesta comercial.",
+    "contact_message: ideal entre 220 y 330 caracteres, máximo absoluto 420, máximo 3 frases. Debe ser humano, fácil de responder y no sonar a auditoría.",
     "contact_message: objetivo único: conseguir permiso para enseñar una idea rápida, no vender la web.",
-    "contact_message estructura: 1 saludo exacto. 2 observación real o neutral. 3 oportunidad simple + pregunta de permiso.",
-    "contact_message: si hay web, habla de claridad/contacto de la web. Si no hay web, habla de web sencilla o presencia.",
-    "contact_message: si rating >= 4.3 y review_count >= 20, menciona las reseñas de forma positiva.",
+    "contact_message estructura: 1 saludo exacto. 2 observación positiva real. 3 mejora concreta + pregunta de permiso.",
+    "contact_message: si hay web, habla de claridad o contacto de la web. Si no hay web, habla de web sencilla o presencia.",
+    "contact_message: si rating >= 4.3 y review_count >= 20, menciona reseñas positivas con naturalidad.",
     "contact_message: si hay demo_url, di Tengo una idea rápida de mejora. Si no hay demo_url, usa Creo que... y pregunta si puedes enseñarle una idea rápida.",
     "contact_message: cierres buenos: ¿Te la puedo enseñar? ¿Te puedo enseñar una idea rápida? ¿Te lo puedo enseñar?",
+    "contact_message ejemplos de tono: clínica con muchas reseñas: He visto que tenéis muchísimas reseñas positivas y eso ya da mucha confianza. Restaurante: He visto que tenéis buena presencia y creo que una web más clara podría facilitar reservas, carta y contacto.",
+    "contact_message evita jerga de marketing, auditoría, herramientas internas y frases que suenen a crítica visual.",
     "detected_problem: trátalo como observación, una sola frase, útil y nada crítica. Evita lenguaje duro o grandilocuente.",
-    "detected_problem ejemplos de tono: No aparece una web vinculada, así que la ficha de Google está haciendo casi todo el trabajo. La web existe, pero el contacto podría estar más guiado hacia presupuesto, cita o reserva. Hay buena reputación, pero la presencia digital podría explicar mejor el servicio.",
+    "detected_problem ejemplos de tono: La web tiene buena base, pero el contacto podría estar más guiado hacia cita o presupuesto. Hay buenas reseñas, pero la web podría explicar mejor el siguiente paso para contactar. No aparece una web vinculada, así que la ficha está haciendo casi todo el trabajo.",
     "opportunity_notes: máximo 2 frases, interno y claro. Explica por qué merece la pena contactar sin humo. No digas ticket alto si no está claro.",
     "opportunity_notes puede decir: Buen prospect por reseñas, servicio local y posibilidad de mejorar contacto. Interesante si es negocio independiente; menos prioritario si depende de marca o cadena.",
     "next_action permitido: Preparar demo visual antes de contactar. Contactar con mensaje corto y enseñar la demo solo si responde. Llamar con guion breve si no hay email ni web.",
