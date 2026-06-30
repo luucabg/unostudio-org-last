@@ -123,7 +123,7 @@ export const leadFinderAnalysisSchema = z.object({
   detected_problem: z.string().trim().min(1).max(700),
   opportunity_notes: z.string().trim().min(1).max(1000),
   next_action: z.string().trim().min(1).max(500),
-  contact_message: z.string().trim().min(1).max(280),
+  contact_message: z.string().trim().min(1).max(420),
 })
 
 export const leadFinderAnalyzeSchema = z.object({
@@ -286,10 +286,10 @@ function buildFallbackContactMessage(candidate: LeadFinderCandidate) {
   }
 
   if (isBookingSector(candidate)) {
-    return `Hola, soy Luca, de unostudio. He visto vuestra presencia${reviewLine}. Creo que se podría guiar mejor a quien quiere pedir cita o reservar. ¿Te puedo enseñar una idea rápida?`
+    return `Hola, soy Luca, de unostudio. He visto vuestra presencia${reviewLine}. Creo que se podría guiar mejor a quien quiere pedir cita o reservar, sin darle tantas vueltas. ¿Te puedo enseñar una idea rápida?`
   }
 
-  return `Hola, soy Luca, de unostudio. He visto vuestra web${reviewLine}. Creo que se podría hacer más clara para que la gente contacte con menos vueltas. ¿Te la puedo enseñar?`
+  return `Hola, soy Luca, de unostudio. He visto vuestra web${reviewLine}. Creo que se podría hacer más clara para que la gente entienda antes qué hacéis y contacte con menos vueltas. ¿Te la puedo enseñar?`
 }
 
 function buildFallbackNextAction(candidate: LeadFinderCandidate) {
