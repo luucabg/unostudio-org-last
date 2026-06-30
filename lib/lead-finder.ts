@@ -243,6 +243,11 @@ function isBookingSector(candidate: LeadFinderCandidate) {
   )
 }
 
+function isAutoSector(candidate: LeadFinderCandidate) {
+  const text = `${candidate.business_name} ${candidate.sector ?? ""} ${candidate.types.join(" ")}`.toLowerCase()
+  return ["auto", "car", "coche", "dealer", "taller"].some((word) => text.includes(word))
+}
+
 function buildFallbackDetectedProblem(candidate: LeadFinderCandidate, websiteSnapshot: WebsiteAnalysisSnapshot | null) {
   if (!candidate.website_url) {
     return "No aparece una web vinculada, así que la ficha está haciendo casi todo el trabajo."
@@ -257,7 +262,7 @@ function buildFallbackDetectedProblem(candidate: LeadFinderCandidate, websiteSna
   }
 
   if (candidate.public_phone) {
-    return "La web existe, pero el contacto podría estar más guiado hacia presupuesto o reserva."
+    return "La web tiene buena base, pero el contacto podría estar más guiado hacia cita o consulta."
   }
 
   return "Hay buena base, pero la web podría explicar mejor el servicio y el siguiente paso."
@@ -272,8 +277,8 @@ function buildFallbackOpportunity(candidate: LeadFinderCandidate, websiteSnapsho
   ].filter(Boolean)
   const signalText = signals.length > 0 ? signals.join(", ") : "hay señales suficientes para revisarlo"
   const webText = websiteSnapshot?.available
-    ? "Preparar demo enfocada en cita, confianza y contacto."
-    : "Buen prospect por reseñas, sector local y margen para mejorar contacto."
+    ? "Interesante para demo enfocada en cita, confianza y contacto."
+    : "Buen prospect por reseñas, sector local y margen para mejorar el contacto."
 
   return `Merece la pena revisarlo por ${signalText}. ${webText}`
 }
@@ -286,10 +291,14 @@ function buildFallbackContactMessage(candidate: LeadFinderCandidate) {
   }
 
   if (isBookingSector(candidate)) {
-    return `Hola, soy Luca, de unostudio. He visto vuestra presencia${reviewLine}. Creo que se podría guiar mejor a quien quiere pedir cita o reservar, sin darle tantas vueltas. ¿Te puedo enseñar una idea rápida?`
+    return `Hola, soy Luca, de unostudio. He visto vuestra presencia${reviewLine}. Creo que se podría hacer más fácil pedir cita, reservar o resolver dudas. ¿Te puedo enseñar una idea rápida?`
   }
 
-  return `Hola, soy Luca, de unostudio. He visto vuestra web${reviewLine}. Creo que se podría hacer más clara para que la gente entienda antes qué hacéis y contacte con menos vueltas. ¿Te la puedo enseñar?`
+  if (isAutoSector(candidate)) {
+    return `Hola, soy Luca, de unostudio. He visto vuestra web${reviewLine}. Creo que se podría hacer más fácil que quien busca coche o taller os contacte con menos vueltas. ¿Te puedo enseñar una idea rápida?`
+  }
+
+  return `Hola, soy Luca, de unostudio. He visto vuestra web${reviewLine}. Creo que se podría hacer más clara para que la gente entienda antes qué hacéis y os contacte con menos vueltas. ¿Te puedo enseñar una idea rápida?`
 }
 
 function buildFallbackNextAction(candidate: LeadFinderCandidate) {

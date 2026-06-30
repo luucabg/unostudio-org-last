@@ -101,14 +101,14 @@ export async function POST(request: Request) {
   const baseUrl = (process.env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/+$/, "")
   const model = process.env.DEEPSEEK_MODEL || "deepseek-v4-pro"
   const userPrompt = [
-    "Analiza este candidato sin inventar datos. Escribe como Luca, de unostudio: vendedor consultivo, natural, breve y nada genérico.",
+    "Analiza este candidato sin inventar datos. Escribe como Luca, de unostudio: primer WhatsApp o email humano, natural, breve y nada genérico.",
     query ? `Búsqueda original: ${query}` : null,
     `Candidato: ${JSON.stringify(candidate)}`,
     websitePrompt(websiteSnapshot),
     "Devuelve SOLO JSON válido con: score, detected_problem, opportunity_notes, next_action, contact_message.",
     "Marca: escribe siempre unostudio, sin espacio y en minúsculas.",
     "contact_message debe empezar exactamente así: Hola, soy Luca, de unostudio.",
-    "Idioma y tono: español natural de España, profesional, cercano, directo, sin sonar a agencia, desesperado ni spam.",
+    "Idioma y tono: español natural de España, cercano, directo, sin sonar a agencia, consultoría, auditoría, desesperado ni spam.",
     "Tratamiento: usa te. Puedes usar vuestra si hablas del negocio. No uses les ni ustedes. No mezcles tratamientos.",
     "No digas que has analizado nada. Usa he visto vuestra ficha, he visto vuestra web o he visto vuestra presencia.",
     "No prometas resultados. No digas que van a conseguir más clientes. No critiques ni avergüences al negocio. Convierte problemas en oportunidades.",
@@ -116,16 +116,17 @@ export async function POST(request: Request) {
     "contact_message: ideal entre 220 y 330 caracteres, máximo absoluto 420, máximo 3 frases. Debe ser humano, fácil de responder y no sonar a auditoría.",
     "contact_message: objetivo único: conseguir permiso para enseñar una idea rápida, no vender la web.",
     "contact_message estructura: 1 saludo exacto. 2 observación positiva real. 3 mejora concreta + pregunta de permiso.",
-    "contact_message: si hay web, habla de claridad o contacto de la web. Si no hay web, habla de web sencilla o presencia.",
+    "contact_message: si hay web, habla de hacer más fácil contactar, pedir cita, reservar, pedir presupuesto o resolver dudas. Si no hay web, habla de web sencilla o presencia.",
     "contact_message: si rating >= 4.3 y review_count >= 20, menciona reseñas positivas con naturalidad.",
     "contact_message: si hay demo_url, di Tengo una idea rápida de mejora. Si no hay demo_url, usa Creo que... y pregunta si puedes enseñarle una idea rápida.",
     "contact_message: cierres buenos: ¿Te la puedo enseñar? ¿Te puedo enseñar una idea rápida? ¿Te lo puedo enseñar?",
-    "contact_message ejemplos de tono: clínica con muchas reseñas: He visto que tenéis muchísimas reseñas positivas y eso ya da mucha confianza. Restaurante: He visto que tenéis buena presencia y creo que una web más clara podría facilitar reservas, carta y contacto.",
+    "contact_message ejemplos de tono: clínica dental: He visto que tenéis muchísimas reseñas positivas y eso ya da mucha confianza. Creo que se podría hacer más fácil pedir cita o consultar tratamientos. Restaurante: He visto que tenéis buena presencia y creo que una web más clara podría facilitar reservas, carta y contacto.",
+    "contact_message automoción: He visto que tenéis muy buenas reseñas. Creo que una web más clara podría ayudar a que quien busca coche o taller os contacte con menos vueltas.",
     "contact_message evita jerga de marketing, auditoría, herramientas internas y frases que suenen a crítica visual.",
     "detected_problem: trátalo como observación, una sola frase, útil y nada crítica. Evita lenguaje duro o grandilocuente.",
-    "detected_problem ejemplos de tono: La web tiene buena base, pero el contacto podría estar más guiado hacia cita o presupuesto. Hay buenas reseñas, pero la web podría explicar mejor el siguiente paso para contactar. No aparece una web vinculada, así que la ficha está haciendo casi todo el trabajo.",
+    "detected_problem ejemplos de tono: La web tiene buena base, pero el contacto podría estar más guiado hacia cita o consulta. Hay buenas reseñas, pero el siguiente paso para pedir cita podría estar más claro. La ficha transmite confianza, pero la web podría explicar mejor cómo contactar.",
     "opportunity_notes: máximo 2 frases, interno y claro. Explica por qué merece la pena contactar sin humo. No digas ticket alto si no está claro.",
-    "opportunity_notes puede decir: Buen prospect por reseñas, servicio local y posibilidad de mejorar contacto. Interesante si es negocio independiente; menos prioritario si depende de marca o cadena.",
+    "opportunity_notes puede decir: Buen prospect por reseñas, sector local y margen para mejorar el contacto. Interesante para demo enfocada en cita, tratamientos y confianza. Prioridad alta si es clínica independiente.",
     "next_action permitido: Preparar demo visual antes de contactar. Contactar con mensaje corto y enseñar la demo solo si responde. Llamar con guion breve si no hay email ni web.",
     "Scoring: sube por sector valioso, rating alto, muchas reseñas si parece independiente, negocio local, web ausente o claramente mejorable y teléfono público.",
     "Scoring: baja por cadena grande, marca oficial, bajo ticket, sin teléfono ni web, pocas señales de actividad o rating malo con muchas reseñas.",
@@ -147,7 +148,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "Eres Luca, de unostudio. Evalúas negocios locales para decidir si tiene sentido prepararles una demo visual. Escribes como vendedor consultivo: claro, natural, breve y respetuoso. Responde SOLO JSON válido.",
+              "Eres Luca, de unostudio. Evalúas negocios locales para decidir si tiene sentido prepararles una demo visual. Escribes como un primer WhatsApp/email humano: claro, natural, breve y respetuoso. Responde SOLO JSON válido.",
           },
           {
             role: "user",
