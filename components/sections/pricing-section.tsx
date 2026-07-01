@@ -5,9 +5,13 @@ import { useI18n } from "@/components/i18n-provider"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
 const stripePaymentLinks: Record<string, string | undefined> = {
+  "Web Local": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
   "Web Esencial": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
+  "Local Website": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
   "Essential Web": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
+  "Sistema Presupuestos": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
   "Web Pro": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
+  "Quote System": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
 }
 
 export function PricingSection() {

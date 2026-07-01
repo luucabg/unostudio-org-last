@@ -127,9 +127,9 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                     Selecciona una opción
                   </option>
                   <option>Demo inicial</option>
-                  <option>Web Esencial</option>
-                  <option>Web Pro</option>
-                  <option>Sistema Local</option>
+                  <option>Web Local</option>
+                  <option>Sistema Presupuestos</option>
+                  <option>Sistema Local Growth</option>
                   <option>Proyecto a medida</option>
                   <option>Mantenimiento web</option>
                   <option>Otro</option>
@@ -141,9 +141,9 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                     Selecciona una opción
                   </option>
                   <option>Demo gratuita</option>
-                  <option>490-990 €</option>
                   <option>990-1.490 €</option>
-                  <option>1.490 €+</option>
+                  <option>1.490-2.490 €</option>
+                  <option>2.490 €+</option>
                   <option>2.900 €+</option>
                   <option>No lo sé</option>
                 </select>

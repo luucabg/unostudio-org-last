@@ -7,15 +7,15 @@ export const dynamic = "force-dynamic"
 
 const services = [
   "Demo inicial",
-  "Web Esencial",
-  "Web Pro",
-  "Sistema Local",
+  "Web Local",
+  "Sistema Presupuestos",
+  "Sistema Local Growth",
   "Proyecto a medida",
   "Mantenimiento web",
   "Otro",
 ] as const
 
-const budgets = ["Demo gratuita", "490-990 €", "990-1.490 €", "1.490 €+", "2.900 €+", "No lo sé"] as const
+const budgets = ["Demo gratuita", "990-1.490 €", "1.490-2.490 €", "2.490 €+", "2.900 €+", "No lo sé"] as const
 const urgencies = ["Este mes", "1-2 meses", "Más adelante"] as const
 
 const nullableText = (max: number) =>

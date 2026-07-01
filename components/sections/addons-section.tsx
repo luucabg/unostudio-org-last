@@ -32,7 +32,7 @@ export function AddonsSection() {
 
                 <h3 className="text-sm font-semibold text-zinc-100">{item.name}</h3>
 
-                <p className="mt-2 text-sm font-semibold text-zinc-300">{item.price}</p>
+                {item.price ? <p className="mt-2 text-sm font-semibold text-zinc-300">{item.price}</p> : null}
 
                 <p className="mt-3 text-xs leading-5 text-zinc-500">{item.body}</p>
               </div>
