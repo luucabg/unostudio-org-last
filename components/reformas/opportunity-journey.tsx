@@ -50,15 +50,6 @@ export function OpportunityJourney({
       <div className="absolute -bottom-3 left-5 right-5 top-5 rounded-[14px] border border-white/6 bg-[#08131e]" aria-hidden="true" />
 
       <article className="relative min-w-0 overflow-hidden rounded-[14px] border border-white/12 bg-[#08131e] shadow-[0_30px_90px_-52px_rgba(56,182,255,0.58)]">
-        <div
-          className="pointer-events-none absolute right-0 top-0 h-52 w-52 opacity-40"
-          style={{
-            backgroundImage: "linear-gradient(rgba(105,200,239,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(105,200,239,0.045) 1px, transparent 1px)",
-            backgroundSize: "22px 22px",
-            maskImage: "linear-gradient(135deg, transparent 5%, black 100%)",
-          }}
-          aria-hidden="true"
-        />
         <span className="absolute left-0 top-8 h-12 w-1 bg-orange-300" aria-hidden="true" />
 
         <header className="relative px-6 pb-6 pt-7 md:px-8 md:pb-7 md:pt-8">

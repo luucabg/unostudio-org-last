@@ -258,11 +258,8 @@ export function ReformasLanding({ sent, failed }: ReformasLandingProps) {
 
       <section className="relative px-6 pb-20 pt-32 md:pb-28 md:pt-40">
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(56,182,255,0.14),transparent_28%),radial-gradient(circle_at_18%_72%,rgba(249,115,22,0.06),transparent_24%)]" />
-          <div
-            className="reformas-grid-drift absolute -inset-[44px] opacity-70"
-            style={{ backgroundImage: "linear-gradient(rgba(56,182,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(56,182,255,0.045) 1px, transparent 1px)", backgroundSize: "44px 44px" }}
-          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_76%_32%,rgba(56,182,255,0.15),transparent_33%),radial-gradient(ellipse_at_12%_78%,rgba(249,115,22,0.055),transparent_27%)]" />
+          <div className="absolute inset-x-0 top-[36%] h-px bg-gradient-to-r from-transparent via-sky-300/8 to-transparent" />
           <div className="reformas-orbit absolute -right-44 top-28 h-[34rem] w-[34rem] rounded-full border border-sky-300/10" />
           <div className="reformas-orbit-reverse absolute -left-52 bottom-[-18rem] h-[30rem] w-[30rem] rounded-full border border-orange-300/8" />
         </div>
