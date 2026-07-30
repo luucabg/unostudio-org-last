@@ -17,6 +17,7 @@ import {
   UserCheck,
 } from "lucide-react"
 import { FooterSection } from "@/components/sections/footer-section"
+import { OpportunityJourney } from "@/components/reformas/opportunity-journey"
 import { Navbar } from "@/components/ui/navbar"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { useI18n } from "@/components/i18n-provider"
@@ -30,7 +31,7 @@ const copyByLocale = {
   es: {
     hero: {
       eyebrow: "Captación y seguimiento · Empresas de reformas",
-      title: "Convierte solicitudes de reforma en visitas y presupuestos con seguimiento.",
+      title: "Cada solicitud, más cerca del presupuesto.",
       body:
         "Conectamos una web preparada para cualificar, WhatsApp y un panel comercial para que cada oportunidad tenga respuesta, estado y próxima acción.",
       primary: "Pedir diagnóstico",
@@ -41,12 +42,16 @@ const copyByLocale = {
       label: "Recorrido de una oportunidad",
       demo: "Demo visual · datos ficticios",
       status: "Seguimiento activo",
+      pauseLabel: "Pausar recorrido",
+      playLabel: "Reanudar recorrido",
+      selectLabel: "Ver etapa",
       items: [
         ["Nueva solicitud", "Formulario web"],
         ["Cualificada", "Reforma integral · Valencia"],
         ["Visita concertada", "Jueves · 11:30"],
         ["Presupuesto enviado", "Seguimiento programado"],
       ],
+      activity: ["Solicitud recibida y lista para revisar", "Encaje confirmado con la información clave", "Responsable y fecha asignados", "Siguiente contacto programado"],
       footer: "Ninguna oportunidad sin próxima acción",
     },
     problem: {
@@ -157,7 +162,7 @@ const copyByLocale = {
   en: {
     hero: {
       eyebrow: "Lead capture and follow-up · Renovation companies",
-      title: "Turn renovation enquiries into visits and quotes with follow-up.",
+      title: "Every enquiry, closer to a quote.",
       body:
         "We connect a qualification-focused website, WhatsApp and a sales dashboard so every opportunity has a response, status and next action.",
       primary: "Request diagnosis",
@@ -168,7 +173,11 @@ const copyByLocale = {
       label: "Opportunity journey",
       demo: "Visual demo · fictional data",
       status: "Follow-up active",
+      pauseLabel: "Pause journey",
+      playLabel: "Resume journey",
+      selectLabel: "View stage",
       items: [["New enquiry", "Website form"], ["Qualified", "Full renovation · Valencia"], ["Visit booked", "Thursday · 11:30"], ["Quote sent", "Follow-up scheduled"]],
+      activity: ["Enquiry received and ready to review", "Fit confirmed with the key information", "Owner and date assigned", "Next contact scheduled"],
       footer: "No opportunity without a next action",
     },
     problem: {
@@ -274,24 +283,8 @@ export function ReformasLanding({ sent, failed }: ReformasLandingProps) {
             </ul>
           </div>
 
-          <div className="page-load-rise relative" style={{ animationDelay: "360ms" }}>
-            <div className="absolute -inset-8 rounded-full bg-sky-400/10 blur-3xl" aria-hidden="true" />
-            <div className="relative overflow-hidden rounded-xl border border-sky-300/20 bg-[#07111d]/95 p-5 shadow-[0_36px_120px_-44px_rgba(56,182,255,0.65),inset_0_1px_0_rgba(255,255,255,0.07)] md:p-7">
-              <div className="flex items-center justify-between gap-4 border-b border-white/8 pb-5">
-                <div><p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">{copy.flow.label}</p><p className="mt-1 text-xs text-sky-300">{copy.flow.demo}</p></div>
-                <span className="flex items-center gap-2 rounded-full border border-emerald-400/15 bg-emerald-400/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300 motion-safe:animate-pulse" />{copy.flow.status}</span>
-              </div>
-              <div className="relative mt-6 space-y-3">
-                <div className="absolute bottom-5 left-[19px] top-5 w-px bg-gradient-to-b from-sky-300/60 via-sky-300/25 to-orange-400/40" aria-hidden="true" />
-                {copy.flow.items.map(([title, detail], index) => (
-                  <div key={title} className="relative grid grid-cols-[40px_1fr] items-center gap-3 rounded-lg border border-white/8 bg-white/[0.025] p-3">
-                    <span className={`relative z-10 grid h-10 w-10 place-items-center rounded-full border text-xs font-semibold ${index === copy.flow.items.length - 1 ? "border-orange-400/30 bg-orange-400/10 text-orange-300" : "border-sky-300/25 bg-sky-300/10 text-sky-200"}`}>{String(index + 1).padStart(2, "0")}</span>
-                    <div><p className="text-sm font-semibold text-zinc-100">{title}</p><p className="mt-1 text-xs text-zinc-500">{detail}</p></div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-5 flex items-center gap-3 rounded-lg bg-sky-300 px-4 py-3 text-sm font-semibold text-slate-950"><CheckCircle2 className="h-4 w-4" strokeWidth={2} aria-hidden="true" />{copy.flow.footer}</div>
-            </div>
+          <div className="page-load-rise relative min-w-0" style={{ animationDelay: "360ms" }}>
+            <OpportunityJourney {...copy.flow} />
           </div>
         </div>
       </section>
