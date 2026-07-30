@@ -3,19 +3,30 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useI18n } from "@/components/i18n-provider"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 
 export function Navbar() {
-  const { t } = useI18n()
+  const { locale, t } = useI18n()
+  const pathname = usePathname()
   const [hidden, setHidden] = useState(false)
   const lastScrollY = useRef(0)
+  const isReformas = pathname === "/reformas"
 
-  const navLinks = [
-    { href: "/#features", label: t.nav.services },
-    { href: "/#pricing", label: t.nav.plans },
-    { href: "/#booking", label: t.nav.process },
-  ]
+  const navLinks = isReformas
+    ? [
+        { href: "/reformas#sistema", label: locale === "es" ? "Sistema" : "System" },
+        { href: "/reformas#incluye", label: locale === "es" ? "Qué incluye" : "What's included" },
+        { href: "/reformas#panel", label: locale === "es" ? "Panel" : "Dashboard" },
+      ]
+    : [
+        { href: "/#features", label: t.nav.services },
+        { href: "/#pricing", label: t.nav.plans },
+        { href: "/#booking", label: t.nav.process },
+      ]
+  const ctaHref = isReformas ? "/reformas#diagnostico" : "/#booking"
+  const ctaLabel = isReformas ? (locale === "es" ? "Pedir diagnóstico" : "Request diagnosis") : t.nav.bookCall
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,12 +80,12 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <a
-            href="/#booking"
+          <Link
+            href={ctaHref}
             className="whitespace-nowrap px-3 py-2 text-[13px] rounded-full bg-zinc-100 text-zinc-900 font-medium hover:bg-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 transition-colors sm:px-5 sm:text-[15px]"
           >
-            {t.nav.bookCall}
-          </a>
+            {ctaLabel}
+          </Link>
         </div>
       </nav>
     </header>

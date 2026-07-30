@@ -9,6 +9,7 @@ const services = [
   "Demo inicial",
   "Web Local",
   "Sistema Presupuestos",
+  "Sistema Captación Reformas",
   "Sistema Local Growth",
   "Proyecto a medida",
   "Mantenimiento web",
@@ -17,6 +18,12 @@ const services = [
 
 const budgets = ["Demo gratuita", "990-1.490 €", "1.490-2.490 €", "2.490 €+", "2.900 €+", "No lo sé"] as const
 const urgencies = ["Este mes", "1-2 meses", "Más adelante"] as const
+type ContactPagePath = "/" | "/contacto" | "/reformas"
+
+function contactPagePath(value: unknown): ContactPagePath {
+  if (value === "/" || value === "/reformas") return value
+  return "/contacto"
+}
 
 const nullableText = (max: number) =>
   z
@@ -45,7 +52,7 @@ const contactSchema = z
   .superRefine((payload, context) => {
     const hasEmail = Boolean(payload.email)
     const hasPhone = Boolean(payload.telefono && payload.telefono.length >= 6)
-    const pagePath = payload.page_path === "/" ? "/" : "/contacto"
+    const pagePath = contactPagePath(payload.page_path)
 
     if (!hasEmail && !hasPhone) {
       context.addIssue({
@@ -64,11 +71,11 @@ const contactSchema = z
     }
   })
 
-function redirectTo(request: Request, estado: "enviado" | "error", motivo?: string) {
-  const url = new URL("/contacto", request.url)
+function redirectTo(request: Request, pagePath: ContactPagePath, estado: "enviado" | "error", motivo?: string) {
+  const url = new URL(pagePath === "/" ? "/contacto" : pagePath, request.url)
   url.searchParams.set("estado", estado)
   if (motivo) url.searchParams.set("motivo", motivo)
-  url.hash = "formulario"
+  url.hash = pagePath === "/reformas" ? "diagnostico" : "formulario"
   return NextResponse.redirect(url, { status: 303 })
 }
 
@@ -90,26 +97,27 @@ function createContactClient() {
 
 export async function POST(request: Request) {
   const formData = await request.formData()
+  const requestedPagePath = contactPagePath(formData.get("page_path"))
 
   if (typeof formData.get("confirmacion") === "string" && String(formData.get("confirmacion")).trim()) {
-    return redirectTo(request, "enviado")
+    return redirectTo(request, requestedPagePath, "enviado")
   }
 
   const parsed = contactSchema.safeParse(Object.fromEntries(formData.entries()))
 
   if (!parsed.success) {
-    return redirectTo(request, "error", "validacion")
+    return redirectTo(request, requestedPagePath, "error", "validacion")
   }
 
   const data = parsed.data
-  const pagePath = data.page_path === "/" ? "/" : "/contacto"
+  const pagePath = contactPagePath(data.page_path)
 
   let supabase
 
   try {
     supabase = createContactClient()
   } catch {
-    return redirectTo(request, "error", "config")
+    return redirectTo(request, pagePath, "error", "config")
   }
 
   const { error } = await supabase.from("contact_requests").insert({
@@ -132,8 +140,8 @@ export async function POST(request: Request) {
   })
 
   if (error) {
-    return redirectTo(request, "error", "supabase")
+    return redirectTo(request, pagePath, "error", "supabase")
   }
 
-  return redirectTo(request, "enviado")
+  return redirectTo(request, pagePath, "enviado")
 }

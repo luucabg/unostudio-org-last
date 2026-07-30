@@ -316,6 +316,7 @@ export const translations = {
       contactTitle: "Contacto",
       legalTitle: "Legal",
       services: [
+        { label: "Empresas de reformas", href: "/reformas" },
         { label: "Qué incluye", href: "/#features" },
         { label: "Ejemplos", href: "/#projects" },
         { label: "Precios", href: "/#pricing" },
@@ -651,6 +652,7 @@ export const translations = {
       contactTitle: "Contact",
       legalTitle: "Legal",
       services: [
+        { label: "Renovation companies", href: "/reformas" },
         { label: "What's included", href: "/#features" },
         { label: "Examples", href: "/#projects" },
         { label: "Pricing", href: "/#pricing" },

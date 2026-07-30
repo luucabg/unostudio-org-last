@@ -4,6 +4,7 @@ Landing comercial + unostudio OS.
 
 La home publica vende demo gratis, precios, ejemplos, extras y contacto. El sistema privado vive aparte:
 
+- `/reformas`: landing sectorial de captación y seguimiento para empresas de reformas.
 - `/login`: acceso privado.
 - `/admin/prospects`: panel interno de prospeccion para unostudio.
 - `/admin/lead-finder`: busqueda interna de empresas con Google Places y analisis opcional con DeepSeek.
