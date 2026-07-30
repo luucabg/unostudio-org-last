@@ -7,18 +7,14 @@ import {
   CalendarCheck2,
   Check,
   CheckCircle2,
-  CircleDollarSign,
   Clock3,
-  FileCheck2,
   FormInput,
   Gauge,
   ImageIcon,
   LayoutDashboard,
   MessageCircle,
   MessageSquareText,
-  ShieldCheck,
   UserCheck,
-  X,
 } from "lucide-react"
 import { FooterSection } from "@/components/sections/footer-section"
 import { Navbar } from "@/components/ui/navbar"
@@ -39,12 +35,12 @@ const copyByLocale = {
         "Conectamos una web preparada para cualificar, WhatsApp y un panel comercial para que cada oportunidad tenga respuesta, estado y próxima acción.",
       primary: "Pedir diagnóstico",
       secondary: "Ver cómo funciona",
-      founder: "Soy Luca Benidze, fundador de unostudio.",
       proof: ["Sin cambiar una web que ya funciona", "Proceso adaptado a tu equipo", "Decisiones sensibles siempre humanas"],
     },
     flow: {
       label: "Recorrido de una oportunidad",
       demo: "Demo visual · datos ficticios",
+      status: "Seguimiento activo",
       items: [
         ["Nueva solicitud", "Formulario web"],
         ["Cualificada", "Reforma integral · Valencia"],
@@ -68,12 +64,12 @@ const copyByLocale = {
       eyebrow: "Cómo funciona",
       title: "Un recorrido claro desde el primer clic hasta la decisión.",
       body:
-        "No instalamos automatizaciones por instalar. Diseñamos un proceso breve, visible y aprobable por tu equipo.",
+        "Diseñamos un proceso breve y visible para que el equipo sepa qué hacer, quién lo hace y cuándo toca actuar.",
       steps: [
         ["01", "La web cualifica", "Pregunta tipo de reforma, ubicación, propiedad, plazo e inversión orientativa sin soltar veinte campos de golpe."],
         ["02", "El equipo recibe contexto", "La nueva solicitud entra ordenada, genera un aviso y deja claro quién debe responder."],
         ["03", "Cada oportunidad avanza", "Contacto, visita, presupuesto, seguimiento, ganado, perdido o aplazado: siempre existe un estado real."],
-        ["04", "El sistema recuerda", "Crea tareas y recordatorios. La IA puede resumir o redactar; precios, fechas y compromisos los aprueba una persona."],
+        ["04", "El sistema recuerda", "Crea tareas y recordatorios para que cada oportunidad tenga responsable, fecha y siguiente paso."],
       ],
     },
     includes: {
@@ -82,11 +78,9 @@ const copyByLocale = {
       items: [
         ["Web o landing de captación", "Página enfocada a explicar, generar confianza y abrir una solicitud útil."],
         ["Formulario progresivo", "Preguntas por pasos para cualificar sin convertir el contacto en un interrogatorio."],
-        ["WhatsApp conectado", "Conversación preparada mediante integración oficial, sin entregar sesiones de WhatsApp Web."],
+        ["WhatsApp conectado", "Contacto preparado para responder con contexto y mantener cada conversación ordenada."],
         ["Pipeline comercial", "Todos ven qué está nuevo, contactado, visitado, presupuestado o aplazado."],
-        ["Visitas y tareas", "Próximas acciones, responsables y recordatorios para que el trabajo avance."],
-        ["Seguimiento de presupuestos", "Mensajes aprobados y cadencias razonables para cerrar el bucle comercial."],
-        ["Motivos de pérdida", "Registro útil para entender por qué no avanza una obra y qué mejorar."],
+        ["Visitas, tareas y seguimiento", "Próximas acciones, responsables y recordatorios para que cada oportunidad avance."],
         ["Panel e informe semanal", "Vista operativa del equipo y resumen sencillo de lo que necesita atención."],
       ],
     },
@@ -96,6 +90,7 @@ const copyByLocale = {
       body:
         "Esta vista es una demostración con datos ficticios. El panel final se configura después de entender cómo trabaja realmente tu empresa.",
       demo: "DEMO · DATOS FICTICIOS",
+      boardTitle: "Panel de oportunidades",
       columns: [
         { title: "Nuevas", items: [["Marta R.", "Cocina · Valencia", "Responder hoy"], ["Carlos M.", "Baño · Paterna", "Revisar fotos"]] },
         { title: "Visita", items: [["Ana P.", "Integral · Torrent", "Jue · 11:30"]] },
@@ -111,40 +106,29 @@ const copyByLocale = {
       exampleLabel: "Ejemplo de trabajo web publicado",
       exampleTitle: "Saduni Reformas",
       exampleBody:
-        "Proyecto mostrado como referencia visual de web para reformas. No atribuimos mejoras comerciales ni resultados que no hayan sido medidos.",
+        "Web creada por unostudio para una empresa de reformas: servicios claros, confianza visual y acceso directo a presupuesto y WhatsApp.",
       visit: "Visitar proyecto",
       keep: "Conservar la web",
       keepBody: "Cuando explica bien el servicio y ya genera contactos útiles.",
       rebuild: "Rehacer la entrada",
       rebuildBody: "Cuando no transmite confianza, no guía o no recoge el contexto necesario.",
+      cta: "Revisar mi caso",
     },
     fit: {
       eyebrow: "Encaje",
-      title: "Para empresas que quieren ordenar oportunidades, no coleccionar herramientas.",
-      goodTitle: "Tiene sentido si",
-      good: ["Vendes reformas de ticket medio o alto", "Ya recibes algunas solicitudes", "Tu equipo puede atender y actualizar oportunidades", "Quieres medir visitas, presupuestos y motivos de pérdida"],
-      badTitle: "No tiene sentido si",
-      bad: ["Buscas miles de leads sin filtrar", "Quieres que una IA negocie precios o compromisos", "Nadie asumirá el seguimiento", "Esperas resultados inventados antes de medir"],
-    },
-    approach: {
-      eyebrow: "Punto de partida",
-      title: "Primero revisamos qué ya funciona. Después proponemos solo lo necesario.",
-      options: [
-        ["Tu web se conserva", "Instalamos cualificación, medición, pipeline, seguimiento y panel sobre la entrada actual."],
-        ["Tu web necesita cambiar", "Diseñamos una web de captación y conectamos el mismo sistema de seguimiento."],
-      ],
-      note: "La propuesta depende del estado actual, volumen de solicitudes y proceso del equipo. Los precios piloto se presentan personalmente, no como una tarifa pública sin contexto.",
-      cta: "Revisar mi caso",
+      title: "Diseñado para empresas que ya venden reformas y quieren seguir mejor cada oportunidad.",
+      body: "El sistema se adapta al proceso real del equipo para aportar claridad desde el primer contacto hasta la decisión.",
+      goodTitle: "Encaja especialmente si",
+      good: ["Vendes reformas de ticket medio o alto", "Ya recibes solicitudes por web, teléfono o WhatsApp", "Tu equipo puede atender y actualizar oportunidades", "Quieres saber qué visitas y presupuestos necesitan seguimiento"],
     },
     faq: {
       eyebrow: "Preguntas frecuentes",
       title: "Lo importante antes de empezar.",
       items: [
         ["¿Tengo que rehacer mi web?", "No. Si ya explica bien el servicio y genera solicitudes útiles, trabajamos sobre ella. Solo recomendamos cambiarla cuando limita el sistema."],
-        ["¿La IA responderá sola a mis clientes?", "No al inicio. Puede clasificar, resumir y preparar mensajes. Precios, fechas, condiciones y compromisos requieren aprobación humana."],
-        ["¿Necesito entregar acceso a WhatsApp Web?", "No. El enfoque previsto usa la plataforma oficial de WhatsApp Business cuando la integración aporta valor. No guardamos QR, cookies ni sesiones del navegador."],
-        ["¿Es un SaaS que configuro yo?", "No. Primero es un servicio configurado contigo. Convertiremos en producto solo las partes que se repitan y estén demostradas con clientes reales."],
-        ["¿Qué ocurre con los datos?", "Se separan por empresa, se limita el acceso y se documentan proveedores y tratamiento. El contrato debe cubrir instrucciones, seguridad, subencargados y cierre del servicio."],
+        ["¿Cómo se adapta a mi empresa?", "Empezamos revisando cómo recibís, atendéis y seguís hoy las solicitudes. A partir de ahí configuramos solo las etapas y avisos que el equipo necesita."],
+        ["¿Qué pasa con WhatsApp?", "Lo incorporamos cuando ayuda a responder con más contexto y a mantener el seguimiento ordenado, usando una conexión adecuada para la empresa."],
+        ["¿Qué ocurre con los datos?", "Cada empresa accede únicamente a sus oportunidades. Los accesos y la protección de la información quedan definidos antes de poner el sistema en marcha."],
       ],
     },
     diagnosis: {
@@ -178,12 +162,12 @@ const copyByLocale = {
         "We connect a qualification-focused website, WhatsApp and a sales dashboard so every opportunity has a response, status and next action.",
       primary: "Request diagnosis",
       secondary: "See how it works",
-      founder: "I am Luca Benidze, founder of unostudio.",
       proof: ["Keep a website that already works", "Process adapted to your team", "Sensitive decisions always remain human"],
     },
     flow: {
       label: "Opportunity journey",
       demo: "Visual demo · fictional data",
+      status: "Follow-up active",
       items: [["New enquiry", "Website form"], ["Qualified", "Full renovation · Valencia"], ["Visit booked", "Thursday · 11:30"], ["Quote sent", "Follow-up scheduled"]],
       footer: "No opportunity without a next action",
     },
@@ -196,19 +180,20 @@ const copyByLocale = {
     system: {
       eyebrow: "How it works",
       title: "A clear journey from first click to final decision.",
-      body: "We do not install automation for its own sake. We design a short, visible process your team can approve.",
-      steps: [["01", "The website qualifies", "It asks about job type, location, ownership, timeframe and indicative investment without showing twenty fields at once."], ["02", "The team receives context", "The new enquiry arrives organised, sends an alert and makes ownership clear."], ["03", "Every opportunity moves", "Contact, visit, quote, follow-up, won, lost or postponed: there is always a real status."], ["04", "The system remembers", "It creates tasks and reminders. AI can summarise or draft; a person approves prices, dates and commitments."]],
+      body: "We design a short, visible process so the team knows what to do, who owns it and when to act.",
+      steps: [["01", "The website qualifies", "It asks about job type, location, ownership, timeframe and indicative investment without showing twenty fields at once."], ["02", "The team receives context", "The new enquiry arrives organised, sends an alert and makes ownership clear."], ["03", "Every opportunity moves", "Contact, visit, quote, follow-up, won, lost or postponed: there is always a real status."], ["04", "The system remembers", "It creates tasks and reminders so every opportunity has an owner, a date and a next step."]],
     },
     includes: {
       eyebrow: "What is included",
       title: "The entry point and follow-up, in one system.",
-      items: [["Lead capture website", "A page focused on explaining, building trust and opening a useful enquiry."], ["Progressive form", "Step-by-step questions that qualify without turning contact into an interrogation."], ["Connected WhatsApp", "Prepared conversations through an official integration, without handing over WhatsApp Web sessions."], ["Sales pipeline", "Everyone sees what is new, contacted, visited, quoted or postponed."], ["Visits and tasks", "Next actions, owners and reminders that keep work moving."], ["Quote follow-up", "Approved messages and sensible cadences that close the sales loop."], ["Loss reasons", "Useful records to understand why a job did not move and what to improve."], ["Dashboard and weekly report", "An operational team view and a simple summary of what needs attention."]],
+      items: [["Lead capture website", "A page focused on explaining, building trust and opening a useful enquiry."], ["Progressive form", "Step-by-step questions that qualify without turning contact into an interrogation."], ["Connected WhatsApp", "Contact prepared to reply with context and keep every conversation organised."], ["Sales pipeline", "Everyone sees what is new, contacted, visited, quoted or postponed."], ["Visits, tasks and follow-up", "Next actions, owners and reminders that keep every opportunity moving."], ["Dashboard and weekly report", "An operational team view and a simple summary of what needs attention."]],
     },
     dashboard: {
       eyebrow: "Dashboard visual example",
       title: "The next action visible, not buried in a conversation.",
       body: "This is a demonstration with fictional data. The final dashboard is configured after understanding how your company actually works.",
       demo: "DEMO · FICTIONAL DATA",
+      boardTitle: "Opportunity board",
       columns: [{ title: "New", items: [["Marta R.", "Kitchen · Valencia", "Reply today"], ["Carlos M.", "Bathroom · Paterna", "Review photos"]] }, { title: "Visit", items: [["Ana P.", "Full · Torrent", "Thu · 11:30"]] }, { title: "Quote", items: [["Javier L.", "Premises · Valencia", "Sent yesterday"]] }, { title: "Follow-up", items: [["Laura G.", "Home · Alboraya", "Call Friday"]] }],
     },
     website: {
@@ -217,32 +202,25 @@ const copyByLocale = {
       body: "If your website already generates enquiries, we improve forms, measurement and follow-up. If it slows trust or does not qualify, a new website becomes a necessary part of the system.",
       exampleLabel: "Published website example",
       exampleTitle: "Saduni Reformas",
-      exampleBody: "Shown as a visual reference for renovation web work. We do not attribute commercial improvements or results that have not been measured.",
+      exampleBody: "A website created by unostudio for a renovation company: clear services, visual trust and direct access to quotes and WhatsApp.",
       visit: "Visit project",
       keep: "Keep the website",
       keepBody: "When it explains the service clearly and already generates useful contacts.",
       rebuild: "Rebuild the entry point",
       rebuildBody: "When it lacks trust, guidance or the context needed to qualify.",
+      cta: "Review my case",
     },
     fit: {
       eyebrow: "Fit",
-      title: "For companies that want to organise opportunities, not collect tools.",
-      goodTitle: "It makes sense if",
-      good: ["You sell medium or high-ticket renovations", "You already receive some enquiries", "Your team can attend and update opportunities", "You want to measure visits, quotes and loss reasons"],
-      badTitle: "It does not make sense if",
-      bad: ["You want thousands of unfiltered leads", "You want AI to negotiate prices or commitments", "Nobody will own follow-up", "You expect invented results before measurement"],
-    },
-    approach: {
-      eyebrow: "Starting point",
-      title: "First we review what already works. Then we propose only what is needed.",
-      options: [["Keep your website", "We install qualification, measurement, pipeline, follow-up and dashboard on the current entry point."], ["Your website needs change", "We design a lead capture website and connect the same follow-up system."]],
-      note: "The proposal depends on your current setup, enquiry volume and team process. Pilot prices are presented personally, not as a public rate without context.",
-      cta: "Review my case",
+      title: "Designed for renovation companies that already sell and want to follow every opportunity more effectively.",
+      body: "The system adapts to the team’s real process to provide clarity from first contact to final decision.",
+      goodTitle: "It is a strong fit if",
+      good: ["You sell medium or high-ticket renovations", "You already receive enquiries by website, phone or WhatsApp", "Your team can attend and update opportunities", "You want to know which visits and quotes need follow-up"],
     },
     faq: {
       eyebrow: "Frequently asked questions",
       title: "What matters before starting.",
-      items: [["Do I need to rebuild my website?", "No. If it explains the service clearly and generates useful enquiries, we work with it. We only recommend a change when it limits the system."], ["Will AI reply to clients on its own?", "Not initially. It can classify, summarise and prepare messages. Prices, dates, terms and commitments require human approval."], ["Do I need to hand over WhatsApp Web access?", "No. The intended approach uses the official WhatsApp Business platform when integration adds value. We do not store QR codes, cookies or browser sessions."], ["Is this a SaaS I configure myself?", "No. It starts as a service configured with you. We only turn repeated, proven parts into product."], ["What happens to the data?", "Data is separated by company, access is limited and providers and processing are documented. The contract must cover instructions, security, subprocessors and service closure."]],
+      items: [["Do I need to rebuild my website?", "No. If it explains the service clearly and generates useful enquiries, we work with it. We only recommend a change when it limits the system."], ["How is it adapted to my company?", "We start by reviewing how your team receives, handles and follows enquiries today. Then we configure only the stages and alerts the team needs."], ["What happens with WhatsApp?", "We include it when it helps the team respond with more context and keep follow-up organised, using a connection suited to the company."], ["What happens to the data?", "Each company can only access its own opportunities. Access and information protection are defined before the system goes live."]],
     },
     diagnosis: {
       eyebrow: "Diagnosis",
@@ -258,7 +236,7 @@ const copyByLocale = {
 } as const
 
 const problemIcons = [FormInput, MessageSquareText, Clock3]
-const includeIcons = [LayoutDashboard, FormInput, MessageCircle, Gauge, CalendarCheck2, FileCheck2, CircleDollarSign, BarChart3]
+const includeIcons = [LayoutDashboard, FormInput, MessageCircle, Gauge, CalendarCheck2, BarChart3]
 const whatsappHref = "https://wa.me/34694222191?text=Hola%2C%20quiero%20revisar%20el%20sistema%20de%20captaci%C3%B3n%20para%20mi%20empresa%20de%20reformas"
 const inputClass = "mt-2 w-full rounded-lg border border-white/10 bg-black/20 px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-sky-300/70 focus:ring-2 focus:ring-sky-300/20"
 const labelClass = "text-sm font-medium text-zinc-300"
@@ -285,14 +263,13 @@ export function ReformasLanding({ sent, failed }: ReformasLandingProps) {
             <p className="page-load-rise font-mono text-xs uppercase tracking-[0.2em] text-sky-300" style={{ animationDelay: "120ms" }}>{copy.hero.eyebrow}</p>
             <h1 className="page-load-rise mt-6 max-w-4xl font-display text-[clamp(2.75rem,6.1vw,5.8rem)] font-bold leading-[0.94] tracking-[-0.035em] text-zinc-50 text-balance" style={{ animationDelay: "220ms" }}>{copy.hero.title}</h1>
             <p className="page-load-rise mt-7 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg md:leading-8" style={{ animationDelay: "340ms" }}>{copy.hero.body}</p>
-            <p className="page-load-rise mt-5 text-sm font-medium text-zinc-200" style={{ animationDelay: "420ms" }}>{copy.hero.founder}</p>
-            <div className="page-load-rise mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "500ms" }}>
+            <div className="page-load-rise mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "420ms" }}>
               <a href="#diagnostico" className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">
                 {copy.hero.primary}<ArrowRight className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
               </a>
               <a href="#sistema" className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-zinc-200 transition hover:border-sky-300/40 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">{copy.hero.secondary}</a>
             </div>
-            <ul className="page-load-rise mt-9 grid gap-3 text-sm text-zinc-400 sm:grid-cols-3" style={{ animationDelay: "580ms" }}>
+            <ul className="page-load-rise mt-9 grid gap-3 text-sm text-zinc-400 sm:grid-cols-3" style={{ animationDelay: "520ms" }}>
               {copy.hero.proof.map((item) => <li key={item} className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-300" strokeWidth={2} aria-hidden="true" /><span>{item}</span></li>)}
             </ul>
           </div>
@@ -302,7 +279,7 @@ export function ReformasLanding({ sent, failed }: ReformasLandingProps) {
             <div className="relative overflow-hidden rounded-xl border border-sky-300/20 bg-[#07111d]/95 p-5 shadow-[0_36px_120px_-44px_rgba(56,182,255,0.65),inset_0_1px_0_rgba(255,255,255,0.07)] md:p-7">
               <div className="flex items-center justify-between gap-4 border-b border-white/8 pb-5">
                 <div><p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">{copy.flow.label}</p><p className="mt-1 text-xs text-sky-300">{copy.flow.demo}</p></div>
-                <span className="flex items-center gap-2 rounded-full border border-emerald-400/15 bg-emerald-400/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300 motion-safe:animate-pulse" />Live flow</span>
+                <span className="flex items-center gap-2 rounded-full border border-emerald-400/15 bg-emerald-400/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300 motion-safe:animate-pulse" />{copy.flow.status}</span>
               </div>
               <div className="relative mt-6 space-y-3">
                 <div className="absolute bottom-5 left-[19px] top-5 w-px bg-gradient-to-b from-sky-300/60 via-sky-300/25 to-orange-400/40" aria-hidden="true" />
@@ -338,23 +315,21 @@ export function ReformasLanding({ sent, failed }: ReformasLandingProps) {
       </section>
 
       <section id="incluye" className="scroll-mt-24 border-y border-white/7 bg-[#07101b] px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl"><ScrollReveal className="max-w-3xl"><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.includes.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.includes.title}</h2></ScrollReveal><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{copy.includes.items.map(([title, body], index) => { const Icon = includeIcons[index]; return <ScrollReveal key={title} delay={(index % 4) * 65}><article className="h-full rounded-xl border border-white/8 bg-black/15 p-5 transition hover:border-sky-300/25 hover:bg-sky-300/[0.035]"><Icon className="h-5 w-5 text-sky-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-5 text-base font-semibold text-zinc-100">{title}</h3><p className="mt-3 text-sm leading-6 text-zinc-500">{body}</p></article></ScrollReveal> })}</div></div>
+        <div className="mx-auto max-w-7xl"><ScrollReveal className="max-w-3xl"><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.includes.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.includes.title}</h2></ScrollReveal><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{copy.includes.items.map(([title, body], index) => { const Icon = includeIcons[index]; return <ScrollReveal key={title} delay={(index % 3) * 65}><article className="h-full rounded-xl border border-white/8 bg-black/15 p-5 transition hover:border-sky-300/25 hover:bg-sky-300/[0.035]"><Icon className="h-5 w-5 text-sky-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-5 text-base font-semibold text-zinc-100">{title}</h3><p className="mt-3 text-sm leading-6 text-zinc-500">{body}</p></article></ScrollReveal> })}</div></div>
       </section>
 
       <section id="panel" className="scroll-mt-24 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-7xl"><div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end"><ScrollReveal><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.dashboard.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.dashboard.title}</h2></ScrollReveal><ScrollReveal delay={100}><p className="max-w-2xl text-base leading-7 text-zinc-500 lg:ml-auto md:text-lg">{copy.dashboard.body}</p></ScrollReveal></div>
-          <ScrollReveal delay={120} className="mt-12"><div className="overflow-hidden rounded-xl border border-white/10 bg-[#08101a] shadow-[0_32px_100px_-56px_rgba(56,182,255,0.7)]"><div className="flex flex-col gap-3 border-b border-white/8 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"><div className="flex items-center gap-3"><LayoutDashboard className="h-4 w-4 text-sky-300" strokeWidth={1.8} aria-hidden="true" /><span className="text-sm font-semibold text-zinc-200">Opportunity board</span></div><span className="font-mono text-[10px] tracking-[0.16em] text-orange-300">{copy.dashboard.demo}</span></div><div className="grid gap-px bg-white/8 lg:grid-cols-4">{copy.dashboard.columns.map((column, columnIndex) => <div key={column.title} className="min-h-56 bg-[#070c13] p-4"><div className="mb-4 flex items-center justify-between"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">{column.title}</p><span className="grid h-5 min-w-5 place-items-center rounded-full bg-white/6 px-1.5 text-[10px] text-zinc-500">{column.items.length}</span></div><div className="space-y-3">{column.items.map(([name, type, action]) => <article key={name} className="rounded-lg border border-white/8 bg-white/[0.025] p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm font-semibold text-zinc-200">{name}</p><span className={`h-2 w-2 rounded-full ${columnIndex === 0 ? "bg-orange-300" : "bg-sky-300"}`} /></div><p className="mt-2 text-xs text-zinc-500">{type}</p><div className="mt-4 flex items-center gap-2 border-t border-white/7 pt-3 text-[11px] text-sky-300"><Clock3 className="h-3 w-3" aria-hidden="true" />{action}</div></article>)}</div></div>)}</div></div></ScrollReveal>
+          <ScrollReveal delay={120} className="mt-12"><div className="overflow-hidden rounded-xl border border-white/10 bg-[#08101a] shadow-[0_32px_100px_-56px_rgba(56,182,255,0.7)]"><div className="flex flex-col gap-3 border-b border-white/8 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"><div className="flex items-center gap-3"><LayoutDashboard className="h-4 w-4 text-sky-300" strokeWidth={1.8} aria-hidden="true" /><span className="text-sm font-semibold text-zinc-200">{copy.dashboard.boardTitle}</span></div><span className="font-mono text-[10px] tracking-[0.16em] text-orange-300">{copy.dashboard.demo}</span></div><div className="grid gap-px bg-white/8 lg:grid-cols-4">{copy.dashboard.columns.map((column, columnIndex) => <div key={column.title} className="min-h-56 bg-[#070c13] p-4"><div className="mb-4 flex items-center justify-between"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">{column.title}</p><span className="grid h-5 min-w-5 place-items-center rounded-full bg-white/6 px-1.5 text-[10px] text-zinc-500">{column.items.length}</span></div><div className="space-y-3">{column.items.map(([name, type, action]) => <article key={name} className="rounded-lg border border-white/8 bg-white/[0.025] p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm font-semibold text-zinc-200">{name}</p><span className={`h-2 w-2 rounded-full ${columnIndex === 0 ? "bg-orange-300" : "bg-sky-300"}`} /></div><p className="mt-2 text-xs text-zinc-500">{type}</p><div className="mt-4 flex items-center gap-2 border-t border-white/7 pt-3 text-[11px] text-sky-300"><Clock3 className="h-3 w-3" aria-hidden="true" />{action}</div></article>)}</div></div>)}</div></div></ScrollReveal>
         </div>
       </section>
 
       <section className="border-y border-white/7 bg-white/[0.018] px-6 py-20 md:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.96fr_1.04fr] lg:items-center"><ScrollReveal><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.website.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.website.title}</h2><p className="mt-5 text-base leading-7 text-zinc-500 md:text-lg">{copy.website.body}</p><div className="mt-8 grid gap-3 sm:grid-cols-2"><div className="rounded-lg border border-white/8 bg-black/20 p-5"><CheckCircle2 className="h-5 w-5 text-emerald-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-4 font-semibold text-zinc-100">{copy.website.keep}</h3><p className="mt-2 text-sm leading-6 text-zinc-500">{copy.website.keepBody}</p></div><div className="rounded-lg border border-white/8 bg-black/20 p-5"><ImageIcon className="h-5 w-5 text-orange-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-4 font-semibold text-zinc-100">{copy.website.rebuild}</h3><p className="mt-2 text-sm leading-6 text-zinc-500">{copy.website.rebuildBody}</p></div></div></ScrollReveal>
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.96fr_1.04fr] lg:items-center"><ScrollReveal><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.website.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.website.title}</h2><p className="mt-5 text-base leading-7 text-zinc-500 md:text-lg">{copy.website.body}</p><div className="mt-8 grid gap-3 sm:grid-cols-2"><div className="rounded-lg border border-white/8 bg-black/20 p-5"><CheckCircle2 className="h-5 w-5 text-emerald-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-4 font-semibold text-zinc-100">{copy.website.keep}</h3><p className="mt-2 text-sm leading-6 text-zinc-500">{copy.website.keepBody}</p></div><div className="rounded-lg border border-white/8 bg-black/20 p-5"><ImageIcon className="h-5 w-5 text-orange-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-4 font-semibold text-zinc-100">{copy.website.rebuild}</h3><p className="mt-2 text-sm leading-6 text-zinc-500">{copy.website.rebuildBody}</p></div></div><a href="#diagnostico" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 transition hover:text-sky-200">{copy.website.cta}<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></ScrollReveal>
           <ScrollReveal delay={120}><article className="overflow-hidden rounded-xl border border-white/10 bg-[#070c13]"><a href="https://sadunireformas.com" target="_blank" rel="noreferrer" className="group relative block aspect-[16/10] overflow-hidden border-b border-white/8"><img src="/projects/saduni-reformas.png" alt="Saduni Reformas, ejemplo de página web para una empresa de reformas" className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]" /><div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" /><span className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-black/60 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur">{copy.website.exampleLabel}</span></a><div className="p-6"><h3 className="text-xl font-semibold text-zinc-100">{copy.website.exampleTitle}</h3><p className="mt-3 text-sm leading-6 text-zinc-500">{copy.website.exampleBody}</p><a href="https://sadunireformas.com" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">{copy.website.visit}<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></div></article></ScrollReveal></div>
       </section>
 
-      <section id="encaje" className="scroll-mt-24 px-6 py-20 md:py-28"><div className="mx-auto max-w-7xl"><ScrollReveal className="max-w-3xl"><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.fit.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.fit.title}</h2></ScrollReveal><div className="mt-12 grid gap-5 md:grid-cols-2"><ScrollReveal><div className="h-full rounded-xl border border-emerald-300/15 bg-emerald-300/[0.035] p-6 md:p-8"><UserCheck className="h-6 w-6 text-emerald-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-6 text-xl font-semibold text-zinc-100">{copy.fit.goodTitle}</h3><ul className="mt-5 space-y-4">{copy.fit.good.map(item => <li key={item} className="flex gap-3 text-sm leading-6 text-zinc-400"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />{item}</li>)}</ul></div></ScrollReveal><ScrollReveal delay={100}><div className="h-full rounded-xl border border-orange-300/15 bg-orange-300/[0.025] p-6 md:p-8"><ShieldCheck className="h-6 w-6 text-orange-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-6 text-xl font-semibold text-zinc-100">{copy.fit.badTitle}</h3><ul className="mt-5 space-y-4">{copy.fit.bad.map(item => <li key={item} className="flex gap-3 text-sm leading-6 text-zinc-400"><X className="mt-1 h-4 w-4 shrink-0 text-orange-300" aria-hidden="true" />{item}</li>)}</ul></div></ScrollReveal></div></div></section>
-
-      <section className="border-y border-white/7 bg-[#07101b] px-6 py-20 md:py-28"><div className="mx-auto max-w-7xl"><ScrollReveal className="max-w-4xl"><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.approach.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.approach.title}</h2></ScrollReveal><div className="mt-10 grid gap-4 md:grid-cols-2">{copy.approach.options.map(([title, body], index) => <ScrollReveal key={title} delay={index * 90}><article className="h-full rounded-xl border border-white/9 bg-black/15 p-6 md:p-8"><span className="font-mono text-xs text-sky-300">0{index + 1}</span><h3 className="mt-5 text-2xl font-semibold text-zinc-100">{title}</h3><p className="mt-3 text-sm leading-7 text-zinc-500">{body}</p></article></ScrollReveal>)}</div><ScrollReveal delay={120} className="mt-6 flex flex-col gap-5 rounded-xl border border-sky-300/15 bg-sky-300/[0.04] p-6 md:flex-row md:items-center md:justify-between"><p className="max-w-3xl text-sm leading-6 text-zinc-400">{copy.approach.note}</p><a href="#diagnostico" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-zinc-100 px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-sky-200">{copy.approach.cta}<ArrowRight className="h-4 w-4" aria-hidden="true" /></a></ScrollReveal></div></section>
+      <section id="encaje" className="scroll-mt-24 px-6 py-20 md:py-28"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center"><ScrollReveal><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.fit.eyebrow}</p><h2 className="mt-5 max-w-3xl font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.fit.title}</h2><p className="mt-5 max-w-2xl text-base leading-7 text-zinc-500 md:text-lg">{copy.fit.body}</p></ScrollReveal><ScrollReveal delay={100}><div className="rounded-xl border border-emerald-300/15 bg-emerald-300/[0.035] p-6 shadow-[0_28px_90px_-58px_rgba(110,231,183,0.7)] md:p-8"><UserCheck className="h-6 w-6 text-emerald-300" strokeWidth={1.7} aria-hidden="true" /><h3 className="mt-6 text-xl font-semibold text-zinc-100">{copy.fit.goodTitle}</h3><ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">{copy.fit.good.map(item => <li key={item} className="flex gap-3 text-sm leading-6 text-zinc-400"><Check className="mt-1 h-4 w-4 shrink-0 text-emerald-300" aria-hidden="true" />{item}</li>)}</ul></div></ScrollReveal></div></section>
 
       <section className="px-6 py-20 md:py-28"><div className="mx-auto max-w-4xl"><ScrollReveal className="text-center"><p className="font-mono text-xs uppercase tracking-[0.2em] text-sky-300">{copy.faq.eyebrow}</p><h2 className="mt-5 font-display text-3xl font-bold leading-tight text-zinc-100 md:text-5xl">{copy.faq.title}</h2></ScrollReveal><div className="mt-10 divide-y divide-white/8 border-y border-white/8">{copy.faq.items.map(([question, answer]) => <details key={question} className="group"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left font-semibold text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"><span>{question}</span><span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/10 text-lg font-light text-sky-300 transition group-open:rotate-45">+</span></summary><p className="max-w-3xl pb-6 text-sm leading-7 text-zinc-500">{answer}</p></details>)}</div></div></section>
 
