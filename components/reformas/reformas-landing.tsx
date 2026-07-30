@@ -39,11 +39,8 @@ const copyByLocale = {
       proof: ["Sin cambiar una web que ya funciona", "Proceso adaptado a tu equipo", "Decisiones sensibles siempre humanas"],
     },
     flow: {
-      label: "Recorrido de una oportunidad",
-      demo: "Demo visual · datos ficticios",
-      status: "Seguimiento activo",
-      pauseLabel: "Pausar recorrido",
-      playLabel: "Reanudar recorrido",
+      label: "Seguimiento de una solicitud",
+      demo: "Ejemplo orientativo",
       selectLabel: "Ver etapa",
       items: [
         ["Nueva solicitud", "Formulario web"],
@@ -51,7 +48,7 @@ const copyByLocale = {
         ["Visita concertada", "Jueves · 11:30"],
         ["Presupuesto enviado", "Seguimiento programado"],
       ],
-      activity: ["Solicitud recibida y lista para revisar", "Encaje confirmado con la información clave", "Responsable y fecha asignados", "Siguiente contacto programado"],
+      activity: ["Lista para revisar", "Encaje confirmado", "Visita asignada al equipo", "Seguimiento preparado"],
       footer: "Ninguna oportunidad sin próxima acción",
     },
     problem: {
@@ -170,14 +167,11 @@ const copyByLocale = {
       proof: ["Keep a website that already works", "Process adapted to your team", "Sensitive decisions always remain human"],
     },
     flow: {
-      label: "Opportunity journey",
-      demo: "Visual demo · fictional data",
-      status: "Follow-up active",
-      pauseLabel: "Pause journey",
-      playLabel: "Resume journey",
+      label: "Enquiry follow-up",
+      demo: "Illustrative example",
       selectLabel: "View stage",
       items: [["New enquiry", "Website form"], ["Qualified", "Full renovation · Valencia"], ["Visit booked", "Thursday · 11:30"], ["Quote sent", "Follow-up scheduled"]],
-      activity: ["Enquiry received and ready to review", "Fit confirmed with the key information", "Owner and date assigned", "Next contact scheduled"],
+      activity: ["Ready to review", "Fit confirmed", "Visit assigned to the team", "Follow-up prepared"],
       footer: "No opportunity without a next action",
     },
     problem: {
