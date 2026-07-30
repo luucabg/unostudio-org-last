@@ -129,6 +129,7 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option>Demo inicial</option>
                   <option>Web Local</option>
                   <option>Sistema Presupuestos</option>
+                  <option>Sistema Captación Reformas</option>
                   <option>Sistema Local Growth</option>
                   <option>Proyecto a medida</option>
                   <option>Mantenimiento web</option>
