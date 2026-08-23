@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { LegalList, LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout"
 
-const updatedAt = "8 de mayo de 2026"
+const updatedAt = "24 de agosto de 2026"
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
@@ -22,96 +22,106 @@ export default function PrivacidadPage() {
       <LegalSection title="Responsable del tratamiento">
         <LegalList
           items={[
-            "Responsable: Luca Benidze",
-            "Forma jurídica: Autónomo",
-            "Email: hola@unostudio.org",
-          ]}
-        />
-        {/* TODO: validar con asesoría legal si debe añadirse información identificativa adicional. */}
-      </LegalSection>
-
-      <LegalSection title="Datos que se recogen">
-        <LegalList
-          items={[
-            "Nombre y apellidos.",
-            "Email y teléfono.",
-            "Empresa, sector, web actual y servicio de interés.",
-            "Mensaje, presupuesto aproximado, urgencia y datos facilitados voluntariamente.",
-            "Datos de navegación, dispositivo, eventos o cookies si se activan herramientas de medición.",
-            "Datos enviados mediante formularios y almacenados en Supabase cuando el usuario solicita contacto.",
+            "Responsable: Luca Benidze, bajo la marca unostudio",
+            "Email de contacto: hola@unostudio.org",
+            "Ámbito de actividad: Valencia, España, con prestación de servicios también de forma remota",
           ]}
         />
       </LegalSection>
 
-      <LegalSection title="Finalidades del tratamiento">
+      <LegalSection title="Datos que podemos tratar">
         <LegalList
           items={[
-            "Responder solicitudes recibidas desde formularios, email, WhatsApp o calendario.",
-            "Preparar diagnósticos, presupuestos, propuestas y comunicaciones precontractuales.",
-            "Gestionar la relación comercial y la prestación de servicios contratados.",
-            "Enviar comunicaciones relacionadas con los servicios si el usuario lo solicita o autoriza.",
-            "Mejorar la web, medir rendimiento y entender qué contenidos generan oportunidades reales.",
+            "Nombre y datos de contacto como email o teléfono.",
+            "Empresa, web actual y la información que incluyas voluntariamente en formularios o mensajes.",
+            "Información necesaria para preparar una propuesta, prestar un servicio o gestionar una relación comercial.",
+            "Datos de cuenta y acceso cuando exista un área privada para clientes.",
+            "Preferencias de cookies y datos agregados de uso cuando aceptas analítica.",
           ]}
         />
       </LegalSection>
 
-      <LegalSection title="Base legal">
+      <LegalSection title="Finalidades">
         <LegalList
           items={[
-            "Consentimiento del usuario cuando envía un formulario, acepta cookies o solicita comunicaciones.",
-            "Aplicación de medidas precontractuales cuando pide una propuesta o diagnóstico.",
-            "Ejecución contractual cuando existe una relación de servicios.",
-            "Interés legítimo para mantener seguridad, prevenir abuso y mejorar procesos internos cuando proceda.",
+            "Responder solicitudes recibidas desde formularios, email o WhatsApp.",
+            "Realizar una primera revisión, preparar propuestas y gestionar comunicaciones precontractuales.",
+            "Prestar, mantener y dar soporte a los servicios contratados.",
+            "Gestionar accesos a áreas privadas y proteger la seguridad del servicio.",
+            "Medir de forma agregada el uso de la web cuando el usuario acepta analítica.",
+            "Cumplir obligaciones legales, fiscales o contractuales cuando proceda.",
+          ]}
+        />
+      </LegalSection>
+
+      <LegalSection title="Base jurídica">
+        <LegalList
+          items={[
+            "Consentimiento cuando envías un formulario o aceptas analítica.",
+            "Aplicación de medidas precontractuales cuando solicitas una propuesta o revisión.",
+            "Ejecución de un contrato cuando existe una relación de servicios.",
+            "Interés legítimo para seguridad, prevención de abuso y gestión operativa cuando resulte aplicable.",
             "Cumplimiento de obligaciones legales cuando sea necesario.",
           ]}
         />
       </LegalSection>
 
-      <LegalSection title="Proveedores y encargados">
+      <LegalSection title="Proveedores que intervienen en la web">
         <p>
-          Para operar el sitio y prestar servicios pueden intervenir proveedores de hosting, base de datos, email,
-          analítica, formularios, CRM, automatización, calendario, herramientas de IA, almacenamiento, documentación y
-          soporte.
+          Para operar unostudio.org pueden intervenir proveedores tecnológicos que actúan como prestadores de servicio o
+          encargados del tratamiento según corresponda.
         </p>
+        <LegalList
+          items={[
+            "Vercel para alojamiento y despliegue del sitio.",
+            "Supabase para formularios, base de datos y funciones de autenticación o área privada cuando se utilizan.",
+            "Vercel Analytics únicamente cuando el usuario acepta analítica.",
+            "Google Fonts para cargar parte de la tipografía utilizada por el sitio.",
+          ]}
+        />
         <p>
-          Actualmente el sitio se aloja en Vercel y puede usar Supabase para almacenar solicitudes de contacto, Cal.com
-          para reservas, Vercel Analytics para medición si el usuario acepta cookies analíticas, y herramientas de email,
-          IA o automatización cuando sean necesarias para responder o prestar el servicio.
+          Si eliges contactar por email o WhatsApp, esos canales están sujetos además a las condiciones y políticas de sus
+          respectivos proveedores.
         </p>
-        {/* TODO: listar proveedores definitivos, contratos de encargo y enlaces a sus políticas. */}
       </LegalSection>
 
       <LegalSection title="Transferencias internacionales">
         <p>
-          Pueden existir transferencias internacionales de datos si se usan proveedores ubicados fuera del Espacio
-          Económico Europeo o con infraestructuras globales, como Vercel, Supabase, Google, OpenAI, Notion, Make, Cal.com
-          u otros. En ese caso se revisarán las garantías aplicables, como cláusulas contractuales tipo, decisiones de adecuación
-          u otros mecanismos previstos por la normativa.
+          Algunos proveedores tecnológicos pueden tratar datos fuera del Espacio Económico Europeo o utilizar
+          infraestructuras internacionales. Cuando sea aplicable, el tratamiento se apoyará en los mecanismos y garantías
+          previstos por la normativa de protección de datos.
         </p>
       </LegalSection>
 
-      <LegalSection title="Conservación de datos">
+      <LegalSection title="Conservación">
         <p>
-          Los datos se conservarán durante el tiempo necesario para responder la solicitud, gestionar la relación
-          comercial, cumplir obligaciones legales y atender posibles responsabilidades. Los datos de contactos no
-          contratados podrán conservarse durante un plazo razonable para seguimiento comercial, salvo solicitud de
-          supresión.
+          Las solicitudes que no terminan en contratación podrán conservarse hasta 12 meses para poder retomar la
+          conversación y mantener trazabilidad comercial, salvo que pidas su supresión antes. Los datos de clientes se
+          conservarán durante la relación contractual y durante los plazos adicionales exigidos por obligaciones legales
+          o posibles responsabilidades. Las preferencias de cookies pueden conservarse hasta 24 meses.
         </p>
-        {/* TODO: definir plazos concretos con asesoría jurídica y fiscal. */}
+      </LegalSection>
+
+      <LegalSection title="Decisiones automatizadas">
+        <p>
+          No utilizamos decisiones exclusivamente automatizadas con efectos jurídicos o equivalentes sobre las personas
+          que envían una solicitud. Las herramientas de automatización pueden ayudar a organizar información, pero las
+          decisiones comerciales relevantes requieren revisión humana.
+        </p>
       </LegalSection>
 
       <LegalSection title="Derechos">
         <p>
-          Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento,
-          portabilidad y retirada del consentimiento cuando proceda.
+          Puedes solicitar acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad o retirar
+          tu consentimiento cuando proceda.
         </p>
         <p>
-          Para ejercerlos, escribe a hola@unostudio.org indicando el derecho que quieres ejercer y la información
-          necesaria para identificar tu solicitud.
+          Para ejercer tus derechos, escribe a hola@unostudio.org indicando qué quieres solicitar y la información
+          necesaria para poder identificar tu petición.
         </p>
       </LegalSection>
 
-      <LegalSection title="Derecho a reclamar ante la AEPD">
+      <LegalSection title="Reclamaciones">
         <p>
           Si consideras que el tratamiento de tus datos no se ajusta a la normativa, puedes presentar una reclamación
           ante la Agencia Española de Protección de Datos en{" "}
@@ -124,18 +134,18 @@ export default function PrivacidadPage() {
 
       <LegalSection title="Seguridad">
         <p>
-          unostudio aplicará medidas técnicas y organizativas razonables para proteger los datos personales frente a
-          acceso no autorizado, pérdida, alteración o divulgación indebida.
+          Aplicamos medidas técnicas y organizativas razonables para reducir el riesgo de acceso no autorizado, pérdida,
+          alteración o divulgación indebida de datos.
         </p>
       </LegalSection>
 
-      <LegalSection title="Cambios en la política">
+      <LegalSection title="Cambios en esta política">
         <p>
-          Esta política puede actualizarse para reflejar cambios legales, técnicos o de servicios. La versión vigente se
-          publicará en esta página con su fecha de última actualización.
+          Esta política puede actualizarse para reflejar cambios legales, técnicos o de servicio. La versión vigente se
+          publicará aquí con su fecha de última actualización.
         </p>
         <p>
-          Puedes consultar también la{" "}
+          También puedes consultar la{" "}
           <Link href="/legal/cookies" className="text-sky-300 hover:text-sky-200">
             Política de Cookies
           </Link>

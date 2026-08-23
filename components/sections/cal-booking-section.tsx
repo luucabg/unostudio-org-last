@@ -10,7 +10,12 @@ const inputClass =
 const labelClass = "text-sm font-medium text-zinc-300"
 const whatsappHref = "https://wa.me/34694222191?text=Hola%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20empresa"
 
-export function CalBookingSection() {
+type CalBookingSectionProps = {
+  sent?: boolean
+  failed?: boolean
+}
+
+export function CalBookingSection({ sent = false, failed = false }: CalBookingSectionProps) {
   const { locale, t } = useI18n()
   const privacyBefore = locale === "es" ? "He leído y acepto la " : "I have read and accept the "
   const privacyLabel = locale === "es" ? "Política de Privacidad" : "Privacy Policy"
@@ -69,6 +74,18 @@ export function CalBookingSection() {
             method="post"
             className="rounded-lg border border-zinc-800/80 bg-zinc-950/80 p-5 shadow-[0_24px_80px_-48px_rgba(125,211,252,0.45),inset_0_1px_0_rgba(255,255,255,0.05)] md:p-8"
           >
+            {sent ? (
+              <div className="mb-6 rounded-lg border border-sky-300/25 bg-sky-300/10 p-4 text-sm leading-6 text-sky-100">
+                {t.booking.success}
+              </div>
+            ) : null}
+
+            {failed ? (
+              <div className="mb-6 rounded-lg border border-orange-300/25 bg-orange-300/10 p-4 text-sm leading-6 text-orange-100">
+                {t.booking.error}
+              </div>
+            ) : null}
+
             <input type="hidden" name="servicio" value="Diagnóstico inicial" />
             <input type="hidden" name="presupuesto" value="No indicado" />
             <input type="hidden" name="urgencia" value="No indicada" />

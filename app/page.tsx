@@ -11,7 +11,14 @@ import { CalBookingSection } from "@/components/sections/cal-booking-section"
 import { FooterSection } from "@/components/sections/footer-section"
 import { WhatsappFloatingButton } from "@/components/sections/whatsapp-floating-button"
 
-export default function Home() {
+type SearchParams = Promise<{
+  estado?: string
+  motivo?: string
+}>
+
+export default async function Home({ searchParams }: { searchParams?: SearchParams }) {
+  const params = await searchParams
+
   return (
     <main className="min-h-screen bg-zinc-950">
       <Navbar />
@@ -23,7 +30,7 @@ export default function Home() {
       <SectorSystemsSection />
       <PricingSection />
       <FaqSection />
-      <CalBookingSection />
+      <CalBookingSection sent={params?.estado === "enviado"} failed={params?.estado === "error"} />
       <FooterSection />
       <WhatsappFloatingButton />
     </main>

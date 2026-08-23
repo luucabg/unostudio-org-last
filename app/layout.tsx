@@ -87,13 +87,8 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "unostudio",
-  legalName: "Luca Benidze",
   url: "https://unostudio.org",
   email: "hola@unostudio.org",
-  founder: {
-    "@type": "Person",
-    name: "Luca Benidze",
-  },
   image: "https://unostudio.org/desktop_hero.png",
   logo: "https://unostudio.org/logos/logo_nav.png",
   description:
@@ -148,8 +143,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <I18nProvider>{children}</I18nProvider>
-        <CookieConsentManager />
+        <I18nProvider>
+          {children}
+          <CookieConsentManager />
+        </I18nProvider>
       </body>
     </html>
   )

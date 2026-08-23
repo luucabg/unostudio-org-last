@@ -24,10 +24,6 @@ export function PricingSection() {
 
         <div className="grid gap-6 lg:grid-cols-[0.94fr_1.06fr_0.94fr]">
           {t.pricing.plans.map((plan, index) => {
-            const [setupPrice, monthlyPrice] = plan.price.split(" + ")
-            const setupParts = setupPrice.match(/^(Desde|From)\s(.+)$/)
-            const setupLabel = setupParts ? setupParts[1] : null
-            const setupAmount = setupParts ? setupParts[2] : setupPrice
             const href = plan.href
 
             return (
@@ -65,24 +61,24 @@ export function PricingSection() {
 
                   <div className="relative mb-6 min-h-12 pr-24">
                     <h3 className="text-lg font-semibold text-zinc-100">{plan.name}</h3>
-                    <p className="mt-1 text-[11px] text-zinc-500">{t.pricing.billingPrimary}</p>
+                    <p className="mt-1 text-[11px] text-zinc-500">{plan.billingLabel}</p>
                   </div>
 
                   <div className="relative mb-5">
-                    <div className="font-display leading-none text-zinc-50">
-                      {setupLabel ? (
-                        <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-500">
-                          {setupLabel}
+                    <div className="text-zinc-50">
+                      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-zinc-500">
+                        {plan.pricePrefix}
+                      </p>
+                      <p className="font-display text-3xl font-bold leading-none tracking-tight md:text-4xl">
+                        {plan.setupPrice}
+                      </p>
+                      {plan.monthlyPrice ? (
+                        <p className="mt-2 text-sm font-semibold leading-5 text-zinc-300">
+                          + {plan.monthlyPrice}
                         </p>
                       ) : null}
-                      <div className="flex flex-wrap items-end gap-x-2 gap-y-1">
-                        <p className="text-3xl font-bold tracking-tight md:text-4xl">{setupAmount}</p>
-                        {monthlyPrice ? (
-                          <p className="pb-1 text-sm font-semibold text-zinc-400">+ {monthlyPrice}</p>
-                        ) : null}
-                      </div>
                     </div>
-                    <p className="mt-3 min-h-12 text-xs leading-5 text-zinc-400">{plan.description}</p>
+                    <p className="mt-4 min-h-12 text-xs leading-5 text-zinc-400">{plan.description}</p>
                   </div>
 
                   <ul className="relative flex flex-1 flex-col gap-2 border-t border-white/10 pt-5">
@@ -108,7 +104,10 @@ export function PricingSection() {
                     <span>{plan.cta}</span>
                     <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
                   </a>
-                  <p className="mt-3 min-h-8 text-center text-[11px] leading-5 text-zinc-500">{plan.paymentNote}</p>
+                  <div className="mt-3 min-h-12 text-center text-[11px] leading-5">
+                    <p className="text-zinc-500">{plan.paymentNote}</p>
+                    <p className="mt-1 text-zinc-600">{plan.secondaryNote}</p>
+                  </div>
                 </div>
                 </div>
               </ScrollReveal>

@@ -4,13 +4,17 @@ Web comercial de unostudio + herramientas privadas de operación.
 
 ## Oferta pública actual
 
-- Web de conversión: desde 1.800 € + IVA.
+- Web de conversión: desde 1.800 € + IVA. Proyecto de pago único.
 - Mantenimiento web: opcional, desde 79 €/mes.
-- Sistema comercial: desde 1.500 € + 249 €/mes + IVA.
-- Web + sistema: desde 3.000 € + 299 €/mes + IVA.
-- Referencia de cobro para proyectos web: 50% al empezar y 50% antes de publicar.
+- Sistema comercial: desde 1.500 € de implantación + 249 €/mes + IVA.
+- Web + sistema: desde 3.000 € de implantación + 299 €/mes + IVA.
+- Referencia de cobro para proyectos web: 50 % al empezar y 50 % antes de publicar.
+- Primera revisión/diagnóstico: sin coste ni compromiso.
+- Sistema: mensual tras la implantación, sin permanencia anual por defecto y cancelable con 30 días de preaviso.
 
-No hay Payment Links públicos de Stripe para comprar proyectos custom. El flujo comercial es diagnóstico, propuesta, aprobación y pago específico del cliente.
+No hay Payment Links públicos de Stripe para comprar proyectos custom. El flujo comercial es primera revisión, propuesta, aprobación y pago específico del cliente.
+
+La web no obliga a contratar una mensualidad de unostudio. Dominio, hosting, email, licencias y demás servicios de terceros deben quedar a nombre del cliente siempre que sea posible. Consulta `COMMERCIAL_POLICY.md` para la política comercial interna completa.
 
 ## Rutas públicas
 
@@ -140,3 +144,14 @@ corepack pnpm build
 4. Verifica `/`, `/contacto`, `/reformas`, `/login`, `/admin/prospects`, `/admin/lead-finder`, `/dashboard` y los formularios públicos.
 
 Producción: `https://unostudio.org`
+
+
+## Revisión previa a producción
+
+Antes de publicar cambios comerciales o legales:
+
+- confirmar que el aviso legal contiene los datos identificativos que correspondan a la situación fiscal real;
+- no publicar una forma jurídica, NIF, domicilio o dato que no haya sido confirmado;
+- revisar las condiciones legales con asesoría profesional si se van a utilizar como condiciones contractuales definitivas;
+- comprobar que los proveedores descritos en privacidad/cookies coinciden con los que realmente están activos;
+- verificar pricing, costes de terceros y condiciones de cancelación en la propuesta de cada cliente.

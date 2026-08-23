@@ -53,8 +53,8 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
               Cuéntanos cómo gestionas hoy tus oportunidades.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-500 md:text-lg">
-              Explícanos cómo llegan hoy tus solicitudes, qué ocurre después y qué te gustaría mejorar. Te responderemos con un
-              siguiente paso claro.
+              Explícanos cómo llegan hoy tus solicitudes, qué ocurre después y qué te gustaría mejorar. La primera revisión
+              no tiene coste ni compromiso; si vemos encaje, te enviaremos una propuesta clara antes de empezar.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
@@ -157,7 +157,7 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
             </label>
 
             <p className="mt-5 rounded-lg border border-zinc-800 bg-zinc-950/70 p-4 text-xs leading-6 text-zinc-500">
-              Responsable: Luca Benidze. Forma jurídica: Autónomo. Finalidad: responder a tu solicitud y gestionar
+              Responsable: Luca Benidze, bajo la marca unostudio. Finalidad: responder a tu solicitud y gestionar
               comunicaciones relacionadas con nuestros servicios. Derechos: puedes acceder, rectificar y suprimir tus
               datos escribiendo a hola@unostudio.org. Más información en la{" "}
               <Link href="/legal/privacidad" className="text-sky-300 hover:text-sky-200">

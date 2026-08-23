@@ -21,8 +21,8 @@ export const translations = {
       primaryCta: "Solicitar diagnóstico",
       secondaryCta: "Ver proyectos",
       proofPoints: [
-        "Webs de conversión desde 1.800€",
-        "Sistemas desde 1.500€ + 249€/mes",
+        "Web de conversión desde 1.800 € · pago único",
+        "Mantenimiento web opcional",
         "Valencia · proyectos en toda España",
       ],
     },
@@ -145,21 +145,24 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Precios",
-      title: "Tres formas de trabajar con unostudio.",
+      title: "Empieza por lo que necesitas ahora.",
       body:
-        "Puedes mejorar la captación, ordenar el proceso comercial o conectar ambas partes. El alcance final se confirma antes de empezar.",
+        "La web es un proyecto de pago único. El sistema tiene una implantación inicial y un servicio mensual. Antes de empezar sabrás el alcance, los costes y qué queda a tu nombre.",
       reservationNote:
-        "Precios sin IVA. Cada proyecto se confirma con una propuesta según alcance y necesidades reales.",
-      refundNote: "",
-      billingPrimary: "Precios de partida",
-      minimumNote: "Mensajería, telefonía, servicios externos e integraciones especiales se presupuestan aparte.",
+        "Precios sin IVA. No empezamos ningún trabajo hasta que hayas aprobado una propuesta con alcance, precio, plazos y condiciones.",
+      minimumNote:
+        "Dominio, licencias, APIs, mensajería, telefonía y otros servicios de terceros no incluidos expresamente no se cargan sin tu aprobación. Siempre que sea posible, se contratan a nombre del cliente.",
       monthlyNote:
-        "Las mensualidades del sistema incluyen alojamiento, monitorización, mantenimiento, soporte y evolución básica.",
+        "La web no tiene mensualidad obligatoria. Las mensualidades del sistema cubren alojamiento, monitorización, mantenimiento, soporte y evolución básica dentro del alcance.",
       plans: [
         {
           name: "Web de conversión",
-          description: "Para empresas que necesitan explicar mejor su servicio, generar confianza y convertir visitas en solicitudes.",
-          price: "Desde 1.800€",
+          description:
+            "Para empresas que necesitan explicar mejor su servicio, generar confianza y convertir visitas en solicitudes.",
+          pricePrefix: "Desde",
+          setupPrice: "1.800 €",
+          monthlyPrice: "",
+          billingLabel: "Proyecto · pago único",
           badge: "Mejor punto de partida",
           features: [
             "Estrategia y estructura",
@@ -172,7 +175,8 @@ export const translations = {
             "Integraciones sencillas",
           ],
           cta: "Solicitar diagnóstico",
-          paymentNote: "50% al empezar · 50% antes de publicar. Mantenimiento opcional desde 79€/mes.",
+          paymentNote: "50 % al empezar · 50 % antes de publicar.",
+          secondaryNote: "Mantenimiento opcional desde 79 €/mes.",
           href: "/#booking",
           highlighted: true,
         },
@@ -180,7 +184,10 @@ export const translations = {
           name: "Sistema comercial",
           description:
             "Para empresas que quieren organizar oportunidades, saber en qué estado están y qué debe ocurrir después.",
-          price: "Desde 1.500€ + 249€/mes",
+          pricePrefix: "Desde",
+          setupPrice: "1.500 €",
+          monthlyPrice: "249 €/mes",
+          billingLabel: "Implantación + servicio mensual",
           badge: "",
           features: [
             "Solicitudes organizadas por estado",
@@ -191,17 +198,21 @@ export const translations = {
             "Panel comercial básico",
             "Alojamiento y monitorización",
             "Mantenimiento y soporte",
-            "Evolución básica del sistema",
+            "Datos del cliente exportables",
           ],
           cta: "Solicitar diagnóstico",
           paymentNote: "Primero revisamos el proceso; después configuramos solo lo necesario.",
+          secondaryNote: "Servicio mensual sin permanencia larga; cancelable con 30 días de preaviso.",
           href: "/#booking",
           highlighted: false,
         },
         {
           name: "Web + sistema",
           description: "Para conectar la primera visita con el proceso comercial hasta la contratación.",
-          price: "Desde 3.000€ + 299€/mes",
+          pricePrefix: "Desde",
+          setupPrice: "3.000 €",
+          monthlyPrice: "299 €/mes",
+          billingLabel: "Implantación + servicio mensual",
           badge: "",
           features: [
             "Web de conversión",
@@ -211,10 +222,11 @@ export const translations = {
             "Reuniones, propuestas y seguimiento",
             "Alojamiento y monitorización",
             "Mantenimiento y soporte",
-            "Evolución básica del sistema",
+            "Datos del cliente exportables",
           ],
           cta: "Solicitar diagnóstico",
           paymentNote: "La implantación aprovecha trabajo compartido entre web y sistema.",
+          secondaryNote: "Servicio mensual sin permanencia larga; cancelable con 30 días de preaviso.",
           href: "/#booking",
           highlighted: false,
         },
@@ -222,11 +234,10 @@ export const translations = {
       customProject: {
         title: "¿Necesitas algo fuera de este alcance?",
         body:
-          "Ecommerce, integraciones especiales, plataformas internas o proyectos con requisitos específicos se estudian y presupuestan aparte.",
+          "Ecommerce, integraciones especiales, plataformas internas o proyectos con requisitos específicos se estudian y presupuestan aparte antes de empezar.",
         cta: "Hablar del proyecto",
         href: "/#booking",
       },
-      adManagementNote: "Ecommerce, apps, integraciones avanzadas o empresas grandes se presupuestan aparte.",
     },
     addons: {
       eyebrow: "Dentro del sistema",
@@ -261,10 +272,12 @@ export const translations = {
       eyebrow: "Diagnóstico",
       title: "Cuéntanos dónde se atascan hoy tus oportunidades.",
       body:
-        "Revisamos cómo llegan las solicitudes y qué ocurre después para decidir qué merece la pena mejorar primero: la web, el seguimiento o ambas partes.",
-      bullets: ["Revisamos el proceso", "Priorizamos una mejora", "Sin compromiso"],
+        "La primera revisión no tiene coste ni compromiso. Miramos cómo llegan las solicitudes y qué ocurre después; si vemos encaje, te enviamos una propuesta clara antes de hacer nada.",
+      bullets: ["Revisamos el proceso", "Te decimos qué priorizar", "Primera revisión sin coste"],
       cta: "Solicitar diagnóstico",
       whatsappCta: "Prefiero hablar por WhatsApp",
+      success: "Solicitud recibida. Revisaremos el contexto y te responderemos con el siguiente paso.",
+      error: "No se ha podido enviar desde la web. Puedes escribirnos a hola@unostudio.org o por WhatsApp.",
       form: {
         name: "Nombre",
         business: "Negocio",
@@ -277,36 +290,102 @@ export const translations = {
     },
     faq: {
       eyebrow: "Dudas",
-      title: "Preguntas rápidas.",
+      title: "Lo importante antes de contratar.",
       items: [
         {
+          question: "¿La web tiene una mensualidad obligatoria?",
+          answer:
+            "No. La web desde 1.800 € es un proyecto de pago único. El mantenimiento es opcional desde 79 €/mes. Si el proyecto necesita dominio, alojamiento, email, licencias u otros servicios de terceros, sus costes se explican antes de aprobar la propuesta.",
+        },
+        {
+          question: "¿Qué significa que los precios sean “desde”?",
+          answer:
+            "Que existe un alcance base, pero no todas las empresas necesitan lo mismo. Después de la primera revisión recibes una propuesta con precio cerrado para el alcance acordado. No empezamos ni añadimos trabajo de pago sin tu aprobación.",
+        },
+        {
+          question: "¿Hay costes aparte o gastos que puedan aparecer después?",
+          answer:
+            "No añadimos costes ocultos. Dominio, hosting, licencias, APIs, SMS, WhatsApp, telefonía, email u otros servicios externos pueden tener su propio coste salvo que aparezcan expresamente incluidos. Siempre se indican antes y, cuando es posible, se contratan directamente a nombre del cliente.",
+        },
+        {
+          question: "¿De quién son el dominio, las cuentas y la web?",
+          answer:
+            "Siempre que sea posible, el dominio y las cuentas principales se crean o mantienen a nombre del cliente. Tras el pago completo, la web final se entrega según lo definido en la propuesta. Licencias de terceros, herramientas previas y componentes reutilizables mantienen sus propias condiciones.",
+        },
+        {
+          question: "¿Qué pasa si no contrato mantenimiento web?",
+          answer:
+            "Nada obliga a contratarlo. La web no desaparece por dejar de pagar a unostudio. Te dejamos preparada la entrega y las cuentas acordadas; desde ese momento tu empresa asume la gestión técnica y los costes de los proveedores que utilice.",
+        },
+        {
+          question: "¿Qué incluye el mantenimiento web desde 79 €/mes?",
+          answer:
+            "Gestión técnica del alojamiento, monitorización, mantenimiento, soporte y pequeños ajustes dentro del alcance acordado. Rediseños, nuevas funcionalidades, campañas, licencias o consumos extraordinarios se presupuestan aparte.",
+        },
+        {
+          question: "¿Cómo se paga un proyecto web?",
+          answer:
+            "Como referencia, 50 % para empezar y 50 % antes de publicar. Si un proyecto necesita hitos distintos, quedan escritos en la propuesta antes de comenzar.",
+        },
+        {
+          question: "¿La primera revisión o diagnóstico tiene coste?",
+          answer:
+            "La primera revisión para entender el problema y comprobar si hay encaje no tiene coste ni compromiso. Si necesitas una auditoría extensa, documentación o trabajo de consultoría independiente, se presupuestará antes de realizarlo.",
+        },
+        {
+          question: "¿Cuánto tarda una web?",
+          answer:
+            "Depende del alcance, los materiales, las integraciones y la velocidad de feedback. No prometemos un plazo genérico que después no podamos cumplir: la estimación se fija en la propuesta antes de empezar.",
+        },
+        {
+          question: "¿Qué tengo que aportar yo?",
+          answer:
+            "Información real sobre el negocio, servicios, clientes, materiales disponibles y los accesos que sean necesarios. También necesitamos feedback y aprobaciones a tiempo. Si falta algún material importante, te diremos qué hace falta antes de bloquear el proyecto.",
+        },
+        {
+          question: "¿Incluye textos, fotografías y SEO?",
+          answer:
+            "La web incluye estructura, copy orientado a claridad y una base SEO técnica bien configurada dentro del alcance. Producción fotográfica, branding completo, redacción extensa, campañas o SEO continuado son servicios distintos y se presupuestan si hacen falta.",
+        },
+        {
+          question: "¿Podéis mejorar una web que ya tengo?",
+          answer:
+            "Sí. No proponemos rehacer una web por defecto. Primero revisamos si conviene mejorar la estructura, el diseño, la captación o partes concretas; solo recomendamos una reconstrucción completa cuando tiene sentido.",
+        },
+        {
+          question: "¿Podré editar la web yo mismo?",
+          answer:
+            "Si necesitas cambiar contenido con frecuencia, lo definimos antes y podemos incluir una forma de edición adecuada. No añadimos un CMS o panel por defecto si solo va a complicar el proyecto; la capacidad de edición queda especificada en la propuesta.",
+        },
+        {
+          question: "¿Garantizáis más ventas o más leads?",
+          answer:
+            "No garantizamos una cifra concreta de ventas, leads o facturación. Podemos mejorar claridad, confianza, medición y conversión, pero el resultado también depende de la oferta, el tráfico, el mercado, el precio y el seguimiento comercial de la empresa.",
+        },
+        {
           question: "¿Tengo que contratar la web y el sistema juntos?",
-          answer: "No. Puedes empezar solo por la web, solo por el sistema comercial o conectar ambos si tiene sentido para tu proceso.",
+          answer:
+            "No. De hecho, si el sistema no resuelve un problema real, no te lo recomendaremos. Puedes empezar solo por la web, solo por el sistema o conectar ambos cuando el proceso lo justifique.",
         },
         {
           question: "¿Qué incluye la mensualidad del sistema?",
           answer:
-            "Alojamiento, monitorización, mantenimiento técnico, soporte y evolución básica dentro del alcance contratado.",
+            "Alojamiento, monitorización, mantenimiento técnico, soporte y evolución básica dentro del alcance contratado. Consumos extraordinarios, telefonía, mensajería, APIs, licencias o integraciones especiales se indican y cobran aparte cuando correspondan.",
         },
         {
-          question: "¿Qué incluye el mantenimiento web?",
-          answer: "Alojamiento gestionado, monitorización, mantenimiento técnico, soporte y pequeños ajustes dentro del alcance contratado.",
-        },
-        {
-          question: "¿El sistema sustituye a mi equipo?",
-          answer: "No. Está pensado para organizar la información y hacer visible la siguiente acción. Las decisiones importantes siguen en manos del equipo.",
-        },
-        {
-          question: "¿Puede adaptarse a cómo trabajamos ahora?",
-          answer: "Sí. Primero revisamos vuestro proceso y configuramos el sistema alrededor de las etapas y herramientas que realmente necesitéis.",
-        },
-        {
-          question: "¿Cómo se paga un proyecto web?",
-          answer: "Como referencia, 50% para empezar y 50% antes de publicar. Si el alcance requiere otra estructura, se deja definida en la propuesta antes de comenzar.",
+          question: "¿Hay permanencia en el sistema? ¿Qué pasa si cancelo?",
+          answer:
+            "No hay permanencia anual por defecto. Tras la implantación, el servicio continúa mes a mes y puede cancelarse con 30 días de preaviso. Al finalizar, los datos del cliente se pueden exportar; el software base o componentes propios de unostudio pueden seguir formando parte del servicio y no se transfieren salvo acuerdo expreso.",
         },
         {
           question: "¿Tengo que cambiar las herramientas que ya utilizamos?",
-          answer: "No necesariamente. Primero revisamos lo que ya funciona y solo sustituimos o conectamos herramientas cuando hay una razón clara para hacerlo.",
+          answer:
+            "No necesariamente. Primero revisamos lo que ya funciona. Formularios, agenda, email, CRM u otras herramientas se mantienen, conectan o sustituyen solo cuando existe una razón clara y el alcance técnico está aprobado.",
+        },
+        {
+          question: "¿Y si quiero cambios después de publicar?",
+          answer:
+            "Puedes contratar mantenimiento o pedir mejoras puntuales. Los pequeños ajustes incluidos en mantenimiento se resuelven dentro de ese alcance; nuevas páginas, rediseños o funcionalidades relevantes se presupuestan antes de hacerlas.",
         },
       ],
     },
@@ -366,8 +445,8 @@ export const translations = {
       primaryCta: "Request diagnosis",
       secondaryCta: "View projects",
       proofPoints: [
-        "Conversion websites from €1,800",
-        "Systems from €1,500 + €249/mo",
+        "Conversion website from €1,800 · one-off project",
+        "Website maintenance is optional",
         "Valencia · projects across Spain",
       ],
     },
@@ -490,21 +569,24 @@ export const translations = {
     },
     pricing: {
       eyebrow: "Pricing",
-      title: "Three ways to work with unostudio.",
+      title: "Start with what you need now.",
       body:
-        "You can improve acquisition, organize the commercial process, or connect both. Final scope is confirmed before the project starts.",
+        "The website is a one-off project. The system has an initial implementation fee and a monthly service. Before work starts, you will know the scope, costs, and what stays under your ownership.",
       reservationNote:
-        "Prices exclude VAT. Each project is confirmed with a proposal based on scope and actual requirements.",
-      refundNote: "",
-      billingPrimary: "Starting prices",
-      minimumNote: "Messaging, telephony, external services, and special integrations are quoted separately.",
+        "Prices exclude VAT. We do not start work until you have approved a proposal covering scope, price, timing, and terms.",
+      minimumNote:
+        "Domain, licences, APIs, messaging, telephony, and other third-party services not expressly included are never charged without approval. Whenever possible, they are contracted in the client's name.",
       monthlyNote:
-        "System subscriptions include hosting, monitoring, maintenance, support, and basic product evolution.",
+        "The website has no mandatory monthly fee. System subscriptions cover hosting, monitoring, maintenance, support, and basic evolution within scope.",
       plans: [
         {
           name: "Conversion website",
-          description: "For businesses that need to explain their service better, build trust, and turn visits into enquiries.",
-          price: "From €1,800",
+          description:
+            "For businesses that need to explain their service better, build trust, and turn visits into enquiries.",
+          pricePrefix: "From",
+          setupPrice: "€1,800",
+          monthlyPrice: "",
+          billingLabel: "Project · one-off payment",
           badge: "Best starting point",
           features: [
             "Strategy and structure",
@@ -517,7 +599,8 @@ export const translations = {
             "Simple integrations",
           ],
           cta: "Request diagnosis",
-          paymentNote: "50% to start · 50% before launch. Optional maintenance from €79/mo.",
+          paymentNote: "50% to start · 50% before launch.",
+          secondaryNote: "Optional maintenance from €79/mo.",
           href: "/#booking",
           highlighted: true,
         },
@@ -525,7 +608,10 @@ export const translations = {
           name: "Commercial system",
           description:
             "For businesses that want to organize opportunities, know their status, and see what should happen next.",
-          price: "From €1,500 + €249/mo",
+          pricePrefix: "From",
+          setupPrice: "€1,500",
+          monthlyPrice: "€249/mo",
+          billingLabel: "Implementation + monthly service",
           badge: "",
           features: [
             "Enquiries organized by status",
@@ -536,17 +622,21 @@ export const translations = {
             "Basic commercial dashboard",
             "Hosting and monitoring",
             "Maintenance and support",
-            "Basic system evolution",
+            "Client data can be exported",
           ],
           cta: "Request diagnosis",
           paymentNote: "We review the process first, then configure only what is needed.",
+          secondaryNote: "Monthly service with no long-term lock-in; cancellable with 30 days' notice.",
           href: "/#booking",
           highlighted: false,
         },
         {
           name: "Website + system",
           description: "For connecting the first visit with the commercial process through to signed work.",
-          price: "From €3,000 + €299/mo",
+          pricePrefix: "From",
+          setupPrice: "€3,000",
+          monthlyPrice: "€299/mo",
+          billingLabel: "Implementation + monthly service",
           badge: "",
           features: [
             "Conversion website",
@@ -556,10 +646,11 @@ export const translations = {
             "Meetings, proposals, and follow-up",
             "Hosting and monitoring",
             "Maintenance and support",
-            "Basic system evolution",
+            "Client data can be exported",
           ],
           cta: "Request diagnosis",
           paymentNote: "Implementation reuses shared work between the website and system.",
+          secondaryNote: "Monthly service with no long-term lock-in; cancellable with 30 days' notice.",
           href: "/#booking",
           highlighted: false,
         },
@@ -567,11 +658,10 @@ export const translations = {
       customProject: {
         title: "Need something outside this scope?",
         body:
-          "Ecommerce, special integrations, internal platforms, or projects with specific requirements are reviewed and quoted separately.",
+          "Ecommerce, special integrations, internal platforms, or projects with specific requirements are reviewed and quoted separately before work begins.",
         cta: "Discuss the project",
         href: "/#booking",
       },
-      adManagementNote: "Ecommerce, apps, advanced integrations, or large company projects are quoted separately.",
     },
     addons: {
       eyebrow: "Inside the system",
@@ -606,10 +696,12 @@ export const translations = {
       eyebrow: "Diagnosis",
       title: "Tell us where opportunities get stuck today.",
       body:
-        "We review how enquiries arrive and what happens next to decide what is worth improving first: the website, follow-up, or both.",
-      bullets: ["We review the process", "We prioritize one improvement", "No commitment"],
+        "The first review is free and carries no commitment. We look at how enquiries arrive and what happens next; if there is a good fit, you receive a clear proposal before any work starts.",
+      bullets: ["We review the process", "We tell you what to prioritize", "First review is free"],
       cta: "Request diagnosis",
       whatsappCta: "I prefer WhatsApp",
+      success: "Enquiry received. We will review the context and reply with the next step.",
+      error: "The website could not send your enquiry. You can email hola@unostudio.org or use WhatsApp.",
       form: {
         name: "Name",
         business: "Business",
@@ -622,36 +714,102 @@ export const translations = {
     },
     faq: {
       eyebrow: "Questions",
-      title: "Quick questions.",
+      title: "What matters before you hire us.",
       items: [
         {
-          question: "Do I have to hire the website and system together?",
-          answer: "No. You can start with the website, the commercial system, or connect both if that makes sense for your process.",
+          question: "Does the website have a mandatory monthly fee?",
+          answer:
+            "No. The website from €1,800 is a one-off project. Maintenance is optional from €79/mo. If the project needs a domain, hosting, email, licences, or other third-party services, those costs are explained before you approve the proposal.",
+        },
+        {
+          question: "What does “from” mean in the pricing?",
+          answer:
+            "There is a base scope, but not every business needs the same thing. After the first review, you receive a proposal with a fixed price for the agreed scope. We do not start or add paid work without your approval.",
+        },
+        {
+          question: "Can extra costs appear later?",
+          answer:
+            "We do not add hidden fees. Domain, hosting, licences, APIs, SMS, WhatsApp, telephony, email, or other external services may have their own costs unless they are expressly included. These are disclosed in advance and, whenever possible, contracted directly in the client's name.",
+        },
+        {
+          question: "Who owns the domain, accounts, and website?",
+          answer:
+            "Whenever possible, the domain and main accounts are created or kept in the client's name. After full payment, the final website is delivered as defined in the proposal. Third-party licences, pre-existing tools, and reusable components keep their own terms.",
+        },
+        {
+          question: "What if I do not buy website maintenance?",
+          answer:
+            "There is no obligation to buy it. Your website does not disappear because you stop paying unostudio. We hand over the agreed website and accounts; from then on, your company manages the technical side and any provider costs it uses.",
+        },
+        {
+          question: "What is included in website maintenance from €79/mo?",
+          answer:
+            "Technical hosting management, monitoring, maintenance, support, and small adjustments within the agreed scope. Redesigns, new functionality, campaigns, licences, or unusually high usage are quoted separately.",
+        },
+        {
+          question: "How is a website project paid?",
+          answer:
+            "As a reference, 50% to start and 50% before launch. If a project needs different milestones, they are written into the proposal before work begins.",
+        },
+        {
+          question: "Does the first review or diagnosis cost anything?",
+          answer:
+            "The first review to understand the problem and check fit is free and carries no commitment. If you need a substantial audit, documentation, or standalone consulting work, it is quoted before being carried out.",
+        },
+        {
+          question: "How long does a website take?",
+          answer:
+            "It depends on scope, materials, integrations, and feedback speed. We do not publish a generic deadline we may not be able to keep: the estimate is set in the proposal before work starts.",
+        },
+        {
+          question: "What do I need to provide?",
+          answer:
+            "Accurate information about the business, services, customers, available materials, and any access needed. We also need timely feedback and approvals. If an important asset is missing, we will tell you before it blocks the project.",
+        },
+        {
+          question: "Are copy, photography, and SEO included?",
+          answer:
+            "The website includes structure, clarity-focused copy, and a well-configured technical SEO foundation within scope. Professional photography, full branding, long-form copywriting, campaigns, or ongoing SEO are separate services and are quoted if needed.",
+        },
+        {
+          question: "Can you improve a website I already have?",
+          answer:
+            "Yes. We do not propose rebuilding a website by default. We first review whether structure, design, acquisition, or specific parts should improve; a full rebuild is recommended only when it makes sense.",
+        },
+        {
+          question: "Will I be able to edit the website myself?",
+          answer:
+            "If you need to change content frequently, we define that before work starts and can include an appropriate editing setup. We do not add a CMS or dashboard by default if it only makes the project more complex; editing capability is specified in the proposal.",
+        },
+        {
+          question: "Do you guarantee more sales or leads?",
+          answer:
+            "We do not guarantee a specific number of sales, leads, or revenue. We can improve clarity, trust, measurement, and conversion, but results also depend on the offer, traffic, market, pricing, and the company's commercial follow-up.",
+        },
+        {
+          question: "Do I have to buy the website and system together?",
+          answer:
+            "No. In fact, if the system does not solve a real problem, we will not recommend it. You can start with the website, the system, or connect both when the process justifies it.",
         },
         {
           question: "What does the system subscription include?",
           answer:
-            "Hosting, monitoring, technical maintenance, support, and basic evolution within the agreed scope.",
+            "Hosting, monitoring, technical maintenance, support, and basic evolution within the agreed scope. Unusually high usage, telephony, messaging, APIs, licences, or special integrations are disclosed and charged separately when applicable.",
         },
         {
-          question: "What does website maintenance include?",
-          answer: "Managed hosting, monitoring, technical maintenance, support, and small adjustments within the agreed scope.",
-        },
-        {
-          question: "Does the system replace my team?",
-          answer: "No. It is designed to organize information and make the next action visible. Important decisions remain with the team.",
-        },
-        {
-          question: "Can it adapt to how we work today?",
-          answer: "Yes. We first review your process and configure the system around the stages and tools you actually need.",
-        },
-        {
-          question: "How is a website project paid?",
-          answer: "As a reference, 50% to start and 50% before launch. If the scope needs a different structure, it is defined in the proposal before work begins.",
+          question: "Is there a system commitment? What happens if I cancel?",
+          answer:
+            "There is no annual lock-in by default. After implementation, the service runs month to month and can be cancelled with 30 days' notice. When it ends, client data can be exported; unostudio's base software or proprietary components may remain part of the service and are not transferred unless explicitly agreed.",
         },
         {
           question: "Do we have to replace the tools we already use?",
-          answer: "Not necessarily. We first review what already works and only replace or connect tools when there is a clear reason to do so.",
+          answer:
+            "Not necessarily. We first review what already works. Forms, scheduling, email, CRM, or other tools are kept, connected, or replaced only when there is a clear reason and the technical scope has been approved.",
+        },
+        {
+          question: "What if I want changes after launch?",
+          answer:
+            "You can use the maintenance plan or request one-off improvements. Small changes covered by maintenance stay within that scope; new pages, redesigns, or significant functionality are quoted before work begins.",
         },
       ],
     },

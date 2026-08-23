@@ -72,10 +72,10 @@ const contactSchema = z
   })
 
 function redirectTo(request: Request, pagePath: ContactPagePath, estado: "enviado" | "error", motivo?: string) {
-  const url = new URL(pagePath === "/" ? "/contacto" : pagePath, request.url)
+  const url = new URL(pagePath, request.url)
   url.searchParams.set("estado", estado)
   if (motivo) url.searchParams.set("motivo", motivo)
-  url.hash = pagePath === "/reformas" ? "diagnostico" : "formulario"
+  url.hash = pagePath === "/reformas" ? "diagnostico" : pagePath === "/" ? "booking" : "formulario"
   return NextResponse.redirect(url, { status: 303 })
 }
 

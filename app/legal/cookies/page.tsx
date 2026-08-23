@@ -2,35 +2,28 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { LegalList, LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout"
 
-const updatedAt = "8 de mayo de 2026"
+const updatedAt = "24 de agosto de 2026"
 
-const cookieRows = [
+const technologyRows = [
   {
     name: "unostudio_cookie_consent",
-    provider: "unostudio / Luca Benidze",
-    purpose: "Guardar preferencias de consentimiento.",
+    provider: "unostudio",
+    purpose: "Guardar la preferencia de consentimiento del usuario.",
     duration: "Hasta 24 meses",
     type: "Técnica",
   },
   {
     name: "Vercel Analytics",
     provider: "Vercel",
-    purpose: "Medición agregada de visitas y eventos si el usuario acepta analítica. No se carga antes del consentimiento.",
-    duration: "Según configuración del proveedor",
+    purpose: "Medición agregada del uso del sitio cuando el usuario acepta analítica.",
+    duration: "Según la configuración y política del proveedor",
     type: "Analítica",
-  },
-  {
-    name: "[cookie_publicitaria]",
-    provider: "[proveedor pendiente]",
-    purpose: "Medición publicitaria o remarketing si se activa en el futuro.",
-    duration: "[duración pendiente]",
-    type: "Publicitaria",
   },
 ]
 
 export const metadata: Metadata = {
   title: "Política de cookies",
-  description: "Política de cookies de unostudio.org.",
+  description: "Política de cookies y tecnologías similares de unostudio.org.",
   alternates: { canonical: "/legal/cookies" },
   robots: { index: false, follow: true },
 }
@@ -40,50 +33,41 @@ export default function CookiesPage() {
     <LegalPageLayout
       eyebrow="Cookies"
       title="Política de cookies"
-      description="Información sobre cookies técnicas, analíticas y publicitarias, y cómo gestionar tus preferencias."
+      description="Información sobre el almacenamiento técnico y la analítica utilizada en unostudio.org."
       updatedAt={updatedAt}
     >
-      <LegalSection title="Qué son las cookies">
+      <LegalSection title="Qué son las cookies y tecnologías similares">
         <p>
-          Las cookies son pequeños archivos que un sitio web puede almacenar en tu navegador para recordar información
-          técnica, preferencias o datos de navegación. También pueden existir tecnologías similares, como localStorage.
+          Las cookies son pequeños archivos que un sitio web puede almacenar en tu navegador. También pueden utilizarse
+          tecnologías similares, como localStorage, para recordar preferencias o información técnica.
         </p>
       </LegalSection>
 
-      <LegalSection title="Tipos de cookies">
+      <LegalSection title="Qué utilizamos actualmente">
         <LegalList
           items={[
-            "Cookies técnicas: necesarias para que la web funcione y para guardar preferencias básicas.",
-            "Cookies analíticas: ayudan a medir visitas, eventos y rendimiento de la web.",
-            "Cookies publicitarias: permiten medir campañas, crear audiencias o mostrar publicidad personalizada si se activan.",
+            "Almacenamiento técnico para recordar tu elección sobre analítica.",
+            "Vercel Analytics únicamente cuando das consentimiento.",
+            "No cargamos herramientas publicitarias o de remarketing desde este gestor de consentimiento.",
           ]}
         />
       </LegalSection>
 
-      <LegalSection title="Cookies técnicas">
+      <LegalSection title="Tecnologías técnicas">
         <p>
-          Las cookies técnicas son necesarias para prestar el servicio solicitado, recordar tus preferencias de cookies y
-          mantener funciones básicas del sitio. Supabase puede intervenir en formularios de contacto sin instalar cookies
-          de analítica o publicidad. Estas cookies no requieren consentimiento.
+          Son necesarias para recordar tus preferencias y para funciones básicas del sitio. No se utilizan para crear
+          perfiles publicitarios.
         </p>
       </LegalSection>
 
-      <LegalSection title="Cookies analíticas">
+      <LegalSection title="Analítica">
         <p>
-          Las cookies analíticas solo se activarán si das tu consentimiento. Sirven para entender el uso de la web,
-          detectar errores, medir visitas y mejorar el contenido.
+          Vercel Analytics solo se carga después de aceptar la categoría analítica. Se utiliza para entender de forma
+          agregada el uso del sitio y mejorar su funcionamiento y contenido.
         </p>
       </LegalSection>
 
-      <LegalSection title="Cookies publicitarias">
-        <p>
-          Las cookies publicitarias no están activas por defecto. Si se añaden en el futuro, se usarán solo con
-          consentimiento previo para medición de campañas, remarketing o audiencias.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Tabla de cookies">
-        {/* TODO: completar tabla con cookies reales cuando se activen proveedores definitivos. */}
+      <LegalSection title="Tabla de tecnologías">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[720px] border-collapse text-left text-sm">
             <thead>
@@ -96,13 +80,13 @@ export default function CookiesPage() {
               </tr>
             </thead>
             <tbody>
-              {cookieRows.map((cookie) => (
-                <tr key={cookie.name} className="border-b border-zinc-900">
-                  <td className="py-4 pr-4 text-zinc-300">{cookie.name}</td>
-                  <td className="py-4 pr-4">{cookie.provider}</td>
-                  <td className="py-4 pr-4">{cookie.purpose}</td>
-                  <td className="py-4 pr-4">{cookie.duration}</td>
-                  <td className="py-4">{cookie.type}</td>
+              {technologyRows.map((item) => (
+                <tr key={item.name} className="border-b border-zinc-900">
+                  <td className="py-4 pr-4 text-zinc-300">{item.name}</td>
+                  <td className="py-4 pr-4">{item.provider}</td>
+                  <td className="py-4 pr-4">{item.purpose}</td>
+                  <td className="py-4 pr-4">{item.duration}</td>
+                  <td className="py-4">{item.type}</td>
                 </tr>
               ))}
             </tbody>
@@ -110,17 +94,16 @@ export default function CookiesPage() {
         </div>
       </LegalSection>
 
-      <LegalSection title="Cómo aceptar, rechazar o configurar cookies">
+      <LegalSection title="Cómo aceptar o rechazar la analítica">
         <p>
-          Al entrar en la web verás un banner que permite aceptar, rechazar o configurar cookies por categorías. Las
-          categorías no técnicas no vienen preactivadas.
+          Al entrar en la web puedes aceptar la analítica o continuar solo con las tecnologías necesarias. La analítica
+          está desactivada por defecto hasta que das tu consentimiento.
         </p>
       </LegalSection>
 
-      <LegalSection title="Cómo cambiar preferencias">
+      <LegalSection title="Cómo cambiar tus preferencias">
         <p>
-          Puedes cambiar tus preferencias desde el enlace permanente “Configurar cookies” del footer. Al cambiar la
-          configuración se guardará una nueva preferencia técnica.
+          Puedes volver a abrir el panel desde “Configurar cookies” en el footer y cambiar tu elección cuando quieras.
         </p>
       </LegalSection>
 

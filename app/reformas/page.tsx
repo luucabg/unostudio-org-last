@@ -47,7 +47,6 @@ const structuredData = {
   provider: {
     "@type": "ProfessionalService",
     name: "unostudio",
-    founder: { "@type": "Person", name: "Luca Benidze" },
     url: "https://unostudio.org",
   },
   areaServed: { "@type": "Country", name: "España" },
