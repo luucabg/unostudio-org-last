@@ -16,8 +16,8 @@ const services = [
   "Otro",
 ] as const
 
-const budgets = ["1.500-2.000 €", "2.000-3.000 €", "3.000-5.000 €", "5.000 €+", "No lo sé"] as const
-const urgencies = ["Este mes", "1-2 meses", "Más adelante"] as const
+const budgets = ["1.500-2.000 €", "2.000-3.000 €", "3.000-5.000 €", "5.000 €+", "No lo sé", "No indicado"] as const
+const urgencies = ["Este mes", "1-2 meses", "Más adelante", "No indicada"] as const
 type ContactPagePath = "/" | "/contacto" | "/reformas"
 
 function contactPagePath(value: unknown): ContactPagePath {

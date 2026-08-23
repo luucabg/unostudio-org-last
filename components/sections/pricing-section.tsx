@@ -4,16 +4,6 @@ import { ArrowRight, Check } from "lucide-react"
 import { useI18n } from "@/components/i18n-provider"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
-const stripePaymentLinks: Record<string, string | undefined> = {
-  "Web Local": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
-  "Web Esencial": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
-  "Local Website": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
-  "Essential Web": process.env.NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL,
-  "Sistema Presupuestos": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
-  "Web Pro": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
-  "Quote System": process.env.NEXT_PUBLIC_STRIPE_WEB_PRO_URL,
-}
-
 export function PricingSection() {
   const { t } = useI18n()
 
@@ -38,8 +28,7 @@ export function PricingSection() {
             const setupParts = setupPrice.match(/^(Desde|From)\s(.+)$/)
             const setupLabel = setupParts ? setupParts[1] : null
             const setupAmount = setupParts ? setupParts[2] : setupPrice
-            const href = stripePaymentLinks[plan.name] || plan.href
-            const isExternal = href.startsWith("http")
+            const href = plan.href
 
             return (
               <ScrollReveal key={plan.name} delay={index * 100} className="h-full">
@@ -109,8 +98,6 @@ export function PricingSection() {
 
                   <a
                     href={href}
-                    target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noreferrer" : undefined}
                     className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-center text-xs font-semibold transition duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38b6ff] ${
                       plan.highlighted
                         ? "bg-[#38b6ff] text-zinc-950 shadow-[0_0_30px_-10px_rgba(56,182,255,0.9)] hover:bg-[#6ac9ff]"

@@ -97,6 +97,10 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
               </div>
             ) : null}
 
+            <input type="hidden" name="servicio" value="Diagnóstico inicial" />
+            <input type="hidden" name="presupuesto" value="No indicado" />
+            <input type="hidden" name="urgencia" value="No indicada" />
+            <input type="hidden" name="page_path" value="/contacto" />
             <input
               tabIndex={-1}
               autoComplete="off"
@@ -115,54 +119,25 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
               <Field label="Email">
                 <input className={inputClass} name="email" type="email" autoComplete="email" required />
               </Field>
-              <Field label="Teléfono opcional">
+              <Field label="WhatsApp (opcional)">
                 <input className={inputClass} name="telefono" type="tel" autoComplete="tel" />
-              </Field>
-              <Field label="Web actual">
-                <input className={inputClass} name="web_actual" type="url" placeholder="https://" />
-              </Field>
-              <Field label="Servicio de interés">
-                <select className={inputClass} name="servicio" required defaultValue="">
-                  <option value="" disabled>
-                    Selecciona una opción
-                  </option>
-                  <option>Diagnóstico inicial</option>
-                  <option>Web de conversión</option>
-                  <option>Sistema comercial</option>
-                  <option>Sistema para reformas</option>
-                  <option>Web + sistema</option>
-                  <option>Proyecto a medida</option>
-                  <option>Mantenimiento web</option>
-                  <option>Otro</option>
-                </select>
-              </Field>
-              <Field label="Presupuesto aproximado">
-                <select className={inputClass} name="presupuesto" required defaultValue="">
-                  <option value="" disabled>
-                    Selecciona una opción
-                  </option>
-                  <option>1.500-2.000 €</option>
-                  <option>2.000-3.000 €</option>
-                  <option>3.000-5.000 €</option>
-                  <option>5.000 €+</option>
-                  <option>No lo sé</option>
-                </select>
-              </Field>
-              <Field label="Urgencia">
-                <select className={inputClass} name="urgencia" required defaultValue="">
-                  <option value="" disabled>
-                    Selecciona una opción
-                  </option>
-                  <option>Este mes</option>
-                  <option>1-2 meses</option>
-                  <option>Más adelante</option>
-                </select>
               </Field>
             </div>
 
             <label className={`${labelClass} mt-5 block`}>
-              Mensaje
-              <textarea className={`${inputClass} min-h-36 resize-y`} name="mensaje" required />
+              Web actual (opcional)
+              <input className={inputClass} name="web_actual" type="url" placeholder="https://" />
+            </label>
+
+            <label className={`${labelClass} mt-5 block`}>
+              ¿Qué quieres mejorar?
+              <textarea
+                className={`${inputClass} min-h-36 resize-y`}
+                name="mensaje"
+                minLength={10}
+                placeholder="Cuéntanos brevemente cómo llegan hoy las solicitudes y qué te gustaría que funcionase mejor."
+                required
+              />
             </label>
 
             <label className="mt-6 flex items-start gap-3 text-sm leading-6 text-zinc-400">

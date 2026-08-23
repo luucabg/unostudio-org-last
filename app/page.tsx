@@ -1,10 +1,11 @@
 import { Navbar } from "@/components/ui/navbar"
 import { HeroSection } from "@/components/sections/hero-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
+import { PerceptionSection } from "@/components/sections/perception-section"
 import { FeaturesSection } from "@/components/sections/features-section"
+import { ImpactSection } from "@/components/sections/impact-section"
 import { SectorSystemsSection } from "@/components/sections/sector-systems-section"
 import { PricingSection } from "@/components/sections/pricing-section"
-import { AddonsSection } from "@/components/sections/addons-section"
 import { FaqSection } from "@/components/sections/faq-section"
 import { CalBookingSection } from "@/components/sections/cal-booking-section"
 import { FooterSection } from "@/components/sections/footer-section"
@@ -16,10 +17,11 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProjectsSection />
+      <PerceptionSection />
       <FeaturesSection />
+      <ImpactSection />
       <SectorSystemsSection />
       <PricingSection />
-      <AddonsSection />
       <FaqSection />
       <CalBookingSection />
       <FooterSection />

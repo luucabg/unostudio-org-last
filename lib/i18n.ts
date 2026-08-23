@@ -17,7 +17,7 @@ export const translations = {
       badge: "Webs y sistemas comerciales para empresas de servicios",
       title: "De una solicitud perdida a un trabajo firmado.",
       subtitle:
-        "Diseñamos webs y sistemas comerciales que recogen cada oportunidad, organizan la información y muestran a tu equipo qué debe ocurrir después.",
+        "Diseñamos webs y sistemas comerciales para que las oportunidades entren con contexto, queden organizadas y tengan un siguiente paso claro.",
       primaryCta: "Solicitar diagnóstico",
       secondaryCta: "Ver proyectos",
       proofPoints: [
@@ -160,7 +160,7 @@ export const translations = {
           name: "Web de conversión",
           description: "Para empresas que necesitan explicar mejor su servicio, generar confianza y convertir visitas en solicitudes.",
           price: "Desde 1.800€",
-          badge: "Web premium",
+          badge: "Mejor punto de partida",
           features: [
             "Estrategia y estructura",
             "Diseño UX/UI",
@@ -172,16 +172,16 @@ export const translations = {
             "Integraciones sencillas",
           ],
           cta: "Solicitar diagnóstico",
-          paymentNote: "Mantenimiento opcional desde 79€/mes.",
+          paymentNote: "50% al empezar · 50% antes de publicar. Mantenimiento opcional desde 79€/mes.",
           href: "/#booking",
-          highlighted: false,
+          highlighted: true,
         },
         {
           name: "Sistema comercial",
           description:
             "Para empresas que quieren organizar oportunidades, saber en qué estado están y qué debe ocurrir después.",
           price: "Desde 1.500€ + 249€/mes",
-          badge: "Recomendado",
+          badge: "",
           features: [
             "Solicitudes organizadas por estado",
             "Siguiente acción visible",
@@ -194,9 +194,9 @@ export const translations = {
             "Evolución básica del sistema",
           ],
           cta: "Solicitar diagnóstico",
-          paymentNote: "Configurado según el proceso de cada empresa.",
+          paymentNote: "Primero revisamos el proceso; después configuramos solo lo necesario.",
           href: "/#booking",
-          highlighted: true,
+          highlighted: false,
         },
         {
           name: "Web + sistema",
@@ -259,17 +259,18 @@ export const translations = {
     },
     booking: {
       eyebrow: "Diagnóstico",
-      title: "Cuéntanos cómo gestionas hoy tus oportunidades.",
+      title: "Cuéntanos dónde se atascan hoy tus oportunidades.",
       body:
-        "Revisamos tu web y tu proceso comercial para decirte qué tendría más sentido mejorar primero: captación, seguimiento o ambas partes.",
-      bullets: ["Sin compromiso", "Revisión concreta", "Siguiente paso claro"],
+        "Revisamos cómo llegan las solicitudes y qué ocurre después para decidir qué merece la pena mejorar primero: la web, el seguimiento o ambas partes.",
+      bullets: ["Revisamos el proceso", "Priorizamos una mejora", "Sin compromiso"],
       cta: "Solicitar diagnóstico",
       whatsappCta: "Prefiero hablar por WhatsApp",
       form: {
         name: "Nombre",
         business: "Negocio",
         website: "Web o Instagram",
-        phone: "WhatsApp",
+        email: "Email",
+        phone: "WhatsApp (opcional)",
         need: "Qué quieres mejorar",
         submit: "Solicitar diagnóstico",
       },
@@ -299,6 +300,14 @@ export const translations = {
           question: "¿Puede adaptarse a cómo trabajamos ahora?",
           answer: "Sí. Primero revisamos vuestro proceso y configuramos el sistema alrededor de las etapas y herramientas que realmente necesitéis.",
         },
+        {
+          question: "¿Cómo se paga un proyecto web?",
+          answer: "Como referencia, 50% para empezar y 50% antes de publicar. Si el alcance requiere otra estructura, se deja definida en la propuesta antes de comenzar.",
+        },
+        {
+          question: "¿Tengo que cambiar las herramientas que ya utilizamos?",
+          answer: "No necesariamente. Primero revisamos lo que ya funciona y solo sustituimos o conectamos herramientas cuando hay una razón clara para hacerlo.",
+        },
       ],
     },
     cta: {
@@ -312,7 +321,7 @@ export const translations = {
       description:
         "Webs de conversión y sistemas comerciales para empresas de servicios.",
       servicesTitle: "Servicios",
-      agencyTitle: "Agencia",
+      agencyTitle: "Estudio",
       contactTitle: "Contacto",
       legalTitle: "Legal",
       services: [
@@ -353,7 +362,7 @@ export const translations = {
       badge: "Conversion websites and commercial systems for service businesses",
       title: "From a lost enquiry to signed work.",
       subtitle:
-        "We design websites and commercial systems that capture every opportunity, organize the information, and show your team what should happen next.",
+        "We design websites and commercial systems so opportunities arrive with context, stay organized, and have a clear next step.",
       primaryCta: "Request diagnosis",
       secondaryCta: "View projects",
       proofPoints: [
@@ -496,7 +505,7 @@ export const translations = {
           name: "Conversion website",
           description: "For businesses that need to explain their service better, build trust, and turn visits into enquiries.",
           price: "From €1,800",
-          badge: "Premium website",
+          badge: "Best starting point",
           features: [
             "Strategy and structure",
             "UX/UI design",
@@ -508,16 +517,16 @@ export const translations = {
             "Simple integrations",
           ],
           cta: "Request diagnosis",
-          paymentNote: "Optional maintenance from €79/mo.",
+          paymentNote: "50% to start · 50% before launch. Optional maintenance from €79/mo.",
           href: "/#booking",
-          highlighted: false,
+          highlighted: true,
         },
         {
           name: "Commercial system",
           description:
             "For businesses that want to organize opportunities, know their status, and see what should happen next.",
           price: "From €1,500 + €249/mo",
-          badge: "Recommended",
+          badge: "",
           features: [
             "Enquiries organized by status",
             "Visible next action",
@@ -530,9 +539,9 @@ export const translations = {
             "Basic system evolution",
           ],
           cta: "Request diagnosis",
-          paymentNote: "Configured around each company's process.",
+          paymentNote: "We review the process first, then configure only what is needed.",
           href: "/#booking",
-          highlighted: true,
+          highlighted: false,
         },
         {
           name: "Website + system",
@@ -595,17 +604,18 @@ export const translations = {
     },
     booking: {
       eyebrow: "Diagnosis",
-      title: "Tell us how you manage opportunities today.",
+      title: "Tell us where opportunities get stuck today.",
       body:
-        "We review your website and commercial process to tell you what makes most sense to improve first: acquisition, follow-up, or both.",
-      bullets: ["No commitment", "Concrete review", "Clear next step"],
+        "We review how enquiries arrive and what happens next to decide what is worth improving first: the website, follow-up, or both.",
+      bullets: ["We review the process", "We prioritize one improvement", "No commitment"],
       cta: "Request diagnosis",
       whatsappCta: "I prefer WhatsApp",
       form: {
         name: "Name",
         business: "Business",
         website: "Website or Instagram",
-        phone: "WhatsApp",
+        email: "Email",
+        phone: "WhatsApp (optional)",
         need: "What do you want to improve?",
         submit: "Request diagnosis",
       },
@@ -635,6 +645,14 @@ export const translations = {
           question: "Can it adapt to how we work today?",
           answer: "Yes. We first review your process and configure the system around the stages and tools you actually need.",
         },
+        {
+          question: "How is a website project paid?",
+          answer: "As a reference, 50% to start and 50% before launch. If the scope needs a different structure, it is defined in the proposal before work begins.",
+        },
+        {
+          question: "Do we have to replace the tools we already use?",
+          answer: "Not necessarily. We first review what already works and only replace or connect tools when there is a clear reason to do so.",
+        },
       ],
     },
     cta: {
@@ -648,7 +666,7 @@ export const translations = {
       description:
         "Conversion websites and commercial systems for service businesses.",
       servicesTitle: "Services",
-      agencyTitle: "Agency",
+      agencyTitle: "Studio",
       contactTitle: "Contact",
       legalTitle: "Legal",
       services: [

@@ -1,82 +1,80 @@
 # unostudio
 
-Landing comercial + unostudio OS.
+Web comercial de unostudio + herramientas privadas de operación.
 
-La home pública presenta webs de conversión, sistemas comerciales, precios, proyectos y diagnóstico. El sistema privado vive aparte:
+## Oferta pública actual
 
-- `/reformas`: landing sectorial de captación y seguimiento para empresas de reformas.
-- `/login`: acceso privado.
-- `/admin/prospects`: panel interno de prospeccion para unostudio.
-- `/admin/lead-finder`: busqueda interna de empresas con Google Places y analisis opcional con DeepSeek.
-- `/dashboard`: panel simple de solicitudes para clientes.
-- `/api/leads`: endpoint publico para recibir leads de webs de clientes.
+- Web de conversión: desde 1.800 € + IVA.
+- Mantenimiento web: opcional, desde 79 €/mes.
+- Sistema comercial: desde 1.500 € + 249 €/mes + IVA.
+- Web + sistema: desde 3.000 € + 299 €/mes + IVA.
+- Referencia de cobro para proyectos web: 50% al empezar y 50% antes de publicar.
 
-## 1. Crear proyecto Supabase
+No hay Payment Links públicos de Stripe para comprar proyectos custom. El flujo comercial es diagnóstico, propuesta, aprobación y pago específico del cliente.
 
-1. Crea un proyecto en Supabase.
-2. Copia la Project URL.
-3. Copia la anon key.
-4. Copia la service role key y guardala solo como variable server.
+## Rutas públicas
 
-## 2. Configurar env vars
+- `/`: home.
+- `/contacto`: formulario de diagnóstico/contacto.
+- `/reformas`: landing vertical para empresas de reformas.
+- `/legal/*`: páginas legales.
 
-Crea `.env.local` con:
+## Rutas privadas
+
+- `/login`: acceso.
+- `/admin/prospects`: prospección interna.
+- `/admin/lead-finder`: búsqueda y análisis manual de empresas.
+- `/dashboard`: panel de solicitudes para clientes.
+- `/api/leads`: recepción de leads para organizaciones configuradas.
+
+Las rutas privadas y `/api` están excluidas en `robots.ts`.
+
+## Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion / Motion
+- Supabase
+- Vercel Analytics
+
+## Variables de entorno
+
+Crea `.env.local`:
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL=
-NEXT_PUBLIC_STRIPE_WEB_PRO_URL=
+
 GOOGLE_PLACES_API_KEY=
 DEEPSEEK_API_KEY=
 DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-v4-pro
 ```
 
-No uses `SUPABASE_SERVICE_ROLE_KEY` en cliente. Solo se usa en servidor para `/api/leads`.
-`GOOGLE_PLACES_API_KEY` y `DEEPSEEK_API_KEY` son server-only. No las pongas con prefijo `NEXT_PUBLIC`.
+`SUPABASE_SERVICE_ROLE_KEY`, `GOOGLE_PLACES_API_KEY` y `DEEPSEEK_API_KEY` son server-only.
 
-## 3. Ejecutar migraciones
+## Base de datos
 
-Con Supabase CLI:
+Ejecuta las migraciones en orden:
 
 ```bash
 supabase link --project-ref TU_PROJECT_REF
 supabase db push
 ```
 
-Sin CLI, abre Supabase SQL Editor y ejecuta los archivos de `supabase/migrations` en orden:
+La migración `20260824030000_align_contact_requests_with_current_offer.sql` alinea las constraints del formulario con la oferta comercial actual. Las migraciones anteriores que contienen nombres y precios antiguos se mantienen solo como historial y no deben usarse como fuente de verdad comercial.
 
-```text
-20260508004532_create_contact_requests.sql
-20260625090000_update_contact_request_options.sql
-20260625100000_allow_whatsapp_only_demo_requests.sql
-20260625110000_update_launch_pricing_options.sql
-20260629190000_create_unostudio_os.sql
-20260629200000_tighten_os_function_grants.sql
-```
+## Usuario admin
 
-La migracion principal de unostudio OS es:
+1. Crea el usuario en Supabase Auth.
+2. Asigna su perfil como `admin` en `public.profiles`.
+3. Accede a `/login`.
 
-```text
-supabase/migrations/20260629190000_create_unostudio_os.sql
-```
-
-Incluye RLS real para:
-
-- `profiles`
-- `organizations`
-- `organization_members`
-- `prospects`
-- `leads`
-
-## 4. Crear primer usuario admin
-
-1. En Supabase Auth > Users, crea el usuario admin con email y password.
-2. Confirma el email si tu proyecto lo requiere.
-3. Ejecuta este SQL cambiando `TU_EMAIL_ADMIN`:
+Ejemplo:
 
 ```sql
 insert into public.profiles (id, full_name, role)
@@ -89,12 +87,9 @@ set role = 'admin',
     updated_at = now();
 ```
 
-4. Entra en `/login`.
-5. Si el perfil es admin, te lleva a `/admin/prospects`.
+## Organización y cliente
 
-## 5. Crear organization de prueba
-
-Cambia nombre, slug y web por el cliente real:
+Crea una organización:
 
 ```sql
 insert into public.organizations (name, slug, website_url)
@@ -102,165 +97,46 @@ values ('Cliente Demo', 'cliente-demo', 'https://cliente-demo.com')
 returning id;
 ```
 
-Guarda el `id`.
+Asigna el usuario cliente mediante `organization_members`. RLS limita cada cliente a sus organizaciones.
 
-## 6. Crear usuario client y asignarlo
+## Lead Finder
 
-1. En Supabase Auth > Users, crea el usuario client con email y password.
-2. Confirma el email si tu proyecto lo requiere.
-3. Ejecuta este SQL cambiando `EMAIL_CLIENTE` y `ORG_ID_AQUI`:
+`/admin/lead-finder` usa Google Places y, opcionalmente, un modelo configurado mediante las variables `DEEPSEEK_*`.
 
-```sql
-insert into public.profiles (id, full_name, role)
-select id, 'Cliente Demo', 'client'
-from auth.users
-where email = 'EMAIL_CLIENTE'
-on conflict (id) do update
-set role = 'client',
-    full_name = excluded.full_name,
-    updated_at = now();
+Principios:
 
-insert into public.organization_members (organization_id, user_id, role)
-select 'ORG_ID_AQUI'::uuid, id, 'owner'
-from auth.users
-where email = 'EMAIL_CLIENTE'
-on conflict (organization_id, user_id) do nothing;
-```
+- revisión humana;
+- sin contacto automático;
+- sin spam;
+- sin envío automático de WhatsApp o email;
+- usar IA para analizar y priorizar, no para ejecutar acciones comerciales reales sin aprobación.
 
-Ese usuario solo vera leads de las organizaciones donde exista fila en `organization_members`.
+## Formularios públicos
 
-## 7. Probar `/admin/prospects`
+`/api/contact` acepta los formularios de la home, `/contacto` y `/reformas`.
+
+La captación inicial pide pocos datos. Presupuesto, urgencia y selección exacta de servicio no se fuerzan antes de la conversación; los formularios cortos usan valores internos `No indicado` / `No indicada` para no inventar información.
+
+## Desarrollo local
 
 ```bash
+corepack pnpm install
 corepack pnpm dev
 ```
 
-1. Abre `http://localhost:3000/login`.
-2. Entra con el usuario admin.
-3. Crea un prospect.
-4. Cambia estado, score, proxima accion, demo URL y Loom URL.
-5. Abre `Mas datos` y guarda una URL o nota interna.
-6. Prueba copiar mensaje.
-7. Entra con usuario client y comprueba que `/admin/prospects` redirige a `/dashboard`.
-
-## 8. Probar `/admin/lead-finder`
-
-1. Activa Places API en Google Cloud y configura `GOOGLE_PLACES_API_KEY`.
-2. Opcional: configura `DEEPSEEK_API_KEY`, `DEEPSEEK_BASE_URL` y `DEEPSEEK_MODEL`.
-3. Entra con usuario admin.
-4. Abre `/admin/lead-finder`.
-5. Busca algo concreto, por ejemplo `clinicas dentales` + ciudad `Valencia`.
-6. Usa max_results bajo al principio. Google Places puede tener coste.
-7. Analiza un candidato con IA. Si tiene web, se lee una muestra limitada de la home para valorar claridad, confianza y contacto. Si no hay API key, el sistema usa analisis basico.
-8. Guarda manualmente solo los candidatos que quieras revisar.
-9. Abre `/admin/prospects` y comprueba que aparece el prospect guardado.
-
-Notas:
-
-- Lead Finder no hace scraping.
-- Lead Finder esta pensado para busquedas en Espana. Usa `locationRestriction` y filtros de direccion para evitar resultados de otros paises o ciudades ambiguas.
-- No crawlea webs ni subpaginas: solo lee una muestra limitada de la home cuando el admin pulsa analizar.
-- DeepSeek solo analiza y puntua. No contacta automaticamente.
-- No hay envio de WhatsApp, email, Instagram ni bots.
-- Los prospects deben revisarse manualmente antes de contactar.
-
-## 9. Probar `/dashboard`
-
-1. Entra con el usuario client.
-2. Abre `/dashboard`.
-3. Crea una solicitud manual.
-4. Cambia estado.
-5. Anade notas y proxima accion.
-6. Exporta CSV.
-7. Si tienes dos organizations, comprueba que el usuario client solo ve las asignadas.
-
-## 10. Probar `/api/leads`
-
-PowerShell:
-
-```powershell
-Invoke-RestMethod `
-  -Method Post `
-  -Uri "http://localhost:3000/api/leads" `
-  -ContentType "application/json" `
-  -Body '{"organization_slug":"cliente-demo","name":"Cliente prueba","phone":"+34600000000","source":"website","service_requested":"Web","message":"Quiero informacion para una web nueva"}'
-```
-
-Respuesta esperada:
-
-```json
-{ "ok": true }
-```
-
-El lead debe aparecer en `/dashboard` para la organizacion `cliente-demo`.
-
-Prueba error esperado sin telefono ni email:
-
-```powershell
-Invoke-RestMethod `
-  -Method Post `
-  -Uri "http://localhost:3000/api/leads" `
-  -ContentType "application/json" `
-  -Body '{"organization_slug":"cliente-demo","name":"A","source":"website"}'
-```
-
-Respuesta esperada:
-
-```json
-{ "ok": false, "error": "..." }
-```
-
-## 11. Configurar Stripe Payment Links
-
-Crea dos Payment Links en Stripe:
-
-- Reserva Web Esencial: 99 EUR
-- Reserva Web Pro: 149 EUR
-
-Despues configura:
-
-```bash
-NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL=https://buy.stripe.com/...
-NEXT_PUBLIC_STRIPE_WEB_PRO_URL=https://buy.stripe.com/...
-```
-
-Si una variable no existe, el boton vuelve a `/#booking`.
-
-## 12. Deploy en Vercel
-
-1. Importa el repo en Vercel.
-2. Configura las env vars de produccion:
-
-```bash
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-NEXT_PUBLIC_SITE_URL=https://unostudio.org
-NEXT_PUBLIC_STRIPE_WEB_ESENCIAL_URL=
-NEXT_PUBLIC_STRIPE_WEB_PRO_URL=
-GOOGLE_PLACES_API_KEY=
-DEEPSEEK_API_KEY=
-DEEPSEEK_BASE_URL=https://api.deepseek.com
-DEEPSEEK_MODEL=deepseek-v4-pro
-```
-
-3. En Supabase Auth > URL Configuration, pon `https://unostudio.org` como Site URL si usas confirmaciones o redirects.
-4. Ejecuta las migraciones en Supabase antes de abrir los paneles.
-5. Deploy.
-6. Prueba `/login`, `/admin/prospects`, `/admin/lead-finder`, `/dashboard`, `/api/leads` y el formulario publico de la landing.
-
-Comandos locales:
+Validación:
 
 ```bash
 corepack pnpm lint
-corepack pnpm build
 corepack pnpm exec tsc --noEmit
+corepack pnpm build
 ```
 
-## Fase 2 pendiente
+## Deploy
 
-- Historial de eventos por lead.
-- Invitaciones de clientes desde UI.
-- Mejoras de permisos por organizacion.
-- Integraciones de email o WhatsApp solo si se piden manualmente y con consentimiento.
-- Webhooks de Stripe si las reservas necesitan automatizacion.
+1. Importa el repositorio en Vercel.
+2. Configura las variables de entorno.
+3. Aplica las migraciones de Supabase, incluida la de 2026-08-24.
+4. Verifica `/`, `/contacto`, `/reformas`, `/login`, `/admin/prospects`, `/admin/lead-finder`, `/dashboard` y los formularios públicos.
+
+Producción: `https://unostudio.org`

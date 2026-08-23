@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/admin", "/dashboard", "/login", "/logout", "/api"],
     },
     sitemap: "https://unostudio.org/sitemap.xml",
     host: "https://unostudio.org",

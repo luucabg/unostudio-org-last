@@ -70,8 +70,8 @@ export function CalBookingSection() {
             className="rounded-lg border border-zinc-800/80 bg-zinc-950/80 p-5 shadow-[0_24px_80px_-48px_rgba(125,211,252,0.45),inset_0_1px_0_rgba(255,255,255,0.05)] md:p-8"
           >
             <input type="hidden" name="servicio" value="Diagnóstico inicial" />
-            <input type="hidden" name="presupuesto" value="No lo sé" />
-            <input type="hidden" name="urgencia" value="Este mes" />
+            <input type="hidden" name="presupuesto" value="No indicado" />
+            <input type="hidden" name="urgencia" value="No indicada" />
             <input type="hidden" name="page_path" value="/" />
             <input tabIndex={-1} autoComplete="off" name="confirmacion" className="hidden" aria-hidden="true" />
 
@@ -87,13 +87,18 @@ export function CalBookingSection() {
               </label>
 
               <label className={labelClass}>
-                {t.booking.form.website}
-                <input className={inputClass} name="web_actual" placeholder="https:// o @instagram" />
+                {t.booking.form.email}
+                <input className={inputClass} name="email" type="email" autoComplete="email" required />
               </label>
 
               <label className={labelClass}>
                 {t.booking.form.phone}
-                <input className={inputClass} name="telefono" type="tel" autoComplete="tel" required />
+                <input className={inputClass} name="telefono" type="tel" autoComplete="tel" />
+              </label>
+
+              <label className={`${labelClass} md:col-span-2`}>
+                {t.booking.form.website}
+                <input className={inputClass} name="web_actual" placeholder="https:// o @instagram" />
               </label>
             </div>
 

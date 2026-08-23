@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next"
 
 const baseUrl = "https://unostudio.org"
-const currentLastModified = new Date("2026-07-30")
-const contactLastModified = new Date("2026-05-08")
+const currentLastModified = new Date("2026-08-24")
+const contactLastModified = new Date("2026-08-24")
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
