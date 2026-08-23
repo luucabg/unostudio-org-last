@@ -8,7 +8,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal"
 const inputClass =
   "mt-2 w-full rounded-lg border border-zinc-800 bg-zinc-950/80 px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-700 focus:border-sky-300/70 focus:ring-2 focus:ring-sky-300/20"
 const labelClass = "text-sm font-medium text-zinc-300"
-const whatsappHref = "https://wa.me/34694222191?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio"
+const whatsappHref = "https://wa.me/34694222191?text=Hola%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20empresa"
 
 export function CalBookingSection() {
   const { locale, t } = useI18n()
@@ -17,8 +17,8 @@ export function CalBookingSection() {
   const privacyAfter = "."
   const messagePlaceholder =
     locale === "es"
-      ? "Ej: quiero una web más moderna, recibir más presupuestos o mejorar mi imagen"
-      : "Example: I want a more modern website, more quote requests, or a better image"
+      ? "Ej: recibimos solicitudes por varios canales y queremos organizar mejor el seguimiento"
+      : "Example: we receive enquiries through several channels and want to organize follow-up better"
 
   return (
     <section id="booking" className="relative overflow-hidden px-6 py-16 md:py-20">
@@ -69,8 +69,8 @@ export function CalBookingSection() {
             method="post"
             className="rounded-lg border border-zinc-800/80 bg-zinc-950/80 p-5 shadow-[0_24px_80px_-48px_rgba(125,211,252,0.45),inset_0_1px_0_rgba(255,255,255,0.05)] md:p-8"
           >
-            <input type="hidden" name="servicio" value="Demo inicial" />
-            <input type="hidden" name="presupuesto" value="Demo gratuita" />
+            <input type="hidden" name="servicio" value="Diagnóstico inicial" />
+            <input type="hidden" name="presupuesto" value="No lo sé" />
             <input type="hidden" name="urgencia" value="Este mes" />
             <input type="hidden" name="page_path" value="/" />
             <input tabIndex={-1} autoComplete="off" name="confirmacion" className="hidden" aria-hidden="true" />

@@ -13,11 +13,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://unostudio.org"),
   title: {
-    default: "unostudio | Webs claras para negocios locales",
+    default: "unostudio | Webs y sistemas comerciales para empresas de servicios",
     template: "%s | unostudio",
   },
   description:
-    "Webs claras y rápidas para reformas, interiorismo, arquitectura e inmobiliaria. WhatsApp, formulario, mantenimiento y mejor presentación desde Valencia.",
+    "Diseñamos webs de conversión y sistemas comerciales para empresas de servicios. Captación, organización y seguimiento de oportunidades desde Valencia.",
   keywords: [
     "diseño web Valencia",
     "presupuestos por WhatsApp",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "web inmobiliaria Valencia",
     "leads por WhatsApp",
     "mantenimiento web",
-    "web rápida para negocios locales",
+    "web de conversión para empresas de servicios",
     "unostudio",
   ],
   authors: [{ name: "unostudio", url: "https://unostudio.org" }],
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "unostudio | Webs claras para negocios locales",
+    title: "unostudio | Webs y sistemas comerciales para empresas de servicios",
     description:
-      "Webs rápidas con WhatsApp, formulario y mantenimiento para conseguir más solicitudes de presupuesto.",
+      "Webs de conversión y sistemas comerciales para captar, organizar y seguir mejor cada oportunidad.",
     url: "https://unostudio.org",
     siteName: "unostudio",
     locale: "es_ES",
@@ -62,15 +62,15 @@ export const metadata: Metadata = {
         url: "/desktop_hero.png",
         width: 1600,
         height: 900,
-        alt: "unostudio webs claras para negocios locales",
+        alt: "unostudio webs y sistemas comerciales para empresas de servicios",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "unostudio | Webs para negocios locales",
+    title: "unostudio | Webs y sistemas comerciales",
     description:
-      "Página clara, WhatsApp/formulario y mantenimiento para convertir visitas en presupuestos.",
+      "Webs de conversión y sistemas comerciales para empresas de servicios.",
     images: ["/desktop_hero.png"],
   },
   icons: {
@@ -99,7 +99,7 @@ const structuredData = {
   image: "https://unostudio.org/desktop_hero.png",
   logo: "https://unostudio.org/logos/logo_nav.png",
   description:
-    "Webs claras y rápidas para negocios locales. Creamos páginas con WhatsApp/formulario, mantenimiento y mejor presentación.",
+    "Diseñamos webs de conversión y sistemas comerciales que ayudan a empresas de servicios a captar, organizar y seguir mejor sus oportunidades.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Valencia",
@@ -114,19 +114,19 @@ const structuredData = {
     "Diseño web",
     "Conversión web",
     "Landing pages",
-    "Sistemas de solicitudes",
-    "WhatsApp para presupuestos",
-    "Creativos digitales",
-    "Paneles de solicitudes",
-    "Meta Ads",
+    "Sistemas comerciales",
+    "Seguimiento de oportunidades",
+    "Procesos comerciales",
+    "Organización de solicitudes",
+    "Integraciones comerciales",
   ],
   offers: {
     "@type": "OfferCatalog",
     name: "Servicios unostudio",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Local" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema Presupuestos" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema Local Growth" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web de conversión" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema comercial" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web + sistema comercial" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Proyecto a medida" } },
     ],
   },

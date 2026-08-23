@@ -13,12 +13,12 @@ type SearchParams = Promise<{
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Contacta con unostudio desde Valencia. Webs claras, rápidas y enfocadas a WhatsApp para negocios locales en España y remoto.",
+    "Contacta con unostudio desde Valencia. Webs de conversión y sistemas comerciales para empresas de servicios en España y remoto.",
   alternates: { canonical: "/contacto" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Contacto | unostudio",
-    description: "Cuéntanos qué quieres convertir. Trabajamos desde Valencia para España y proyectos remotos.",
+    description: "Cuéntanos cómo gestionas hoy tus oportunidades. Trabajamos desde Valencia para España y proyectos remotos.",
     url: "https://unostudio.org/contacto",
     type: "website",
   },
@@ -50,11 +50,11 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
           <div className="lg:sticky lg:top-28">
             <p className="mb-4 text-sm font-medium uppercase text-sky-300">Contacto</p>
             <h1 className="font-display text-5xl font-bold leading-tight text-zinc-100 md:text-7xl">
-              Cuéntanos qué quieres convertir.
+              Cuéntanos cómo gestionas hoy tus oportunidades.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-500 md:text-lg">
-              Explícanos qué vendes, qué web tienes ahora y qué resultado quieres conseguir. Te responderemos con el
-              siguiente paso.
+              Explícanos cómo llegan hoy tus solicitudes, qué ocurre después y qué te gustaría mejorar. Te responderemos con un
+              siguiente paso claro.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
@@ -68,7 +68,7 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                 hola@unostudio.org
               </a>
               <a
-                href="https://wa.me/34694222191?text=Hola%2C%20quiero%20una%20demo%20para%20mi%20negocio"
+                href="https://wa.me/34694222191?text=Hola%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico%20para%20mi%20empresa"
                 className="flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-950/70 p-4 text-sm font-medium text-zinc-200 transition hover:border-sky-300/50"
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-md bg-zinc-100 text-zinc-950">
@@ -126,11 +126,11 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option value="" disabled>
                     Selecciona una opción
                   </option>
-                  <option>Demo inicial</option>
-                  <option>Web Local</option>
-                  <option>Sistema Presupuestos</option>
-                  <option>Sistema Captación Reformas</option>
-                  <option>Sistema Local Growth</option>
+                  <option>Diagnóstico inicial</option>
+                  <option>Web de conversión</option>
+                  <option>Sistema comercial</option>
+                  <option>Sistema para reformas</option>
+                  <option>Web + sistema</option>
                   <option>Proyecto a medida</option>
                   <option>Mantenimiento web</option>
                   <option>Otro</option>
@@ -141,11 +141,10 @@ export default async function ContactoPage({ searchParams }: { searchParams?: Se
                   <option value="" disabled>
                     Selecciona una opción
                   </option>
-                  <option>Demo gratuita</option>
-                  <option>990-1.490 €</option>
-                  <option>1.490-2.490 €</option>
-                  <option>2.490 €+</option>
-                  <option>2.900 €+</option>
+                  <option>1.500-2.000 €</option>
+                  <option>2.000-3.000 €</option>
+                  <option>3.000-5.000 €</option>
+                  <option>5.000 €+</option>
                   <option>No lo sé</option>
                 </select>
               </Field>

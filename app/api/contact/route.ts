@@ -6,17 +6,17 @@ export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 const services = [
-  "Demo inicial",
-  "Web Local",
-  "Sistema Presupuestos",
-  "Sistema Captación Reformas",
-  "Sistema Local Growth",
+  "Diagnóstico inicial",
+  "Web de conversión",
+  "Sistema comercial",
+  "Sistema para reformas",
+  "Web + sistema",
   "Proyecto a medida",
   "Mantenimiento web",
   "Otro",
 ] as const
 
-const budgets = ["Demo gratuita", "990-1.490 €", "1.490-2.490 €", "2.490 €+", "2.900 €+", "No lo sé"] as const
+const budgets = ["1.500-2.000 €", "2.000-3.000 €", "3.000-5.000 €", "5.000 €+", "No lo sé"] as const
 const urgencies = ["Este mes", "1-2 meses", "Más adelante"] as const
 type ContactPagePath = "/" | "/contacto" | "/reformas"
 
@@ -129,7 +129,7 @@ export async function POST(request: Request) {
     service_interest: data.servicio,
     budget_range: data.presupuesto,
     urgency: data.urgencia,
-    message: data.mensaje || (pagePath === "/" ? "Solicitud de demo sin mensaje." : ""),
+    message: data.mensaje || (pagePath === "/" ? "Solicitud de diagnóstico sin mensaje." : ""),
     privacy_accepted: true,
     page_path: pagePath,
     source: "unostudio.org",

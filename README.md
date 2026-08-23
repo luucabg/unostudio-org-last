@@ -2,7 +2,7 @@
 
 Landing comercial + unostudio OS.
 
-La home publica vende demo gratis, precios, ejemplos, extras y contacto. El sistema privado vive aparte:
+La home pública presenta webs de conversión, sistemas comerciales, precios, proyectos y diagnóstico. El sistema privado vive aparte:
 
 - `/reformas`: landing sectorial de captación y seguimiento para empresas de reformas.
 - `/login`: acceso privado.

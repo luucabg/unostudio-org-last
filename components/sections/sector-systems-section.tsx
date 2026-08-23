@@ -7,24 +7,24 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
 const content = {
   es: {
-    eyebrow: "Sistemas de captación por sector",
-    title: "La web abre la conversación. El sistema evita que se pierda después.",
+    eyebrow: "El sistema",
+    title: "La web genera la oportunidad. El sistema deja claro qué hacer después.",
     body:
-      "Diseñamos webs y procesos comerciales para empresas que venden servicios de alto valor. Empezamos por reformas, donde cada solicitud necesita contexto, respuesta y seguimiento.",
-    cardEyebrow: "Empresas de reformas",
-    cardTitle: "Web, cualificación, WhatsApp y seguimiento de presupuestos.",
-    points: ["Solicitudes con contexto", "Pipeline de oportunidades", "Próxima acción visible"],
-    cta: "Ver sistema para reformas",
+      "Cada solicitud puede pasar por una reunión, una propuesta, un seguimiento o una contratación. El sistema reúne la información y hace visible la siguiente acción sin añadir complejidad innecesaria.",
+    cardEyebrow: "Ejemplo aplicado · reformas",
+    cardTitle: "De una solicitud de presupuesto a una oportunidad organizada.",
+    points: ["Solicitud con contexto", "Estado visible", "Siguiente acción clara"],
+    cta: "Ver ejemplo para reformas",
   },
   en: {
-    eyebrow: "Lead systems by sector",
-    title: "The website starts the conversation. The system keeps it from getting lost.",
+    eyebrow: "The system",
+    title: "The website creates the opportunity. The system makes the next step clear.",
     body:
-      "We design websites and sales processes for companies selling high-value services. We are starting with renovation firms, where every enquiry needs context, a response and follow-up.",
-    cardEyebrow: "Renovation companies",
-    cardTitle: "Website, qualification, WhatsApp and quote follow-up.",
-    points: ["Context-rich enquiries", "Opportunity pipeline", "Visible next action"],
-    cta: "View renovation system",
+      "Each enquiry may lead to a meeting, proposal, follow-up, or signed work. The system keeps the information together and makes the next action visible without adding unnecessary complexity.",
+    cardEyebrow: "Applied example · renovations",
+    cardTitle: "From a quote request to an organized opportunity.",
+    points: ["Context-rich enquiry", "Visible status", "Clear next action"],
+    cta: "View renovation example",
   },
 } as const
 
