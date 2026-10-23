@@ -2,7 +2,6 @@ import type { ReactNode } from "react"
 import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
 import "./globals.css"
-import "./studio.css"
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" })
 
@@ -21,9 +20,9 @@ export const metadata: Metadata = {
     siteName: "unostudio",
     locale: "es_ES",
     type: "website",
-    images: [{ url: "/projects/mocha-studio.png", width: 1424, height: 905, alt: "Diseño web de mochastudio, un proyecto de unostudio" }],
+    images: [{ url: "/work/gymindex-2026.png", width: 1600, height: 1000, alt: "Proyectos de diseño web de unostudio" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/projects/mocha-studio.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/work/gymindex-2026.png"] },
   icons: { icon: "/logos/favicon.png", apple: "/logos/favicon.png" },
 }
 

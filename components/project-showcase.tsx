@@ -1,57 +1,116 @@
 "use client"
 
-import { useRef, useState, type PointerEvent } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import Image from "next/image"
-import { AnimatePresence, motion, MotionConfig, useReducedMotion, useSpring } from "motion/react"
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
+import { Button } from "@/components/arc/button/button"
 import { projects } from "@/lib/projects"
 
-export function ProjectShowcase() {
-  const [current, setCurrent] = useState(0)
-  const reduce = useReducedMotion()
-  const bounds = useRef<DOMRect | null>(null)
-  const tiltX = useSpring(0, { stiffness: 130, damping: 20 })
-  const tiltY = useSpring(0, { stiffness: 130, damping: 20 })
-  const project = projects[current]
-  const next = projects[(current + 1) % projects.length]
-  const change = (step: number) => setCurrent(value => (value + step + projects.length) % projects.length)
+export function ProjectCarousel() {
+  const root = useRef<HTMLElement>(null)
+  const rail = useRef<HTMLDivElement>(null)
+  const group = useRef<HTMLDivElement>(null)
+  const groupWidth = useRef(0)
+  const drag = useRef<{ id: number; x: number; scroll: number } | null>(null)
+  const moved = useRef(false)
+  const loaded = useRef(new Set<number>())
+  const lightbox = useRef<HTMLDialogElement>(null)
+  const titleId = useId()
+  const [ready, setReady] = useState(false)
+  const [dragging, setDragging] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const [expanded, setExpanded] = useState<number | null>(null)
+  const [reduce, setReduce] = useState(true)
+  const selected = expanded === null ? null : projects[expanded]
+  const stopped = !ready || dragging || hovered || focused || !visible || hidden || expanded !== null || reduce
 
-  function move(event: PointerEvent<HTMLDivElement>) {
-    if (reduce || event.pointerType !== "mouse") return
-    const rect = bounds.current
-    if (!rect) return
-    tiltX.set(-((event.clientY - rect.top) / rect.height - 0.5) * 9)
-    tiltY.set(((event.clientX - rect.left) / rect.width - 0.5) * 12)
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: .15 })
+    if (root.current) observer.observe(root.current)
+    const resize = new ResizeObserver(() => { groupWidth.current = group.current?.getBoundingClientRect().width ?? 0 })
+    if (group.current) resize.observe(group.current)
+    const visibility = () => { setHidden(document.hidden); if (document.hidden) stopDragging() }
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const motionPreference = () => setReduce(preference.matches)
+    motionPreference()
+    preference.addEventListener("change", motionPreference)
+    document.addEventListener("visibilitychange", visibility)
+    return () => { observer.disconnect(); resize.disconnect(); document.removeEventListener("visibilitychange", visibility); preference.removeEventListener("change", motionPreference) }
+  }, [])
+
+  useEffect(() => {
+    if (stopped || !rail.current) return
+    const viewport = rail.current
+    let frame = 0, previous = 0, position = viewport.scrollLeft
+    const move = (time: number) => {
+      if (previous && groupWidth.current) {
+        position = (position + Math.min(time - previous, 64) * .035) % groupWidth.current
+        viewport.scrollLeft = position
+      }
+      previous = time
+      frame = requestAnimationFrame(move)
+    }
+    frame = requestAnimationFrame(move)
+    return () => cancelAnimationFrame(frame)
+  }, [stopped])
+
+  useEffect(() => {
+    if (expanded === null) return
+    const dialog = lightbox.current
+    dialog?.showModal()
+    return () => dialog?.close()
+  }, [expanded])
+
+  function stopDragging() {
+    const active = drag.current
+    if (active && rail.current?.hasPointerCapture(active.id)) rail.current.releasePointerCapture(active.id)
+    drag.current = null
+    setDragging(false)
   }
 
-  function reset() { tiltX.set(0); tiltY.set(0) }
+  return <section ref={root} className="portfolio-carousel" aria-label="Capturas de las webs de unostudio" onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(true) }} onPointerLeave={event => { if (event.pointerType === "mouse") setHovered(false) }} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false) }}>
+    <div className={`marquee-window${dragging ? " is-dragging" : ""}`} ref={rail} onPointerDown={event => {
+      moved.current = false
+      if (event.pointerType !== "mouse") { setDragging(true); return }
+      if (event.button !== 0) return
+      event.preventDefault()
+      drag.current = { id: event.pointerId, x: event.clientX, scroll: event.currentTarget.scrollLeft }
+    }} onPointerMove={event => {
+      const active = drag.current
+      if (!active || !groupWidth.current) return
+      const distance = event.clientX - active.x
+      if (!moved.current && Math.abs(distance) < 5) return
+      moved.current = true
+      setDragging(true)
+      if (!event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.setPointerCapture(event.pointerId)
+      let next = active.scroll - distance
+      if (next < 0) { next += groupWidth.current; active.scroll += groupWidth.current }
+      if (next >= groupWidth.current) { next -= groupWidth.current; active.scroll -= groupWidth.current }
+      event.currentTarget.scrollLeft = next
+    }} onPointerUp={stopDragging} onPointerCancel={event => { if (event.pointerType === "mouse") stopDragging() }} onLostPointerCapture={event => { if (event.pointerType === "mouse") stopDragging() }} onTouchEnd={stopDragging} onTouchCancel={stopDragging} onClickCapture={event => { if (moved.current) { event.preventDefault(); event.stopPropagation(); moved.current = false } }}>
+      <div className="marquee-track">{[false, true].map(duplicate => <div className="marquee-group" key={String(duplicate)} ref={duplicate ? undefined : group} aria-hidden={duplicate || undefined}>{projects.map((item, i) => <button key={item.image} type="button" className="project-card" tabIndex={duplicate ? -1 : 0} onClick={event => { if (!duplicate) event.currentTarget.focus({preventScroll:true}); setExpanded(i) }} aria-label={`Ampliar captura de ${item.name}`}>
+        <Image src={item.image} alt={`Captura ${item.url ? "actual" : "de la versión anterior"} de ${item.name}`} width={1600} height={1000} sizes="(max-width: 580px) 280px, (max-width: 999px) 360px, 460px" preload={!duplicate && i < 3} loading={!duplicate && i >= 3 ? "eager" : undefined} draggable={false} onLoad={!duplicate ? () => { loaded.current.add(i); if (loaded.current.size === projects.length) setReady(true) } : undefined} quality={85} />
+        <span>{item.domain}</span>
+      </button>)}</div>)}</div>
+    </div>
+    <dialog ref={lightbox} className="project-lightbox" aria-labelledby={titleId} onClose={() => setExpanded(null)} onClick={event => { if (event.target === event.currentTarget) lightbox.current?.close() }}>
+      {selected ? <div className="lightbox-content"><div className="lightbox-header"><div><h2 id={titleId}>{selected.name}</h2><p>{selected.category}</p></div><div>{selected.url ? <a className="button button-outline" href={selected.url} target="_blank" rel="noopener noreferrer">Visitar web</a> : null}<Button autoFocus variant="secondary" size="sm" onClick={() => lightbox.current?.close()}>Cerrar</Button></div></div><div className="lightbox-image"><Image src={selected.image} alt={`Captura ampliada de ${selected.name}`} width={1600} height={1000} sizes="1600px" quality={95} loading="eager" /></div><p className="lightbox-hint">En móvil puedes deslizar la imagen para ver los detalles.</p></div> : null}
+    </dialog>
+  </section>
+}
 
-  return (
-    <MotionConfig reducedMotion="user">
-      <div className="studio-showcase" role="region" aria-label="Una muestra de nuestros proyectos" aria-roledescription="carrusel" onKeyDown={event => {
-        if (event.key === "ArrowLeft") { event.preventDefault(); change(-1) }
-        if (event.key === "ArrowRight") { event.preventDefault(); change(1) }
-      }}>
-        <div className="workbench" onPointerEnter={event => { bounds.current = event.currentTarget.getBoundingClientRect() }} onPointerMove={move} onPointerLeave={reset} onPointerCancel={reset}>
-          <motion.div className="workbench-plane" style={{ rotateX: reduce ? 0 : tiltX, rotateY: reduce ? 0 : tiltY }}>
-            <motion.div className="workbench-back" aria-hidden="true" initial={{ opacity: 1, x: reduce ? 0 : -35, rotate: reduce ? 8 : 0 }} animate={{ x: 0, rotate: 8 }} transition={{ duration: reduce ? 0 : 0.85, ease: [0.22, 1, 0.36, 1] }}>
-              <Image src={next.image} alt="" width={1424} height={905} sizes="(max-width: 799px) 55vw, 370px" />
-            </motion.div>
-            <AnimatePresence initial={false} mode="popLayout">
-              <motion.a key={project.name} className="workbench-browser" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visitar la web de ${project.name} en una pestaña nueva`} initial={{ opacity: 0, x: reduce ? 0 : 35, rotate: reduce ? 0 : -2, scale: reduce ? 1 : 0.94 }} animate={{ opacity: 1, x: 0, rotate: -7, scale: 1 }} exit={{ opacity: 0, x: reduce ? 0 : -35, rotate: reduce ? 0 : -11 }} transition={{ duration: reduce ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="workbench-browser-bar" aria-hidden="true"><span className="browser-dots"><i /><i /><i /></span><span>{project.domain}</span><ExternalLink size={11} /></div>
-                <Image src={project.image} alt={`Vista del diseño web de ${project.name}`} width={1424} height={905} sizes="(max-width: 580px) 77vw, (max-width: 1000px) 68vw, 470px" preload={current === 0} />
-                <span className="workbench-visit">Ver proyecto <ExternalLink size={13} /></span>
-              </motion.a>
-            </AnimatePresence>
-          </motion.div>
-        </div>
-        <div className="studio-showcase-controls">
-          <div className="studio-project-picker" aria-label="Elegir proyecto">{projects.map((item, index) => <button key={item.name} type="button" aria-label={`Mostrar ${item.name}`} aria-pressed={index === current} onClick={() => setCurrent(index)}><span /></button>)}</div>
-          <span className="studio-project-name" aria-live="polite" aria-atomic="true">{project.name}<span className="sr-only">, proyecto {current + 1} de {projects.length}</span></span>
-          <div className="carousel-actions"><button type="button" className="icon-button" aria-label="Proyecto anterior" onClick={() => change(-1)}><ChevronLeft size={18} /></button><button type="button" className="icon-button" aria-label="Proyecto siguiente" onClick={() => change(1)}><ChevronRight size={18} /></button></div>
-        </div>
-      </div>
-    </MotionConfig>
-  )
+export function ProjectShowcase() {
+  const stage = useRef<HTMLDivElement>(null)
+  const reduce = useReducedMotion()
+  const { scrollYProgress } = useScroll({ target: stage, offset: ["start end", "end start"] })
+  const landscapeY = useTransform(scrollYProgress, [0, 1], [-25, 35])
+  return <div className="project-stage" ref={stage}>
+    <motion.div className="landscape" aria-hidden="true" style={{ y: reduce ? 0 : landscapeY }}><Image src="/images/mountain-dawn.jpg" alt="" fill sizes="100vw" preload /></motion.div>
+    <div className="landscape-wash" aria-hidden="true" />
+    <div className="project-flow"><ProjectCarousel /></div>
+    <div className="project-fade" aria-hidden="true" />
+  </div>
 }

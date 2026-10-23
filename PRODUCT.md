@@ -8,30 +8,30 @@ web
 
 ## Users
 
-Personas con poco conocimiento técnico que buscan diseño y desarrollo para su negocio o proyecto.
+Personas con poco conocimiento técnico que buscan diseño y desarrollo para su negocio.
 
 ## Product Purpose
 
-Presentar el trabajo y los servicios de unostudio de forma breve y comprensible, y facilitar una conversación sobre un proyecto.
+Explicar los servicios con pocas palabras, mostrar trabajo real y facilitar el contacto.
 
 ## Capabilities and Constraints
 
-Servicios confirmados por el usuario: product design, website design, landing pages, branding, AI development y software a medida. El usuario ha retirado el desarrollo en Framer de la oferta visible.
+Oferta confirmada: diseño de producto, diseño web, landing pages, identidad de marca, desarrollo con IA y software a medida. Sin Framer.
 
-El encargo actual incluye solamente el frontend. Reemplaza la web anterior y conserva la media y los logos. No incluye herramientas de IA, cuentas, bases de datos, paneles ni formularios conectados a un servidor.
-
-El proyecto existente usa Next.js, React y TypeScript y pertenece al repositorio luucabg/unostudio-org-last, conectado al proyecto de Vercel de unostudio.org.
+Frontend en Next.js, React y TypeScript. Sin backend, cuentas, paneles ni formularios conectados. Repositorio luucabg/unostudio-org-last, rama main, conectado a Vercel.
 
 ## Brand Commitments
 
-El nombre se escribe siempre unostudio, en minúsculas. El usuario ha elegido una base clara, blanca y muy limpia. Textos cortos, lenguaje sencillo, botones cuidados, animaciones profesionales y prioridad al móvil. Las once imágenes aportadas son referencias de calidad y composición, sin reproducción literal. Solicita una composición más expresiva y un titular más pequeño. En la última revisión pide eliminar fondos decorativos, el enlace de volver arriba y los signos de suma como presentación de servicios. Los seis servicios usan botones con iconos propios y respuesta al pulsar.
+Nombre siempre en minúsculas. Base blanca y limpia. Navegación a páginas reales. Prioridad al móvil y al lenguaje sencillo. Sin flechas en la interfaz, rayas largas en los textos, etiquetas Empezamos ni acciones para regresar arriba.
+
+La última referencia pide una tira horizontal de capturas que avanza de forma continua. Al pulsar una imagen se amplía. El footer sigue la composición azul ilustrada aportada por el usuario. La última instrucción retira el degradado de entrada.
 
 ## Evidence on Hand
 
-Logos originales en public/logos. Cuatro capturas de proyectos en public/projects: mochastudio, Saduni Reformas, Bierwinkel Campanar y Kavkasioni Tours. Sus nombres, imágenes y enlaces constan en el código original.
+Logos originales en public/logos y capturas originales preservadas. Se muestran nueve capturas públicas actuales: gymindex.app, lucabg.dev, 99vapers.com, impostor.wtf, aimos.pro, mochastudio.es, kavkasionitours.com, sadunireformas.com y bierwinkelcampanar.es. La décima es la captura antigua de Kavkasioni 33 solicitada expresamente.
 
-El código original contiene hola@unostudio.org y el contacto de WhatsApp +34 694 222 191. No se han aportado métricas, precios actuales, testimonios ni premios para la nueva web.
+Contacto existente: hola@unostudio.org y WhatsApp +34 694 222 191. Sin cifras comerciales, testimonios, premios ni precios inventados.
 
 ## Product Principles
 
-Claridad antes que cantidad de texto. Mostrar el trabajo existente. Dar un siguiente paso comprensible. Diseñar los recorridos principales primero para móvil. Respetar las preferencias de movimiento y la navegación con teclado.
+Mostrar el trabajo, explicar con claridad y facilitar el siguiente paso. Respetar el teclado y el movimiento reducido. El movimiento se detiene al interactuar y respeta la preferencia de movimiento reducido. No hay controles de pausa visibles, por petición expresa.

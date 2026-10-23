@@ -116,6 +116,103 @@
       "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/projects/saduni-reformas.png",
       "sha256": "11b7b8391a4030f77c4b9302032ca41bf705f05f7984aeb0ba269fb5454a974e",
       "preserved": true
+    },
+    {
+      "path": "public/images/mountain-dawn.jpg",
+      "origin": "https://www.pexels.com/photo/beautiful-sunrise-over-mountain-range-30322595/",
+      "sha256": "130ddaf1cebd07a687be923aa2ef5f6131206d4fc9354cedd3b9ccb771082538",
+      "preserved": false,
+      "date": "2026-10-23"
+    },
+    {
+      "path": "public/work/gymindex-2026.png",
+      "origin": "https://gymindex.app/es",
+      "sha256": "325507368b30dcd422db9ff4121c41d416cdac52e9ea3fe80b0fe60f42f2c132",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/lucabg-2026.png",
+      "origin": "https://lucabg.dev",
+      "sha256": "b0e30900158db71a59326cbd440f8303e7d8f0cda77f7d3357f299ded147e93c",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/99vapers-2026.png",
+      "origin": "https://99vapers.com",
+      "sha256": "b5aa3f28e1675b58104e36fef30c800438c0e064d7b69851663f45e626666955",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/impostor-2026.png",
+      "origin": "https://impostor.wtf",
+      "sha256": "987f9f7d1be853d23408926aee8883732b5d39984d53b30c7edabdb62b356dba",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/aimos-home.png",
+      "origin": "https://aimos.pro",
+      "sha256": "b8d15fc30b496b1383a453ee014e6a57fad0e83f4776935e2f1c9549c6edbdd1",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/mochastudio-2026.png",
+      "origin": "https://mochastudio.es",
+      "sha256": "3b311efa9aabc04d0dbe13787c47423521bc940847629a2ba33106b3588c3eb6",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/kavkasioni-2026.png",
+      "origin": "https://kavkasionitours.com",
+      "sha256": "1de241afdfa1b550ac945f0c8da1c9ae3e518791f6714fdaae94908dd4e6b36b",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/saduni-2026.png",
+      "origin": "https://sadunireformas.com",
+      "sha256": "07e1c8ddd8cb510debff5d39f6bf580f84630b5f3a7e956ed1d9033af887f153",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/bierwinkel-2026.png",
+      "origin": "https://bierwinkelcampanar.es",
+      "sha256": "150a2e40700c854b0a1715472db4a85c5f6d9a4e40c927ba6f603f74c2773a3a",
+      "preserved": false,
+      "date": "2026-10-23",
+      "method": "Playwright live screenshot, fonts and images loaded, 1600x1000; optional cookies rejected when presented."
+    },
+    {
+      "path": "public/work/kavkasioni33-original.png",
+      "origin": "C:/Users/skr/Desktop/paginas/lucabg dev/production-repo/public/project-shots/kavkasioni33.png",
+      "sha256": "3fdc814a1a28c8f7c3937b32c92c435b9ae0b7cbdab9357411e76b0013ae68ac",
+      "preserved": false,
+      "date": "2026-10-23",
+      "note": "Captura antigua solicitada expresamente. Solo se recuperó este recurso; no se usó el otro proyecto como referencia de diseño."
+    },
+    {
+      "path": "public/images/footer-coast.webp",
+      "origin": "image_gen built-in",
+      "sha256": "4b05ccdc78d6f4b1a233b6081165c1f2c03561f94d17dfdb06576724a0271e73",
+      "preserved": false,
+      "date": "2026-10-23",
+      "mode": "built-in image_gen; converted to WebP with sharp",
+      "original": "C:/Users/skr/.codex/generated_images/01a1662c-058e-7860-8ae0-6c784da8369c/exec-949d2a16-ed2a-4b30-be89-8f32cf2b8a73.png",
+      "prompt": "Use case: illustration-story. Panoramic website footer landscape for unostudio. Original Mediterranean limestone coastal hills, calm horizon, small pines and dry shrubs. Vintage engraved linework, cobalt #103FA6 and warm ivory #F2E6CC. Landscape concentrated in bottom half, flat blue sky in upper half. No typography, logos, buildings, people, animals, arrows, frames or watermark. Wide 3:1 composition."
     }
   ]
 }

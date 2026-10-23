@@ -1,23 +1,23 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T01:59:48.4104842Z",
+  "generatedAt": "2026-10-23T12:27:03.546528+00:00",
   "title": "Sistema de diseño de unostudio",
   "extensions": {
     "colorMeta": {
-      "accent": {
-        "role": "primary",
-        "displayName": "Azul de acción",
-        "canonical": "#087bb8"
-      },
       "ink": {
         "role": "neutral",
         "displayName": "Tinta",
-        "canonical": "#191b1f"
+        "canonical": "#202020"
       },
-      "sky": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Foco",
+        "canonical": "#304d5d"
+      },
+      "footer": {
         "role": "surface",
-        "displayName": "Azul claro",
-        "canonical": "#e6f3fc"
+        "displayName": "Azul del footer",
+        "canonical": "#0f46a3"
       }
     },
     "shadows": [
@@ -34,19 +34,14 @@
     ],
     "motion": [
       {
+        "name": "project-loop",
+        "value": "35px/s",
+        "purpose": "Desplazamiento nativo continuo, con arrastre, suspensión al interactuar y alternativa estática con movimiento reducido."
+      },
+      {
         "name": "standard",
         "value": "cubic-bezier(.22, 1, .36, 1)",
-        "purpose": "Cambios breves con respuesta inmediata."
-      },
-      {
-        "name": "gallery",
-        "value": "550ms",
-        "purpose": "Cambiar de proyecto a petición del usuario."
-      },
-      {
-        "name": "services",
-        "value": "240ms",
-        "purpose": "Mostrar una descripción manteniendo su relación con el servicio."
+        "purpose": "Respuesta breve en botones y paneles."
       }
     ],
     "breakpoints": [
@@ -75,41 +70,42 @@
       "refersTo": "button-primary",
       "description": "Un siguiente paso claro.",
       "html": "<a class=\"ds-primary\" href=\"mailto:hola@unostudio.org\">Cuéntanos tu idea</a>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:52px;padding:12px 23px;background:var(--foreground,#191b1f);color:var(--background,#fff);border:1px solid #34373c;border-radius:999px;font:500 14px Manrope,sans-serif;text-decoration:none;transition:transform 200ms,background 180ms}.ds-primary:hover{background:#34383f;transform:translateY(-2px)}.ds-primary:active{transform:scale(.97)}.ds-primary:focus-visible{outline:2px solid var(--accent,#087ebd);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}.ds-primary:hover,.ds-primary:active{transform:none}}"
+      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:52px;padding:12px 23px;background:var(--foreground,#202020);color:var(--background,#fff);border:1px solid #34373c;border-radius:999px;font:500 14px Manrope,sans-serif;text-decoration:none;transition:transform 200ms,background 180ms}.ds-primary:hover{background:#34383f;transform:translateY(-2px)}.ds-primary:active{transform:scale(.97)}.ds-primary:focus-visible{outline:2px solid var(--accent,#304d5d);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}.ds-primary:hover,.ds-primary:active{transform:none}}"
     },
     {
       "name": "Acción secundaria",
       "kind": "button",
       "refersTo": "button-secondary",
       "description": "Navegación de menor énfasis.",
-      "html": "<a class=\"ds-secondary\" href=\"#proyectos\">Explora el trabajo</a>",
-      "css": ".ds-secondary{display:inline-flex;align-items:center;min-height:52px;padding:12px 23px;background:var(--background,#fff);color:var(--foreground,#191b1f);border:1px solid var(--border,#e5e8ec);border-radius:999px;font:500 14px Manrope,sans-serif;text-decoration:none}.ds-secondary:hover{background:#f3f5f7}.ds-secondary:focus-visible{outline:2px solid var(--accent,#087ebd);outline-offset:5px}"
+      "html": "<a class=\"ds-secondary\" href=\"/proyectos\">Explora el trabajo</a>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;min-height:52px;padding:12px 23px;background:var(--background,#fff);color:var(--foreground,#202020);border:1px solid var(--border,#e5e5e3);border-radius:999px;font:500 14px Manrope,sans-serif;text-decoration:none}.ds-secondary:hover{background:#f3f5f7}.ds-secondary:focus-visible{outline:2px solid var(--accent,#304d5d);outline-offset:5px}"
     },
     {
       "name": "Pregunta desplegable",
       "kind": "custom",
       "description": "Respuesta breve con semántica nativa.",
       "html": "<details class=\"ds-faq\"><summary>¿Necesito saber de tecnología?</summary><p>Solo necesitas contarnos tu idea.</p></details>",
-      "css": ".ds-faq{font:400 14px/1.7 Manrope,sans-serif;border-block:1px solid var(--border,#e5e8ec);color:var(--foreground,#191b1f)}.ds-faq summary{padding:22px 0;cursor:pointer;font-weight:500}.ds-faq p{color:var(--text-secondary,#666b73);padding-bottom:22px}.ds-faq summary:focus-visible{outline:2px solid var(--accent,#087ebd);outline-offset:5px}"
+      "css": ".ds-faq{font:400 14px/1.7 Manrope,sans-serif;border-block:1px solid var(--border,#e5e5e3);color:var(--foreground,#202020)}.ds-faq summary{padding:22px 0;cursor:pointer;font-weight:500}.ds-faq p{color:var(--text-secondary,#656565);padding-bottom:22px}.ds-faq summary:focus-visible{outline:2px solid var(--accent,#304d5d);outline-offset:5px}"
     }
   ],
   "narrative": {
-    "northStar": "Trabajo visible, blanco y movimiento preciso",
-    "overview": "Seis servicios claros, proyectos reales en profundidad y acciones de Arc con prioridad al móvil.",
+    "northStar": "Trabajo real en una tira continua y lenguaje sencillo",
+    "overview": "Portada blanca con fotografía, diez capturas ampliables y footer azul ilustrado.",
     "keyCharacteristics": [
-      "Blanco y tinta",
-      "Trabajo real",
-      "Seis servicios visibles",
+      "Páginas reales",
+      "Capturas auténticas",
+      "Seis servicios",
       "Prioridad al móvil",
-      "Movimiento reducido"
+      "Sin flechas"
     ],
     "rules": [],
     "dos": [
-      "Conservar el nombre en minúsculas.",
-      "Respetar el tema claro solicitado y las áreas táctiles de 44px."
+      "Respetar el movimiento reducido y el teclado.",
+      "Conservar los logos originales."
     ],
     "donts": [
-      "Evitar incorporar cifras, clientes, premios o testimonios sin evidencia."
+      "No inventar métricas ni testimonios.",
+      "No añadir degradado al footer."
     ]
   }
 }
