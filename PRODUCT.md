@@ -16,7 +16,7 @@ Explicar los servicios con pocas palabras, mostrar trabajo real y facilitar el c
 
 ## Capabilities and Constraints
 
-Oferta confirmada: diseño de producto, diseño web, landing pages, identidad de marca, desarrollo con IA, software a medida y SEO. El servicio de SEO y visibilidad en búsquedas con IA se añadió por petición del usuario el 23 de octubre de 2026. Sin Framer.
+Oferta confirmada: diseño de producto, diseño web, landing pages, identidad de marca, desarrollo con IA, software a medida, seguridad web y de aplicaciones y SEO. El servicio de SEO y visibilidad en búsquedas con IA se añadió por petición del usuario el 23 de octubre de 2026. La seguridad se presenta sin promesas de protección absoluta ni comparativas sin datos. Sin Framer.
 
 Frontend en Next.js, React y TypeScript. Sin backend, cuentas, paneles ni formularios conectados. Repositorio luucabg/unostudio-org-last, rama main, conectado a Vercel.
 

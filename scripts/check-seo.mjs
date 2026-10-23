@@ -30,7 +30,7 @@ for (const [key, page] of Object.entries(pages)) {
   assert.ok(!data.some(item => item.aggregateRating || item.review), `${page.path}: no invented ratings`)
   if (key !== "home") assert.ok(data.some(item => item["@type"] === "BreadcrumbList"), `${page.path}: breadcrumbs`)
   if (["web", "software", "ai", "seo"].includes(key)) assert.equal(data.filter(item => item["@type"] === "Service").length, 1, `${page.path}: service`)
-  if (key === "services") assert.equal(data.filter(item => item["@type"] === "Service").length, 7)
+  if (key === "services") assert.equal(data.filter(item => item["@type"] === "Service").length, 8)
   if (key === "projects") {
     const list = data.find(item => item["@type"] === "ItemList")
     assert.equal(list.itemListElement.length, 9)
