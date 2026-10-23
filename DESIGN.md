@@ -54,6 +54,8 @@ Pulsar una captura abre un dialog nativo con imagen grande, enlace a la web cuan
 
 El scroll mueve ligeramente el paisaje, cambia el énfasis de tres frases y dibuja el recorrido del proceso. Nunca oculta información para esperar una animación. Movimiento reducido suprime estas transformaciones y la reproducción de la tira.
 
+La primera llegada a inicio incorpora una apertura de 800ms. Dos paneles blancos se separan desde el centro y el logo se desvanece al abrirse. La navegación interna de regreso no la repite. Se omite con movimiento reducido, anclas o scroll restaurado, y cualquier interacción la interrumpe. La capa es decorativa, no bloquea el puntero ni el scroll y se retira al terminar. CSS conserva una salida segura sin JavaScript.
+
 Los servicios usan details nativo y etiquetas Ver detalles y Cerrar. No hay flechas ni signos de suma. El componente Button gratuito de Arc se usa en menú, visor, ejemplos de IA y copia del correo. Las referencias públicas de 21st.dev inspiran continuidad y respuesta, sin importar bloques ajenos.
 
 Footer azul #0f46a3, logo original, grupos de servicios, exploración y contacto, enlaces legales y paisaje costero ilustrado en la base. Sin transición de degradado. El texto secundario tiene un tono claro de la misma familia azul. No se muestran redes sociales sin una dirección confirmada ni atribución de Pexels.

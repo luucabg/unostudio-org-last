@@ -4,9 +4,10 @@ import { SiteFooter } from "@/components/site-footer"
 import { ProjectShowcase } from "@/components/project-showcase"
 import { ScrollStatement } from "@/components/scroll-statement"
 import { ScrollProcess } from "@/components/scroll-process"
+import { SceneEntrance } from "@/components/scene-entrance"
 
 export default function Home() {
-  return <><a className="skip-link" href="#contenido">Saltar al contenido</a><SiteHeader /><main id="contenido">
+  return <><SceneEntrance /><a className="skip-link" href="#contenido">Saltar al contenido</a><SiteHeader /><main id="contenido">
     <section className="home-hero" aria-labelledby="hero-title"><div className="container home-intro"><h1 id="hero-title">Webs, marcas y aplicaciones.<br /><span>Hechas para tu próxima idea.</span></h1><div className="hero-bottom"><p>Tú nos cuentas qué necesitas. Nosotros lo diseñamos,<br className="desktop-break" /> lo construimos y te lo explicamos fácil.</p><Link href="/contacto" className="button">Cuéntanos tu idea</Link></div></div><ProjectShowcase /></section>
     <ScrollStatement />
     <section className="paths-section container" aria-labelledby="paths-title"><div className="section-heading"><h2 id="paths-title">Lo que necesitas.<br /><span>En buenas manos.</span></h2><p>Diseño y desarrollo para tu negocio.<br />Sin complicarte con la tecnología.</p></div><div className="paths-grid">
