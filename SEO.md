@@ -26,7 +26,21 @@ No se añaden instrucciones ocultas para asistentes ni contenido repetitivo para
 
 Con la aplicación arrancada, ejecutar `pnpm check:seo`. Para producción, `pnpm check:seo https://unostudio.org`. La prueba comprueba metadatos, entidades, enlaces de proyectos en HTML, preguntas visibles sin JavaScript, sitemap, robots, respuestas HTTP, iconos e imagen social.
 
-La propiedad de Search Console y Bing Webmaster Tools no se ha verificado desde esta sesión. Su conexión permite medir impresiones, consultas, clics e indexación, y enviar el sitemap. No se insertan códigos de verificación ficticios ni analítica nueva. No hay datos suficientes para afirmar mejoras de posiciones, tráfico o recomendaciones.
+La propiedad de Search Console `https://unostudio.org/` quedó verificada el 23 de octubre de 2026 mediante el archivo HTML original de Google. Conservar `public/google4a5648eaf4efe73c.html` en los despliegues: Google comprueba periódicamente que siga accesible. El sitemap se volvió a enviar ese día y Search Console confirmó estado Correcto y ocho páginas descubiertas. Descubrir una URL no significa que ya esté indexada.
+
+Bing Webmaster Tools no se ha verificado. IndexNow aceptó las ocho URLs con HTTP 202 el 23 de octubre de 2026; eso acredita recepción. No se añade analítica de visitantes ni se inventan códigos de seguimiento.
+
+## Medición en Search Console
+
+La [vista de rendimiento de 28 días](https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Funostudio.org%2F&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&num_of_days=28) muestra clics, impresiones, CTR y posición media. Las pestañas permiten separar consultas, páginas, países y dispositivos. Requiere acceso a la cuenta propietaria de Search Console.
+
+También está disponible el [informe de funciones de IA generativa de Google](https://search.google.com/search-console/performance/search-analytics/ai?resource_id=https%3A%2F%2Funostudio.org%2F&num_of_days=28). Su alcance es la Búsqueda de Google. No mide recomendaciones en ChatGPT ni conversaciones en la aplicación de Gemini.
+
+Se guardaron exportaciones CSV iniciales en `.design-research/search-console/`, excluidas de Git, con el periodo del 24 de septiembre al 21 de octubre de 2026. La nueva web se publicó el 23 de octubre: esos datos son anteriores a los cambios, no resultados de la optimización.
+
+Para evaluar la evolución, comparar periodos completos de 28 días y exportar la misma vista. Revisar primero impresiones y clics; después, qué consultas y páginas los generan. Separar búsquedas de marca como unostudio de consultas sobre los servicios. Interpretar CTR y posición junto con su volumen de impresiones, especialmente cuando la muestra es pequeña.
+
+Comprobar [indexación](https://search.google.com/search-console/index?resource_id=https%3A%2F%2Funostudio.org%2F), [sitemap](https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Funostudio.org%2F) y [Core Web Vitals](https://search.google.com/search-console/core-web-vitals?resource_id=https%3A%2F%2Funostudio.org%2F). Los datos se actualizan con retraso y algunos informes necesitan tráfico suficiente. Las notificaciones de problemas de sitemap las gestiona Search Console. No se ha programado una automatización de informes.
 
 Mantener actualizados servicios, contactos y proyectos. Ampliar los casos de trabajo solo con el alcance y los resultados reales que se puedan documentar. La reputación externa y las menciones auténticas requieren trabajo continuado; no se crean reseñas ni enlaces artificiales.
 
@@ -39,3 +53,7 @@ Mantener actualizados servicios, contactos y proyectos. Ampliar los casos de tra
 - Bing, directrices: https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a
 - IndexNow: https://www.indexnow.org/documentation
 - Next.js, metadatos y JSON-LD: https://nextjs.org/docs/app/api-reference/functions/generate-metadata y https://nextjs.org/docs/app/guides/json-ld
+- Google, verificación de propiedad: https://support.google.com/webmasters/answer/9008080
+- Google, informe de rendimiento: https://support.google.com/webmasters/answer/7576553
+- Google, actualización de datos: https://support.google.com/webmasters/answer/17011364
+- Google, informe de sitemaps: https://support.google.com/webmasters/answer/7451001
