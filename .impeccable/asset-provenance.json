@@ -213,6 +213,38 @@
       "mode": "built-in image_gen; converted to WebP with sharp",
       "original": "C:/Users/skr/.codex/generated_images/01a1662c-058e-7860-8ae0-6c784da8369c/exec-949d2a16-ed2a-4b30-be89-8f32cf2b8a73.png",
       "prompt": "Use case: illustration-story. Panoramic website footer landscape for unostudio. Original Mediterranean limestone coastal hills, calm horizon, small pines and dry shrubs. Vintage engraved linework, cobalt #103FA6 and warm ivory #F2E6CC. Landscape concentrated in bottom half, flat blue sky in upper half. No typography, logos, buildings, people, animals, arrows, frames or watermark. Wide 3:1 composition."
+    },
+    {
+      "path": "public/images/mediterranean-cove.webp",
+      "origin": "image_gen built-in",
+      "sha256": "d81a82befe6713050eb8266273ac2d38bd327d2899a0eb9ff686b904e5952d85",
+      "preserved": false,
+      "date": "2026-10-23",
+      "note": "Original coastal panorama generated for the homepage; converted to WebP, quality 84. Source: C:/Users/skr/.codex/generated_images/01a1662c-058e-7860-8ae0-6c784da8369c/exec-6315d32e-a173-4daa-bded-b7337dadcc03.png"
+    },
+    {
+      "path": "public/logos/brand-icon.png",
+      "origin": "public/logos/favicon.png",
+      "sha256": "e250bfdf05969e0a930422dfdd874c3d169e4c008b3d111cead81091a51f301f",
+      "preserved": false,
+      "date": "2026-10-23",
+      "note": "Original mark resized to 512px on the brand blue for structured data."
+    },
+    {
+      "path": "public/logos/icon-96.png",
+      "origin": "public/logos/favicon.png",
+      "sha256": "b9cec9a410d2ac2caf0eb24b92159010c3930a250a4f26a9e48ebdc3dc76fb9f",
+      "preserved": false,
+      "date": "2026-10-23",
+      "note": "Original mark resized to 96px on the brand blue for browser and search icons."
+    },
+    {
+      "path": "public/logos/apple-icon-180.png",
+      "origin": "public/logos/favicon.png",
+      "sha256": "a7fcb97d994d4707785646d14fdd095d5122d4c0f331be4d6a2e06933216a4dc",
+      "preserved": false,
+      "date": "2026-10-23",
+      "note": "Original mark resized to 180px on the brand blue for saved shortcuts."
     }
   ]
 }

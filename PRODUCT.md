@@ -16,7 +16,7 @@ Explicar los servicios con pocas palabras, mostrar trabajo real y facilitar el c
 
 ## Capabilities and Constraints
 
-Oferta confirmada: diseño de producto, diseño web, landing pages, identidad de marca, desarrollo con IA y software a medida. Sin Framer.
+Oferta confirmada: diseño de producto, diseño web, landing pages, identidad de marca, desarrollo con IA, software a medida y SEO. El servicio de SEO y visibilidad en búsquedas con IA se añadió por petición del usuario el 23 de octubre de 2026. Sin Framer.
 
 Frontend en Next.js, React y TypeScript. Sin backend, cuentas, paneles ni formularios conectados. Repositorio luucabg/unostudio-org-last, rama main, conectado a Vercel.
 
@@ -31,6 +31,8 @@ La última referencia pide una tira horizontal de capturas que avanza de forma c
 Logos originales en public/logos y capturas originales preservadas. Se muestran nueve capturas públicas actuales: gymindex.app, lucabg.dev, 99vapers.com, impostor.wtf, aimos.pro, mochastudio.es, kavkasionitours.com, sadunireformas.com y bierwinkelcampanar.es. La décima es la captura antigua de Kavkasioni 33 solicitada expresamente.
 
 Contacto existente: hola@unostudio.org y WhatsApp +34 694 222 191. Sin cifras comerciales, testimonios, premios ni precios inventados.
+
+El posicionamiento se trabaja mediante páginas accesibles, contenidos claros, rendimiento e información estructurada coherente. No se garantizan posiciones, plazos de indexación ni recomendaciones de asistentes.
 
 ## Product Principles
 

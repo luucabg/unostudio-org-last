@@ -44,9 +44,9 @@ spacing:
 
 # Sistema de diseño de unostudio
 
-Base blanca y Manrope servida mediante next/font. Titular alineado a la izquierda, texto negro y gris, una acción breve y paisaje fotográfico de Pexels bajo el trabajo. Contenedor de 1220px con márgenes de 48px, 24px y 20px. Titular principal de 56px en escritorio y 36px en móvil.
+Base blanca y Manrope servida mediante next/font. Titular alineado a la izquierda, texto negro y gris, una acción breve y una cala mediterránea original bajo el trabajo. Fotografía generada con agua azul, piedra clara y luz natural. Contenedor de 1220px con márgenes de 48px, 24px y 20px. Titular principal de 56px en escritorio y 36px en móvil.
 
-La navegación prioriza Diseño web, Software a medida, IA y Servicios. Cada enlace lleva a una ruta propia. El menú móvil aparece por debajo de 1000px, se cierra con Escape y devuelve el foco.
+La navegación prioriza Diseño web, Software a medida, IA, SEO y Servicios. Cada enlace lleva a una ruta propia. El menú móvil aparece por debajo de 1000px, se cierra con Escape y devuelve el foco.
 
 La tira muestra varias capturas reales a la vez, con tarjetas de 460px, 360px o 280px. Sus dos grupos idénticos forman un bucle de desplazamiento nativo a 35px por segundo. Se detiene con el ratón, el foco, un gesto táctil, al quedar fuera de pantalla y al ocultarse la pestaña. Se arrastra con ratón en ambas direcciones y admite desplazamiento táctil nativo. No incluye texto ni controles debajo. Las diez imágenes se cargan antes de iniciar el avance. Con movimiento reducido se conserva una tira estática navegable. Los originales siguen accesibles una sola vez al lector de pantalla.
 
@@ -60,6 +60,8 @@ Los servicios usan details nativo y etiquetas Ver detalles y Cerrar. No hay flec
 
 Footer azul #0f46a3, logo original, grupos de servicios, exploración y contacto, enlaces legales y paisaje costero ilustrado en la base. Sin transición de degradado. El texto secundario tiene un tono claro de la misma familia azul. No se muestran redes sociales sin una dirección confirmada ni atribución de Pexels.
 
-El logo original contiene un lienzo cuadrado transparente. CSS recorta ese espacio para alinear el contenido sin modificar el archivo. Las acciones táctiles miden al menos 44px. El foco de teclado usa contraste suficiente, incluido el fondo azul.
+La marca usa el archivo horizontal original logo_nav.png, con dimensiones 1995 por 371 y altura automática. El contenedor no recorta la imagen. Se conserva completa en cabecera, entrada y footer. Las acciones táctiles miden al menos 44px. El foco de teclado usa contraste suficiente, incluido el fondo azul.
+
+La sección de SEO en inicio y la página /seo reutilizan los títulos, columnas, botones y preguntas desplegables del sitio. No necesitan una nueva dirección visual ni componentes externos. Los proyectos tienen enlaces visibles además del visor. La imagen para compartir usa el logo original sobre azul y texto blanco, en formato 1200 por 630.
 
 La procedencia de todos los recursos se registra en .impeccable/asset-provenance.json. No se añaden clientes, métricas ni testimonios sin evidencia.

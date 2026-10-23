@@ -91,7 +91,7 @@ export function ProjectCarousel() {
       if (next >= groupWidth.current) { next -= groupWidth.current; active.scroll -= groupWidth.current }
       event.currentTarget.scrollLeft = next
     }} onPointerUp={stopDragging} onPointerCancel={event => { if (event.pointerType === "mouse") stopDragging() }} onLostPointerCapture={event => { if (event.pointerType === "mouse") stopDragging() }} onTouchEnd={stopDragging} onTouchCancel={stopDragging} onClickCapture={event => { if (moved.current) { event.preventDefault(); event.stopPropagation(); moved.current = false } }}>
-      <div className="marquee-track">{[false, true].map(duplicate => <div className="marquee-group" key={String(duplicate)} ref={duplicate ? undefined : group} aria-hidden={duplicate || undefined}>{projects.map((item, i) => <button key={item.image} type="button" className="project-card" tabIndex={duplicate ? -1 : 0} onClick={event => { if (!duplicate) event.currentTarget.focus({preventScroll:true}); setExpanded(i) }} aria-label={`Ampliar captura de ${item.name}`}>
+      <div className="marquee-track">{[false, true].map(duplicate => <div className="marquee-group" key={String(duplicate)} ref={duplicate ? undefined : group} aria-hidden={duplicate || undefined}>{projects.map((item, i) => <button key={item.image} type="button" className="project-card" tabIndex={duplicate ? -1 : 0} onClick={event => { if (!duplicate) event.currentTarget.focus({preventScroll:true}); setExpanded(i) }} aria-label={`Ampliar captura de ${item.domain}`}>
         <Image src={item.image} alt={`Captura ${item.url ? "actual" : "de la versión anterior"} de ${item.name}`} width={1600} height={1000} sizes="(max-width: 580px) 280px, (max-width: 999px) 360px, 460px" preload={!duplicate && i < 3} loading={!duplicate && i >= 3 ? "eager" : undefined} draggable={false} onLoad={!duplicate ? () => { loaded.current.add(i); if (loaded.current.size === projects.length) setReady(true) } : undefined} quality={85} />
         <span>{item.domain}</span>
       </button>)}</div>)}</div>
@@ -108,7 +108,7 @@ export function ProjectShowcase() {
   const { scrollYProgress } = useScroll({ target: stage, offset: ["start end", "end start"] })
   const landscapeY = useTransform(scrollYProgress, [0, 1], [-25, 35])
   return <div className="project-stage" ref={stage}>
-    <motion.div className="landscape" aria-hidden="true" style={{ y: reduce ? 0 : landscapeY }}><Image src="/images/mountain-dawn.jpg" alt="" fill sizes="100vw" preload /></motion.div>
+    <motion.div className="landscape" aria-hidden="true" style={{ y: reduce ? 0 : landscapeY }}><Image src="/images/mediterranean-cove.webp" alt="" fill sizes="(max-width: 580px) 160vw, 100vw" loading="eager" fetchPriority="high" /></motion.div>
     <div className="landscape-wash" aria-hidden="true" />
     <div className="project-flow"><ProjectCarousel /></div>
     <div className="project-fade" aria-hidden="true" />

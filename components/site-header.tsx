@@ -8,7 +8,7 @@ import { motion, useReducedMotion } from "motion/react"
 import { Button } from "@/components/arc/button/button"
 import { Brand } from "@/components/brand"
 
-const links = [{ label: "Diseño web", href: "/diseno-web" }, { label: "Software a medida", href: "/software-a-medida" }, { label: "IA", href: "/ia" }, { label: "Servicios", href: "/servicios" }]
+const links = [{ label: "Diseño web", href: "/diseno-web" }, { label: "Software a medida", href: "/software-a-medida" }, { label: "IA", href: "/ia" }, { label: "SEO", href: "/seo" }, { label: "Servicios", href: "/servicios" }]
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)

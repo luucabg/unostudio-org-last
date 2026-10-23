@@ -11,11 +11,11 @@ Modo: persuade. Galería: experience. Contacto: operate.
 
 THESIS: Mostrar el trabajo del estudio y explicar con claridad cómo puede ayudar a un negocio.
 
-OWN-WORLD: Blanco, tinta, Manrope, paisaje cálido de Pexels y footer azul con ilustración costera. Se respetan las referencias finales del usuario.
+OWN-WORLD: Blanco, tinta, Manrope, fotografía original de una cala mediterránea luminosa y footer azul con ilustración costera. Se respetan las referencias finales del usuario.
 
 STORY: Entender la oferta, explorar capturas auténticas, conocer el servicio y contactar.
 
-FIRST VIEWPORT: Cabecera con cuatro prioridades que abren páginas reales. Titular de dos líneas, explicación breve y acción. Varias capturas recorren la portada en una tira continua y se amplían al pulsarlas.
+FIRST VIEWPORT: Cabecera con Diseño web, Software a medida, IA, SEO y Servicios, que abren páginas reales. Marca horizontal completa. Titular de dos líneas, explicación breve y acción. Varias capturas recorren la portada en una tira continua y se amplían al pulsarlas.
 
 FORM: Los dos grupos de fotos crean continuidad sin controles Anterior o Siguiente. En móvil se ven una captura y parte de la siguiente; se puede desplazar la tira. El footer organiza los enlaces en columnas y termina con la ilustración completa, con su proporción original y sin recortar el árbol. Sin degradado de entrada.
 
