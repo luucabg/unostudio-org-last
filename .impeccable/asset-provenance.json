@@ -1,0 +1,121 @@
+{
+  "sourceRepository": "luucabg/unostudio-org-last",
+  "sourceCommit": "7dd89365c313340f23c07c01c6a1b0de82134aa5",
+  "note": "Archivos originales conservados sin modificar sus bytes, por instrucción del usuario.",
+  "files": [
+    {
+      "path": "public/analytics-dashboard-dark-mode-with-charts-and-grap.jpg",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/analytics-dashboard-dark-mode-with-charts-and-grap.jpg",
+      "sha256": "413854390de21ac9b50a9f920c53cb3ac345b9b3dc59982a324c6beab5210962",
+      "preserved": true
+    },
+    {
+      "path": "public/apple-icon.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/apple-icon.png",
+      "sha256": "da678942d4656a903f61000551cc51c09464d7a223faaae304e8210e1ca19257",
+      "preserved": true
+    },
+    {
+      "path": "public/desktop_hero.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/desktop_hero.png",
+      "sha256": "a14a37cd6a0fb724ffc46e52067331fefc9ce8fb918aafd45585fb0bec2bfbaa",
+      "preserved": true
+    },
+    {
+      "path": "public/icon-dark-32x32.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/icon-dark-32x32.png",
+      "sha256": "8a1570b2955c3748b6844356a7487d88c60f9f1e699e870a3452a3decd1ba03c",
+      "preserved": true
+    },
+    {
+      "path": "public/icon-light-32x32.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/icon-light-32x32.png",
+      "sha256": "83145e5bb033ace23cd8e7fbb63e7c39733aaf58f8a7280d7800995cced6f7c2",
+      "preserved": true
+    },
+    {
+      "path": "public/icon.svg",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/icon.svg",
+      "sha256": "234f561c4db09781786f4d0b24b2ecfaf876e78544710573b046aaafead3fbe6",
+      "preserved": true
+    },
+    {
+      "path": "public/logos/favicon.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/logos/favicon.png",
+      "sha256": "4e4de9d838904add16bc7fa0d090839e1fb9c40eeedc2c7bcfb13c1078c122c8",
+      "preserved": true
+    },
+    {
+      "path": "public/logos/logo_nav.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/logos/logo_nav.png",
+      "sha256": "06c3cb947011ba406fe2a7efa1f1ca218636181954df00e5a49ba08093642281",
+      "preserved": true
+    },
+    {
+      "path": "public/logos/logo_white.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/logos/logo_white.png",
+      "sha256": "3d824612a8663ae7d2c07ce9cd211810720c1caf00f22c4ebcf2a754c2662773",
+      "preserved": true
+    },
+    {
+      "path": "public/mobile_hero.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/mobile_hero.png",
+      "sha256": "d2610c4393041bde64833e29776207afb7248cb5f532c25461a71ec1b1e99e3e",
+      "preserved": true
+    },
+    {
+      "path": "public/placeholder-logo.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/placeholder-logo.png",
+      "sha256": "d7c39d978af643ba9525de6fb8171e0f834882db4110c82ecad0df3f4f69551a",
+      "preserved": true
+    },
+    {
+      "path": "public/placeholder-logo.svg",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/placeholder-logo.svg",
+      "sha256": "19a9e968f4656d52a4c249b4056117ad109370ba9da51cdc630ddded74cec73b",
+      "preserved": true
+    },
+    {
+      "path": "public/placeholder-user.jpg",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/placeholder-user.jpg",
+      "sha256": "22be067d748175598a5e00123902f5c8332dd7f101de03dfb92ec08d85bb5e53",
+      "preserved": true
+    },
+    {
+      "path": "public/placeholder.jpg",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/placeholder.jpg",
+      "sha256": "14be0c7aa11cca1e78f0966176b286a6d36d00ec64be027775dfeb33d8e2dfdf",
+      "preserved": true
+    },
+    {
+      "path": "public/placeholder.svg",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/placeholder.svg",
+      "sha256": "64badf7aabda0b9630b87020ffb6095cb858ccbcf66b355c2aa08b1063954d3b",
+      "preserved": true
+    },
+    {
+      "path": "public/projects/bierwinkel-campanar.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/projects/bierwinkel-campanar.png",
+      "sha256": "ba1b159cb6f7443c9b3875be69133c782b1f0505aa5359a3e069c9456d3f4cac",
+      "preserved": true
+    },
+    {
+      "path": "public/projects/kavkasioni-tours.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/projects/kavkasioni-tours.png",
+      "sha256": "3c0a83068d7f64b09deb2d5c6b2ad0635445539f86a38da06409c6cbe8a32795",
+      "preserved": true
+    },
+    {
+      "path": "public/projects/mocha-studio.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/projects/mocha-studio.png",
+      "sha256": "f2ad2bb40f07051baf850171ee466ba2104487e1511c4dcfcae52ec680ee73ae",
+      "preserved": true
+    },
+    {
+      "path": "public/projects/saduni-reformas.png",
+      "origin": "https://github.com/luucabg/unostudio-org-last/blob/7dd89365c313340f23c07c01c6a1b0de82134aa5/public/projects/saduni-reformas.png",
+      "sha256": "11b7b8391a4030f77c4b9302032ca41bf705f05f7984aeb0ba269fb5454a974e",
+      "preserved": true
+    }
+  ]
+}

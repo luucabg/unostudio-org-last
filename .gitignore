@@ -28,4 +28,9 @@ dev-server.log
 *.tsbuildinfo
 next-env.d.ts
 
+# local design research and browser evidence
+.design-research/
+.playwright-cli/
+.impeccable/review/
+
 .vercel

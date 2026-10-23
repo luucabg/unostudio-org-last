@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { LegalList, LegalPageLayout, LegalSection } from "@/components/legal/legal-page-layout"
 
-const updatedAt = "24 de agosto de 2026"
+const updatedAt = "23 de octubre de 2026"
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
@@ -33,10 +33,9 @@ export default function PrivacidadPage() {
         <LegalList
           items={[
             "Nombre y datos de contacto como email o teléfono.",
-            "Empresa, web actual y la información que incluyas voluntariamente en formularios o mensajes.",
+            "Empresa, web actual y la información que incluyas voluntariamente en tus mensajes.",
             "Información necesaria para preparar una propuesta, prestar un servicio o gestionar una relación comercial.",
-            "Datos de cuenta y acceso cuando exista un área privada para clientes.",
-            "Preferencias de cookies y datos agregados de uso cuando aceptas analítica.",
+            "Datos técnicos de conexión necesarios para servir y proteger la web.",
           ]}
         />
       </LegalSection>
@@ -44,11 +43,10 @@ export default function PrivacidadPage() {
       <LegalSection title="Finalidades">
         <LegalList
           items={[
-            "Responder solicitudes recibidas desde formularios, email o WhatsApp.",
+            "Responder solicitudes recibidas por email o WhatsApp.",
             "Realizar una primera revisión, preparar propuestas y gestionar comunicaciones precontractuales.",
             "Prestar, mantener y dar soporte a los servicios contratados.",
-            "Gestionar accesos a áreas privadas y proteger la seguridad del servicio.",
-            "Medir de forma agregada el uso de la web cuando el usuario acepta analítica.",
+            "Mantener el funcionamiento y la seguridad de la web.",
             "Cumplir obligaciones legales, fiscales o contractuales cuando proceda.",
           ]}
         />
@@ -57,7 +55,6 @@ export default function PrivacidadPage() {
       <LegalSection title="Base jurídica">
         <LegalList
           items={[
-            "Consentimiento cuando envías un formulario o aceptas analítica.",
             "Aplicación de medidas precontractuales cuando solicitas una propuesta o revisión.",
             "Ejecución de un contrato cuando existe una relación de servicios.",
             "Interés legítimo para seguridad, prevención de abuso y gestión operativa cuando resulte aplicable.",
@@ -74,11 +71,12 @@ export default function PrivacidadPage() {
         <LegalList
           items={[
             "Vercel para alojamiento y despliegue del sitio.",
-            "Supabase para formularios, base de datos y funciones de autenticación o área privada cuando se utilizan.",
-            "Vercel Analytics únicamente cuando el usuario acepta analítica.",
-            "Google Fonts para cargar parte de la tipografía utilizada por el sitio.",
           ]}
         />
+        <p>
+          La tipografía se sirve desde el mismo alojamiento de la web. Esta versión no incorpora formularios conectados,
+          acceso de clientes ni herramientas de analítica o publicidad.
+        </p>
         <p>
           Si eliges contactar por email o WhatsApp, esos canales están sujetos además a las condiciones y políticas de sus
           respectivos proveedores.
@@ -98,7 +96,7 @@ export default function PrivacidadPage() {
           Las solicitudes que no terminan en contratación podrán conservarse hasta 12 meses para poder retomar la
           conversación y mantener trazabilidad comercial, salvo que pidas su supresión antes. Los datos de clientes se
           conservarán durante la relación contractual y durante los plazos adicionales exigidos por obligaciones legales
-          o posibles responsabilidades. Las preferencias de cookies pueden conservarse hasta 24 meses.
+          o posibles responsabilidades.
         </p>
       </LegalSection>
 

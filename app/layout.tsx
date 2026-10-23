@@ -1,153 +1,36 @@
-import type React from "react"
+import type { ReactNode } from "react"
 import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
-import { I18nProvider } from "@/components/i18n-provider"
-import { CookieConsentManager } from "@/components/cookies/cookie-consent-manager"
 import "./globals.css"
+import "./studio.css"
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-})
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" })
+
+const title = "unostudio | Diseño y desarrollo para tu próxima idea"
+const description = "Diseño de producto, webs, landing pages, branding, desarrollo con IA y software a medida. Cuéntanos tu idea. Le damos forma contigo."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://unostudio.org"),
-  title: {
-    default: "unostudio | Webs y sistemas comerciales para empresas de servicios",
-    template: "%s | unostudio",
-  },
-  description:
-    "Diseñamos webs de conversión y sistemas comerciales para empresas de servicios. Captación, organización y seguimiento de oportunidades desde Valencia.",
-  keywords: [
-    "diseño web Valencia",
-    "web de conversión",
-    "web para empresas de servicios",
-    "sistemas comerciales",
-    "seguimiento de oportunidades",
-    "procesos comerciales",
-    "automatización comercial",
-    "mantenimiento web",
-    "unostudio",
-  ],
-  authors: [{ name: "unostudio", url: "https://unostudio.org" }],
-  creator: "unostudio",
-  publisher: "unostudio",
-  category: "Web design and conversion optimization",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-  alternates: {
-    canonical: "/",
-  },
+  title: { default: title, template: "%s | unostudio" },
+  description,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "unostudio | Webs y sistemas comerciales para empresas de servicios",
-    description:
-      "Webs de conversión y sistemas comerciales para captar, organizar y seguir mejor cada oportunidad.",
+    title,
+    description,
     url: "https://unostudio.org",
     siteName: "unostudio",
     locale: "es_ES",
     type: "website",
-    images: [
-      {
-        url: "/desktop_hero.png",
-        width: 1600,
-        height: 900,
-        alt: "unostudio webs y sistemas comerciales para empresas de servicios",
-      },
-    ],
+    images: [{ url: "/projects/mocha-studio.png", width: 1424, height: 905, alt: "Diseño web de mochastudio, un proyecto de unostudio" }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "unostudio | Webs y sistemas comerciales",
-    description:
-      "Webs de conversión y sistemas comerciales para empresas de servicios.",
-    images: ["/desktop_hero.png"],
-  },
-  icons: {
-    icon: [
-      {
-        url: "/logos/favicon.png",
-        type: "image/png",
-      },
-    ],
-    shortcut: "/logos/favicon.png",
-    apple: "/logos/favicon.png",
-  },
+  twitter: { card: "summary_large_image", title, description, images: ["/projects/mocha-studio.png"] },
+  icons: { icon: "/logos/favicon.png", apple: "/logos/favicon.png" },
 }
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "unostudio",
-  url: "https://unostudio.org",
-  email: "hola@unostudio.org",
-  image: "https://unostudio.org/desktop_hero.png",
-  logo: "https://unostudio.org/logos/logo_nav.png",
-  description:
-    "Diseñamos webs de conversión y sistemas comerciales que ayudan a empresas de servicios a captar, organizar y seguir mejor sus oportunidades.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Valencia",
-    addressCountry: "ES",
-  },
-  areaServed: [
-    { "@type": "Country", name: "España" },
-    { "@type": "AdministrativeArea", name: "Comunidad Valenciana" },
-    { "@type": "Place", name: "Remoto" },
-  ],
-  knowsAbout: [
-    "Diseño web",
-    "Conversión web",
-    "Landing pages",
-    "Sistemas comerciales",
-    "Seguimiento de oportunidades",
-    "Procesos comerciales",
-    "Organización de solicitudes",
-    "Integraciones comerciales",
-  ],
-  offers: {
-    "@type": "OfferCatalog",
-    name: "Servicios unostudio",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web de conversión" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema comercial" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web + sistema comercial" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Proyecto a medida" } },
-    ],
-  },
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="es" className="dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Instrument+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={`${manrope.variable} font-sans antialiased bg-zinc-950 text-zinc-100`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <I18nProvider>
-          {children}
-          <CookieConsentManager />
-        </I18nProvider>
-      </body>
+    <html lang="es" className={manrope.variable}>
+      <body>{children}</body>
     </html>
   )
 }
